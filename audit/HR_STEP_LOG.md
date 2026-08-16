@@ -422,3 +422,42 @@ tracks model size.
   tau** — Zen-NAS's own paper reports 0.91/0.88; RZ-NAS's and ZiCo's independent
   numbers are 0.28–0.29. The critic must check apples-to-apples comparability
   before this is cited as evidence of systematic self-report inflation.
+
+## S1e session
+
+| Step | Mode | Artifacts | Notes |
+|---|---|---|---|
+| A push | MANUAL | — | **25 commits pushed**, head `9e53df5`; history audit clean (1 author, 1 committer, 0 attribution matches) |
+| 6 cross-locus reconcile | MANUAL | `research/temp/comparisons.md` | 2-body reconciliation (L2/L3/L4 deferred); 6 seams recorded unsmoothed |
+
+### Step 6 — the distinction that had to be held
+
+**L5 does not defeat L1.** RZ-NAS's ablation compares reflection against no
+reflection **holding the proxy fixed** — a confound in the shared signal is
+common to both arms and cannot manufacture a difference between them. The
+ablation's internal validity stands regardless of proxy validity, so L1's
+refutation of the unqualified thesis survives. EvoPrompting's ablation (external
+fitness selection, not a proxy) is untouched by L5 entirely.
+
+What L5 attacks is **construct validity** — not whether the improvement exists,
+but *what it is an improvement in*. Consequence: RZ-NAS and the subject paper may
+not be measuring the same phenomenon, so RZ-NAS's counter-example status is
+**narrowed in scope, not cancelled**.
+
+### Six seams recorded (not smoothed)
+
+- **S1** No source establishes whether a size-confounded proxy is *sufficient*
+  for RZ-NAS's ablation to transfer to accuracy-based feedback. Nobody has asked.
+- **S2** **Evidence-strength asymmetry:** the "partially scooped" verdict — the
+  one with the most consequence for novelty — rests on a single un-peer-reviewed
+  arXiv v2 (CoLLM-NAS). L5's verdict rests on a NeurIPS D&B paper plus two proxy
+  papers. → step 8 C6.
+- **S3** L1's GENIUS finding sampled one appendix table of several; a full pass
+  could restore GENIUS as an independent scoop. L1 records this as a falsifier of
+  its own position.
+- **S4** **The surviving novelty claim — template collapse — was assessed by
+  neither investigator.** L1 explicitly excludes it; L5 does not touch it. It
+  rests on deferred L2 evidence and the repo audit's sanitiser finding.
+- **S5** Zen-Score tau discrepancy is **UNUSABLE** until C5 clears it as
+  apples-to-apples.
+- **S6** MAE-DET size-confound status is **UNKNOWN**, not clean.
