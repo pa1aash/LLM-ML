@@ -1,0 +1,44 @@
+[
+  {
+    "claim": "Low-bit quantization-induced degradation (QiD) is greater for smaller models trained on proportionally more tokens (i.e., fully/over-trained small models), while larger models or those trained on fewer tokens experience negligible degradation, based on scaling laws derived from over 1500 quantized checkpoints (160M-12B parameters, 1B-206B training tokens).",
+    "stance": "supports",
+    "stance_target": "small, heavily-trained models (the class Qwen3-1.7B belongs to) are disproportionately vulnerable to low-bit quantization degradation, making quantization a live rival explanation",
+    "evidence_type": "empirical",
+    "scope_conditions": "160M-12B parameter models, 1B-206B training tokens, 2-bit and 3-bit GPTQ quantization",
+    "quoted_support": "We reveal that low-bit quantization favors undertrained large language models (LLMs) by observing that models with larger sizes or fewer training tokens experience less quantization-induced degradation (QiD) when applying low-bit quantization, whereas smaller models with extensive training tokens suffer significant QiD.",
+    "numbers": ["1500+ checkpoints", "160M to 12B parameters", "1B to 206B training tokens", "2-bit", "3-bit GPTQ"],
+    "entities": ["GPTQ"],
+    "time_period": "2024",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "241117691-low-bit-quantization-favors-undertrained-llms-scaling-laws-for-quantiz"
+  },
+  {
+    "claim": "For a 12-billion-parameter model, 3-bit quantization produces negligible degradation up to roughly 10^11 training tokens, after which degradation becomes pronounced; for much smaller models (160M, 1B parameters) this degradation onset occurs far earlier and is more severe, and the pattern intensifies further at 2-bit quantization.",
+    "stance": "supports",
+    "stance_target": "quantitative scaling relationship between model size, training-token count, and quantization degradation severity",
+    "evidence_type": "empirical",
+    "scope_conditions": "12B, 1B, and 160M parameter models, GPTQ quantization",
+    "quoted_support": "3-bit quantization results in negligible QiD for a 12 billion parameter LLM up to 10^11 training tokens, but beyond this point, QiD begins to become pronounced; For smaller models (e.g., 160 million and 1 billion parameters), QiD degradation occurs much earlier and is more severe. With even more extreme 2-bit quantization... the trend is similar, but QiD worsens sooner and more significantly.",
+    "numbers": ["12B parameters", "10^11 training tokens", "160M parameters", "1B parameters", "2-bit", "3-bit"],
+    "entities": [],
+    "time_period": "2024",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "241117691-low-bit-quantization-favors-undertrained-llms-scaling-laws-for-quantiz"
+  },
+  {
+    "claim": "Projected low-bit quantization performance of future models trained on 100 trillion tokens (a milestone expected within a few years of the paper's 2024 publication) may not be desirable, particularly for smaller models, posing a forward-looking challenge for low-bit quantization research.",
+    "stance": "supports",
+    "stance_target": "the trend toward training smaller models on ever more tokens increases the risk that quantization is a genuine confound in small quantized-model studies",
+    "evidence_type": "theoretical",
+    "scope_conditions": "extrapolated scaling-law projection to 7B/70B/405B models at 100 trillion training tokens",
+    "quoted_support": "Our projection shows that the low-bit quantization performance of future models, which are expected to be trained with over 100 trillion tokens, may NOT be desirable. This poses a potential challenge for low-bit quantization in the future and highlights the need for awareness of a model's training level when evaluating low-bit quantization research.",
+    "numbers": ["100 trillion tokens", "7B", "70B", "405B"],
+    "entities": [],
+    "time_period": "2024, projecting to future models",
+    "region": null,
+    "confidence": "medium",
+    "source_note_id": "241117691-low-bit-quantization-favors-undertrained-llms-scaling-laws-for-quantiz"
+  }
+]

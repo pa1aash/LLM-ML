@@ -1,0 +1,58 @@
+[
+  {
+    "claim": "ICBINB-BIO explicitly names 'negative results' as part of its mission, self-describing as sharing 'a commitment to candid failure analysis, negative results, unexpectedly strong simple baselines, and benchmarks that support the claims made from them' -- the most explicit negative-results branding of any workshop on the NeurIPS 2026 list.",
+    "stance": "supports",
+    "stance_target": "Whether any NeurIPS 2026 workshop explicitly brands itself around negative results",
+    "evidence_type": "legal",
+    "scope_conditions": "ICBINB-BIO, NeurIPS 2026, Sydney",
+    "quoted_support": "ICBINB-BIO is the official biology branch of the broader ICBINB initiative, which shares a commitment to candid failure analysis, negative results, unexpectedly strong simple baselines, and benchmarks that support the claims made from them.",
+    "numbers": [],
+    "entities": ["ICBINB-BIO", "NeurIPS 2026", "ICBINB"],
+    "time_period": "2026",
+    "region": "Sydney, Australia",
+    "confidence": "high",
+    "source_note_id": "icbinb-bio-neurips-2026"
+  },
+  {
+    "claim": "ICBINB-BIO's 2026 topical scope is restricted to AI-for-biology failure modes (genomics, cellular modeling, structural biology, therapeutic discovery), including out-of-distribution generalization, weak/confounded supervision, causal vs. spurious correlation, and 'limits of foundation, multimodal, and agentic models for biology' -- a domain-scope mismatch for a CIFAR-10/100 CNN architecture-search paper despite the shared negative-results ethos.",
+    "stance": "refutes",
+    "stance_target": "Topical fit of ICBINB-BIO for a non-biology architecture-search negative result",
+    "evidence_type": "legal",
+    "scope_conditions": "Topics list",
+    "quoted_support": "AI is reshaping genomics, cellular modeling, structural biology, and therapeutic discovery. Yet strong benchmark results often fail to survive new mutations, perturbations, individuals, assays, or deployment settings. This full-day workshop brings machine learning and life science researchers together to study those failures directly.",
+    "numbers": [],
+    "entities": [],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "icbinb-bio-neurips-2026"
+  },
+  {
+    "claim": "ICBINB-BIO key dates (all explicitly marked tentative): paper submission Aug 29 2026 AoE, review period through Sep 21, acceptance notification Sep 29, camera-ready/poster Oct 20, in-person workshop Dec 11 or 12 2026 in Sydney.",
+    "stance": "neutral",
+    "stance_target": "Submission timeline of ICBINB-BIO",
+    "evidence_type": "legal",
+    "scope_conditions": "Key Dates",
+    "quoted_support": "Paper submission August 29, 2026, 11:59 p.m. AoE, Tentative ... In-person workshop December 11 or 12, 2026, Sydney, Australia · exact date to be confirmed, Tentative",
+    "numbers": ["August 29, 2026", "September 21, 2026", "September 29, 2026", "October 20, 2026"],
+    "entities": [],
+    "time_period": "2026",
+    "region": "Sydney, Australia",
+    "confidence": "high",
+    "source_note_id": "icbinb-bio-neurips-2026"
+  },
+  {
+    "claim": "The fetched ICBINB-BIO landing page does not itself state page limit, format template, anonymity policy, or archival status; these fields are deferred to a separate, unfetched 'call for papers' page.",
+    "stance": "neutral",
+    "stance_target": "Completeness of publicly stated CFP mechanics for ICBINB-BIO",
+    "evidence_type": "legal",
+    "scope_conditions": "Landing page only, as fetched",
+    "quoted_support": "Read the call for papers →",
+    "numbers": [],
+    "entities": [],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "icbinb-bio-neurips-2026"
+  }
+]

@@ -1,0 +1,72 @@
+[
+  {
+    "claim": "NAS-Bench-Suite-Zero implements and pre-computes 13 zero-cost (ZC) proxies across 28 tasks spanning NAS-Bench-101, NAS-Bench-201, NAS-Bench-301, and TransNAS-Bench-101 Micro/Macro, releasing 1.5 million total ZC proxy evaluations as a public, unified benchmark to accelerate ZC proxy research.",
+    "stance": "neutral",
+    "stance_target": "what NAS-Bench-Suite-Zero provides as a benchmark artifact",
+    "evidence_type": "empirical",
+    "scope_conditions": "NeurIPS 2022 Datasets and Benchmarks track",
+    "quoted_support": "In this work, we create NAS-Bench-Suite-Zero: we evaluate 13 ZC proxies across 28 tasks, creating by far the largest dataset (and unified codebase) for ZC proxies, enabling orders-of-magnitude faster experiments on ZC proxies, while avoiding confounding factors stemming from different implementations.",
+    "numbers": ["13 ZC proxies", "28 tasks", "1,526,216 total ZC proxy evaluations", "44,798 architectures"],
+    "entities": ["NAS-Bench-101", "NAS-Bench-201", "NAS-Bench-301", "TransNAS-Bench-101", "NASLib"],
+    "time_period": "2022",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "221003230-nas-bench-suite-zero-accelerating-research-on-zero-cost-proxies"
+  },
+  {
+    "claim": "Only a few zero-cost proxies generalize well across most benchmarks and tasks; e.g., snip and grasp perform well on NAS-Bench-201 but are outperformed by the trivial params and flops baselines on other benchmarks, and no ZC proxy performs consistently across all 28 benchmarks tested.",
+    "stance": "refutes",
+    "stance_target": "reliability of any single zero-cost proxy as a generalizable feedback signal, directly relevant to RZ-NAS's use of zero-cost proxies as feedback",
+    "evidence_type": "empirical",
+    "scope_conditions": "13 ZC proxies evaluated on 28 NAS benchmark tasks via Spearman rank correlation with validation accuracy",
+    "quoted_support": "Answer to RQ 1: Only a few ZC proxies generalize well across most benchmarks and tasks. However, ZC proxies can be used to assess similarities across benchmarks.",
+    "numbers": ["13 ZC proxies", "28 benchmarks", "1000 randomly drawn architectures per benchmark"],
+    "entities": ["nwot", "flops", "snip", "grasp", "params", "NAS-Bench-201"],
+    "time_period": "2022",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "221003230-nas-bench-suite-zero-accelerating-research-on-zero-cost-proxies"
+  },
+  {
+    "claim": "Many zero-cost proxies exhibit systematic biases toward architectural properties unrelated to true quality; for example, the synflow proxy has a Pearson correlation of 0.57 with architecture size, meaning it mechanically favors larger architectures regardless of actual performance.",
+    "stance": "refutes",
+    "stance_target": "zero-cost proxies are unbiased, quality-only performance estimators suitable to use as feedback signal without correction",
+    "evidence_type": "empirical",
+    "scope_conditions": "13 ZC proxies, 44,798 architectures across multiple search spaces, bias metrics include conv:pool ratio, cell size, number of parameters",
+    "quoted_support": "We find that many ZC proxies exhibit biases to... synflow has a correlation of 0.57 (meaning it favors larger architectures)... Many ZC proxies do exhibit different types of biases to various degrees, but the biases can be mitigated, thereby improving performance.",
+    "numbers": ["0.57 correlation (synflow, size bias)", "44,798 architectures"],
+    "entities": ["synflow"],
+    "time_period": "2022",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "221003230-nas-bench-suite-zero-accelerating-research-on-zero-cost-proxies"
+  },
+  {
+    "claim": "Zero-cost proxies capture substantial complementary information about validation accuracy; ensembling all 13 proxies into predictor-based NAS surrogate models (BANANAS, NPENAS) improves the Spearman rank correlation of surrogate predictions by up to 42% and improves the downstream NAS algorithms' search performance.",
+    "stance": "neutral",
+    "stance_target": "whether combining multiple zero-cost signals (vs. relying on a single proxy, as RZ-NAS effectively does with LLM-generated reflective signals) improves NAS feedback reliability",
+    "evidence_type": "empirical",
+    "scope_conditions": "BANANAS and NPENAS predictor-based NAS algorithms, NAS-Bench-201 and NAS-Bench-301 search spaces",
+    "quoted_support": "We show that using several ZC proxies together significantly improves the performance of the surrogate models used in NAS, as well as improving the NAS algorithms themselves... incorporating all 13 ZC proxies into the surrogate models used by NAS algorithms can improve their predictive performance by up to 42%.",
+    "numbers": ["42% improvement", "13 ZC proxies", "BANANAS", "NPENAS"],
+    "entities": ["BANANAS", "NPENAS"],
+    "time_period": "2022",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "221003230-nas-bench-suite-zero-accelerating-research-on-zero-cost-proxies"
+  },
+  {
+    "claim": "Prior to this work, several studies had already shown that simple baselines such as number-of-parameters and FLOPS are competitive with existing zero-cost proxies across most settings, and that most zero-cost proxies do not generalize well across different NAS benchmarks.",
+    "stance": "refutes",
+    "stance_target": "novelty and reliability of zero-cost-proxy-based feedback as a strong, generalizable signal for architecture search",
+    "evidence_type": "empirical",
+    "scope_conditions": "literature synthesis as of 2022, citing prior large-scale ZC proxy evaluations",
+    "quoted_support": "However, several recent works have shown that simple baselines such as 'number of parameters' and 'FLOPS' are competitive with all existing ZC proxies across most settings, and that most ZC proxies do not generalize well across different benchmarks, thus requiring broader large-scale evaluations in order to assess their strengths.",
+    "numbers": [],
+    "entities": ["FLOPS", "params baseline"],
+    "time_period": "2022",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "221003230-nas-bench-suite-zero-accelerating-research-on-zero-cost-proxies"
+  }
+]

@@ -1,0 +1,58 @@
+[
+  {
+    "claim": "FAST explicitly names 'evaluation, detection, and bounding of emergent capabilities or failure modes' as a topic of interest, giving a general (not architecture-search-specific) opening for a failure-mode result.",
+    "stance": "supports",
+    "stance_target": "Topical fit of FAST for a self-refinement failure-mode paper",
+    "evidence_type": "legal",
+    "scope_conditions": "FAST, NeurIPS 2026, Paris, Scope and Topics",
+    "quoted_support": "Evaluation, detection, and bounding of emergent capabilities or failure modes",
+    "numbers": [],
+    "entities": ["FAST", "NeurIPS 2026"],
+    "time_period": "2026",
+    "region": "Paris, France",
+    "confidence": "medium",
+    "source_note_id": "foundations-of-agentic-systems-theory"
+  },
+  {
+    "claim": "FAST's stated center of gravity is interdisciplinary theory of emergent behavior and interaction effects in populations of agentic LLM systems, drawing on control theory, game/economic theory, complex systems, developmental biology, organizational sociology, and cognitive science -- explicitly noting LLM-based agents do not cleanly map to idealized rational-agent or human behavioral models.",
+    "stance": "neutral",
+    "stance_target": "Overall scope and centrality of fit for FAST",
+    "evidence_type": "legal",
+    "scope_conditions": "About FAST",
+    "quoted_support": "The underlying LLM in an AI agent does not possess the same rational behavior as idealized control/game/economic agents, nor does it exhibit the culturally/emotionally/evolutionarily shaped behaviors that characterize human agents.",
+    "numbers": [],
+    "entities": [],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "foundations-of-agentic-systems-theory"
+  },
+  {
+    "claim": "FAST format is full papers up to 7 pages (mature/completed research) or short papers up to 4 pages (ongoing work, early-stage ideas, or benchmark/dataset releases), excluding references and appendices, NeurIPS 2026 template, double-blind anonymized review, non-archival with optional OpenReview posting, dual-submission-friendly.",
+    "stance": "neutral",
+    "stance_target": "Page limit, format, anonymity, and archival status of FAST",
+    "evidence_type": "legal",
+    "scope_conditions": "Scope and Topics, submission guidelines",
+    "quoted_support": "Full papers: Up to 7 pages (excluding references and appendices); should present mature or completed research. Short papers: Up to 4 pages (excluding references and appendices); intended for describing ongoing work... Submissions must be anonymized for double-blind review. ... Papers are non-archival but will be given the option to appear on OpenReview.",
+    "numbers": ["7 pages", "4 pages"],
+    "entities": [],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "foundations-of-agentic-systems-theory"
+  },
+  {
+    "claim": "FAST submission deadline is August 29, 2026 AoE, acceptance notification September 26, 2026 AoE, workshop held December 12 or 13, 2026; this is a repeat iteration following FAST at AAAI 2026.",
+    "stance": "neutral",
+    "stance_target": "Submission mechanics and timeline of FAST",
+    "evidence_type": "legal",
+    "scope_conditions": "Important dates",
+    "quoted_support": "Paper submission deadline: August 29, 2026 (AoE) ... Acceptance notification: September 26, 2026 (AoE) ... Workshop (exact day to be announced): December 12 or 13, 2026",
+    "numbers": ["August 29, 2026", "September 26, 2026"],
+    "entities": ["FAST", "AAAI 2026"],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "foundations-of-agentic-systems-theory"
+  }
+]

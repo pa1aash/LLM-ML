@@ -135,3 +135,58 @@ cannot be settled until Q2's quantisation rival and Q5's venue facts are in.
 | 6 Framing | **PARTIAL** | derivative of Q2 and Q5 |
 
 Two gap-fill waves dispatched, scoped to these gaps only. No other fetching.
+
+---
+
+# Gap-fill results — Q2 and Q3 closed
+
+## Q2 quantisation — **CLOSED, and the finding is not what the paper would want**
+
+6 sources fetched, all full text. The direct hit is
+`241210271-benchmarking-linguistic-diversity-of-large-language-models`
+(arXiv 2412.10271), whose setup is nearly identical to the subject paper's:
+**4-bit bitsandbytes quantisation on the Qwen2.5 family, 0.5B–32B.**
+
+| Source | Finding | Direction |
+|---|---|---|
+| `241210271-benchmarking-linguistic-diversity` | 4-bit quantisation **reduces syntactic and lexical diversity but not semantic diversity**; the lexical drop is **worse in smaller models** | supports the rival |
+| `260419884-from-signal-degradation-to-computation-collapse` | 4-bit causes only mild "Signal Degradation"; **2-bit** causes catastrophic "Computation Collapse" (repetitive degeneration) | **bounds the rival** |
+| `241117691-low-bit-quantization-favors-undertrained-llms` | small, heavily-trained models degrade disproportionately under quantisation (loss/perplexity, not diversity) | supports, indirectly |
+| `251011696-qerl` | quantisation noise **increases** sampling entropy during RL training | **contradicts** the rival |
+| `260511128-sampling-more-getting-less` | diversity collapse via token-distribution calibration; **does not mention quantisation** | background mechanism |
+
+**Verdict for the draft:** the quantisation rival is *real but insufficient*.
+4-bit measurably compresses lexical and syntactic diversity in exactly the model
+family and bit-width the subject paper used, and more so at small scale — so it
+is a live confound the paper never tested. **But 2604.19884 finds 4-bit produces
+only mild degradation, with catastrophic collapse reserved for 2-bit.** So
+quantisation alone does not plausibly explain twenty *byte-identical* designs.
+
+That matters for the eventual argument: it **relatively strengthens the
+sanitiser explanation** (`audit/FORENSICS.md` F2), which can produce exact
+identity by construction, over quantisation, which the literature says produces
+partial diversity loss at 4-bit. The rival explanations are not
+interchangeable — they predict different magnitudes.
+
+Note also QeRL cuts the other way, so this literature is **not settled**. Any
+claim here must be stated as contested, not as established.
+
+## Q3 NAS-Bench-Suite-Zero — **CLOSED, with a consequence for Q1**
+
+`221003230-nas-bench-suite-zero` (NeurIPS 2022 Datasets & Benchmarks), full text.
+
+- Only a few of **13** zero-cost proxies generalise across benchmarks.
+- Several carry systematic bias — **synflow correlates 0.57 with architecture
+  size**, i.e. it partly measures model size rather than quality.
+- Single-proxy reliability is weak enough that the paper's own remedy is
+  **ensembling all 13** (+42% surrogate correlation).
+
+**Consequence for Q1 priority.** RZ-NAS (ICML 2025) uses zero-cost proxies as its
+reflection signal. If single-proxy reliability is this weak, then RZ-NAS's
+"reflection works" result is contingent on proxy validity — which is a legitimate
+question to raise, and it narrows the gap between RZ-NAS's positive result and
+the subject paper's negative one. It does not dissolve the tension, but it means
+the two are not straightforwardly comparable: one refines against a *possibly
+size-confounded proxy*, the other against measured validation accuracy.
+
+Corpus after gap-fill: **94 notes** (was 78).

@@ -1,0 +1,58 @@
+[
+  {
+    "claim": "The transition from FP16 to 4-bit post-training quantization causes gradual, usable degradation ('Signal Degradation') where computational patterns remain intact and the correct answer typically stays within the top-5 predicted tokens, whereas 4-bit to 2-bit triggers a discontinuous 'performance cliff' with accuracy collapsing to near zero.",
+    "stance": "refutes",
+    "stance_target": "4-bit quantization alone is sufficient to explain catastrophic/total output collapse",
+    "evidence_type": "empirical",
+    "scope_conditions": "Llama-family models, factual recall probing task with subject-relation-target structure; also validated on MMLU and GSM8K",
+    "quoted_support": "Figure 1 illustrates a pronounced 'performance cliff'. The degradation from FP16 to 4-bit is gradual, maintaining usability. Conversely, the transition to 2-bit triggers a catastrophic collapse where accuracy plummets to zero. This sharp discontinuity suggests that 2-bit quantization represents a distinct failure state rather than a mere lower-precision version of 4-bit.",
+    "numbers": ["FP16", "4-bit", "2-bit", "3-bit", "8-bit"],
+    "entities": ["Llama"],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "260419884-from-signal-degradation-to-computation-collapse-uncovering-the-two-fai"
+  },
+  {
+    "claim": "2-bit quantized models qualitatively collapse into generating high-frequency stop words (e.g., 'the', '.'), reflecting a complete failure in knowledge recall, whereas 4-bit models retain the correct information despite reduced confidence.",
+    "stance": "neutral",
+    "stance_target": "which bit-width is associated with the degenerate-repetition failure signature seen in severely collapsed generation",
+    "evidence_type": "empirical",
+    "scope_conditions": "factual recall task, Llama-family models",
+    "quoted_support": "In contrast, 2-bit results in an 'answer rank collapse'. The rank falls to thousands, almost random guessing. Qualitatively, 2-bit models collapse into generating high-frequency stop words (e.g., 'the', '.'), reflecting a complete failure in knowledge recall.",
+    "numbers": ["2-bit", "rank falls to thousands"],
+    "entities": ["Llama"],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "260419884-from-signal-degradation-to-computation-collapse-uncovering-the-two-fai"
+  },
+  {
+    "claim": "At 4-bit precision, normalized attention entropy generally follows the FP16 trend with only slightly increased entropy, while 2-bit models exhibit high attention entropy across all layers, indicating a global failure to concentrate attention, plus significantly higher Jensen-Shannon divergence from the FP16 attention distribution.",
+    "stance": "refutes",
+    "stance_target": "4-bit quantization causes severe internal representational collapse comparable to 2-bit",
+    "evidence_type": "empirical",
+    "scope_conditions": "attention-head-level mechanistic analysis, Llama-family models, factual recall failure subset",
+    "quoted_support": "As illustrated in Figure 6, the 4-bit model generally follows the FP16 trend with only slightly increased entropy. In contrast, the 2-bit model exhibits high entropy across all layers, indicating a global failure to concentrate. Meanwhile, its JSD surges significantly, proving that the attention focus deviates fundamentally.",
+    "numbers": ["2-bit", "3-bit", "4-bit", "8-bit", "FP16"],
+    "entities": ["Llama"],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "260419884-from-signal-degradation-to-computation-collapse-uncovering-the-two-fai"
+  },
+  {
+    "claim": "Training-free, mechanism-aware repair can mitigate Signal Degradation (the 4-bit failure mode) but is ineffective for Computation Collapse (the 2-bit failure mode), implying the two failure modes require structurally different interventions.",
+    "stance": "neutral",
+    "stance_target": "whether cheap post-hoc fixes can rescue quantization-induced degradation at different bit-widths",
+    "evidence_type": "empirical",
+    "scope_conditions": "targeted mechanism-aware interventions on Llama-family models",
+    "quoted_support": "Guided by this diagnosis, we conduct mechanism-aware interventions, demonstrating that targeted, training-free repair can mitigate Signal Degradation, but remains ineffective for Computation Collapse. Our findings... suggest that addressing Computation Collapse requires structural reconstruction rather than mere compensation.",
+    "numbers": [],
+    "entities": [],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "medium",
+    "source_note_id": "260419884-from-signal-degradation-to-computation-collapse-uncovering-the-two-fai"
+  }
+]

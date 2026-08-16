@@ -1,0 +1,72 @@
+[
+  {
+    "claim": "Interpretability as a Science's /cfp subpage sets format at short papers up to 5 pages and long papers up to 9 pages, references/appendices excluded, and accepts BOTH ICLR- and NeurIPS-format submissions (camera-ready must be NeurIPS format).",
+    "stance": "neutral",
+    "stance_target": "Page limit and format requirements of Interpretability as a Science",
+    "evidence_type": "legal",
+    "scope_conditions": "Interpretability as a Science /cfp subpage, Submission guidelines",
+    "quoted_support": "We invite submissions of short (up to 5 pages) and long papers (up to 9 pages), reporting new research or arguing a position. References and appendices do not count toward those limits... We accept both ICLR and NeurIPS formats for submissions, but all camera ready papers must be in NeurIPS format.",
+    "numbers": ["5 pages", "9 pages"],
+    "entities": ["Interpretability as a Science", "NeurIPS 2026", "ICLR"],
+    "time_period": "2026",
+    "region": "Sydney, Australia",
+    "confidence": "high",
+    "source_note_id": "call-for-papers-interpretability-as-a-science"
+  },
+  {
+    "claim": "The workshop is explicitly non-archival, presented as posters with a subset as contributed talks, and requires at least one reciprocal reviewer per submission unless an exception is granted.",
+    "stance": "neutral",
+    "stance_target": "Archival status and reviewing mechanics of Interpretability as a Science",
+    "evidence_type": "legal",
+    "scope_conditions": "Submission guidelines",
+    "quoted_support": "Accepted papers will be non-archival and presented as posters, with a subset selected for contributed talks. All submissions will require at least one reciprocal reviewer, unless no authors are qualified to serve as a reviewer or program committee member.",
+    "numbers": [],
+    "entities": [],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "call-for-papers-interpretability-as-a-science"
+  },
+  {
+    "claim": "The dual-submission policy excludes work previously published at another ML conference and disallows concurrent submission to another NeurIPS-2026-co-located workshop (a stricter diversity-of-papers rule than most peer workshops in this batch), while allowing concurrent-under-review-at-NeurIPS-main-conference submissions.",
+    "stance": "neutral",
+    "stance_target": "Submission mechanics and dual-submission policy of Interpretability as a Science",
+    "evidence_type": "legal",
+    "scope_conditions": "Dual submission policy",
+    "quoted_support": "We do not accept work that has previously been published at another conference on machine learning or related fields. ... Additional workshop policy: To promote diversity of papers across NeurIPS workshops, we do not allow submissions currently under review at another workshop (including other workshops co-located with NeurIPS 2026).",
+    "numbers": [],
+    "entities": [],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "call-for-papers-interpretability-as-a-science"
+  },
+  {
+    "claim": "The CFP explicitly states submissions containing fabricated or non-existent citations (hallucinated references) will be desk rejected without review, and clarifies 'interpretability work on architectures other than LLMs is in scope.'",
+    "stance": "neutral",
+    "stance_target": "Integrity policy and scope breadth of Interpretability as a Science",
+    "evidence_type": "legal",
+    "scope_conditions": "Submission guidelines, LLM-use policy",
+    "quoted_support": "Submissions containing fabricated or non-existent citations (e.g., hallucinated references) will be desk rejected without review. ... Interpretability work on architectures other than LLMs is in scope — see the FAQ.",
+    "numbers": [],
+    "entities": [],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "call-for-papers-interpretability-as-a-science"
+  },
+  {
+    "claim": "Paper submission deadline is August 28, 2026 AoE (one day earlier than the Aug 29 default most peer workshops use), notification September 29, 2026, camera-ready November 15, 2026; the submission portal was not yet linked at fetch time.",
+    "stance": "neutral",
+    "stance_target": "Submission timeline of Interpretability as a Science",
+    "evidence_type": "legal",
+    "scope_conditions": "Important dates",
+    "quoted_support": "Paper submission deadline August 28, 2026 / Author notification September 29, 2026 / Camera-ready deadline November 15, 2026",
+    "numbers": ["August 28, 2026", "September 29, 2026", "November 15, 2026"],
+    "entities": [],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "call-for-papers-interpretability-as-a-science"
+  }
+]

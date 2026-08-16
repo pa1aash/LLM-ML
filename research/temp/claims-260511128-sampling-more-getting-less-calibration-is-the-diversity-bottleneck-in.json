@@ -1,0 +1,44 @@
+[
+  {
+    "claim": "LLM output-diversity collapse is caused by local per-step miscalibration of the token probability distribution during decoding -- decomposed into 'order calibration' failures (valid tokens not ranked reliably above invalid ones) and 'shape calibration' failures (probability mass over-concentrated on a few valid continuations) -- which compound across decoding steps into large sequence-level diversity losses.",
+    "stance": "neutral",
+    "stance_target": "general mechanism of LLM output-diversity collapse, independent of any specific intervention (RLHF, quantization, decoding temperature)",
+    "evidence_type": "theoretical",
+    "scope_conditions": "14 language models spanning multiple families and scales, controlled diagnostic tasks with exactly known valid-answer sets",
+    "quoted_support": "We introduce a validity-diversity framework that attributes diversity collapse to how an LLM allocates probability mass across valid and invalid continuations during decoding... We formalize both mechanisms and show that local failures compound across decoding steps, producing strong sequence-level losses in diversity.",
+    "numbers": ["14 language models"],
+    "entities": [],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "medium",
+    "source_note_id": "260511128-sampling-more-getting-less-calibration-is-the-diversity-bottleneck-in"
+  },
+  {
+    "claim": "Diversity collapse in LLMs is not merely a limitation of particular sampling heuristics (e.g., temperature, top-k, top-p) but a consequence of order and shape miscalibration inherent in the model's probability distribution itself.",
+    "stance": "supports",
+    "stance_target": "diversity collapse can arise from model-internal probability miscalibration rather than only from decoding-parameter choices",
+    "evidence_type": "empirical",
+    "scope_conditions": "14 models, multiple families and scales",
+    "quoted_support": "Across 14 language models spanning multiple families and scales, we find that diversity collapse is not merely a limitation of particular sampling heuristics, but a consequence of order and shape miscalibration in the LLM distribution.",
+    "numbers": ["14 language models"],
+    "entities": [],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "medium",
+    "source_note_id": "260511128-sampling-more-getting-less-calibration-is-the-diversity-bottleneck-in"
+  },
+  {
+    "claim": "This paper does not test, measure, or discuss quantization anywhere; its calibration-based diversity-collapse mechanism is presented as a general property of LLM decoding, orthogonal to model compression.",
+    "stance": "neutral",
+    "stance_target": "coverage gap: this source contributes to general mode-collapse mechanism literature but not to quantization-specific evidence",
+    "evidence_type": "empirical",
+    "scope_conditions": "full-text review of the paper",
+    "quoted_support": "Diversity is essential for language-model applications ranging from creative generation to scientific discovery, yet modern LLMs often collapse into a narrow subset of plausible outputs.",
+    "numbers": [],
+    "entities": [],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "260511128-sampling-more-getting-less-calibration-is-the-diversity-bottleneck-in"
+  }
+]

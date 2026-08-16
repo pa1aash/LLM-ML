@@ -1,0 +1,44 @@
+[
+  {
+    "claim": "Quantization noise (NVFP4, MXFP4, NF4) inherently increases the sampling/policy entropy of an LLM's output token distribution relative to its 16-bit counterpart, functioning as an implicit exploration mechanism during RL training.",
+    "stance": "refutes",
+    "stance_target": "quantization uniformly reduces generation diversity/entropy",
+    "evidence_type": "empirical",
+    "scope_conditions": "Qwen2.5-7B-Instruct, GRPO/DAPO RL training on GSM8K and MATH500 reasoning tasks; entropy measured during RL rollouts, not zero-shot text-generation diversity",
+    "quoted_support": "We discover that quantization inherently increases the sampling entropy, H(pi(.|q)) = -sum_{o_t in V} pi(o_t|q) log pi(o_t|q), of the policy during deployment... The noise introduced by quantization serves as an implicit exploration mechanism, similar to explicit noise injection techniques in the parameter and action space.",
+    "numbers": ["4-bit precision (NVFP4, MXFP4, NF4)", "GSM8K 90.8%", "MATH 500 77.4%"],
+    "entities": ["Qwen2.5-7B-Instruct", "NVFP4", "MXFP4", "NF4", "GRPO", "DAPO"],
+    "time_period": "2025",
+    "region": null,
+    "confidence": "medium",
+    "source_note_id": "251011696-qerl-beyond-efficiency-quantization-enhanced-reinforcement-learning-fo"
+  },
+  {
+    "claim": "This RL-entropy finding directly contrasts with prior supervised-fine-tuning (SFT) literature showing quantization degrades training effectiveness, implying the entropy-boosting effect of quantization noise is specific to the RL training regime and does not generalize to SFT or zero-shot inference settings.",
+    "stance": "neutral",
+    "stance_target": "generalizability of quantization's entropy-boosting effect beyond RL training",
+    "evidence_type": "empirical",
+    "scope_conditions": "RL (GRPO/DAPO) vs. SFT quantization comparison",
+    "quoted_support": "This challenges the conventional view in SFT that quantization degrades training effectiveness (Dettmers et al., 2023a; Guo et al., 2023)... This finding contrasts with results from SFT of LLMs (Dettmers et al., 2023a; Guo et al., 2023), demonstrating that controllable quantization noise in RL enhances exploration.",
+    "numbers": [],
+    "entities": ["QLoRA", "Dettmers et al. 2023"],
+    "time_period": "2023-2025",
+    "region": null,
+    "confidence": "medium",
+    "source_note_id": "251011696-qerl-beyond-efficiency-quantization-enhanced-reinforcement-learning-fo"
+  },
+  {
+    "claim": "Among the three 4-bit formats tested, NF4 (the format used in QLoRA/bitsandbytes-style quantization) shows weaker reward growth than NVFP4 and MXFP4, and NF4-based QLoRA slows inference rollout speed by 1.5-2x due to lookup-table dequantization overhead.",
+    "stance": "neutral",
+    "stance_target": "NF4 quantization's relative performance/behavior compared to other 4-bit formats",
+    "evidence_type": "empirical",
+    "scope_conditions": "Qwen2.5-7B-Instruct, GRPO training, GSM8K",
+    "quoted_support": "Also, NVFP4 and MXFP4 both show better reward growth than NF4... using QLoRA (Dettmers et al., 2023a) in RL slows rollouts by 1.5-2x, further reducing efficiency. This slowdown occurs because QLoRA relies on NormalFloat 4-bit (NF4) precision, which requires unpacking and mapping to floating-point values via a lookup table before matrix multiplication.",
+    "numbers": ["1.5-2x rollout slowdown", "4-bit NF4"],
+    "entities": ["NF4", "QLoRA", "NVFP4", "MXFP4"],
+    "time_period": "2025",
+    "region": null,
+    "confidence": "medium",
+    "source_note_id": "251011696-qerl-beyond-efficiency-quantization-enhanced-reinforcement-learning-fo"
+  }
+]

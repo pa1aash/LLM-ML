@@ -1,0 +1,72 @@
+[
+  {
+    "claim": "AXIOM explicitly lists 'neural architecture design' and 'foundations of pruning and quantization' as topics of interest under efficient deep learning, giving partial topical overlap with the target paper's quantised-LLM CNN-architecture-search setting.",
+    "stance": "supports",
+    "stance_target": "Topical fit of AXIOM for a quantised-LLM CNN architecture search paper",
+    "evidence_type": "legal",
+    "scope_conditions": "AXIOM, NeurIPS 2026, Paris, Sparsity/Compression/Model Structure topic cluster",
+    "quoted_support": "Sparsity, Compression, and Model Structure: Foundations of pruning and quantization, sparse and modular neural networks, lottery tickets and subnetworks, adaptive computation, neural architecture design, representation learning for efficiency",
+    "numbers": [],
+    "entities": ["AXIOM", "NeurIPS 2026"],
+    "time_period": "2026",
+    "region": "Paris, France",
+    "confidence": "medium",
+    "source_note_id": "axiom-2026-neurips-workshop"
+  },
+  {
+    "claim": "AXIOM runs a distinctive 'Grand Challenges' track for 1-page abstracts articulating open theoretical questions, 'contradictions between theory and practice,' or 'efficiency methods lacking theoretical explanations' rather than requiring completed research results -- a lighter-weight submission format that could accommodate an unresolved-tension null finding.",
+    "stance": "neutral",
+    "stance_target": "Submission mechanics available at AXIOM for negative/inconclusive findings",
+    "evidence_type": "legal",
+    "scope_conditions": "Grand Challenges Track",
+    "quoted_support": "Instead of reporting completed research, Grand Challenges submissions should articulate important unanswered questions, theoretical gaps, surprising empirical observations, or future research opportunities. We particularly encourage contributions on: ... Contradictions between theory and practice; Missing benchmarks, evaluation methodologies, or efficiency metrics.",
+    "numbers": ["1-page abstract"],
+    "entities": [],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "axiom-2026-neurips-workshop"
+  },
+  {
+    "claim": "AXIOM's standard paper format is 4 pages excluding references, double-blind, NeurIPS workshop formatting guidelines, non-archival, with a Best Paper Award; submission deadline August 29, 2026 (11:59pm UTC), notification September 29, 2026.",
+    "stance": "neutral",
+    "stance_target": "Page limit, anonymity, archival status, and deadline of AXIOM",
+    "evidence_type": "legal",
+    "scope_conditions": "Paper Submission, Important Dates",
+    "quoted_support": "We invite short paper submissions (4 pages, excluding references) which follow the NeurIPS workshop formatting guidelines. This workshop is non-archival. ... Papers: 4 pages excluding references and appendix, double-blind",
+    "numbers": ["4 pages", "August 29, 2026", "September 29, 2026"],
+    "entities": [],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "axiom-2026-neurips-workshop"
+  },
+  {
+    "claim": "AXIOM requires in-person presentation; if no presenter can attend in person, the accepted paper is marked 'not presented' on the workshop website rather than withdrawn -- a more permissive in-person policy than outright forfeiting acceptance.",
+    "stance": "neutral",
+    "stance_target": "Submission mechanics / in-person requirement of AXIOM",
+    "evidence_type": "legal",
+    "scope_conditions": "Workshop Participation Policy",
+    "quoted_support": "If no presenter can attend in person, the paper will remain accepted but will be identified as \"not presented\" on the workshop website.",
+    "numbers": [],
+    "entities": [],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "axiom-2026-neurips-workshop"
+  },
+  {
+    "claim": "AXIOM's core question is whether deep learning can move from an empirical discipline to a predictive science of efficiency, i.e. developing principles that predict which algorithms/architectures will be effective before expensive experimentation -- a framing centered on theory-building rather than agent-driven search-loop evaluation, making it a partial rather than direct topical match for the target paper.",
+    "stance": "neutral",
+    "stance_target": "Overall scope and centrality of fit for AXIOM",
+    "evidence_type": "legal",
+    "scope_conditions": "About the Workshop",
+    "quoted_support": "Our goal is to bridge theory and practice by identifying the mathematical principles underlying efficient learning and by defining the next generation of research challenges for efficient deep learning.",
+    "numbers": [],
+    "entities": [],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "medium",
+    "source_note_id": "axiom-2026-neurips-workshop"
+  }
+]

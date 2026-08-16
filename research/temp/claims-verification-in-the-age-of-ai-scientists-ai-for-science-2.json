@@ -1,0 +1,44 @@
+[
+  {
+    "claim": "AI for Science's dedicated CFP page confirms double-blind review explicitly, resolving the anonymity gap left open by the main workshop page.",
+    "stance": "neutral",
+    "stance_target": "Anonymity policy of AI for Science (Verification in the Age of AI Scientists)",
+    "evidence_type": "legal",
+    "scope_conditions": "AI for Science CFP subpage, Submission Instructions",
+    "quoted_support": "The review process is double-blind, so submissions must be anonymized.",
+    "numbers": [],
+    "entities": ["AI for Science", "NeurIPS 2026"],
+    "time_period": "2026",
+    "region": "Sydney, Australia",
+    "confidence": "high",
+    "source_note_id": "verification-in-the-age-of-ai-scientists-ai-for-science-2"
+  },
+  {
+    "claim": "The workshop's Position Track invites 'clear, contestable arguments about the epistemics of verification... where current verification practices fall short,' evaluated on novelty and 'the falsifiability of its central claim' -- a plausible route for a methodology-critique framing of a null self-refinement result.",
+    "stance": "supports",
+    "stance_target": "Whether AI for Science has a submission track compatible with an evaluation-critique framing of a negative result",
+    "evidence_type": "legal",
+    "scope_conditions": "Track (B) Position Track",
+    "quoted_support": "We invite clear, contestable arguments about the epistemics of verification: what constitutes sufficient verification within a domain, when surrogate models can substitute for ground truth, and where current verification practices fall short. Submissions will be evaluated on the novelty of the argument, its engagement with practice in at least one scientific domain, and the falsifiability of its central claim.",
+    "numbers": [],
+    "entities": [],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "medium",
+    "source_note_id": "verification-in-the-age-of-ai-scientists-ai-for-science-2"
+  },
+  {
+    "claim": "Format is 4-8 pages with unlimited references and appendices, NeurIPS 2026 LaTeX template, checklist not required; the workshop welcomes 'original unpublished work, recently published work in scientific journals, and work in progress,' a looser dual-submission stance than a standard ban.",
+    "stance": "neutral",
+    "stance_target": "Page limit, format, and dual-submission policy of AI for Science",
+    "evidence_type": "legal",
+    "scope_conditions": "Submission Instructions",
+    "quoted_support": "Submissions should be 4-8 pages, with unlimited references and appendices. ... We welcome original unpublished work, recently published work in scientific journals, and work in progress.",
+    "numbers": ["4-8 pages"],
+    "entities": [],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "verification-in-the-age-of-ai-scientists-ai-for-science-2"
+  }
+]

@@ -1,0 +1,72 @@
+[
+  {
+    "claim": "AI for Meta-Science frames evaluation and verification of AI-generated science as its central bottleneck: 'quality control (peer review, reproducibility norms, publication criteria, incentive structures, and funding allocation) is lagging behind' AI-accelerated production of scientific artifacts.",
+    "stance": "supports",
+    "stance_target": "Topical fit of AI for Meta-Science via the evaluation/verification-of-AI-generated-outputs angle",
+    "evidence_type": "legal",
+    "scope_conditions": "AI for Meta-Science, NeurIPS 2026, Paris, About the Workshop",
+    "quoted_support": "While the production side of science has scaled dramatically, quality control (peer review, reproducibility norms, publication criteria, incentive structures, and funding allocation) is lagging behind.",
+    "numbers": [],
+    "entities": ["AI for Meta-Science", "NeurIPS 2026"],
+    "time_period": "2026",
+    "region": "Paris",
+    "confidence": "medium",
+    "source_note_id": "ai-for-meta-science-neurips-2026-workshop"
+  },
+  {
+    "claim": "AI for Meta-Science format is 4-page (concise technical) or 8-page (more substantial/position) submissions excluding references with unlimited appendix, NeurIPS 2026 LaTeX template, checklist not required, two tracks (technical and position paper), and previously published relevant work is also welcome for presentation.",
+    "stance": "neutral",
+    "stance_target": "Page limit and format requirements of AI for Meta-Science",
+    "evidence_type": "legal",
+    "scope_conditions": "Submissions section",
+    "quoted_support": "Submissions are either 4 pages (concise technical contributions) or 8 pages (more substantial contributions, for example position papers), excluding references, with unlimited appendix. We welcome papers in two tracks: a technical track and a position paper track; previously published relevant work is also welcome for presentation.",
+    "numbers": ["4 pages", "8 pages"],
+    "entities": [],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "ai-for-meta-science-neurips-2026-workshop"
+  },
+  {
+    "claim": "The fetched page does not explicitly state an anonymity/double-blind policy or archival status for AI for Meta-Science.",
+    "stance": "neutral",
+    "stance_target": "Completeness of publicly stated CFP mechanics for AI for Meta-Science",
+    "evidence_type": "legal",
+    "scope_conditions": "As fetched from ai4metascience.org homepage",
+    "quoted_support": "More information in the call for papers.",
+    "numbers": [],
+    "entities": [],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "ai-for-meta-science-neurips-2026-workshop"
+  },
+  {
+    "claim": "AI for Meta-Science's scope is centered on meta-level governance of the scientific enterprise itself (peer review scaling, detecting AI slop/manipulation, credit and incentive structures) rather than on architecture-search methodology or self-refinement mechanisms specifically.",
+    "stance": "neutral",
+    "stance_target": "Centrality of topical fit for the target LLM-NAS paper",
+    "evidence_type": "legal",
+    "scope_conditions": "About the Workshop, Questions we will tackle",
+    "quoted_support": "This workshop treats the scientific enterprise itself as an object of study and intervention, and aims to establish AI for meta-science as a distinct research area at the intersection of machine learning, science policy, and the study of science.",
+    "numbers": [],
+    "entities": [],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "medium",
+    "source_note_id": "ai-for-meta-science-neurips-2026-workshop"
+  },
+  {
+    "claim": "Submission deadline is August 29, 2026, notification September 29, 2026, workshop held December 2026 (exact day TBA) in Paris; submissions via OpenReview.",
+    "stance": "neutral",
+    "stance_target": "Submission mechanics and timeline of AI for Meta-Science",
+    "evidence_type": "legal",
+    "scope_conditions": "Important Dates",
+    "quoted_support": "Paper submission deadline August 29, 2026 / Accept/reject notification September 29, 2026 / Workshop December 2026 (exact day TBA) at NeurIPS 2026, Paris",
+    "numbers": ["August 29, 2026", "September 29, 2026"],
+    "entities": ["OpenReview"],
+    "time_period": "2026",
+    "region": "Paris",
+    "confidence": "high",
+    "source_note_id": "ai-for-meta-science-neurips-2026-workshop"
+  }
+]

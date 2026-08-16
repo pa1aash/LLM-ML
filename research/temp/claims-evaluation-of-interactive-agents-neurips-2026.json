@@ -1,0 +1,58 @@
+[
+  {
+    "claim": "IAEval's format is full papers up to 9 pages or short papers up to 4 pages excluding references/appendices, official NeurIPS 2026 style/Overleaf template, double-blind review with explicit anonymization instructions, non-archival, and work under review at or already accepted to other venues is explicitly welcome.",
+    "stance": "neutral",
+    "stance_target": "Page limit, anonymity, and archival status of IAEval",
+    "evidence_type": "legal",
+    "scope_conditions": "Call for papers, Format and length, Double-blind review, Non-archival",
+    "quoted_support": "Full papers may be up to 9 pages and short papers up to 4 pages, excluding references and appendices. ... All submissions are reviewed double-blind... The workshop is non-archival and accepted papers will not appear in published proceedings. You may submit work that is currently under review at, or has already been accepted to, another venue.",
+    "numbers": ["9 pages", "4 pages"],
+    "entities": ["IAEval", "NeurIPS 2026"],
+    "time_period": "2026",
+    "region": "Atlanta",
+    "confidence": "high",
+    "source_note_id": "evaluation-of-interactive-agents-neurips-2026"
+  },
+  {
+    "claim": "IAEval scope centers on evaluation methodology for multi-turn/tool-using/interactive LLM agents -- trajectory-level evaluation, user-simulator validation, and grader design -- and states 'early-stage work is welcome,' but has no explicit statement on negative results specifically.",
+    "stance": "neutral",
+    "stance_target": "Topical fit and stated openness to early-stage/negative findings at IAEval",
+    "evidence_type": "legal",
+    "scope_conditions": "Why this workshop, Call for papers",
+    "quoted_support": "We invite submissions on the topics listed above. Early-stage work is welcome.",
+    "numbers": [],
+    "entities": [],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "medium",
+    "source_note_id": "evaluation-of-interactive-agents-neurips-2026"
+  },
+  {
+    "claim": "IAEval has a distinctive 'opinion papers' track requiring the title format 'Opinion: [Your Title]', a lower-barrier submission type for argumentative/critical contributions.",
+    "stance": "neutral",
+    "stance_target": "Submission mechanics unique to IAEval",
+    "evidence_type": "legal",
+    "scope_conditions": "Call for papers, Opinion papers",
+    "quoted_support": "We welcome opinion papers. The title must state the opinion and follow the format \"Opinion: [Your Title]\" — for example, \"Opinion: Large Language Models Should Not Replace Peer Review in Scientific Publishing\".",
+    "numbers": [],
+    "entities": [],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "evaluation-of-interactive-agents-neurips-2026"
+  },
+  {
+    "claim": "IAEval submission deadline is August 29, 2026 AoE via OpenReview; the CFP page itself was still marked 'under construction' at fetch time with finalized workshop date pending.",
+    "stance": "neutral",
+    "stance_target": "Submission mechanics and status of the IAEval CFP as of fetch",
+    "evidence_type": "legal",
+    "scope_conditions": "As fetched, top of page banner",
+    "quoted_support": "Submissions are open now! Submit on OpenReview here. Deadline: August 29, 2026 (AOE). Under construction: finalized date and call for papers coming soon!",
+    "numbers": ["August 29, 2026"],
+    "entities": ["OpenReview"],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "evaluation-of-interactive-agents-neurips-2026"
+  }
+]

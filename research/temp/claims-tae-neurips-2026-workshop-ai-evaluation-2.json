@@ -1,0 +1,58 @@
+[
+  {
+    "claim": "TAE's dedicated CFP subpage resolves the fields missing from the main page: full papers up to 8 pages excluding references/appendices, appendices allowed with no page limit (reviewers not required to read them), NeurIPS 2026 LaTeX template with the \\usepackage[dblblindworkshop]{neurips_2026} option (and [dblblindworkshop, final] for camera-ready), plus a required \\workshoptitle{} field.",
+    "stance": "neutral",
+    "stance_target": "Page limit and format requirements of TAE",
+    "evidence_type": "legal",
+    "scope_conditions": "TAE /cfp subpage, Submission Requirements",
+    "quoted_support": "Full papers: up to 8 pages, excluding references and appendices. Appendices: allowed, with no page limit, but reviewers are not required to read appendices.",
+    "numbers": ["8 pages"],
+    "entities": ["TAE", "NeurIPS 2026"],
+    "time_period": "2026",
+    "region": "Sydney, Australia",
+    "confidence": "high",
+    "source_note_id": "tae-neurips-2026-workshop-ai-evaluation-2"
+  },
+  {
+    "claim": "TAE review is explicitly double-blind and the workshop is explicitly non-archival, with all accepted papers presented in an in-person poster session.",
+    "stance": "neutral",
+    "stance_target": "Anonymity and archival status of TAE",
+    "evidence_type": "legal",
+    "scope_conditions": "Submission Requirements",
+    "quoted_support": "All submissions must be submitted as a single PDF through OpenReview. The review process is double-blind, so please ensure that all papers are appropriately anonymized. All accepted papers will be presented in an in-person poster session. Accepted papers are to be considered non-archival.",
+    "numbers": [],
+    "entities": [],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "tae-neurips-2026-workshop-ai-evaluation-2"
+  },
+  {
+    "claim": "TAE's topics of interest include 'uncertainty and robustness' -- explicitly naming stability of evaluation conclusions 'under sampling variation, calibration error, random seeds, data splits, prompts, metrics, evaluator choices' -- closely matching the target paper's Q3 methodology concerns about seed count and sampling variance.",
+    "stance": "supports",
+    "stance_target": "Topical fit of TAE for the target paper's methodology-critique framing",
+    "evidence_type": "legal",
+    "scope_conditions": "Topics of interest",
+    "quoted_support": "Uncertainty and robustness: How stable are evaluation conclusions under sampling variation, calibration error, random seeds, data splits, prompts, metrics, evaluator choices, noisy or delayed feedback, tail risk, and worst-case behavior?",
+    "numbers": [],
+    "entities": [],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "tae-neurips-2026-workshop-ai-evaluation-2"
+  },
+  {
+    "claim": "TAE's stated core gap is methodological: many evaluation claims do not state what is measured, how it becomes a protocol, or what inference the protocol supports -- the workshop studies evaluation protocols themselves, not only the models being evaluated, but has no explicit statement welcoming negative results specifically.",
+    "stance": "neutral",
+    "stance_target": "Whether TAE has an explicit stated position on negative results",
+    "evidence_type": "legal",
+    "scope_conditions": "CFP intro paragraph",
+    "quoted_support": "The core gap is methodological. Many evaluation claims do not state what is measured, how it becomes a protocol, or what inference the protocol supports. We invite submissions that study evaluation protocols themselves, not only the models being evaluated.",
+    "numbers": [],
+    "entities": [],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "tae-neurips-2026-workshop-ai-evaluation-2"
+  }
+]

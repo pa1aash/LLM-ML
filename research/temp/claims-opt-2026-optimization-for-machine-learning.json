@@ -1,0 +1,44 @@
+[
+  {
+    "claim": "OPT 2026's fetched landing page does not state a page limit, anonymity/double-blind policy, or archival status; only camera-ready mechanics (upload to OpenReview using the OPT2026 style file) are given, deferring most CFP mechanics to an unfetched CFP subpage.",
+    "stance": "neutral",
+    "stance_target": "Completeness of publicly stated CFP mechanics for OPT 2026",
+    "evidence_type": "legal",
+    "scope_conditions": "OPT 2026 landing page, as fetched",
+    "quoted_support": "Camera-ready papers upload to openreview: Nov 27, 2026 (OPT2026 style file required)",
+    "numbers": [],
+    "entities": ["OPT 2026", "NeurIPS 2026"],
+    "time_period": "2026",
+    "region": "Sydney, Australia",
+    "confidence": "high",
+    "source_note_id": "opt-2026-optimization-for-machine-learning"
+  },
+  {
+    "claim": "OPT 2026's special focus this year is 'Can Anything Beat Adam? Frontier Optimizers,' centered on non-diagonal/second-order optimization methods (Muon, K-FAC, Shampoo), asking how model scale and architecture should inform optimizer design -- a scope centered on optimizer theory, not architecture search or LLM-agent design loops.",
+    "stance": "neutral",
+    "stance_target": "Topical fit of OPT 2026 for the target LLM-NAS paper",
+    "evidence_type": "legal",
+    "scope_conditions": "The Workshop, About",
+    "quoted_support": "The focus of OPT 2026 is \"Can Anything Beat Adam? Frontier Optimizers.\" ... Their emergence raises fundamental questions about how data properties, stochasticity, batch size, model scale, and architecture should inform optimizer design.",
+    "numbers": [],
+    "entities": ["Adam", "Muon", "K-FAC", "Shampoo"],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "opt-2026-optimization-for-machine-learning"
+  },
+  {
+    "claim": "OPT 2026 is the 18th edition of a long-running annual workshop series; paper submission deadline is September 4, 2026 AoE, notification September 29, 2026, workshop held December 11 or 12, 2026 in Sydney.",
+    "stance": "neutral",
+    "stance_target": "Submission timeline and workshop pedigree of OPT 2026",
+    "evidence_type": "legal",
+    "scope_conditions": "Important Dates",
+    "quoted_support": "Deadline for submission of papers: September 4, 2026 (AoE) Notification of acceptance: September 29, 2026 (AoE)",
+    "numbers": ["18th edition", "September 4, 2026", "September 29, 2026"],
+    "entities": [],
+    "time_period": "2026",
+    "region": "Sydney, Australia",
+    "confidence": "high",
+    "source_note_id": "opt-2026-optimization-for-machine-learning"
+  }
+]
