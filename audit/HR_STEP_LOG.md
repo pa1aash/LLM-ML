@@ -334,3 +334,50 @@ and spawning them would have re-derived a fixed answer at cost.
 
 **Breadth caveat for the digest front matter:** source count is CLI-default, NOT
 the contracted 100-130 — hyperresearch v0.8.5 has no `profile`/`gear` subcommand.
+
+### Step 5 — L1 returned: `interim-report-l1-feedback-degradation-priority`
+
+9 full-text vault notes read, zero new fetches, well inside the 12 budget.
+
+**VERDICT: PARTIALLY SCOOPED — and by a different paper than assumed.**
+
+**Correction to the prior characterisation.** Earlier sessions (and the S1d
+locus brief) treated GENIUS's Section 6 "later iterations under-perform earlier
+iterations" sentence as the leading scoop candidate. Read against its own
+Appendix A.3 per-trial tables, that is wrong: **GENIUS's numbers show feedback
+beating zero-shot in every reported trajectory.** The Section 6 remark describes
+local mid-run non-monotonicity, not a net feedback-vs-zero-shot deficit. GENIUS
+does not support "feedback hurts" — it is the *weakest* scoop candidate, not the
+strongest.
+
+**The real prior work is CoLLM-NAS** (arXiv 2509.26037v2, Sept 2025). Its
+Generator-memory ablation isolates the identical structural variable the subject
+paper instantiates — uncurated iteration history accumulating in a single
+growing context vs. curated/reset state — and finds "progressive noise
+accumulation, leading to performance degradation." Controlled and quantified,
+not anecdotal.
+
+**Evidence weight as reported:** 2 controlled ablations show feedback *helping*
+under curated signals (RZ-NAS, EvoPrompting); 1 controlled ablation shows
+uncurated context accumulation *hurting* (CoLLM-NAS); GENIUS is anecdotal and
+does not net-contradict the "helps" camp; LLMatic motivates without ablating;
+GPT-NAS has no textual feedback loop; the EC survey (May 2024) pre-dates the
+question.
+
+**Surviving formulation:** *"When an LLM's own uncurated iteration history
+accumulates inside a single growing context — rather than being filtered into a
+synthesized strategy or an external archive — iterative feedback degrades output
+quality, especially as task complexity rises."* Already ablation-verified by
+CoLLM-NAS, so the subject paper must cite and distinguish from it.
+
+**Where novelty survives:** the small/quantised single-model regime, and the
+template-collapse observation. **No source in this locus tests a sub-7B or
+quantised model** — every ablation uses frontier-scale or fine-tuned
+research-scale models (GPT-4o, 62B PaLM, purpose-fine-tuned GPT). Investigator
+calls this "the cleanest gap the subject paper could claim."
+
+**Honest caveats recorded by the investigator:** CoLLM-NAS is a single
+un-peer-reviewed arXiv v2 preprint with no corroborating source in the corpus;
+only one of several GENIUS appendix tables was sampled, and a full pass could
+strengthen GENIUS as an independent scoop; RZ-NAS's proxy validity is handed to
+L5.
