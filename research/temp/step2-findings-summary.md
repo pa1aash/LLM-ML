@@ -146,3 +146,85 @@ the central claim is unfalsifiable from the stored evidence.
 
 *(Runner-up, if compute exists: NAS-Bench-201 replication, which answers Q3's
 benchmark objection and gives zero-noise best-of-k comparison.)*
+
+---
+
+# Q3 hardened — full texts recovered (batch 7)
+
+Full-text fetches of the three canonical critiques supply exact numbers. The
+Q3 verdict is no longer a characterisation; it is an enumeration.
+
+**Yang, Esperança & Carlucci — "NAS evaluation is frustratingly hard" (ICLR 2020)**
+
+- A **random-sampling average-architecture baseline beats most of 8 NAS methods
+  across 5 datasets.**
+- **Training-protocol tricks contribute >3pp accuracy; architecture choice
+  contributes <1pp.**
+- Impoverishing the searched operations shifts accuracy by only **0.18pp** —
+  macro-structure (cell wiring) dominates searched micro-operations.
+- **Seed alone drops ranking Kendall-τ to 0.48.**
+
+The third bullet is the most dangerous for the subject paper. Its entire
+between-condition spread on CIFAR-10 is **89.0 vs 87.2 = 1.8pp**, and Yang et al.
+report that architecture choice buys **<1pp** while protocol buys **>3pp**. A
+reviewer can argue the paper's headline effect is smaller than the protocol noise
+floor its own fixed protocol cannot rule out. The fourth bullet independently
+undermines a one-seed design: if seed alone degrades ranking correlation to 0.48,
+a single seed cannot support a ranking claim between conditions.
+
+**Li & Talwalkar (UAI 2019)**
+
+- **0 of 12** audited 2018–19 NAS papers were exactly reproducible.
+- Published random-search baselines used **1–24 architectures**, versus the
+  **300–700** needed for a fair budget-matched comparison.
+
+The subject paper's random baseline is **20 architectures** — inside the range
+Li & Talwalkar identify as the failure mode. Its central claim ("LLM zero-shot
+beats random search") rests on a baseline the canonical critique says is roughly
+an order of magnitude too small to be fair.
+
+**Sciuto et al. (ICLR 2020)** supplies the statistical template the subject paper
+should have used: Welch's *t*-test reporting **NAO significantly *worse* than
+random sampling (p = 0.02)** — a published precedent for a negative NAS result
+reported rigorously, and a direct model for how to present this paper's finding.
+
+**Huang et al. — exact scale gradient**: GPT-4 GSM8K 95.5→89.0 (**−6.5pp**) vs
+Llama-2-70B 62.0→36.5 (**−25.5pp**). A clean monotone relationship between model
+capability and self-correction damage.
+
+## Which critiques the paper fails — enumerated
+
+| Source | Requirement | Subject paper | Verdict |
+|---|---|---|---|
+| Lindauer & Hutter BP8 | random *sampling* and random *search* as distinct baselines | one random arm (+A2 filter) | **FAIL** |
+| Lindauer & Hutter BP9 | seeded multi-run, mean ± stdev | 1 seed; seed-137 numbers ORPHAN | **FAIL** |
+| Li & Talwalkar | budget-matched random baseline, 300–700 archs | 20 | **FAIL** |
+| Li & Talwalkar | exact reproducibility | no data, no pins, no model record | **FAIL** |
+| Yang et al. | control training protocol before attributing to architecture | fixed protocol, effect 1.8pp < 3pp protocol sensitivity | **FAIL** |
+| Yang et al. | seed-robust rankings | 1 seed, τ=0.48 at 1 seed | **FAIL** |
+| Agarwal et al. | interval estimates / IQM, not point estimates | mean-of-population point estimates | **FAIL** |
+| 1000-papers survey | expected-best-of-*k* estimand | mean-of-population; best-of-*k* inverts the result | **FAIL** |
+| Sciuto et al. | significance testing vs random sampling | done, but on dependent samples with pooled *d* | **PARTIAL** |
+| Lindauer & Hutter | tabular benchmark where available | custom CNN space only | **FAIL** |
+
+**RZ-NAS final citation**: ICML 2025, PMLR vol. 267, pp. 27237–27254; Zipeng Ji,
+Guanghui Zhu, Chunfeng Yuan, Yihua Huang. No arXiv preprint exists.
+
+## What this does to Q6
+
+The reframe is now forced rather than optional. The paper cannot lead with
+"LLM beats random search" — that comparison fails Li & Talwalkar on baseline
+size. It cannot lead with "feedback degrades NAS" — RZ-NAS and CoLLM-NAS refute
+it unqualified, and GENIUS published the observation in 2023.
+
+What survives is narrower and sturdier: **a mechanism claim** — sequential
+self-refinement on a *scalar, non-localising* reward degrades small-model
+proposals, while every published success (EvoPrompting, RZ-NAS, CoLLM-NAS,
+FunSearch, AlphaEvolve, Reflexion, OPRO) supplies external, executable, or
+localising verification. Tyen et al. gives the mechanism; Song et al. gives the
+scaling law; the six-arm matched-budget design gives the controlled evidence.
+
+That thesis does not depend on beating random search, and it survives every
+critique enumerated above except the seed and estimand objections — both of which
+are fixable in the analysis, not the experiment, **if the raw data exists**
+(OA-1).

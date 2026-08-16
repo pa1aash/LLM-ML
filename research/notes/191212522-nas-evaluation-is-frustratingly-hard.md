@@ -4,7 +4,7 @@ id: 191212522-nas-evaluation-is-frustratingly-hard
 tags:
 - llm-nas-feedback-positioning-7125b1
 created: '2026-08-16T15:45:43.056762Z'
-updated: '2026-08-16T15:49:37.041757Z'
+updated: '2026-08-16T16:00:21.464713Z'
 source: https://arxiv.org/abs/1912.12522
 source_domain: arxiv.org
 fetched_at: '2026-08-16T15:45:43.056364Z'
@@ -14,6 +14,9 @@ type: note
 tier: institutional
 content_type: paper
 deprecated: false
+summary: 'DEPRECATED: abstract-only stub (arXiv abs page yielded abstract text only).
+  Superseded by full-text HTML fetch at [[nas-evaluation-is-frustratingly-hard]],
+  which contains the full benchmark tables and ablation results.'
 ---
 
 *Suggested by [[neural-architecture-search-insights-from-1000-papers]] — canonical NAS evaluation critique 'NAS evaluation is frustratingly hard' cited by the 1000-papers survey, directly named in the research query*

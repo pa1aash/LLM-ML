@@ -4,7 +4,7 @@ id: 190207638v3-random-search-and-reproducibility-for-neural-architecture-search
 tags:
 - llm-nas-feedback-positioning-7125b1
 created: '2026-08-16T15:45:41.763689Z'
-updated: '2026-08-16T15:49:36.530941Z'
+updated: '2026-08-16T16:00:20.148528Z'
 source: https://arxiv.org/abs/1902.07638v3
 source_domain: arxiv.org
 fetched_at: '2026-08-16T15:45:41.763275Z'
@@ -14,6 +14,9 @@ type: note
 tier: institutional
 content_type: paper
 deprecated: false
+summary: 'DEPRECATED: abstract-only stub (arXiv abs page yielded abstract text only).
+  Superseded by full-text HTML fetch at [[random-search-and-reproducibility-for-neural-architecture-search]],
+  which contains full tables and reproducibility analysis.'
 ---
 
 [1902.07638v3] Random Search and Reproducibility for Neural Architecture Search
