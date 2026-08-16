@@ -216,3 +216,42 @@ Q1/Q4 YES, Q2/Q3 closed by gap-fill, Q5 pending only the in-flight sweep. The
 five operator-specified loci (L1 priority vs RZ-NAS; L2 rival magnitudes; L3
 estimand; L4 independence; L5 RZ-NAS proxy validation) are recorded in the S1b
 brief and carry forward verbatim.
+
+### Block A — venue sweep FAILED (agent stalled), partial progress salvaged
+
+**The sweep agent died**: `Agent stalled: no progress for 600s (stream watchdog
+did not recover)`, while trying to resolve the exact CFP href for AI for
+Meta-Science. **`research/temp/venue-candidates.md` was never written.**
+
+**Q5 REMAINS OPEN.** No venue table exists. Nothing below should be read as a
+venue answer.
+
+Salvageable: 10 workshop CFP notes were fetched into the vault before the stall
+and are usable by a future sweep, which should *not* re-fetch them:
+
+| Note | Chars |
+|---|---|
+| `ai-for-meta-science-neurips-2026-workshop` | 8,359 |
+| `managing-agents-that-manage-agents-…meta-agents…` | 13,592 |
+| `axiom-2026-neurips-workshop` | 11,223 |
+| `foundations-of-agentic-systems-theory` | 11,190 |
+| `tae-neurips-2026-workshop-ai-evaluation-2` | 7,260 |
+| `evaluation-of-interactive-agents-neurips-2026` | 7,050 |
+| `opt-2026-optimization-for-machine-learning` | 6,282 |
+| `call-for-papers-interpretability-as-a-science` | 5,871 |
+| `verification-in-the-age-of-ai-scientists-ai-for-science-2` | 4,934 |
+| `icbinb-bio-neurips-2026` | 4,191 |
+
+Note the sweep surfaced candidates the earlier title-inspection shortlist missed
+— **Meta-Agents**, **AXIOM**, **Foundations of Agentic Systems Theory**,
+**Evaluation of Interactive Agents**, **OPT** — which is evidence the widened
+two-framing scope test was doing real work before the agent died.
+
+**Still unfetched from the required S1b shortlist:** AI-Native Academia,
+XAI4Science, and confirmation of AutoMLR and EvoRobust status. **No note carries
+the eleven required fields**, because the extraction pass never ran — the agent
+died during fetching, before any structured recording.
+
+**Disposition:** re-dispatch the sweep next session against the 10 salvaged notes
+plus the missing shortlist. The failure is an agent-runtime stall, not a data or
+access problem — every page it reached fetched cleanly.
