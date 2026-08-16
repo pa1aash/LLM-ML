@@ -7,8 +7,9 @@ tags:
 - zero-cost-proxy
 - nas
 created: '2026-08-16T18:33:50.067984Z'
+updated: '2026-08-16T18:37:34.491498Z'
 source: https://arxiv.org/pdf/2309.14666
-status: draft
+status: review
 type: note
 tier: institutional
 content_type: paper

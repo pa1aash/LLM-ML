@@ -6,15 +6,17 @@ tags:
 - locus-l5
 - zero-cost-proxy
 created: '2026-08-16T18:36:21.141624Z'
+updated: '2026-08-16T18:36:57.683997Z'
 source: https://arxiv.org/abs/2102.01063
 source_domain: arxiv.org
 fetched_at: '2026-08-16T18:36:21.141057Z'
 fetch_provider: builtin
-status: draft
+status: deprecated
 type: note
 tier: institutional
 content_type: paper
 deprecated: false
+summary: Abstract-only arXiv listing page; superseded by full-text note zen-nas-a-zero-shot-nas-for-high-performance-deep-image-recognition-full-text.
 ---
 
 *Suggested by [[zico-zero-shot-nas-via-inverse-coefficient-of-variation-on-gradients-full-text]] — Zen-score is one of RZ-NAS's candidate proxies, cited and benchmarked against in ZiCo Table 1/3 with inconsistent correlation strength across search spaces*

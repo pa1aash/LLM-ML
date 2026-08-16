@@ -381,3 +381,44 @@ un-peer-reviewed arXiv v2 preprint with no corroborating source in the corpus;
 only one of several GENIUS appendix tables was sampled, and a full pass could
 strengthen GENIUS as an independent scoop; RZ-NAS's proxy validity is handed to
 L5.
+
+### Step 5 — L5 returned: `interim-report-l5-rz-nas-zero-cost-proxy-validation`
+
+4 vault must-reads + 3 fetched full texts (ZiCo, ZiCo-BC, Zen-NAS), both
+permitted extra fetches used, settled within budget.
+
+**VERDICT: the wedge HOLDS, and is broader than the query's citation anticipated.**
+
+**(a) Which proxy.** RZ-NAS refines against a **single, experimenter-chosen
+zero-cost proxy per run** — menu of five: GraSP, Gradnorm, Synflow, Zen-Score,
+ZiCo (plus MAE-DET for COCO). **Not an ensemble.** It cites NAS-Bench-Suite-Zero's
+ensemble-motivated warning *verbatim* and never acts on it.
+
+**(b) Validation.** Rank-correlation validation is confined to **NAS-Bench-201 —
+the one benchmark NAS-Bench-Suite-Zero itself flags as the easy case** where
+nearly all proxies look fine. No cross-benchmark generalisation validation.
+
+**(c) Does the size-confound apply.** Directly, to 2 of the 5:
+- **Synflow** — 0.57–0.62 correlation with parameter count.
+- **Zen-Score** — 0.68–0.99, the worst in NAS-Bench-Suite-Zero's entire table.
+- **ZiCo**, which carries RZ-NAS's single flagship ImageNet claim: its margin
+  over a naive `#Params` baseline **nearly vanishes** on the size-isolated
+  NATS-Bench-SSS benchmark, and ZiCo-BC independently quantifies a depth/width
+  bias worth 0.2–1.1 accuracy points.
+- **GraSP** is the one proxy in the menu that is *not* size-confounded — though
+  it is simply a weak proxy.
+
+**Consequence for L1.** This narrows but does not eliminate RZ-NAS's priority:
+the two papers may not be measuring the same underlying phenomenon. RZ-NAS's
+ablation still shows "reflection beats no reflection"; what is now in question is
+whether the *signal being reflected on* tracks architecture quality or largely
+tracks model size.
+
+**Flagged for step 8 (corpus critic), not chased:**
+- No size-matched ablation exists for RZ-NAS itself. That single experiment
+  would settle the causal question most directly.
+- MAE-DET (the COCO proxy) is untested by any source in hand.
+- **Self-report vs independent-reproduction discrepancy in Zen-Score's Kendall
+  tau** — Zen-NAS's own paper reports 0.91/0.88; RZ-NAS's and ZiCo's independent
+  numbers are 0.28–0.29. The critic must check apples-to-apples comparability
+  before this is cited as evidence of systematic self-report inflation.
