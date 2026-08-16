@@ -128,3 +128,47 @@ reported instead.
 The corpus is now in the correct state to resume: 66 active notes, 56 at full
 text, all novelty-bearing sources readable in full. Resumption starts at step 3
 against this corpus — **not** at step 1, and **not** with a repeated width sweep.
+
+---
+
+## S1a session — scoping decision (recorded, not a skip)
+
+**Steps 10, 11, 15 and 16 are intentionally NOT run.** They draft, synthesise
+and polish a long-form report, which is not this project's deliverable. The
+adversarial layer (12, 13, 14.5) runs in the next session **against the decision
+brief** instead of against a drafted report. This is a deliberate scoping
+decision by the operator, recorded here so that the absent artifacts are not
+later mistaken for skipped steps or for pipeline failure.
+
+## S1a — Block B (coverage audit and targeted gap-fill)
+
+| Step | Mode | Artifacts | Notes |
+|---|---|---|---|
+| B.1 coverage audit | MANUAL | `research/temp/coverage-audit-s1a.md` | Rebuilt from scratch against the repaired corpus; S0 matrix explicitly distrusted. Q1 YES, Q2 PARTIAL, Q3 PARTIAL, Q4 YES, **Q5 NO**, Q6 PARTIAL |
+| B.0 void stale artifacts | MANUAL | `research/temp/void/` + README | `step2-findings-summary.md` and `venue-findings-interim.md` moved and marked VOID — both written when 56% of corpus was abstract-only |
+| B.2 gap-fill: Q2 quantisation | invoked (fetcher) | 5 notes + claims | **Gap CLOSED.** Direct hit: 4-bit bitsandbytes on Qwen2.5 0.5B–32B reduces lexical/syntactic diversity, worse at small scale |
+| B.2 gap-fill: Q3 benchmark | invoked (fetcher) | 1 note + claims | **Gap CLOSED.** NAS-Bench-Suite-Zero: only a few of 13 zero-cost proxies generalise; synflow correlates 0.57 with model size |
+| B.2 gap-fill: Q5 venue | invoked (fetcher) | `research/temp/venue-candidates.md` | dispatched; sweeping all 102 workshops for candidates + 7 fields per CFP |
+
+Corpus: **78 → 94 notes.**
+
+### Notable findings from Block B
+
+1. **The quantisation rival is real but insufficient.** 4-bit measurably
+   compresses lexical and syntactic diversity in exactly the model family and
+   bit-width the subject paper used — but a mechanistic study finds 4-bit causes
+   only mild "Signal Degradation", with catastrophic collapse reserved for 2-bit.
+   Quantisation therefore cannot plausibly explain twenty *byte-identical*
+   designs. This **relatively strengthens the sanitiser explanation**, which
+   produces exact identity by construction. The rivals predict different
+   magnitudes and are not interchangeable.
+
+2. **The quantisation literature is contested, not settled.** QeRL finds
+   quantisation noise *increases* sampling entropy during RL training. Any claim
+   here must be stated as contested.
+
+3. **Zero-cost proxy reliability bears on RZ-NAS priority.** RZ-NAS uses
+   zero-cost proxies as its reflection signal; NAS-Bench-Suite-Zero shows single
+   proxies generalise poorly and synflow partly measures model size. RZ-NAS's
+   positive result is therefore contingent on proxy validity — narrowing, though
+   not dissolving, its tension with the subject paper's negative result.
