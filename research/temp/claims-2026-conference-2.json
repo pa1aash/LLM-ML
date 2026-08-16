@@ -1,0 +1,44 @@
+[
+  {
+    "claim": "NeurIPS 2026 main conference is held in Sydney, Australia (Dec 6-12, 2026) with satellite venues in Atlanta, Georgia and Paris, France (both Dec 9-13, 2026).",
+    "stance": "neutral",
+    "stance_target": "logistical facts about NeurIPS 2026 relevant to venue selection for a workshop submission",
+    "evidence_type": "empirical",
+    "scope_conditions": "official conference page, fetched 2026-08-16",
+    "quoted_support": "Main: Sydney, Australia Dec 6th - 12th Satellites: Atlanta, Georgia Dec 9th - 13th Paris, France Dec 9th - 13th",
+    "numbers": ["Dec 6-12 2026 (Sydney)", "Dec 9-13 2026 (Atlanta, Paris)"],
+    "entities": ["NeurIPS 2026", "Sydney", "Atlanta", "Paris"],
+    "time_period": "2026",
+    "region": "Australia, USA, France",
+    "confidence": "high",
+    "source_note_id": "2026-conference-2"
+  },
+  {
+    "claim": "The NeurIPS 2026 main conference landing page does not itself list individual workshop names, scopes, or CFP URLs; a separate 'Announcing the NeurIPS 2026 Workshops' blog post (dated Aug 10, 2026) exists but was not captured in this fetch, meaning the workshop program page must be fetched separately to answer venue-mapping questions.",
+    "stance": "neutral",
+    "stance_target": "data completeness caveat for answering the NeurIPS 2026 workshop landscape question -- this page alone is insufficient",
+    "evidence_type": "empirical",
+    "scope_conditions": "as fetched 2026-08-16",
+    "quoted_support": "Announcing the NeurIPS 2026 Workshops Aug 10, 2026",
+    "numbers": [],
+    "entities": ["NeurIPS 2026 Workshops"],
+    "time_period": "2026-08-10",
+    "region": "n/a",
+    "confidence": "high",
+    "source_note_id": "2026-conference-2"
+  },
+  {
+    "claim": "As of the fetch date, NeurIPS workshop organizers face a 'Workshop Mandatory Accept/Reject Notification Date' of Sep 29, 2026 (Anywhere on Earth), implying the workshop CFP/acceptance cycle for NeurIPS 2026 is already substantially underway or complete at the time of this research.",
+    "stance": "neutral",
+    "stance_target": "timing constraint for whether a controlled-null-result NAS paper could still target a NeurIPS 2026 workshop given submission deadlines",
+    "evidence_type": "empirical",
+    "scope_conditions": "Important Dates section, fetched 2026-08-16",
+    "quoted_support": "Workshop Mandatory Accept/ Reject Notification Date Sep 29 '26 (Anywhere on Earth)",
+    "numbers": ["Sep 29 2026 AoE"],
+    "entities": ["NeurIPS 2026 Workshops"],
+    "time_period": "2026-09-29",
+    "region": "n/a",
+    "confidence": "high",
+    "source_note_id": "2026-conference-2"
+  }
+]

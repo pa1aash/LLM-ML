@@ -1,0 +1,58 @@
+[
+  {
+    "claim": "RZ-NAS is a confirmed, real, peer-reviewed paper by Zipeng Ji, Guanghui Zhu, Chunfeng Yuan, and Yihua Huang, published at ICML 2025 (PMLR volume 267, pages 27237-27254), resolving the locating query about whether this claimed venue is accurate.",
+    "stance": "neutral",
+    "stance_target": "factual existence and venue of RZ-NAS, a named comparator in the target paper's positioning",
+    "evidence_type": "empirical",
+    "scope_conditions": "bibliographic fact",
+    "quoted_support": "Proceedings of the 42nd International Conference on Machine Learning, PMLR 267:27237-27254, 2025.",
+    "numbers": ["PMLR volume 267", "pages 27237-27254", "2025"],
+    "entities": ["Zipeng Ji", "Guanghui Zhu", "Chunfeng Yuan", "Yihua Huang", "ICML 2025", "RZ-NAS"],
+    "time_period": "2025",
+    "region": "n/a",
+    "confidence": "high",
+    "source_note_id": "rz-nas-enhancing-llm-guided-neural-architecture-search-via-reflective-zero-cost"
+  },
+  {
+    "claim": "RZ-NAS integrates LLM 'reflection modules' -- iterative LLM-generated linguistic feedback used within an architecture optimization loop -- and claims this achieves state-of-the-art performance across multiple downstream tasks and both micro and macro search spaces without extensive time cost.",
+    "stance": "refutes",
+    "stance_target": "iterative LLM feedback degrades rather than improves architecture search proposals",
+    "evidence_type": "empirical",
+    "scope_conditions": "micro and macro NAS search spaces, multiple downstream tasks, ICML 2025",
+    "quoted_support": "By integrating LLM reflection modules, we use LLM-generated feedback to provide linguistic guidance within architecture optimization. RZ-NAS enables effective search within both micro and macro search spaces without extensive time cost, achieving SOTA performance across multiple downstream tasks.",
+    "numbers": [],
+    "entities": ["RZ-NAS", "reflection modules"],
+    "time_period": "2025",
+    "region": "n/a",
+    "confidence": "high",
+    "source_note_id": "rz-nas-enhancing-llm-guided-neural-architecture-search-via-reflective-zero-cost"
+  },
+  {
+    "claim": "RZ-NAS explicitly frames prior LLM-to-NAS methods (as of its 2025 publication) as suffering from limited search spaces, poor time-cost efficiency, and uncompetitive performance versus standard NAS benchmarks, indicating the LLM-guided NAS subfield had a recognized track record of underperformance before RZ-NAS's proposed fix.",
+    "stance": "neutral",
+    "stance_target": "the general competitiveness/immaturity of LLM-guided NAS methods prior to 2025, relevant background for positioning any 2025-2026 LLM-NAS paper",
+    "evidence_type": "expert-opinion",
+    "scope_conditions": "RZ-NAS's framing of the LLM-to-NAS subfield circa 2025",
+    "quoted_support": "the existing LLM-to-NAS methods face the challenges of limited search spaces, time-cost search efficiency, and uncompetitive performance across standard NAS benchmarks and multiple downstream tasks.",
+    "numbers": [],
+    "entities": ["LLM-to-NAS"],
+    "time_period": "2025",
+    "region": "n/a",
+    "confidence": "medium",
+    "source_note_id": "rz-nas-enhancing-llm-guided-neural-architecture-search-via-reflective-zero-cost"
+  },
+  {
+    "claim": "No arXiv preprint exists for RZ-NAS (confirmed via arXiv API title search returning zero results), meaning PMLR proceedings, the OpenReview forum, and the official GitHub repository are the only primary sources for the paper's methodology and results.",
+    "stance": "neutral",
+    "stance_target": "availability of primary-source detail for verifying RZ-NAS's claimed results",
+    "evidence_type": "empirical",
+    "scope_conditions": "arXiv API search performed 2026-08-16",
+    "quoted_support": "No arXiv preprint exists for this paper (confirmed via arXiv API title search returning zero results)",
+    "numbers": [],
+    "entities": ["arXiv", "RZ-NAS"],
+    "time_period": "2026-08-16 (search date)",
+    "region": "n/a",
+    "confidence": "high",
+    "source_note_id": "rz-nas-enhancing-llm-guided-neural-architecture-search-via-reflective-zero-cost"
+  }
+]

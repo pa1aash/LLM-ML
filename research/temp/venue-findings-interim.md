@@ -103,3 +103,59 @@ candidate, still needed:
 - Paper author notifications (main track): Sep 24, 2026.
 - Workshop chairs: Piotr Koniusz (senior), Theodore Papamarkou, Khoa D. Doan,
   Shao-Hua Sun, Elisa Ricci, Ghada Zamzmi.
+
+---
+
+# UPDATE — per-workshop CFPs fetched (supersedes the tiering above)
+
+115 NeurIPS 2026 workshop groups are live on OpenReview
+(`api2.openreview.net/groups?parent=NeurIPS.cc/2026/Workshop`). Seven candidate
+CFPs were fetched directly. **Two corrections to the interim tiering, both
+material.**
+
+## ❌ Correction 1 — AutoMLR is NOT a fit
+
+"Workshop for Autonomous Machine Learning Research" requires that **the paper
+itself be substantially produced by an autonomous agent, end-to-end.** It is not
+a venue for human-written papers *about* using an LLM as a design tool. The
+interim note ranked it Tier 1 on the title alone. **Removed.**
+
+## ⚠️ Correction 2 — EvoRobust has no live CFP
+
+"Self-Evolving Diversity-Driven Search for Robust AI Systems" — the interim
+note's "single closest match" — has **no dedicated website yet**; its OpenReview
+`website` field still points at the generic conference page. Confirmed metadata:
+Sydney, deadline **Aug 30 2026, 12:29 UTC**, contact
+`evorobust-workshop@googlegroups.com`. Still plausibly the best *topical* fit,
+but nothing can be confirmed about page limit, format, or archival status.
+**Watch, or email the organisers.**
+
+## Ranked candidates, on fetched evidence
+
+| # | Workshop | Loc | Page limit | Anon | Archival | Deadline | Verdict |
+|---|---|---|---|---|---|---|---|
+| **1** | **Who Verifies the Agents? Toward Reliable Agent Development** | Sydney | 4–9 pp | double-blind | non-archival | — | **Best confirmed match.** Topic list names *"Self-evolving agents: stable improvement without collapse"* and *"Evaluation of agent-generated designs vs. human-engineered systems"* — both are literally this paper. Dual-submission friendly. |
+| **2** | **SLM-Agents: 1st Workshop on SLMs for Agentic Systems** | Paris | 4 or 6 pp | double-blind | non-archival | **Aug 29 2026** | **Quantisation and compression explicitly in scope.** The subject model is 1.7B 4-bit — the venue's core population. Scale-dependence becomes a feature, not limitation (i). |
+| **3** | EvoRobust (Self-Evolving Diversity-Driven Search) | Sydney | unknown | unknown | unknown | **Aug 30 2026** | Best topical fit on title; **no CFP published**. Contact organisers before relying on it. |
+| **4** | Trustworthy AI Evaluation (TAE) | Sydney | not stated | not stated | not stated | — | Scope names *"stability under seeds, data splits"* verbatim — directly the paper's weakest axis. Details missing from the page. |
+| **5** | JUDGe: Can We Trust the Judge? | Atlanta | — | — | — | — | **The only venue with an explicit, repeated stated welcome for negative results** — but scoped to LLM-judge/reward-model reliability, not search loops. Strong policy fit, weak topical fit. |
+| 6 | AI for Science: Verification in the Age of AI Scientists | Sydney | 4–8 pp | — | non-archival | — | Thematic only; no domain science here. |
+| 7 | Interpretability as a Science | Sydney | not stated | not stated | not stated | — | Thin page (280 words). Weakest. |
+
+## Recommendation
+
+**Primary: "Who Verifies the Agents?"** — its call names this paper's exact
+subject matter, it is non-archival (so an extended version stays submittable),
+double-blind, and dual-submission friendly.
+
+**Secondary: SLM-Agents** — turns the paper's biggest stated weakness (a small
+quantised model) into the venue's central interest, and its **Aug 29** deadline
+is the binding constraint.
+
+Both are 4–9 pages against a current 10-page PDF (`OA-26`). Non-archival status
+means neither forecloses a later archival submission.
+
+**Standing caveat:** every candidate is double-blind and none has a
+reproducibility-artifact requirement — unlike AutoML 2026, which is both closed
+and artifact-gated. But `OA-1` still governs: submitting headline numbers that
+are 26% ORPHAN is a decision to make deliberately, not by default.
