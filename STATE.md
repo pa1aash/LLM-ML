@@ -51,6 +51,25 @@ Audit complete. **G0 is unsigned.**
    expected-best-of-*k*, the standard estimand for a fixed search budget, the
    conclusion inverts.
 
+## ⏰ Time-critical finding (S1, from the live NeurIPS page)
+
+**The NeurIPS 2026 workshop list is published and the suggested submission date
+is 2026-08-29 — 13 days from today.** 102 workshops accepted (48 Sydney /
+28 Paris / 26 Atlanta); workshops run Dec 11–13, 2026. Source:
+`research/temp/venue-findings-interim.md`, fetched from the official
+announcement of 2026-08-10.
+
+Three workshops are a direct topical fit — **Self-Evolving Diversity-Driven
+Search for Robust AI Systems** (Sydney) is the closest match found, with
+**Workshop for Autonomous Machine Learning Research** (Sydney) and **SLM-Agents**
+(Paris, explicitly small language models) behind it. Note that **ICBINB, the
+canonical negative-results venue, is scoped to "Failure Modes of AI in Biology"
+this year and is NOT a fit** — an assumption that would have been wrong if
+answered from memory.
+
+A 13-day runway cannot rebuild the experiment. It may suffice for claim surgery
+**iff** OA-1 resolves favourably.
+
 ## Open
 
 - **G0 awaiting operator signature.** Recommendation in
