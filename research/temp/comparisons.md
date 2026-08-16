@@ -126,12 +126,18 @@ surviving novelty claim the joint position leans on — template collapse — **
 been assessed by neither investigator.** It rests on the deferred L2 evidence
 and on the repo audit's sanitiser finding, not on step-5 work.
 
-**S5. One quantity is unusable until checked.** The Zen-Score Kendall-tau
-discrepancy — Zen-NAS self-reporting 0.91/0.88 against RZ-NAS's and ZiCo's
-independent 0.28–0.29 — is striking but **not yet established as
-apples-to-apples** (same architecture pool, validation protocol, benchmark).
-L5 flags it rather than using it. It must not enter any downstream artifact
-until step 8 C5 clears it.
+**S5. RESOLVED BY STEP 8 (C5) — the quantity is UNUSABLE. Do not cite it.**
+The Zen-Score tau comparison is **not apples-to-apples**: Zen-NAS's 0.91/0.88 is
+over **n=16 ResNet-50 variants**, while the 0.28–0.29 figures are over
+**n=15,625 NAS-Bench-201 architectures**. Different pools, different scales;
+the comparison is meaningless. **Marked UNUSABLE — it must not enter the
+decision brief or any downstream artifact.**
+
+Step 8 also found that the two low figures are **not independent
+reproductions**: RZ-NAS reused ZiCo's published table verbatim. So even the
+"two independent sources agree" reading was wrong. This kills the
+self-report-inflation line entirely — correctly, and before it reached a
+reviewer.
 
 **S6. Untested corner.** MAE-DET, RZ-NAS's COCO proxy, is addressed by no source
 in hand. Its size-confound status is **UNKNOWN**, not "clean".

@@ -490,3 +490,48 @@ Resume instruction constrains it to: write the file **first and incrementally**
 fetches**, and a priority order that puts C1 first and permits stopping at a
 clean section boundary. C6 is authorised to return **NOT SETTLED — fetch budget
 exhausted** with a statement of what search would settle it.
+
+### Step 8 corpus critic — COMPLETE (552 lines, C1–C7)
+
+`research/temp/corpus-critic-findings.md`. **Three prior assertions corrected.**
+
+**C1 — the novelty answer, and it is split.** The general instrumentation-artifact
+mechanism (structured/constrained decoding distorting what is measured about a
+model, independent of true capability) is **already published and active
+2024–2026 literature** — 4 papers now in vault. Its **specific application to
+LLM-guided NAS** — parser/sanitiser artifacts explaining template collapse or
+feedback degradation — is **not found anywhere**. Verdict: genuine, checked-for
+novelty, but it **must be framed as applying an established mechanism, not
+discovering one**.
+
+Load-bearing nuance from *The Format Tax*: it argues the **prompt asking for
+structure**, not the decoder-side repair step, causes most degradation. The
+subject paper attributes collapse to `sanitize_config` — a repair step. **That
+attribution must be checked against this**, or a reviewer will.
+
+**C6 — CORRECTION.** CoLLM-NAS is **not** an un-peer-reviewed preprint. It was
+accepted as a **CVPR 2026 NAS Workshop Oral**, and that evidence was **already in
+the vault** — missed by L1 and by comparisons.md's S2 seam, both now corrected.
+This **strengthens** the "partially scooped" verdict. Citation/replication status
+remains NOT SETTLED (fetch budget exhausted); five candidate citing papers listed.
+
+**C2 — CORRECTION.** The "expected-best-of-k = top 100/k%" quote exists, but
+describes a **different claim** — justifying random search as a baseline, not
+prescribing a reporting standard. The corpus's actual reviewer-facing guidance
+(Lindauer & Hutter, Yang et al.) recommends **mean ± std across repeated runs**.
+Reported **NOT IN CORPUS** for the estimand claim as previously recorded. Prior
+sessions asserted the survey states the estimand explicitly; it does not.
+
+**C4 — one overstatement corrected.** All three L2 quotes are accurate
+paraphrases, except QeRL: its entropy-increase finding is scoped to
+**RL-training-time policy entropy under an engineered noise schedule**, not
+general inference-time sampling entropy. The L2 claim as phrased overstates it.
+
+**C5 — UNUSABLE.** Zen-Score tau comparison is not apples-to-apples (n=16
+ResNet-50 variants vs n=15,625 NAS-Bench-201). Further, RZ-NAS and ZiCo are
+**not independent** — RZ-NAS reused ZiCo's table verbatim. Finding killed.
+
+**C3 — NOT IN CORPUS**, as expected. All sources address run-to-run/seed
+independence, not intra-context serial dependence.
+
+**C7 — UNKNOWN** confirmed. MAE-DET appears only as a bibliography citation.
