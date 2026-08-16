@@ -1,0 +1,629 @@
+{
+  "generated": "S0 ground-truth audit",
+  "repo_root": "/Users/palaash/Desktop/LLM-ML",
+  "file_count": 58,
+  "total_bytes": 1633577,
+  "files_over_1mb": [],
+  "class_counts": {
+    "OTHER": 13,
+    "PAPER-SNAPSHOT": 2,
+    "DOC": 4,
+    "BUILD-LOG": 1,
+    "DERIVED": 11,
+    "SUMMARY": 5,
+    "PAPER": 10,
+    "CODE": 12
+  },
+  "data_census": {
+    "RAW_per_epoch_records": 0,
+    "SPEC_architecture_json": 0,
+    "TRANSCRIPT_llm_generations": 0,
+    "SUMMARY_condition_aggregates": 5,
+    "DERIVED_figures_and_tables": 11,
+    "note": "No results/ or results_v2/ directory exists. No results.json, metadata.json, retrain_top5, or rank_correlation artifact exists anywhere in the tree or in either archive zip. The ONLY stored numeric evidence is the five generated paper/figures/tab_*.tex files plus the rendered figure PDFs."
+  },
+  "cells_expected": 24,
+  "cells_with_RAW_or_SPEC_or_TRANSCRIPT": 0,
+  "files_by_directory": {
+    ".": [
+      ".DS_Store",
+      ".gitignore",
+      "GATES.md",
+      "README.md",
+      "STATE.md",
+      "VENUE.md"
+    ],
+    "archive": [
+      "archive/resv1.zip",
+      "archive/resv2.zip"
+    ],
+    "audit": [
+      "audit/BIB_AUDIT.md",
+      "audit/CLAIM_TRACE.md",
+      "audit/CONTEXT_PACK.md",
+      "audit/FORENSICS.md",
+      "audit/OPEN_ACTIONS.md",
+      "audit/REPO_INVENTORY.json",
+      "audit/references_verified.bib"
+    ],
+    "docs": [
+      "docs/literature-review.md",
+      "docs/methodology.md",
+      "docs/reasoning.md",
+      "docs/research-state.md"
+    ],
+    "logs": [
+      "logs/main.log"
+    ],
+    "paper": [
+      "paper/icml2025.bst",
+      "paper/icml2025.sty",
+      "paper/main.aux",
+      "paper/main.bbl",
+      "paper/main.blg",
+      "paper/main.log",
+      "paper/main.out",
+      "paper/main.pdf",
+      "paper/main.tex",
+      "paper/references.bib"
+    ],
+    "paper/figures": [
+      "paper/figures/fig1_violin.pdf",
+      "paper/figures/fig2_convergence.pdf",
+      "paper/figures/fig3_param_accuracy.pdf",
+      "paper/figures/fig4_design_heatmap.pdf",
+      "paper/figures/fig5_training.pdf",
+      "paper/figures/fig5_training_dynamics.pdf",
+      "paper/figures/fig6_diversity.pdf",
+      "paper/figures/fig7_channels.pdf",
+      "paper/figures/figure1_accuracy_boxplots.pdf",
+      "paper/figures/figure2_convergence.pdf",
+      "paper/figures/figure3_invalid_rates.pdf",
+      "paper/figures/tab_arch.tex",
+      "paper/figures/tab_main.tex",
+      "paper/figures/tab_rank.tex",
+      "paper/figures/tab_stats.tex",
+      "paper/figures/tab_transcript.tex"
+    ],
+    "scripts": [
+      "scripts/run_all.sh",
+      "scripts/run_all_v2.sh",
+      "scripts/run_llm_conditions.sh"
+    ],
+    "src": [
+      "src/analyze_results.py",
+      "src/deep_analysis.py",
+      "src/deep_analysis_v2.py",
+      "src/llm_server.py",
+      "src/llm_server_small.py",
+      "src/run_experiment.py",
+      "src/run_v2.py",
+      "src/search_space.py",
+      "src/train_arch.py"
+    ]
+  },
+  "files": [
+    {
+      "path": ".DS_Store",
+      "bytes": 8196,
+      "sha256": "0cdfdf9aab12731ab76565925ccbb696743a9e108b96f7781da8505784c2d525",
+      "mtime": "2026-08-15T20:52:05",
+      "class": "OTHER",
+      "git_tracked": false,
+      "purpose": "macOS metadata. Gitignored."
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 823,
+      "sha256": "11cb650c67aa95226a1c2c88e03925fef7bdfac17cf3c84d7c98617eb286914f",
+      "mtime": "2026-08-16T20:34:05",
+      "class": "OTHER",
+      "git_tracked": true,
+      "purpose": "Ignore rules. Excludes results/, *.log, docs/, credentials/, LaTeX artifacts."
+    },
+    {
+      "path": "GATES.md",
+      "bytes": 5772,
+      "sha256": "649ed4d4413b9ceb33c766e174b562a071a0478ed6f1a207e10549a67d0448fd",
+      "mtime": "2026-08-16T20:56:23",
+      "class": "OTHER",
+      "git_tracked": true,
+      "purpose": "(see CONTEXT_PACK.md)"
+    },
+    {
+      "path": "README.md",
+      "bytes": 628,
+      "sha256": "42bb7efb554cf0b61b8597ea4d65a87a4a514b5eea14a0787aa6b2aff74b4773",
+      "mtime": "2026-08-16T20:34:09",
+      "class": "OTHER",
+      "git_tracked": true,
+      "purpose": "Public-facing repo description (rewritten S0: generic, no title/abstract/results)."
+    },
+    {
+      "path": "STATE.md",
+      "bytes": 3706,
+      "sha256": "a497540f505a4e48a8e2fb02fe2d64f89878950a30de5dee837d0f2b4332721a",
+      "mtime": "2026-08-16T20:57:43",
+      "class": "OTHER",
+      "git_tracked": true,
+      "purpose": "(see CONTEXT_PACK.md)"
+    },
+    {
+      "path": "VENUE.md",
+      "bytes": 3694,
+      "sha256": "2bcbe5e465e17d0f47f7f654df1fd18d17270bd11d21adf837d2ea0d8eb3405c",
+      "mtime": "2026-08-16T20:56:47",
+      "class": "OTHER",
+      "git_tracked": true,
+      "purpose": "(see CONTEXT_PACK.md)"
+    },
+    {
+      "path": "archive/resv1.zip",
+      "bytes": 167784,
+      "sha256": "52f26902bbbcd7ed74ca390209057b6a8efd9acf1696408039d98603c6ebc973",
+      "mtime": "2026-05-13T23:19:53",
+      "class": "PAPER-SNAPSHOT",
+      "git_tracked": true,
+      "purpose": "Paper snapshot v1 (tex+bib+figures only, NO experimental data)."
+    },
+    {
+      "path": "archive/resv2.zip",
+      "bytes": 168112,
+      "sha256": "d9c7be8cb9dffbdace7132400b1c50c017344170a4bd2685005fc59d703f0e95",
+      "mtime": "2026-05-14T01:38:14",
+      "class": "PAPER-SNAPSHOT",
+      "git_tracked": true,
+      "purpose": "Paper snapshot v2. main.tex/references.bib byte-identical to live paper."
+    },
+    {
+      "path": "audit/BIB_AUDIT.md",
+      "bytes": 7177,
+      "sha256": "5750c27c809ff068b1ecfc7657dd9d3daf1b27c7bb8fcdb4a9ba518287181d03",
+      "mtime": "2026-08-16T20:55:03",
+      "class": "OTHER",
+      "git_tracked": true,
+      "purpose": "(see CONTEXT_PACK.md)"
+    },
+    {
+      "path": "audit/CLAIM_TRACE.md",
+      "bytes": 17916,
+      "sha256": "5a793abdbc964633d20a61a494aeecf3c65a937833bd0895e818e7ce899f9289",
+      "mtime": "2026-08-16T20:57:58",
+      "class": "OTHER",
+      "git_tracked": true,
+      "purpose": "(see CONTEXT_PACK.md)"
+    },
+    {
+      "path": "audit/CONTEXT_PACK.md",
+      "bytes": 10227,
+      "sha256": "211f5223313446cd4d7d2be79a65c88279b8f62cf5b22b58e433865b9c817c1b",
+      "mtime": "2026-08-16T20:57:47",
+      "class": "OTHER",
+      "git_tracked": true,
+      "purpose": "(see CONTEXT_PACK.md)"
+    },
+    {
+      "path": "audit/FORENSICS.md",
+      "bytes": 16874,
+      "sha256": "5d31835477e261097811393e025cb75e38b0100360d9d00f1d1bd983049f46de",
+      "mtime": "2026-08-16T20:52:42",
+      "class": "OTHER",
+      "git_tracked": true,
+      "purpose": "(see CONTEXT_PACK.md)"
+    },
+    {
+      "path": "audit/OPEN_ACTIONS.md",
+      "bytes": 9132,
+      "sha256": "7467972f4343bd9501d93acd9de231b2f69715ed667ebcaec73d14cfb1576f1f",
+      "mtime": "2026-08-16T20:57:55",
+      "class": "OTHER",
+      "git_tracked": true,
+      "purpose": "(see CONTEXT_PACK.md)"
+    },
+    {
+      "path": "audit/REPO_INVENTORY.json",
+      "bytes": 17625,
+      "sha256": "17c6dc306debd529a88f691d95a287ec4f96e7f248de16cf50a5e65f2e93f5a9",
+      "mtime": "2026-08-16T20:46:42",
+      "class": "OTHER",
+      "git_tracked": true,
+      "purpose": "(see CONTEXT_PACK.md)"
+    },
+    {
+      "path": "audit/references_verified.bib",
+      "bytes": 30095,
+      "sha256": "aab54a02e1bb66087d3a46961683de7170cb0676d366afa9a04360c55de16f33",
+      "mtime": "2026-08-16T20:48:57",
+      "class": "OTHER",
+      "git_tracked": true,
+      "purpose": "(see CONTEXT_PACK.md)"
+    },
+    {
+      "path": "docs/literature-review.md",
+      "bytes": 6473,
+      "sha256": "529d98ec88d3f4fc65d91033024fea8253038c70cda813d9af87a81b79114fb4",
+      "mtime": "2026-05-10T01:34:50",
+      "class": "DOC",
+      "git_tracked": false,
+      "purpose": "Related-work notes. Gitignored S0."
+    },
+    {
+      "path": "docs/methodology.md",
+      "bytes": 8073,
+      "sha256": "e89605503d285651cacd5afa9b4bf63da004b2f1f13e21093c1270c1ec5371b8",
+      "mtime": "2026-08-16T20:33:55",
+      "class": "DOC",
+      "git_tracked": false,
+      "purpose": "Superseded v1 plan (4 conditions, hosted 3rd-party LLM API). Gitignored S0."
+    },
+    {
+      "path": "docs/reasoning.md",
+      "bytes": 9626,
+      "sha256": "1b53202b321e14b98a98db72dd821594f5c24315a571e520e03f9b6341945075",
+      "mtime": "2026-05-10T12:57:21",
+      "class": "DOC",
+      "git_tracked": false,
+      "purpose": "Design rationale log. Gitignored S0."
+    },
+    {
+      "path": "docs/research-state.md",
+      "bytes": 2719,
+      "sha256": "49d04f74d698ef4f5fbe798de1a141b5b3df482a1e1d1832c2fb6230d3436dad",
+      "mtime": "2026-08-16T20:33:58",
+      "class": "DOC",
+      "git_tracked": false,
+      "purpose": "Research question / scope notes. Gitignored S0."
+    },
+    {
+      "path": "logs/main.log",
+      "bytes": 1635,
+      "sha256": "8d9231a96d5cd0f8194268428a09feee33d3455960a2574579f3a9bac77d2db7",
+      "mtime": "2026-05-11T01:38:19",
+      "class": "BUILD-LOG",
+      "git_tracked": false,
+      "purpose": "FAILED MiKTeX build log from a Windows host (C:/Users/nitua). Gitignored by *.log."
+    },
+    {
+      "path": "paper/figures/fig1_violin.pdf",
+      "bytes": 48225,
+      "sha256": "d3f3cb4a362296823e1bc678bb311be7ea0d0059ce063789dbe9fc3b1107a9a0",
+      "mtime": "2026-05-14T01:13:38",
+      "class": "DERIVED",
+      "git_tracked": true,
+      "purpose": "(see CONTEXT_PACK.md)"
+    },
+    {
+      "path": "paper/figures/fig2_convergence.pdf",
+      "bytes": 23153,
+      "sha256": "31dada0cc96a9429aaa2be58b0711375bdbc825e9ad529ce1aafba8c37a32847",
+      "mtime": "2026-05-14T01:13:39",
+      "class": "DERIVED",
+      "git_tracked": true,
+      "purpose": "(see CONTEXT_PACK.md)"
+    },
+    {
+      "path": "paper/figures/fig3_param_accuracy.pdf",
+      "bytes": 25882,
+      "sha256": "6b2da7c470bcd846b571793e429c2a36c38c6c6b66ff4de3a27eb5660aad209a",
+      "mtime": "2026-05-14T01:13:40",
+      "class": "DERIVED",
+      "git_tracked": true,
+      "purpose": "(see CONTEXT_PACK.md)"
+    },
+    {
+      "path": "paper/figures/fig4_design_heatmap.pdf",
+      "bytes": 36844,
+      "sha256": "9ed143dd6275ae438071e1f21b15ba1e38f076493289c17c4fd07e27e50b7549",
+      "mtime": "2026-05-14T01:13:41",
+      "class": "DERIVED",
+      "git_tracked": true,
+      "purpose": "(see CONTEXT_PACK.md)"
+    },
+    {
+      "path": "paper/figures/fig5_training.pdf",
+      "bytes": 26627,
+      "sha256": "9c5e7ff04cb7b873ed542a07d982b15395dfc331e876950d7cd57cdaa4a20c63",
+      "mtime": "2026-05-14T01:13:42",
+      "class": "DERIVED",
+      "git_tracked": true,
+      "purpose": "(see CONTEXT_PACK.md)"
+    },
+    {
+      "path": "paper/figures/fig5_training_dynamics.pdf",
+      "bytes": 28015,
+      "sha256": "21c8b1bf3c311b4b179e594100e43cca94e826dd9be07724b9955b81b9599eb1",
+      "mtime": "2026-05-11T13:01:45",
+      "class": "DERIVED",
+      "git_tracked": true,
+      "purpose": "(see CONTEXT_PACK.md)"
+    },
+    {
+      "path": "paper/figures/fig6_diversity.pdf",
+      "bytes": 19068,
+      "sha256": "a43101a2ff866f693099145f5aa3d26d6e98a761d6e65e8289682c2fd2f69c59",
+      "mtime": "2026-05-14T01:13:44",
+      "class": "DERIVED",
+      "git_tracked": true,
+      "purpose": "(see CONTEXT_PACK.md)"
+    },
+    {
+      "path": "paper/figures/fig7_channels.pdf",
+      "bytes": 19269,
+      "sha256": "70ea5a88a1930aa825a7d20e10475be1e31fa5a14cce82720b1b91ea589ac04f",
+      "mtime": "2026-05-14T01:13:45",
+      "class": "DERIVED",
+      "git_tracked": true,
+      "purpose": "(see CONTEXT_PACK.md)"
+    },
+    {
+      "path": "paper/figures/figure1_accuracy_boxplots.pdf",
+      "bytes": 19878,
+      "sha256": "244032f5db2a486232eee34a77ec312a959093009418b446db4501d65098cf63",
+      "mtime": "2026-05-11T01:46:24",
+      "class": "DERIVED",
+      "git_tracked": true,
+      "purpose": "(see CONTEXT_PACK.md)"
+    },
+    {
+      "path": "paper/figures/figure2_convergence.pdf",
+      "bytes": 20663,
+      "sha256": "357917b84f639ccf88ec2ae08a32d8f75c83e7556320e446627f90ec6851470b",
+      "mtime": "2026-05-11T01:46:34",
+      "class": "DERIVED",
+      "git_tracked": true,
+      "purpose": "(see CONTEXT_PACK.md)"
+    },
+    {
+      "path": "paper/figures/figure3_invalid_rates.pdf",
+      "bytes": 15855,
+      "sha256": "a688114a98258f26e1e4bcb50ccbc83a0b1a7bf00e7877853e83c18c93ea5030",
+      "mtime": "2026-05-11T01:46:41",
+      "class": "DERIVED",
+      "git_tracked": true,
+      "purpose": "(see CONTEXT_PACK.md)"
+    },
+    {
+      "path": "paper/figures/tab_arch.tex",
+      "bytes": 704,
+      "sha256": "11e0e90aeab087607e04c85be72a46da25e8eb5601fa353b94c1e6e9b0667e94",
+      "mtime": "2026-05-14T01:13:53",
+      "class": "SUMMARY",
+      "git_tracked": true,
+      "purpose": "(see CONTEXT_PACK.md)"
+    },
+    {
+      "path": "paper/figures/tab_main.tex",
+      "bytes": 995,
+      "sha256": "8f2e7647503b89f6056d8567fe6fe9192829ca3ac4e92b21715ac26298f0e2e1",
+      "mtime": "2026-05-14T01:13:54",
+      "class": "SUMMARY",
+      "git_tracked": true,
+      "purpose": "(see CONTEXT_PACK.md)"
+    },
+    {
+      "path": "paper/figures/tab_rank.tex",
+      "bytes": 614,
+      "sha256": "4f0375980c52f1728b94107036642a80f16414a9741be55cd54bd400263ed74e",
+      "mtime": "2026-05-14T01:13:56",
+      "class": "SUMMARY",
+      "git_tracked": true,
+      "purpose": "(see CONTEXT_PACK.md)"
+    },
+    {
+      "path": "paper/figures/tab_stats.tex",
+      "bytes": 2226,
+      "sha256": "576870c3ca04c44e035ffc06ea088ca9f8b2814b242cfc5b43ea802bd307c7c2",
+      "mtime": "2026-05-14T01:13:57",
+      "class": "SUMMARY",
+      "git_tracked": true,
+      "purpose": "(see CONTEXT_PACK.md)"
+    },
+    {
+      "path": "paper/figures/tab_transcript.tex",
+      "bytes": 432,
+      "sha256": "4570557aab1b59c616b7d2a219827778ac7aa7fb93bf451c451c6b0a0185a7b9",
+      "mtime": "2026-05-14T01:13:58",
+      "class": "SUMMARY",
+      "git_tracked": true,
+      "purpose": "(see CONTEXT_PACK.md)"
+    },
+    {
+      "path": "paper/icml2025.bst",
+      "bytes": 12952,
+      "sha256": "6ab2db21af2bf17f83943209e98828d42ef3370077f949688e38611de13fc6ee",
+      "mtime": "2026-05-11T01:33:31",
+      "class": "PAPER",
+      "git_tracked": true,
+      "purpose": "ICML bibliography style."
+    },
+    {
+      "path": "paper/icml2025.sty",
+      "bytes": 1801,
+      "sha256": "8e94298b0db9061f00901a07f5ee31edf6e705d8a13d78ff0577c19c94e2679b",
+      "mtime": "2026-05-11T01:36:37",
+      "class": "PAPER",
+      "git_tracked": true,
+      "purpose": "ICML 2025 style file."
+    },
+    {
+      "path": "paper/main.aux",
+      "bytes": 17897,
+      "sha256": "bee434b33beecaf63b45fb48f3c17e97e9bc37bd73825a04596bdaade3e541f4",
+      "mtime": "2026-05-14T01:38:01",
+      "class": "PAPER",
+      "git_tracked": false,
+      "purpose": "LaTeX aux (build artifact; gitignored)."
+    },
+    {
+      "path": "paper/main.bbl",
+      "bytes": 15133,
+      "sha256": "4c3508c63e538c57727edcaf1b5d8ff67373b6b51850b28eb7ddd58cb8f3de4f",
+      "mtime": "2026-05-14T01:37:58",
+      "class": "PAPER",
+      "git_tracked": false,
+      "purpose": "Compiled bibliography (build artifact; gitignored)."
+    },
+    {
+      "path": "paper/main.blg",
+      "bytes": 1300,
+      "sha256": "1191523c7d6891ebc1828a162b1a9748ebefcafd6490f9136045332623fd4685",
+      "mtime": "2026-05-14T01:37:58",
+      "class": "PAPER",
+      "git_tracked": false,
+      "purpose": "BibTeX log (build artifact; gitignored)."
+    },
+    {
+      "path": "paper/main.log",
+      "bytes": 33965,
+      "sha256": "f66a08678c067c6133b2baa61d5897331b070a136aad5f49ed980171f6952e8d",
+      "mtime": "2026-05-14T01:38:01",
+      "class": "PAPER",
+      "git_tracked": false,
+      "purpose": "Successful pdflatex build log (build artifact; gitignored)."
+    },
+    {
+      "path": "paper/main.out",
+      "bytes": 4768,
+      "sha256": "9dec2c8cb44f76a4a5f2575d12a92de71f831f3638cab45f1ca15ab4d3fcc936",
+      "mtime": "2026-05-14T01:38:01",
+      "class": "PAPER",
+      "git_tracked": false,
+      "purpose": "hyperref outlines (build artifact; gitignored)."
+    },
+    {
+      "path": "paper/main.pdf",
+      "bytes": 555094,
+      "sha256": "0f44f6eec5914512504a7d355a4e30c898e1b852e06fe699e065da0880f3ff02",
+      "mtime": "2026-05-14T01:38:01",
+      "class": "PAPER",
+      "git_tracked": true,
+      "purpose": "Compiled manuscript, 10 pages. Newer than main.tex -> current."
+    },
+    {
+      "path": "paper/main.tex",
+      "bytes": 45777,
+      "sha256": "09f49d7bc0aa8b2be6eaa8ce1a19804cc51a60ca4b68c73cfaf2a266afcf2fef",
+      "mtime": "2026-05-14T01:35:40",
+      "class": "PAPER",
+      "git_tracked": true,
+      "purpose": "Manuscript source. article 10pt + icml2025.sty, two-column, 10 pages."
+    },
+    {
+      "path": "paper/references.bib",
+      "bytes": 17408,
+      "sha256": "d1150a507e35b281c1368dacb1f39389ee9b65fc39eb77d05800ff1e4df18dd8",
+      "mtime": "2026-05-14T01:35:40",
+      "class": "PAPER",
+      "git_tracked": true,
+      "purpose": "Bibliography, 47 entries."
+    },
+    {
+      "path": "scripts/run_all.sh",
+      "bytes": 2251,
+      "sha256": "5a26a9d121b448e600a2622cad9d3b4e34276b6f5a7d4ef35c75ab1bf5208d02",
+      "mtime": "2026-05-10T13:04:04",
+      "class": "CODE",
+      "git_tracked": true,
+      "purpose": "v1 orchestrator."
+    },
+    {
+      "path": "scripts/run_all_v2.sh",
+      "bytes": 3441,
+      "sha256": "eb8d97b84e0adc1de4c999d73596c54ef4276fc5dff880b780faf48f98498371",
+      "mtime": "2026-05-12T13:43:06",
+      "class": "CODE",
+      "git_tracked": true,
+      "purpose": "v2 orchestrator: 6 conditions x 2 datasets x seeds {42,137} + ablations."
+    },
+    {
+      "path": "scripts/run_llm_conditions.sh",
+      "bytes": 1653,
+      "sha256": "171444e75f966194735534163b8054ac774411862e2cde91060f5e7a6355f851",
+      "mtime": "2026-05-13T03:23:51",
+      "class": "CODE",
+      "git_tracked": true,
+      "purpose": "Reruns only B/C/D + ablations."
+    },
+    {
+      "path": "src/analyze_results.py",
+      "bytes": 14311,
+      "sha256": "d6c12f5e6a0ab32f20423ed44db240528a3d1ef4504bdac70649c4077de5364b",
+      "mtime": "2026-05-10T13:50:59",
+      "class": "CODE",
+      "git_tracked": true,
+      "purpose": "v1 figures + statistics."
+    },
+    {
+      "path": "src/deep_analysis.py",
+      "bytes": 23982,
+      "sha256": "2bd1c61e1b37c90aeb277c349be6c6c9c85df1eb76ff6cf9bc26cca44e2d83b1",
+      "mtime": "2026-05-11T13:00:37",
+      "class": "CODE",
+      "git_tracked": true,
+      "purpose": "v1 extended statistics."
+    },
+    {
+      "path": "src/deep_analysis_v2.py",
+      "bytes": 26065,
+      "sha256": "a7049344771801e1929807329b90ee27bf05e9ed52d68b9cdfe477003aa5a9b9",
+      "mtime": "2026-05-12T13:42:38",
+      "class": "CODE",
+      "git_tracked": true,
+      "purpose": "v2 statistics + all paper figures/tables. Produces tab_*.tex."
+    },
+    {
+      "path": "src/llm_server.py",
+      "bytes": 3248,
+      "sha256": "638cdf6f055ea9a11728c9c9735fe135beb81889fb452dec894467e957a8396a",
+      "mtime": "2026-05-10T13:30:06",
+      "class": "CODE",
+      "git_tracked": true,
+      "purpose": "OpenAI-compatible local server, Qwen3-8B bf16, thinking disabled."
+    },
+    {
+      "path": "src/llm_server_small.py",
+      "bytes": 2939,
+      "sha256": "e6440f1cc572125b19aae788d573af6c9c91acf72aac75a500954d1a6d323aa5",
+      "mtime": "2026-05-13T03:23:22",
+      "class": "CODE",
+      "git_tracked": true,
+      "purpose": "OpenAI-compatible local server, Qwen3-1.7B 4-bit NF4, thinking disabled."
+    },
+    {
+      "path": "src/run_experiment.py",
+      "bytes": 24529,
+      "sha256": "c862111cdb327339b52d2c71ac79b57865de7fe2d427e8014682f97016b23570",
+      "mtime": "2026-05-10T13:32:36",
+      "class": "CODE",
+      "git_tracked": true,
+      "purpose": "v1 experiment runner (conditions A/B/C/D). Superseded by run_v2.py."
+    },
+    {
+      "path": "src/run_v2.py",
+      "bytes": 23970,
+      "sha256": "ec90c41ec4c7a4aab4d62e177a87d5cf5eff38ff117ebf693cfadf231f50e17f",
+      "mtime": "2026-05-11T15:24:17",
+      "class": "CODE",
+      "git_tracked": true,
+      "purpose": "v2 runner: conditions A/A2/B/C/D/E, temp ablation, top-5 retrain, rank correlation."
+    },
+    {
+      "path": "src/search_space.py",
+      "bytes": 10587,
+      "sha256": "c656cedf8ff8f543805c6351e6989555036a43519cb4ec81475b0f11499c4914",
+      "mtime": "2026-05-10T13:01:51",
+      "class": "CODE",
+      "git_tracked": true,
+      "purpose": "Defines the CNN search space, random sampling, model builder, validity check."
+    },
+    {
+      "path": "src/train_arch.py",
+      "bytes": 5769,
+      "sha256": "8bd89e78678cc2b1a99b0719f781f2236912aa425934f189d1d94340063452c1",
+      "mtime": "2026-05-10T13:39:04",
+      "class": "CODE",
+      "git_tracked": true,
+      "purpose": "Trains ONE architecture on CIFAR-10/100; returns curves + final test accuracy."
+    }
+  ]
+}
