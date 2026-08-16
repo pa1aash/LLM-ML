@@ -4,16 +4,33 @@ title: '[2009.00437v6] NATS-Bench: Benchmarking NAS Algorithms for Architecture 
 id: 200900437v6-nats-bench-benchmarking-nas-algorithms-for-architecture-topology-and
 tags:
 - llm-nas-feedback-positioning-7125b1
+- nas-benchmarks
 created: '2026-08-16T15:45:24.260246Z'
+updated: '2026-08-16T15:51:43.713690Z'
 source: https://arxiv.org/abs/2009.00437v6
 source_domain: arxiv.org
 fetched_at: '2026-08-16T15:45:24.259839Z'
 fetch_provider: builtin
-status: draft
+status: review
 type: note
 tier: institutional
 content_type: paper
 deprecated: false
+summary: 'Dong, Liu, Musial, Gabrys, ''NATS-Bench: Benchmarking NAS Algorithms for
+  Architecture Topology and Size'' (arXiv:2009.00437, IEEE TPAMI 2021; extends NAS-Bench-201,
+  ICLR 2020). Unified benchmark for both architecture topology and architecture size
+  search, covering 15,625 candidate cell topologies and 32,768 candidate sizes across
+  three datasets (CIFAR-10, CIFAR-100, ImageNet-16-120), with all logs and diagnostic
+  information trained under identical setups for every candidate. Benchmarks 13 recent
+  state-of-the-art NAS algorithms for direct, computationally-cheap comparison. This
+  is one of the tabular benchmarks explicitly named in the query (alongside NAS-Bench-101/201,
+  NAS-Bench-Suite-Zero) as the correct evaluation substrate for controlled NAS claims
+  — its existence (and that of the earlier NAS-Bench-201) means a paper claiming an
+  LLM ''beats random search in a CNN search space'' can be checked against a queryable
+  ground-truth table rather than needing full retraining, which raises reviewer expectations
+  for exact accuracy/ranking reporting and multi-seed statistical comparison rather
+  than single-run anecdote. Abstract-page only; full architectural/statistical details
+  not extracted (would require the PDF).'
 ---
 
 [2009.00437v6] NATS-Bench: Benchmarking NAS Algorithms for Architecture Topology and Size

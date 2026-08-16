@@ -3,7 +3,10 @@ title: GitHub - PasaLab/RZ-NAS · GitHub
 id: github-pasalabrz-nas-github
 tags:
 - llm-nas-feedback-positioning-7125b1
+- rz-nas
+- llm-guided-nas
 created: '2026-08-16T15:49:09.809983Z'
+updated: '2026-08-16T15:51:14.811410Z'
 source: https://github.com/PasaLab/RZ-NAS
 source_domain: github.com
 fetched_at: '2026-08-16T15:49:09.808895Z'
@@ -13,6 +16,18 @@ type: note
 tier: ground_truth
 content_type: code
 deprecated: false
+summary: Official RZ-NAS code repository (PasaLab, 5 stars). Confirms implementation
+  is evolutionary search (evolution_search.py) over micro and macro CNN search spaces,
+  using zero-cost proxies (ZeroShotProxy/ folder, configurable via --zero_shot_score
+  flag) plus structured LLM prompts (prompt/ and descriptions/ folders, with a template.txt
+  showing full prompt structure). Search spaces include PlainNet-style and SuperRes-block
+  architectures (SuperResIDWEXKX.py, SuperResK1KXK1.py, SuperResKXKX.py), i.e. CNN-style
+  search spaces analogous in spirit to the target paper's CNN search space. This is
+  a small, low-visibility repo (5 stars, 0 forks, 19 commits) -- useful for confirming
+  the method is real and reproducible in principle, but does not itself provide ablation
+  numbers isolating the reflection module's contribution; would need the paper PDF
+  (extraction failed in this pipeline) for the actual iteration-by-iteration or with/without-reflection
+  results tables.
 ---
 
 *Suggested by [[rz-nas-enhancing-llm-guided-neural-architecture-search-via-reflective-zero-cost]] — official code repo, README may describe method and results tables*

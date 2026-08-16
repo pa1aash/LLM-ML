@@ -3,7 +3,10 @@ title: ICLR Workshop 2026 - Submit
 id: iclr-workshop-2026-submit
 tags:
 - llm-nas-feedback-positioning-7125b1
+- venue-cfp
+- negative-results
 created: '2026-08-16T15:48:56.914711Z'
+updated: '2026-08-16T15:51:19.085085Z'
 source: https://sites.google.com/view/icbinb-2026/submit
 source_domain: sites.google.com
 fetched_at: '2026-08-16T15:48:56.913147Z'
@@ -13,6 +16,28 @@ type: note
 tier: unknown
 content_type: unknown
 deprecated: false
+summary: 'Full CFP for ICBINB @ ICLR 2026 (Rio de Janeiro). Required paper structure:
+  Problem (domain, assumptions, target metrics), Proposed solution (prior-literature
+  mechanism + preconditions + hypothesized-to-work conditions), Observed outcome (what
+  failed to improve, by how much, instability/regressions, quantitative evidence incl.
+  error bars/compute/seeds), Reason for failure (diagnostics/ablations pinpointing
+  e.g. dataset leakage, reward hacking, shortcut cues, distribution shift, optimization/scaling
+  constraints, fragile agent orchestration, or evaluation mismatches) plus boundary
+  conditions and takeaways — this is close to a template match for a ''feedback degrades
+  LLM-NAS'' null result. Review criteria: clarity, methodological rigor/transparency,
+  novelty/significance of insight, quality of limitations discussion, reproducibility.
+  Awards: ''Entropic Award'' (most surprising negative result) and ''Didactic Award''
+  (best-explained/pedagogical). Format: max 4 pages excluding references (unlimited
+  but non-mandatory appendices), ICLR style files, double-blind review hosted on OpenReview,
+  mandatory LLM-use disclosure paragraph, first-time authors welcomed, in-person only.
+  A 2-page ''tiny paper'' track also accepted (subset of the four required elements).
+  Archival status: explicitly ''still being clarified,'' but a non-archival track
+  will always be offered for authors wanting to preserve later full-venue submission
+  rights. Key dates: submission deadline Jan 31 2026 (AOE), notification Mar 1 2026,
+  camera-ready Mar 8 2026, workshop Apr 26-27 2026 — i.e. the full cycle has already
+  elapsed as of the current date, and note per-ICLR-2026 policy each workshop must
+  now also accept short 3-5pp ''tiny paper'' submissions replacing the discontinued
+  standalone ICLR Tiny Papers track.'
 ---
 
 *Suggested by [[iclr-workshop-2026]] — submission page linked from ICBINB 2026 workshop home*

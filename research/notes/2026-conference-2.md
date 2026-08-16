@@ -3,7 +3,10 @@ title: 2026 Conference
 id: 2026-conference-2
 tags:
 - llm-nas-feedback-positioning-7125b1
+- neurips-2026
+- venue-mapping
 created: '2026-08-16T15:45:47.905512Z'
+updated: '2026-08-16T15:51:44.889189Z'
 source: https://neurips.cc/Conferences/2026
 source_domain: neurips.cc
 fetched_at: '2026-08-16T15:45:47.904989Z'
@@ -13,6 +16,26 @@ type: note
 tier: unknown
 content_type: unknown
 deprecated: false
+summary: 'NeurIPS 2026 main conference landing page (neurips.cc/Conferences/2026),
+  fetched 2026-08-16. Main venue: Sydney, Australia, Dec 6-12 2026, with satellite
+  venues in Atlanta, Georgia (Dec 9-13) and Paris, France (Dec 9-13). Confirms ''Announcing
+  the NeurIPS 2026 Workshops'' blog post exists (dated Aug 10, 2026) but this landing
+  page does NOT itself list individual workshop names, scopes, or CFP URLs -- per
+  the environment note''s instruction, this is stated plainly rather than fabricated;
+  the workshop list must be fetched from a dedicated workshops sub-page or the linked
+  blog post, which is NOT among this batch''s assigned URLs. Important Dates section
+  on this page only shows ''Paper Author Notifications'' (Sep 24 ''26 AoE) and ''Workshop
+  Mandatory Accept/Reject Notification Date'' (Sep 29 ''26 AoE) -- both notification
+  dates for workshop organizers, implying workshop CFPs/acceptances were already decided
+  before this fetch date, but the full workshop program page is a separate URL not
+  covered here. Organizing committee roster confirms Senior Workshop Chair Piotr Koniusz
+  (UNSW) and Workshop Chairs Theodore Papamarkou, Khoa D Doan, Shao-Hua Sun, Elisa
+  Ricci, Ghada Zamzmi. Also notes a July 23, 2026 ''AI Reviewing Experiment'' review-release
+  technical-issue announcement, and an ''Author Eligibility'' clarification about
+  a mis-linked US sanctions-compliance tool that caused community alarm (now corrected).
+  For question FIVE (workshop venue mapping), the parent agent needs to fetch neurips.cc/Conferences/2026/CallForWorkshops
+  or the individual workshop program URL (not this page) to get scope statements,
+  CFP links, and format requirements per workshop.'
 ---
 
 2026 Conference

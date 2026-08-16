@@ -210,3 +210,61 @@ which reframes the subject paper's diversity collapse as expected rather than
 surprising.
 
 Vault: 58 notes. Batches 1, 2, 3, 4, 6, 7, 8 still outstanding.
+
+### Step 2 — batch 3 returned (8 notes: 6 assigned + 2 chased, 1 dedup)
+
+**Two findings that materially move the positioning.**
+
+**1. Priority threat, Q1 — LLMatic already said it.** LLMatic (Nasir et al.,
+GECCO 2024) states *verbatim* in its abstract: **"LLMs struggle to conduct NAS
+directly through prompts."** That is a published, peer-reviewed acknowledgment
+that naive prompted LLM-NAS is weak — and it is the stated motivation for
+wrapping the LLM in a quality-diversity procedure. This does not scoop the
+*feedback-degrades* claim, but it substantially weakens any framing built on
+"contrary to prevailing assumptions." The prevailing assumption in the LLM-NAS
+literature is **not** that prompting alone works; the field already routes around
+it with external scaffolds. The subject paper's Related Work needs to engage this
+sentence directly or a reviewer will.
+
+**2. Rival explanation, Q2 — dated 2018, eight years before the experiment.**
+Diverse Beam Search (Vijayakumar et al., 2018) states that standard beam search
+*"result[s] in sequences that differ only slightly from each other."* Near-
+identical generation is a **documented decoding-procedure artifact**, established
+long before RLHF, quantisation, or LLM-NAS existed. Combined with the MBR-decoding
+quality-diversity trade-off (Jinnai et al. 2024), the subject paper's twenty
+identical designs now have a rival explanation that is older and more parsimonious
+than "the LLM encodes a strong narrow prior" — and the paper ran at a single
+temperature with `top_p=0.9` and no decoding ablation. Its own temperature
+ablation exists in `run_v2.py` but **produced no surviving artifact**, so it
+cannot rebut this.
+
+Stacked with `sanitize_config`, the paper now faces **three** unexcluded rival
+explanations for its headline observation: decoding procedure, sanitiser
+coercion, and quantisation/alignment diversity loss.
+
+**3. Mechanism anchor sharpened, Q2.** Tyen et al. (ACL Findings 2024): the
+failure is an inability to **find** errors, not to fix them — correction is
+robust once error location is supplied externally. This is the precise mechanism
+that explains why scalar validation accuracy fails as feedback: it signals *that*
+something is wrong, never *where*. This is the strongest available support for the
+"feedback helps iff it carries credit assignment" thesis.
+
+**4. Q3 methodology, new load-bearing citation.** Agarwal et al. (NeurIPS 2021
+Outstanding Paper), "Deep RL at the Edge of the Statistical Precipice": argues
+against point-estimate (mean/median) comparison on small-N runs and for interval
+estimates and IQM. This is a second, independent authority — beyond Li &
+Talwalkar's 6-seed standard — against exactly what the subject paper does
+(mean-of-population, n=20, 1 seed).
+
+**5. Venue, Q5 — AutoML 2026 is CLOSED.** Its main-track deadline was
+**May 14, 2026** and has passed. Conference is Sep 28–Oct 1, Ljubljana; 9-page
+limit, double-blind Methods track, **mandatory reproducibility review with public
+anonymised code**, PMLR archival. Even had it been open, the reproducibility
+requirement is disqualifying while OA-1 is unresolved — there is no code-plus-data
+artifact to submit. Removes a plausible-looking candidate on hard evidence.
+
+**Coverage gap flagged by the fetcher for step 2.5:** no quantisation-specific
+diversity-loss source has landed under that exact framing. Confirmed against my
+own pre-fetch gap list. **Wave 2 target.**
+
+Vault: 58+ notes. Batches 1, 2, 4, 6, 7, 8 outstanding.
