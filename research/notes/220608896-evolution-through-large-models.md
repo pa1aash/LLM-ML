@@ -3,7 +3,13 @@ title: '[2206.08896] Evolution through Large Models'
 id: 220608896-evolution-through-large-models
 tags:
 - llm-nas-feedback-positioning-7125b1
+- foundational
+- evolutionary-search
+- mode-collapse
+- quality-diversity
+- prior-art
 created: '2026-08-16T15:44:24.467484Z'
+updated: '2026-08-16T15:47:45.822884Z'
 source: https://arxiv.org/abs/2206.08896
 source_domain: arxiv.org
 fetched_at: '2026-08-16T15:44:24.467110Z'
@@ -13,6 +19,21 @@ type: note
 tier: institutional
 content_type: paper
 deprecated: false
+summary: 'Lehman, Gordon, Jain, Ndousse, Yeh, Stanley (OpenAI; Jun 2022) introduce
+  Evolution through Large Models (ELM), using code-generating LLMs as mutation operators
+  inside genetic programming. The flagship experiment combines ELM with MAP-Elites
+  — a quality-diversity algorithm explicitly designed to maintain a diverse archive
+  of solutions rather than converge to one point — to generate hundreds of thousands
+  of functional Python programs producing working ambulating robots in the Sodarace
+  domain never seen in pretraining, then bootstraps a new conditional model from those
+  outputs. This is a foundational precedent for the target paper''s Q1 priority landscape:
+  it is among the earliest works (2022, predating EvoPrompting, GENIUS, LLMatic, GPT-NAS)
+  combining LLM-driven generation with population/search-space exploration, and its
+  design choice to pair LLM generation with MAP-Elites specifically because naive
+  LLM sampling collapses onto narrow regions of solution space is direct, early support
+  for the mode-collapse/diversity mechanism the target paper''s Q2 must engage — diversity-preservation
+  machinery (MAP-Elites), not just prompting, was already understood as necessary
+  infrastructure for LLM+search systems by 2022.'
 ---
 
 [2206.08896] Evolution through Large Models

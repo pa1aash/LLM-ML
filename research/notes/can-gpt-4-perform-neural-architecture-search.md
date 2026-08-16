@@ -3,16 +3,65 @@ title: Can GPT-4 Perform Neural Architecture Search?
 id: can-gpt-4-perform-neural-architecture-search
 tags:
 - llm-nas-feedback-positioning-7125b1
+- genius-gpt4-nas
+- feedback-degradation-priority
+- priority-source
 created: '2026-08-16T15:46:30.237432Z'
+updated: '2026-08-16T15:47:45.062349Z'
 source: https://arxiv.org/html/2304.10970
 source_domain: arxiv.org
 fetched_at: '2026-08-16T15:46:30.236098Z'
 fetch_provider: builtin
-status: draft
+status: review
 type: note
 tier: institutional
 content_type: paper
 deprecated: false
+summary: 'GENIUS (Zheng et al., arXiv:2304.10970, submitted 21 Apr 2023, v4 2 Aug
+  2023) is the primary prior-art candidate for the paper''s degradation claim. GENIUS
+  uses GPT-4 (full-size, closed API, not quantised/small) as a black-box iterative
+  optimiser: at T=0 it proposes an initial architecture from a text-encoded problem
+  statement; at T>0 the prompt is ''By using this model, we achieved an accuracy of
+  {Accuracy}%. Please recommend a new model that outperforms prior architectures based
+  on the abovementioned experiments...'' — i.e. single-context sequential feedback
+  identical in structure to the target paper''s iterative loop. Evaluated on NAS-Bench-Macro
+  (6561 archs), Channel-Bench-Macro (16384 archs), NAS-Bench-201 (15625 archs, CIFAR-10/100,
+  ImageNet16-120), and full ImageNet with MobileNetV2 search space (~7^30 archs).
+  Random-sampling baseline: 10 samples per trial, repeated 10,000 times, averaged
+  best-of-10 (this is expected-best-of-k done correctly, relevant to Q3 methodology).
+  GENIUS beats prior NAS-Bench-201 SOTA methods on some metrics but trails DRNAS/beta-DARTS/Lambda-DARTS;
+  achieves Top-1 77.8% (329M FLOPs) and 78.2% (401M FLOPs) on ImageNet, edging out
+  CREAM-S and MCT-NAS-A by ~0.2%.\n\nCRITICAL PARTIAL SCOOP: Section 6 ''Limited control
+  and inscrutability'' states verbatim: ''On the NAS-Bench-201 benchmark... we find
+  that later iterations under-perform earlier iterations in some cases, and it is
+  unclear why this should be the case given that: (i) our prompt requests improved
+  performance, (ii) our experimental evidence suggests that GPT-4 is capable of providing
+  improved performance. We believe future work on this problem is particularly valuable.''
+  This is an explicit, published (2023) acknowledgment that GPT-4-guided iterative
+  feedback does NOT monotonically improve NAS proposals and sometimes degrades performance
+  — but it is a single-sentence anomaly flagged as unexplained future work, not a
+  systematic ablation isolating feedback as the causal mechanism, not compared against
+  a no-feedback/zero-shot-only control, and not linked to model scale, quantisation,
+  or diversity collapse. Appendix Tables 11-13 give raw per-trial per-iteration numbers
+  on NAS-Bench-201 showing genuinely non-monotonic and sometimes sharply declining
+  trajectories (e.g. CIFAR10 Trial 3: 91.28 at T=0 collapsing to 86.33 by T=9; CIFAR100
+  Trial 4: 70.62 at T=0 dropping to 65.53 at T=1 before partial recovery) alongside
+  other trials that do improve — i.e. GENIUS''s own data is genuinely mixed, not uniformly
+  degrading, which bounds rather than fully anticipates the target paper''s stronger
+  monotonic-degradation claim.\n\nOther load-bearing details: GENIUS cites EvoPrompting
+  (Chen, Dohan, So, arXiv:2302.14838, ref [8]) as prior work using ''evolutionary
+  prompt engineering with soft prompt tuning... for evolutionary NAS'' — establishing
+  EvoPrompting predates GENIUS. GENIUS reports ''some randomness in its responses,
+  even when the temperature is set to 0'' (relevant to Q2 diversity/decoding-temperature
+  discussion) — note this is the OPPOSITE finding from a mode-collapse/single-template
+  argument: GENIUS''s GPT-4 backbone shows too MUCH stochasticity at temp=0, not template
+  collapse, which is a live rival explanation the target paper must distinguish (small
+  quantised model collapsing to one template vs. GPT-4 being noisy across iterations).
+  No FLOPs-constraint ablation isolates feedback vs. no-feedback; the only ablations
+  reported (Tables 3-4) vary training epochs and input resolution during search, not
+  presence/absence of feedback. Also discusses benchmark contamination risk and AI-safety
+  implications (enfeeblement risk) but reports no case of an explicit no-feedback
+  vs. feedback controlled comparison.'
 ---
 
 *Suggested by [[230410970-can-gpt-4-perform-neural-architecture-search]] — full-text HTML version of GENIUS abstract page fetched in batch*

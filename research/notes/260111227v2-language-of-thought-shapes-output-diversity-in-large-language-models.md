@@ -4,7 +4,12 @@ title: '[2601.11227v2] Language of Thought Shapes Output Diversity in Large Lang
 id: 260111227v2-language-of-thought-shapes-output-diversity-in-large-language-models
 tags:
 - llm-nas-feedback-positioning-7125b1
+- output-diversity
+- mode-collapse
+- rival-explanation
+- decoding-strategy
 created: '2026-08-16T15:44:17.652883Z'
+updated: '2026-08-16T15:47:25.791038Z'
 source: https://arxiv.org/abs/2601.11227v2
 source_domain: arxiv.org
 fetched_at: '2026-08-16T15:44:17.652439Z'
@@ -14,6 +19,19 @@ type: note
 tier: institutional
 content_type: paper
 deprecated: false
+summary: 'Xu & Zhang (submitted Jan 2026, revised Apr 2026, ACL 2026) show that the
+  ''language of thought'' used during an LLM''s internal reasoning is a structural,
+  controllable lever on output diversity independent of the final output language:
+  switching the thinking language from English to non-English languages consistently
+  increases output diversity, with languages farther from English in ''thinking space''
+  yielding larger diversity gains, and aggregating samples across multiple thinking
+  languages compounds the effect (raising the model''s diversity ceiling). Relevant
+  as rival-explanation literature for Q2/mode-collapse: it demonstrates that generation-time/prompting-side
+  factors (here, latent ''thinking language'') independently modulate output diversity
+  in ways separable from model scale or quantization, reinforcing that diversity collapse
+  (e.g., a small quantized model producing near-identical architecture proposals)
+  cannot be attributed to a single cause without ruling out such confounds — decoding/thinking-space
+  choices, not just RLHF or quantization, can suppress or restore diversity.'
 ---
 
 [2601.11227v2] Language of Thought Shapes Output Diversity in Large Language Models

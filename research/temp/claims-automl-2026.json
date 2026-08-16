@@ -1,0 +1,30 @@
+[
+  {
+    "claim": "AutoML Conference 2026 runs September 28-October 1, 2026 at the University of Ljubljana, Slovenia, and maintains distinct submission tracks: a main paper track (with an 'ABCD Track' detail page), a Hot-off-the-Press track, a Late-Breaking Abstracts track, and a Tutorials/Workshops track.",
+    "stance": "neutral",
+    "stance_target": "venue landscape mapping for a controlled negative/null LLM-NAS result",
+    "evidence_type": "empirical",
+    "scope_conditions": "AutoML Conference 2026, single event, not NeurIPS 2026",
+    "quoted_support": "AutoML 26 International Conference on Automated Machine Learning September 28 - October 1, 2026 Faculty of Computer and Information Science at the University of Ljubljana",
+    "numbers": ["September 28 - October 1, 2026"],
+    "entities": ["AutoML Conference 2026", "University of Ljubljana", "Tome Eftimov", "Atlas Wang", "Elena Raponi", "Lars Kotthoff"],
+    "time_period": "2026",
+    "region": "Ljubljana, Slovenia",
+    "confidence": "high",
+    "source_note_id": "automl-2026"
+  },
+  {
+    "claim": "AutoML Conference 2026's accepted program already includes a tutorial explicitly framing LLMs as search operators for AutoML ('From AutoML to AgenticML: LLMs as the New SearchOperator'), indicating the venue actively curates LLM-guided search content.",
+    "stance": "supports",
+    "stance_target": "AutoML Conference as a topically relevant venue for an LLM-guided NAS feedback paper",
+    "evidence_type": "empirical",
+    "scope_conditions": "AutoML 2026 tutorial program",
+    "quoted_support": "Tutorials From AutoML to AgenticML: LLMs as the New SearchOperator Hardware-Aware AutoML for Edge AI ABOSI for EO Workshop",
+    "numbers": [],
+    "entities": ["AutoML Conference 2026", "AgenticML tutorial"],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "medium",
+    "source_note_id": "automl-2026"
+  }
+]

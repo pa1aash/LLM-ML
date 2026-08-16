@@ -4,7 +4,11 @@ title: On the Self-Verification Limitations of Large Language Models on Reasonin
 id: on-the-self-verification-limitations-of-large-language-models-on-reasoning-and-p
 tags:
 - llm-nas-feedback-positioning-7125b1
+- self-correction
+- nas-priority-anchor
+- mechanism-literature
 created: '2026-08-16T15:45:18.320678Z'
+updated: '2026-08-16T15:48:34.007827Z'
 source: https://arxiv.org/html/2402.08115
 source_domain: arxiv.org
 fetched_at: '2026-08-16T15:45:18.319823Z'
@@ -14,6 +18,32 @@ type: note
 tier: institutional
 content_type: paper
 deprecated: false
+summary: 'Stechly, Valmeekam & Kambhampati (2024, arXiv:2402.08115; preliminary results
+  at a NeurIPS 2023 workshop). Systematic empirical study of GPT-4 self-critique across
+  three formally verifiable domains -- Game of 24, Graph Coloring, and STRIPS/Blocksworld
+  planning -- with up to 15 rounds of iterative prompting. Central finding, directly
+  load-bearing for the novelty question: ''We observe significant performance collapse
+  with self-critique and significant performance gains with sound external verification.''
+  The paper decomposes self-critique into three roles (verification, critique generation,
+  critique consideration) and finds GPT-4 fails at all three on hard reasoning domains
+  -- compounding errors in verification (false positives/negatives) and critique generation
+  (misleading feedback) make the LLM+LLM self-critique loop perform WORSE than taking
+  the model''s first guess with no iteration at all. Best-performing setup: no critique
+  whatsoever, just repeated sampling plus a sound external verifier to pick a correct
+  guess (''best performance can be achieved without any critique whatsoever: just
+  let the LLM make many guesses, and have a sound verifier pick any that is actually
+  correct''). Explicitly positions itself as contradicting the optimistic self-critique
+  literature (Reflexion/shinn2023, Self-Refine/madaan2023, chen2023teaching) and credits
+  gou2023critic (CRITIC framework) as ''the first to notice that, in some cases, LLM
+  self-critique can lead to decreases in performance when compared to sound verification''
+  -- establishing a documented priority chain for the ''self-refinement can hurt''
+  finding well before 2024. Cites FunSearch (Romera-Paredes et al., Nature 2023) and
+  the LLM-Modulo framework (Kambhampati et al. 2024) as architectures already exploiting
+  external verification successfully. This paper is a near-exact mechanism-level precedent
+  for ''iterative feedback degrades LLM output quality without external verification''
+  -- but in reasoning/planning domains with a large frontier model (GPT-4), not NAS
+  and not a small quantised model, so it bears directly on the novelty and mechanism
+  questions rather than being the same claim in the same domain.'
 ---
 
 *Suggested by [[240208115-on-the-self-verification-limitations-of-large-language-models-on-reaso]] — full-text HTML version of abstract page; needed for self-critique vs external verification experimental detail*

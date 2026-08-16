@@ -4,7 +4,12 @@ title: '[2509.26037v2] CoLLM-NAS: Collaborative Large Language Models for Effici
 id: 250926037v2-collm-nas-collaborative-large-language-models-for-efficient-knowledg
 tags:
 - llm-nas-feedback-positioning-7125b1
+- llm-nas
+- iterative-feedback
+- counter-evidence
+- nas-bench-201
 created: '2026-08-16T15:44:16.522490Z'
+updated: '2026-08-16T15:47:20.235328Z'
 source: https://arxiv.org/abs/2509.26037v2
 source_domain: arxiv.org
 fetched_at: '2026-08-16T15:44:16.522088Z'
@@ -14,6 +19,21 @@ type: note
 tier: institutional
 content_type: paper
 deprecated: false
+summary: 'CoLLM-NAS (Li, Lin, Wang; submitted Sep 2025, revised May 2026, accepted
+  as Oral at CVPR 2026 Workshop on NAS) proposes a two-stage LLM-guided NAS framework
+  with a stateful Navigator LLM (guides search direction) and stateless Generator
+  LLM (synthesizes candidates), explicitly combining LLM prior knowledge with ''progressive
+  knowledge from iterative feedback and historical trajectory.'' On ImageNet and NAS-Bench-201
+  it reports beating existing NAS methods and conventional search algorithms while
+  cutting search cost 4-10x, and reports consistent gains when layered onto OFA, SPOS,
+  and AutoFormer two-stage NAS methods across MobileNet/ShuffleNet/AutoFormer search
+  spaces. This is directly relevant counter-evidence to the target paper''s Q4 claim:
+  it is a 2025-2026 LLM-NAS system where iterative feedback is explicitly credited
+  with improving search, contradicting a blanket ''feedback degrades LLM-NAS proposals''
+  thesis — though it uses a stateful multi-turn architecture (not a single-context
+  sequential generation) and does not report per-iteration ablations isolating feedback''s
+  marginal effect, so it bounds rather than fully defeats a narrower single-model,
+  single-context claim.'
 ---
 
 [2509.26037v2] CoLLM-NAS: Collaborative Large Language Models for Efficient Knowledge-Guided Neural Architecture Search

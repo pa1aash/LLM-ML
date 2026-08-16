@@ -1,0 +1,44 @@
+[
+  {
+    "claim": "Standard CIFAR-10 and ImageNet neural network trainings show substantial variance in performance on their finite sampled test sets across repeated runs, but little variance on the underlying test distribution those sets are sampled from -- meaning much of the apparent between-run performance difference is sampling noise, not a real capability difference.",
+    "stance": "supports",
+    "stance_target": "the requirement, per question THREE, that NAS papers use enough seeds/samples to distinguish a real architecture-quality difference from test-set sampling noise",
+    "evidence_type": "empirical",
+    "scope_conditions": "CIFAR-10 and ImageNet image classification, standard training pipelines",
+    "quoted_support": "\"Despite having significant variance on their test-sets, we demonstrate that standard CIFAR-10 and ImageNet trainings have little variance in performance on the underlying test-distributions from which their test-sets are sampled.\"",
+    "numbers": [],
+    "entities": ["Keller Jordan", "CIFAR-10", "ImageNet"],
+    "time_period": "2023-2024",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "230401910-on-the-variance-of-neural-network-training-with-respect-to-test-sets-a"
+  },
+  {
+    "claim": "Repeated neural network training runs with identical hyperparameters make approximately statistically independent errors on the test set relative to each example's average error rate across runs -- i.e., one run erring on an example does not predict another run erring on the same example beyond the baseline rate.",
+    "stance": "neutral",
+    "stance_target": "statistical independence assumptions needed when comparing sequentially-generated architecture proposals or repeated training runs (question THREE)",
+    "evidence_type": "empirical",
+    "scope_conditions": "CIFAR-10/ImageNet classification, same-hyperparameter repeated training runs",
+    "quoted_support": "\"We show that these trainings make approximately independent errors on their test-sets. That is, the event that a trained network makes an error on one particular example does not affect its chances of making errors on other examples, relative to their average rates over repeated runs of training with the same hyperparameters.\"",
+    "numbers": [],
+    "entities": ["Keller Jordan"],
+    "time_period": "2023-2024",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "230401910-on-the-variance-of-neural-network-training-with-respect-to-test-sets-a"
+  },
+  {
+    "claim": "Test-set performance variance between repeated training runs is proven to be a downstream mathematical consequence of the class-calibration property identified by Jiang et al. (2021), yielding a closed-form formula that accurately predicts variance in the binary classification case.",
+    "stance": "neutral",
+    "stance_target": "theoretical grounding for expected variance magnitude in architecture-comparison experiments",
+    "evidence_type": "theoretical",
+    "scope_conditions": "binary classification case; general classification variance treated empirically",
+    "quoted_support": "\"We prove that the variance of neural network trainings on their test-sets is a downstream consequence of the class-calibration property discovered by Jiang et al. (2021). Our analysis yields a simple formula which accurately predicts variance for the binary classification case.\"",
+    "numbers": [],
+    "entities": ["Keller Jordan", "Jiang et al. 2021", "class-calibration"],
+    "time_period": "2023-2024",
+    "region": null,
+    "confidence": "medium",
+    "source_note_id": "230401910-on-the-variance-of-neural-network-training-with-respect-to-test-sets-a"
+  }
+]

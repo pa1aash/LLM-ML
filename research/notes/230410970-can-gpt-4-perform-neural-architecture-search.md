@@ -4,15 +4,19 @@ id: 230410970-can-gpt-4-perform-neural-architecture-search
 tags:
 - llm-nas-feedback-positioning-7125b1
 created: '2026-08-16T15:45:30.939379Z'
+updated: '2026-08-16T15:47:50.210574Z'
 source: https://arxiv.org/abs/2304.10970
 source_domain: arxiv.org
 fetched_at: '2026-08-16T15:45:30.938637Z'
 fetch_provider: builtin
-status: draft
+status: deprecated
 type: note
 tier: institutional
 content_type: paper
 deprecated: false
+summary: Duplicate of the arXiv abstract page only (no full text); superseded by full-text
+  HTML fetch at note 'can-gpt-4-perform-neural-architecture-search'. Kept as deprecated
+  for provenance.
 ---
 
 [2304.10970] Can GPT-4 Perform Neural Architecture Search?

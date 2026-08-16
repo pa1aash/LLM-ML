@@ -3,7 +3,11 @@ title: Understanding the Effects of RLHF on LLM Generalisation and Diversity
 id: understanding-the-effects-of-rlhf-on-llm-generalisation-and-diversity
 tags:
 - llm-nas-feedback-positioning-7125b1
+- mode-collapse
+- rlhf-diversity
+- mechanism-literature
 created: '2026-08-16T15:45:16.227504Z'
+updated: '2026-08-16T15:47:11.664183Z'
 source: https://arxiv.org/html/2310.06452v3
 source_domain: arxiv.org
 fetched_at: '2026-08-16T15:45:16.226165Z'
@@ -13,6 +17,30 @@ type: note
 tier: institutional
 content_type: paper
 deprecated: false
+summary: 'Kirk, Mediratta, Nalmpantis, Luketina, Hambro, Grefenstette & Raileanu (2023/2024,
+  arXiv:2310.06452). Extensive empirical comparison of SFT, Best-of-N (BoN) and RLHF
+  (PPO) fine-tuning stages, using LLaMA-7B as the main base model plus OPT models
+  across five sizes (Appendix J) for scale trends, on summarisation (TL;DR->CNN/DailyMail
+  OOD) and instruction-following (AlpacaFarm) tasks. Central finding for the mechanism-literature
+  question: RLHF substantially reduces per-input output diversity relative to SFT
+  across multiple syntactic/semantic/logical diversity metrics (self-BLEU-style, EAD
+  n-gram diversity, NLI-based logical diversity), and also reduces across-input diversity
+  to a smaller but still measurable degree -- the authors state this across-input
+  result is ''the first rigorous empirical demonstration of across-input mode collapse
+  emerging from RLHF training specifically.'' Both per-input and across-input diversity-loss
+  trends replicate across all five OPT model scales, i.e. the diversity-collapse effect
+  is NOT limited to one model size in this paper''s data. Critically, increasing the
+  KL penalty coefficient (which should pull RLHF policy back toward the more diverse
+  SFT policy) reduces performance as expected but ALSO reduces per-input diversity
+  rather than restoring it -- ruling out a simple ''closer to SFT = more diverse''
+  explanation and suggesting the diversity collapse is not merely a distance-from-base-model
+  artifact. Frames the RLHF generalisation/diversity trade-off as possibly fundamental
+  to current fine-tuning methods rather than a fixable deficiency, and explicitly
+  calls for future work on WHY RLHF reduces diversity so much, citing RL diversity-injection
+  techniques (e.g. Eysenbach 2019 DIAYN-style methods) as inspiration. Uses LLaMA-7B,
+  not a quantised model, and does not touch NAS; relevant only as mechanism-level
+  evidence for output-diversity/mode-collapse as a rival explanation for single-template
+  collapse, separate from the target paper''s small-quantised-LLM NAS setting.'
 ---
 
 *Suggested by [[231006452v3-understanding-the-effects-of-rlhf-on-llm-generalisation-and-diversit]] — full-text HTML version of abstract page; needed for diversity-metric methodology and quantitative results*

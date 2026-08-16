@@ -3,7 +3,13 @@ title: '[2306.09896] Is Self-Repair a Silver Bullet for Code Generation?'
 id: 230609896-is-self-repair-a-silver-bullet-for-code-generation
 tags:
 - llm-nas-feedback-positioning-7125b1
+- self-correction
+- self-repair
+- mechanism-literature
+- prior-art
+- model-scale-dependence
 created: '2026-08-16T15:44:23.103135Z'
+updated: '2026-08-16T15:47:40.807348Z'
 source: https://arxiv.org/abs/2306.09896
 source_domain: arxiv.org
 fetched_at: '2026-08-16T15:44:23.102751Z'
@@ -13,6 +19,22 @@ type: note
 tier: institutional
 content_type: paper
 deprecated: false
+summary: 'Olausson, Inala, Wang, Gao, Solar-Lezama (MIT/Microsoft; ICLR 2024, orig.
+  Jun 2023) empirically test self-repair (model debugs and repairs its own code) with
+  Code Llama, GPT-3.5, and GPT-4 on HumanEval and APPS. Central finding, quoted: ''when
+  the cost of carrying out repair is taken into account, performance gains are often
+  modest, vary a lot between subsets of the data, and are sometimes not present at
+  all.'' They hypothesize self-repair is ''bottlenecked by the model''s ability to
+  provide feedback on its own code'' — using a STRONGER model to generate the feedback
+  (rather than the model self-critiquing) produces substantially larger gains, and
+  human-provided feedback to GPT-4 beats GPT-4''s own feedback by a wide margin. This
+  is the load-bearing precedent for Q1/Q2: it already establishes, in 2023, on a different
+  domain (code generation, not NAS), that intrinsic self-correction is weak/inconsistent
+  and gated by feedback-quality/model-capability, i.e., roughly the ''intrinsic self-correction
+  fails without external verification'' finding the target paper would need to distinguish
+  itself from. A small quantized model''s self-refinement failing reads as consistent
+  with, not novel beyond, this result unless the target paper isolates a distinct
+  mechanism (e.g., degradation rather than mere no-gain, or template collapse specifically).'
 ---
 
 [2306.09896] Is Self-Repair a Silver Bullet for Code Generation?

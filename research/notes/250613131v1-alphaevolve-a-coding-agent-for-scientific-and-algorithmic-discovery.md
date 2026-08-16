@@ -4,7 +4,13 @@ title: '[2506.13131v1] AlphaEvolve: A coding agent for scientific and algorithmi
 id: 250613131v1-alphaevolve-a-coding-agent-for-scientific-and-algorithmic-discovery
 tags:
 - llm-nas-feedback-positioning-7125b1
+- counter-evidence
+- iterative-feedback
+- evolutionary-search
+- program-search
+- frontier-model
 created: '2026-08-16T15:44:21.993885Z'
+updated: '2026-08-16T15:47:32.802661Z'
 source: https://arxiv.org/abs/2506.13131v1
 source_domain: arxiv.org
 fetched_at: '2026-08-16T15:44:21.993443Z'
@@ -14,6 +20,23 @@ type: note
 tier: institutional
 content_type: paper
 deprecated: false
+summary: 'AlphaEvolve (Novikov et al., DeepMind, Jun 2025) is an evolutionary coding
+  agent that orchestrates an autonomous pipeline of frontier LLMs to iteratively rewrite
+  algorithm code, ''continuously receiving feedback from one or more evaluators,''
+  and ''iteratively improves the algorithm.'' Deployed at Google, it found a more
+  efficient data-center scheduling algorithm, a simplification in TPU circuit design,
+  sped up training of the LLM underpinning AlphaEvolve itself, and discovered a procedure
+  multiplying two 4x4 complex-valued matrices in 48 scalar multiplications — the first
+  improvement over Strassen''s algorithm in that exact setting in 56 years — explicitly
+  extending prior automated discovery work (Romera-Paredes et al. 2023, i.e. FunSearch).
+  This is the single strongest published counter-example to a blanket ''iterative
+  feedback degrades LLM-guided search'' thesis for Q4: it is a large-scale, frontier-model,
+  multi-evaluator, population-based evolutionary system (not single-context sequential
+  self-refinement by one small quantized model), so it bounds the target claim to
+  small/single-model/single-context/no-external-evaluator regimes rather than refuting
+  a narrower version of it — the paper reports no ablation isolating the causal effect
+  of iterative feedback alone versus population diversity maintenance, LLM ensembling,
+  or evaluator strength.'
 ---
 
 [2506.13131v1] AlphaEvolve: A coding agent for scientific and algorithmic discovery
