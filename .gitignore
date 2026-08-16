@@ -55,3 +55,9 @@ docs/
 .hyperresearch/hyperresearch.db
 .hyperresearch/hyperresearch.db-shm
 .hyperresearch/hyperresearch.db-wal
+
+# Transient subagent scratch dumps under research/temp (raw API/vault dumps).
+# Deliverable artifacts there — claims-*.json and the *.md analyses — are tracked.
+research/temp/or-*.json
+research/temp/or-*.txt
+research/temp/existing*.json
