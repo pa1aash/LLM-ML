@@ -57,30 +57,33 @@ flight; pipeline steps 3-9 not started.
 
 **The NeurIPS 2026 workshop list is published and the suggested submission date
 is 2026-08-29 — 13 days from today.** 102 workshops accepted (48 Sydney /
-28 Paris / 26 Atlanta); workshops run Dec 11–13, 2026. Source:
-`research/temp/venue-findings-interim.md`, fetched from the official
-announcement of 2026-08-10.
+28 Paris / 26 Atlanta); workshops run Dec 11–13, 2026. Source: the official
+NeurIPS announcement of 2026-08-10, in the vault as
+`announcing-the-neurips-2026-workshops-neurips-blog`.
 
-Three workshops are a direct topical fit — **Self-Evolving Diversity-Driven
-Search for Robust AI Systems** (Sydney) is the closest match found, with
-**Workshop for Autonomous Machine Learning Research** (Sydney) and **SLM-Agents**
-(Paris, explicitly small language models) behind it. Note that **ICBINB, the
-canonical negative-results venue, is scoped to "Failure Modes of AI in Biology"
-this year and is NOT a fit** — an assumption that would have been wrong if
-answered from memory.
+**Candidate ranking is deliberately NOT recorded here.** The earlier interim
+ranking is VOID (`research/temp/void/`) — it was written when 56% of the corpus
+was abstract-only and it self-corrected twice inside one session. The venue sweep
+now in flight writes facts and URLs only to `research/temp/venue-candidates.md`;
+ranking happens in the S2 decision brief, against that substrate.
 
-A 13-day runway cannot rebuild the experiment. It may suffice for claim surgery
-**iff** OA-1 resolves favourably.
+One finding from the interim work survives because it is a direct quote from the
+official list rather than a judgement: **ICBINB, the canonical negative-results
+venue, is scoped to "Failure Modes of AI in Biology" for 2026 and is not a fit.**
+
+A 13-day runway cannot rebuild the experiment.
 
 ## Open
 
 - **G0 awaiting operator signature.** Recommendation in
   `audit/SESSION_1_REPORT.md` §8.
-- **32 open actions**, `audit/OPEN_ACTIONS.md`. Five are blocking; **OA-1 (does
-  the raw data still exist anywhere?) is the highest-value question in the
-  project** — its answer determines whether S2 is claim surgery or a rebuild.
-- Block 8 positioning analysis (novelty, mechanism literature, methodology
-  standards, counter-evidence, venue map, framing) — feeds G1.
+- **36 open actions**, `audit/OPEN_ACTIONS.md`. **OA-1 is CLOSED by operator
+  decision** — the original experimental data is unrecoverable and will be
+  regenerated. S2 is therefore a rebuild, not claim surgery, and every ORPHAN
+  finding in `audit/CLAIM_TRACE.md` stands as permanent.
+- Positioning: Q1 and Q4 answerable at full-text depth; Q2 and Q3 closed by
+  targeted gap-fill; **Q5 (venue) pending the in-flight sweep**. Feeds G1.
+- Pipeline steps 3–9 not started. Five operator-specified loci carry forward.
 
 ## Blocked
 
