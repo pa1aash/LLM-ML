@@ -330,3 +330,61 @@ blog announcement. `/Conferences/2026/Workshops` 404s.
 `derivative-of` and discount in coverage counting.
 
 Vault: 64+ notes. Batches 1, 2, 4, 6, 7 outstanding.
+
+### Step 2 — batch 4 returned (10 notes, 10 claims files)
+
+**1. GPT-NAS fabrication confirmed from the opposite direction.** The fetcher
+read arXiv 2305.05351v4 directly and recovered the true author list: **Caiyang
+Yu, Xianggen Liu, Yifan Wang, Yun Liu, Wentao Feng, Deng Xiong, Chenwei Tang,
+Jiancheng Lv.** This matches `audit/BIB_AUDIT.md` exactly and independently
+confirms that the six names in `paper/references.bib` (Li, Jin, He, Zheng, Wei,
+Chi) appear nowhere on the paper. Two independent methods, same verdict —
+**FABRICATED** is settled, not provisional.
+
+Two further GPT-NAS facts that matter for Q1 priority: its venue is *Big Data
+Mining and Analytics* (IEEE), **not a top-tier ML venue**, and it embeds the LLM
+inside an **iterative evolutionary loop**, not zero-shot single-proposal. So
+GPT-NAS does not run the subject paper's mechanism either.
+
+**2. "Mind the Gap" is now the strongest Q2 source.** Song et al., **ICLR 2025**:
+formalises the **generation–verification gap** and shows it **scales
+monotonically with pretraining FLOPs**. This is stronger than the Huang table —
+Huang shows a trend across four models; Song gives a *named, formalised quantity*
+with a monotonic scaling law.
+
+Consequence for framing: a 1.7B 4-bit model failing to self-improve is not merely
+consistent with prior work, it is **the predicted value of a published scaling
+relationship**. Any reviewer who knows this paper will ask what the subject paper
+adds beyond confirming a known law at a new point. The answer cannot be the
+direction of the effect. It has to be the *controlled matched-budget six-arm
+design* — or the paper has no novelty claim left.
+
+**3. Reflexion is bounded counter-evidence, not defeating.** 91% pass@1 on
+HumanEval — but via **test-execution-grounded** reflection. Success is contingent
+on external verification, which *confirms* rather than contradicts the
+"intrinsic self-correction fails without external verification" account. Pattern
+now holds across every Q4 counter-case examined: FunSearch, AlphaEvolve, OPRO,
+RZ-NAS, Reflexion — **all use external, executable, or proxy-scored verification.
+None is intrinsic self-refinement on a scalar metric.** That is a clean,
+defensible boundary and it is the thesis the evidence actually supports.
+
+**4. ICBINB — fully resolved, and it is not available.** Venue rotation
+established from the series' own hub: NeurIPS 2022 → NeurIPS 2023 → ICLR 2025 →
+**ICLR 2026** (Rio, Apr 26–27, 2026; 4-page limit; double-blind OpenReview;
+deadline Jan 31 2026, **elapsed**). The Dec 2025 news item names ICLR 2026 as
+"the next ICBINB workshop" with no NeurIPS 2026 edition announced.
+
+This *complements* rather than contradicts the earlier finding: the official
+NeurIPS 2026 list does contain an ICBINB-branded workshop, but scoped to
+**Failure Modes of AI in Biology**. Both facts point the same way — **ICBINB is
+not a live target for this paper.** Worth noting the ICLR CFP's required 4-part
+structure (Problem / Proposed solution / Observed outcome / Reason for failure)
+is a near-perfect template for this paper's thesis — keep it for a 2027 cycle.
+
+**5. Environment defect to route around.** Every `arxiv.org/pdf/...` fetch in
+this batch failed with `JUNK_CONTENT: Binary PDF garbage` — a pymupdf extraction
+failure, not a network issue. Batch 8 succeeded by pulling PDFs via `curl` + Read
+instead. **If depth investigators need full text, use the curl path.** Claims in
+this batch are abstract-level only.
+
+Vault: 78+ notes. Batches 1, 2, 6, 7 outstanding.

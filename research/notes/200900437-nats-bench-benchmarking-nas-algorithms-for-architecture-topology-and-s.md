@@ -7,12 +7,12 @@ tags:
 - tabular-nas-benchmarks
 - nas-methodology
 created: '2026-08-16T15:54:05.051671Z'
-updated: '2026-08-16T15:55:11.232922Z'
+updated: '2026-08-16T15:57:10.649961Z'
 source: https://arxiv.org/abs/2009.00437
 source_domain: arxiv.org
 fetched_at: '2026-08-16T15:54:05.048320Z'
 fetch_provider: builtin
-status: draft
+status: deprecated
 type: note
 tier: institutional
 content_type: paper
