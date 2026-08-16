@@ -255,3 +255,36 @@ died during fetching, before any structured recording.
 **Disposition:** re-dispatch the sweep next session against the 10 salvaged notes
 plus the missing shortlist. The failure is an agent-runtime stall, not a data or
 access problem — every page it reached fetched cleanly.
+
+## S1c session
+
+| Step | Mode | Artifacts | Notes |
+|---|---|---|---|
+| A extraction pass | MANUAL (local read, no fetching) | `research/temp/venue-candidates.md` | 10 salvaged CFP notes → 11-field table; `NOT STATED` used throughout, nothing inferred |
+
+### Block A findings
+
+Two deadlines deviate from the Aug 29 default and would be missed by assuming
+the common date: **Interpretability as a Science closes Aug 28** (one day
+earlier) and **OPT closes Sep 4**.
+
+Three eligibility constraints that bear on venue choice:
+
+- **Interpretability as a Science requires at least one reciprocal reviewer per
+  submission** — failure is grounds for rejection without review. That is a
+  labour commitment, not just a deadline.
+- **AI for Science requires released code/artifacts** for its Verifier Systems
+  track (tracks A and B do not).
+- **Meta-Agents treats a missing checklist statement as explicit grounds for
+  desk rejection.**
+
+Every workshop that states an archival policy states **non-archival**, and every
+one that states an anonymity policy states **double-blind**. Four workshops state
+neither: AI for Meta-Science, OPT, ICBINB-Bio, and (for anonymity)
+Interpretability as a Science.
+
+**Coverage is incomplete and the file says so.** Four required workshops were
+never fetched — AI-Native Academia, XAI4Science, AutoMLR confirmation, EvoRobust
+confirmation — plus three fetched in earlier sessions but not re-extracted to
+these eleven fields (Who Verifies the Agents?, SLM-Agents, JUDGe). The table is
+a partial substrate, not the shortlist.
