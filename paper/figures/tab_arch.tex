@@ -1,0 +1,17 @@
+\begin{table}[t]
+\centering\small
+\caption{Architecture characteristics (CIFAR-10). Efficiency = accuracy per M parameters. Diversity = mean pairwise Jaccard distance (higher = more diverse).}
+\label{tab:arch}
+\begin{tabular}{@{}l rrrrrr@{}}
+\toprule
+Condition & Params (K) & Blocks & Gap (\%) & Eff. & Diversity & Time (s) \\
+\midrule
+Random & 508 & 4.2 & 4.2 & 355 & 0.856 & 409 \\
+Filtered Random & 778 & 4.3 & 3.9 & 213 & 0.853 & 397 \\
+LLM Zero-Shot & 511 & 4.0 & 6.0 & 174 & 0.022 & 219 \\
+LLM + Unstr. FB & 574 & 4.0 & 6.4 & 162 & 0.187 & 223 \\
+LLM + Struct. FB & 727 & 4.0 & 6.8 & 137 & 0.268 & 236 \\
+Reg. Evolution & 625 & 4.7 & 6.5 & 215 & 0.730 & 351 \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,17 @@
+\begin{table}[t]
+\centering\small
+\caption{Rank stability: Spearman $\rho$ and Kendall $\tau$ between validation accuracy at epoch 20 vs.\ final (epoch 50).}
+\label{tab:rank}
+\begin{tabular}{@{}l cccc@{}}
+\toprule
+Condition & $n$ & Spearman $\rho$ & Kendall $\tau$ & $p$ (Spearman) \\
+\midrule
+Random & 20 & 0.865 & 0.712 & 0.0000 \\
+Filtered Random & 20 & 0.890 & 0.747 & 0.0000 \\
+LLM Zero-Shot & 20 & 0.462 & 0.355 & 0.0401 \\
+LLM + Unstr. FB & 20 & 0.708 & 0.543 & 0.0005 \\
+LLM + Struct. FB & 20 & 0.651 & 0.526 & 0.0019 \\
+Reg. Evolution & 20 & 0.878 & 0.730 & 0.0000 \\
+\bottomrule
+\end{tabular}
+\end{table}

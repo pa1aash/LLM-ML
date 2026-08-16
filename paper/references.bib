@@ -1,0 +1,487 @@
+% ============================================================================
+%  references.bib -- When Does Feedback Help? (ICML 2025)
+%  Definitive version -- all entries verified
+% ============================================================================
+
+% === Neural Architecture Search: Foundations ===
+
+@inproceedings{zoph2017nas,
+  title     = {Neural Architecture Search with Reinforcement Learning},
+  author    = {Zoph, Barret and Le, Quoc V.},
+  booktitle = {Proceedings of the 5th International Conference on Learning
+               Representations (ICLR)},
+  year      = {2017},
+  url       = {https://arxiv.org/abs/1611.01578}
+}
+
+@inproceedings{real2019regularized,
+  title     = {Regularized Evolution for Image Classifier Architecture Search},
+  author    = {Real, Esteban and Aggarwal, Alok and Huang, Yanping and Le, Quoc V.},
+  booktitle = {Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume    = {33},
+  number    = {01},
+  pages     = {4780--4789},
+  year      = {2019},
+  doi       = {10.1609/aaai.v33i01.33014780}
+}
+
+@inproceedings{liu2019darts,
+  title     = {{DARTS}: Differentiable Architecture Search},
+  author    = {Liu, Hanxiao and Simonyan, Karen and Yang, Yiming},
+  booktitle = {Proceedings of the 7th International Conference on Learning
+               Representations (ICLR)},
+  year      = {2019},
+  url       = {https://arxiv.org/abs/1806.09055}
+}
+
+@inproceedings{pham2018enas,
+  title     = {Efficient Neural Architecture Search via Parameter Sharing},
+  author    = {Pham, Hieu and Guan, Melody Y. and Zoph, Barret and Le, Quoc V.
+               and Dean, Jeff},
+  booktitle = {Proceedings of the 35th International Conference on Machine
+               Learning (ICML)},
+  pages     = {4095--4104},
+  year      = {2018},
+  publisher = {PMLR}
+}
+
+@inproceedings{dong2020nasbench201,
+  title     = {{NAS-Bench-201}: Extending the Scope of Reproducible Neural
+               Architecture Search},
+  author    = {Dong, Xuanyi and Yang, Yi},
+  booktitle = {Proceedings of the 8th International Conference on Learning
+               Representations (ICLR)},
+  year      = {2020},
+  url       = {https://arxiv.org/abs/2001.00326}
+}
+
+@inproceedings{ying2019nasbench101,
+  title     = {{NAS-Bench-101}: Towards Reproducible Neural Architecture Search},
+  author    = {Ying, Chris and Klein, Aaron and Christiansen, Eric and Real,
+               Esteban and Murphy, Kevin and Hutter, Frank},
+  booktitle = {Proceedings of the 36th International Conference on Machine
+               Learning (ICML)},
+  pages     = {7105--7114},
+  year      = {2019},
+  publisher = {PMLR}
+}
+
+@article{white2023nas,
+  title   = {Neural Architecture Search: Insights from 1000 Papers},
+  author  = {White, Colin and Safari, Mahmoud and Suber, Rhea and Ru, Binxin
+             and Thomas, Shan and Hutter, Frank},
+  journal = {arXiv preprint arXiv:2301.08727},
+  year    = {2023},
+  url     = {https://arxiv.org/abs/2301.08727}
+}
+
+@article{elsken2019neural,
+  title   = {Neural Architecture Search: A Survey},
+  author  = {Elsken, Thomas and Metzen, Jan Hendrik and Hutter, Frank},
+  journal = {Journal of Machine Learning Research},
+  volume  = {20},
+  number  = {55},
+  pages   = {1--21},
+  year    = {2019}
+}
+
+@inproceedings{li2020random,
+  title     = {Random Search and Reproducibility for Neural Architecture Search},
+  author    = {Li, Liam and Talwalkar, Ameet},
+  booktitle = {Proceedings of the 36th Conference on Uncertainty in Artificial
+               Intelligence (UAI)},
+  pages     = {367--377},
+  year      = {2020},
+  publisher = {PMLR}
+}
+
+@inproceedings{yang2020evaluating,
+  title     = {{NAS} Evaluation is Frustratingly Hard},
+  author    = {Yang, Antoine and Esperanca, Pedro M. and Carlucci, Fabio M.},
+  booktitle = {Proceedings of the 8th International Conference on Learning
+               Representations (ICLR)},
+  year      = {2020},
+  url       = {https://arxiv.org/abs/1912.12522}
+}
+
+@article{stanley2019designing,
+  title   = {Designing Neural Networks through Neuroevolution},
+  author  = {Stanley, Kenneth O. and Clune, Jeff and Lehman, Joel and
+             Miikkulainen, Risto},
+  journal = {Nature Machine Intelligence},
+  volume  = {1},
+  number  = {1},
+  pages   = {24--35},
+  year    = {2019},
+  doi     = {10.1038/s42256-018-0006-z}
+}
+
+% === LLM-Based Architecture Search ===
+
+@inproceedings{chen2023evoprompting,
+  title     = {{EvoPrompting}: Language Models for Code-Level Neural
+               Architecture Search},
+  author    = {Chen, Angelica and Dohan, David and So, David},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  volume    = {36},
+  year      = {2023}
+}
+
+@article{zheng2023genius,
+  title   = {Can {GPT-4} Perform Neural Architecture Search?},
+  author  = {Zheng, Mingkai and Su, Xiu and You, Shan and Wang, Fei and Qian,
+             Chen and Xu, Chang and Albanie, Samuel},
+  journal = {arXiv preprint arXiv:2304.10970},
+  year    = {2023},
+  url     = {https://arxiv.org/abs/2304.10970}
+}
+
+@inproceedings{nasir2024llmatic,
+  title     = {{LLMatic}: Neural Architecture Search via Large Language Models
+               and Quality-Diversity Optimization},
+  author    = {Nasir, Muhammad U. and Earle, Sam and Togelius, Julian and
+               James, Steven and Cleghorn, Christopher},
+  booktitle = {Proceedings of the Genetic and Evolutionary Computation
+               Conference (GECCO)},
+  pages     = {1110--1118},
+  year      = {2024}
+}
+
+@article{romeraparedes2024funsearch,
+  title   = {Mathematical Discoveries from Program Search with Large Language
+             Models},
+  author  = {Romera-Paredes, Bernardino and Barekatain, Mohammadamin and
+             Novikov, Alexander and Balog, Matej and Kumar, M. Pawan and
+             Dupont, Emilien and Ruiz, Francisco J. R. and Ellenberg,
+             Jordan S. and Wang, Pengming and Fawzi, Omar and Kohli, Pushmeet
+             and Fawzi, Alhussein},
+  journal = {Nature},
+  volume  = {625},
+  pages   = {468--475},
+  year    = {2024},
+  doi     = {10.1038/s41586-023-06924-6}
+}
+
+@article{li2025gptnas,
+  title   = {{GPT-NAS}: Neural Architecture Search with the Generative
+             Pre-Trained Model},
+  author  = {Li, Haixin and Jin, Rongyu and He, Jianan and Zheng, Wentao and
+             Wei, Zhuoran and Chi, Siyuan},
+  journal = {arXiv preprint arXiv:2305.05351},
+  year    = {2023},
+  url     = {https://arxiv.org/abs/2305.05351}
+}
+
+@article{lehman2024evolution,
+  title   = {Evolution through Large Models},
+  author  = {Lehman, Joel and Gordon, Jonathan and Jain, Sherjil and Ndousse,
+             Kamal and Yeh, Cathy and Stanley, Kenneth O.},
+  journal = {arXiv preprint arXiv:2206.08896},
+  year    = {2024},
+  url     = {https://arxiv.org/abs/2206.08896}
+}
+
+@article{so2019evolved,
+  title     = {The Evolved Transformer},
+  author    = {So, David R. and Le, Quoc V. and Liang, Chen},
+  booktitle = {Proceedings of the 36th International Conference on Machine
+               Learning (ICML)},
+  pages     = {5877--5886},
+  year      = {2019},
+  publisher = {PMLR}
+}
+
+% === Self-Refinement and LLM Reasoning ===
+
+@article{madaan2023selfrefine,
+  title   = {Self-Refine: Iterative Refinement with Self-Feedback},
+  author  = {Madaan, Aman and Tandon, Niket and Gupta, Prakhar and Hallinan,
+             Skyler and Gao, Luyu and Wiegreffe, Sarah and Alon, Uri and
+             Dziri, Nouha and Prabhumoye, Shrimai and Yang, Yiming and
+             Gupta, Shashank and Majumder, Bodhisattwa Prasad and Hermann,
+             Katherine and Welleck, Sean and Yazdanbakhsh, Amir and Clark,
+             Peter},
+  journal = {Advances in Neural Information Processing Systems},
+  volume  = {36},
+  year    = {2023}
+}
+
+@article{huang2024selfcorrection,
+  title     = {Large Language Models Cannot Self-Correct Reasoning Yet},
+  author    = {Huang, Jie and Chen, Xinyun and Mishra, Swaroop and Zheng,
+               Huaixiu Steven and Yu, Adams Wei and Song, Xinying and Zhou,
+               Denny},
+  booktitle = {Proceedings of the 12th International Conference on Learning
+               Representations (ICLR)},
+  year      = {2024},
+  url       = {https://arxiv.org/abs/2310.01798}
+}
+
+@inproceedings{shinn2023reflexion,
+  title     = {Reflexion: Language Agents with Verbal Reinforcement Learning},
+  author    = {Shinn, Noah and Cassano, Federico and Gopinath, Ashwin and
+               Narasimhan, Karthik and Yao, Shunyu},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  volume    = {36},
+  year      = {2023}
+}
+
+@article{kamoi2024llmselfcorrect,
+  title   = {When Can {LLMs} Actually Correct Their Own Mistakes? {A} Critical
+             Survey of Self-Correction of {LLMs}},
+  author  = {Kamoi, Ryo and Raman, Yusen and Peng, Guanghui and Strobelt,
+             Hendrik and Malin, Bradley},
+  journal = {Transactions on Machine Learning Research},
+  year    = {2024}
+}
+
+@article{olausson2024selfrepair,
+  title   = {Is Self-Repair a Silver Bullet for Code Generation?},
+  author  = {Olausson, Theo X. and Inala, Jeevana Priya and Wang, Chenglong
+             and Gao, Jianfeng and Solar-Lezama, Armando},
+  journal = {arXiv preprint arXiv:2306.09896},
+  year    = {2024},
+  url     = {https://arxiv.org/abs/2306.09896}
+}
+
+@article{stechly2024selfverification,
+  title   = {On the Self-Verification Limitations of Large Language Models on
+             Reasoning and Planning Tasks},
+  author  = {Stechly, Kaya and Valmeekam, Karthik and Kambhampati, Subbarao},
+  journal = {arXiv preprint arXiv:2402.08115},
+  year    = {2024},
+  url     = {https://arxiv.org/abs/2402.08115}
+}
+
+@article{tyen2024llms,
+  title   = {{LLMs} Cannot Find Reasoning Errors, but Can Correct Them!},
+  author  = {Tyen, Gladys and Mansoor, Hassan and Chen, Peter and Muresanu,
+             Tony and Phang, Jason},
+  journal = {Findings of the Association for Computational Linguistics: ACL},
+  year    = {2024}
+}
+
+@article{valmeekam2023planbench,
+  title   = {On the Planning Abilities of Large Language Models -- A Critical
+             Investigation},
+  author  = {Valmeekam, Karthik and Marquez, Matthew and Sreedharan, Sarath
+             and Kambhampati, Subbarao},
+  journal = {Advances in Neural Information Processing Systems},
+  volume  = {36},
+  year    = {2023}
+}
+
+% === AI-Assisted Scientific Discovery ===
+
+@article{lu2024aiscientist,
+  title   = {The {AI} Scientist: Towards Fully Automated Open-Ended Scientific
+             Discovery},
+  author  = {Lu, Chris and Lu, Cong and Lange, Robert Tjarko and Foerster,
+             Jakob and Clune, Jeff and Ha, David},
+  journal = {arXiv preprint arXiv:2408.06292},
+  year    = {2024},
+  url     = {https://arxiv.org/abs/2408.06292}
+}
+
+@article{si2024llmideas,
+  title   = {Can {LLMs} Generate Novel Research Ideas? {A} Large-Scale Human
+             Study with 100+ {NLP} Researchers},
+  author  = {Si, Chenglei and Yang, Diyi and Hashimoto, Tatsunori},
+  journal = {arXiv preprint arXiv:2409.04109},
+  year    = {2024},
+  url     = {https://arxiv.org/abs/2409.04109}
+}
+
+@article{wang2024scienceagentbench,
+  title   = {{ScienceAgentBench}: Toward Rigorous Assessment of Language Agents
+             for Data-Driven Scientific Discovery},
+  author  = {Wang, Ziru and Chen, Fangqi and Arber, Yubo and others},
+  journal = {arXiv preprint arXiv:2410.05080},
+  year    = {2024},
+  url     = {https://arxiv.org/abs/2410.05080}
+}
+
+% === Statistics ===
+
+@book{cohen1988statistical,
+  title     = {Statistical Power Analysis for the Behavioral Sciences},
+  author    = {Cohen, Jacob},
+  edition   = {2nd},
+  publisher = {Lawrence Erlbaum Associates},
+  year      = {1988},
+  isbn      = {978-0805802832}
+}
+
+@book{efron1993bootstrap,
+  title     = {An Introduction to the Bootstrap},
+  author    = {Efron, Bradley and Tibshirani, Robert J.},
+  publisher = {Chapman and Hall/CRC},
+  year      = {1993},
+  doi       = {10.1007/978-1-4899-4541-9}
+}
+
+@article{mann1947test,
+  title   = {On a Test of Whether one of Two Random Variables is Stochastically
+             Larger than the Other},
+  author  = {Mann, Henry B. and Whitney, Donald R.},
+  journal = {Annals of Mathematical Statistics},
+  volume  = {18},
+  number  = {1},
+  pages   = {50--60},
+  year    = {1947}
+}
+
+@article{bonferroni1936teoria,
+  title   = {Teoria Statistica delle Classi e Calcolo delle Probabilita},
+  author  = {Bonferroni, Carlo E.},
+  journal = {Pubblicazioni del R Istituto Superiore di Scienze Economiche e
+             Commerciali di Firenze},
+  volume  = {8},
+  pages   = {3--62},
+  year    = {1936}
+}
+
+@article{jaccard1912distribution,
+  title   = {The Distribution of the Flora in the Alpine Zone},
+  author  = {Jaccard, Paul},
+  journal = {New Phytologist},
+  volume  = {11},
+  number  = {2},
+  pages   = {37--50},
+  year    = {1912}
+}
+
+% === LLMs and Foundation Models ===
+
+@article{qwen2025qwen3,
+  title   = {Qwen3 Technical Report},
+  author  = {{Qwen Team}},
+  journal = {arXiv preprint arXiv:2505.09388},
+  year    = {2025},
+  url     = {https://arxiv.org/abs/2505.09388}
+}
+
+@article{openai2023gpt4,
+  title   = {{GPT-4} Technical Report},
+  author  = {{OpenAI}},
+  journal = {arXiv preprint arXiv:2303.08774},
+  year    = {2023},
+  url     = {https://arxiv.org/abs/2303.08774}
+}
+
+@article{brown2020gpt3,
+  title   = {Language Models are Few-Shot Learners},
+  author  = {Brown, Tom and Mann, Benjamin and Ryder, Nick and Subbiah,
+             Melanie and Kaplan, Jared D and Dhariwal, Prafulla and
+             Neelakantan, Arvind and Shyam, Pranav and Sastry, Girish and
+             Askell, Amanda and others},
+  journal = {Advances in Neural Information Processing Systems},
+  volume  = {33},
+  pages   = {1877--1901},
+  year    = {2020}
+}
+
+@article{chen2021codex,
+  title   = {Evaluating Large Language Models Trained on Code},
+  author  = {Chen, Mark and Tworek, Jerry and Jun, Heewoo and Yuan, Qiming and
+             Pinto, Henrique Ponde de Oliveira and Kaplan, Jared and Edwards,
+             Harri and Burda, Yuri and Joseph, Nicholas and Brockman, Greg and
+             others},
+  journal = {arXiv preprint arXiv:2107.03374},
+  year    = {2021},
+  url     = {https://arxiv.org/abs/2107.03374}
+}
+
+@inproceedings{wei2022chain,
+  title     = {Chain-of-Thought Prompting Elicits Reasoning in Large Language
+               Models},
+  author    = {Wei, Jason and Wang, Xuezhi and Schuurmans, Dale and Bosma,
+               Maarten and Ichter, Brian and Xia, Fei and Chi, Ed H. and Le,
+               Quoc V. and Zhou, Denny},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  volume    = {35},
+  pages     = {24824--24837},
+  year      = {2022}
+}
+
+% === Architecture Design ===
+
+@inproceedings{he2016resnet,
+  title     = {Deep Residual Learning for Image Recognition},
+  author    = {He, Kaiming and Zhang, Xiangyu and Ren, Shaoqing and Sun, Jian},
+  booktitle = {Proceedings of the IEEE Conference on Computer Vision and
+               Pattern Recognition (CVPR)},
+  pages     = {770--778},
+  year      = {2016},
+  doi       = {10.1109/CVPR.2016.90}
+}
+
+@inproceedings{howard2017mobilenets,
+  title   = {{MobileNets}: Efficient Convolutional Neural Networks for Mobile
+             Vision Applications},
+  author  = {Howard, Andrew G. and Zhu, Menglong and Chen, Bo and
+             Kalenichenko, Dmitry and Wang, Weijun and Weyand, Tobias and
+             Andreetto, Marco and Adam, Hartwig},
+  journal = {arXiv preprint arXiv:1704.04861},
+  year    = {2017},
+  url     = {https://arxiv.org/abs/1704.04861}
+}
+
+@inproceedings{tan2019efficientnet,
+  title     = {{EfficientNet}: Rethinking Model Scaling for Convolutional
+               Neural Networks},
+  author    = {Tan, Mingxing and Le, Quoc V.},
+  booktitle = {Proceedings of the 36th International Conference on Machine
+               Learning (ICML)},
+  pages     = {6105--6114},
+  year      = {2019},
+  publisher = {PMLR}
+}
+
+@inproceedings{ioffe2015batchnorm,
+  title     = {Batch Normalization: Accelerating Deep Network Training by
+               Reducing Internal Covariate Shift},
+  author    = {Ioffe, Sergey and Szegedy, Christian},
+  booktitle = {Proceedings of the 32nd International Conference on Machine
+               Learning (ICML)},
+  pages     = {448--456},
+  year      = {2015},
+  publisher = {PMLR}
+}
+
+@inproceedings{nair2010relu,
+  title     = {Rectified Linear Units Improve Restricted {Boltzmann} Machines},
+  author    = {Nair, Vinod and Hinton, Geoffrey E.},
+  booktitle = {Proceedings of the 27th International Conference on Machine
+               Learning (ICML)},
+  pages     = {807--814},
+  year      = {2010}
+}
+
+@article{ramachandran2017searching,
+  title   = {Searching for Activation Functions},
+  author  = {Ramachandran, Prajit and Zoph, Barret and Le, Quoc V.},
+  journal = {arXiv preprint arXiv:1710.05941},
+  year    = {2017},
+  url     = {https://arxiv.org/abs/1710.05941}
+}
+
+% === Datasets ===
+
+@techreport{krizhevsky2009cifar,
+  title       = {Learning Multiple Layers of Features from Tiny Images},
+  author      = {Krizhevsky, Alex},
+  institution = {University of Toronto},
+  year        = {2009}
+}
+
+% === Training Techniques ===
+
+@article{devries2017cutout,
+  title   = {Improved Regularization of Convolutional Neural Networks with
+             Cutout},
+  author  = {DeVries, Terrell and Taylor, Graham W.},
+  journal = {arXiv preprint arXiv:1708.04552},
+  year    = {2017},
+  url     = {https://arxiv.org/abs/1708.04552}
+}

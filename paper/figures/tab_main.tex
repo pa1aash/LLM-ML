@@ -1,0 +1,19 @@
+\begin{table}[t]
+\centering\small
+\caption{Test accuracy (\%) across conditions. Mean $\pm$ std, median, and best over 20 architectures per condition. Conditions C and D receive \emph{validation-only} feedback (no test leakage). Best mean per dataset in \textbf{bold}.}
+\label{tab:main}
+\begin{tabular}{@{}l cccc cccc@{}}
+\toprule
+& \multicolumn{4}{c}{CIFAR-10} & \multicolumn{4}{c}{CIFAR-100} \\
+\cmidrule(lr){2-5} \cmidrule(lr){6-9}
+Condition & Mean & Std & Med & Best & Mean & Std & Med & Best \\
+\midrule
+Random & 77.3 & 22.6 & 84.9 & 90.3 & 53.7 & 6.1 & 52.6 & 65.0 \\
+Filtered Random & 66.6 & 32.8 & 84.9 & 90.3 & 49.0 & 17.0 & 54.6 & 65.0 \\
+LLM Zero-Shot & \textbf{89.0} & 0.7 & 89.0 & 89.8 & 61.1 & 2.7 & 59.9 & 66.2 \\
+LLM + Unstr. FB & 87.6 & 1.9 & 88.7 & 90.2 & \textbf{61.6} & 2.6 & 63.5 & 65.1 \\
+LLM + Struct. FB & 87.2 & 1.8 & 86.1 & 91.4 & 60.9 & 3.8 & 61.0 & 66.9 \\
+Reg. Evolution & 82.9 & 17.2 & 86.6 & 90.6 & 58.6 & 5.9 & 61.8 & 65.0 \\
+\bottomrule
+\end{tabular}
+\end{table}

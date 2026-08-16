@@ -1,0 +1,28 @@
+\begin{table}[t]
+\centering\small
+\caption{Pairwise comparisons. Welch's $t$-test and Mann--Whitney $U$ (Bonferroni-corrected). Cohen's $d$ with 95\% bootstrap CI. Positive $d$ = first condition higher.}
+\label{tab:stats}
+\begin{tabular}{@{}l rrr rrr@{}}
+\toprule
+& \multicolumn{3}{c}{CIFAR-10} & \multicolumn{3}{c}{CIFAR-100} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}
+Comparison & $p_t$ & $p_U$ & $d$ [CI] & $p_t$ & $p_U$ & $d$ [CI] \\
+\midrule
+Random vs Filtered Random & 0.251 & 0.892 & +0.37 [-0.27,+1.00] & 0.262 & 0.871 & +0.36 [-0.40,+0.79] \\
+Random vs LLM Zero-Shot & 0.037 & 0.000$^{*}$ & -0.71 [-2.14,-0.58] & 0.000$^{*}$ & 0.000$^{*}$ & -1.53 [-2.38,-0.98] \\
+Random vs LLM + Unstr. FB & 0.063 & 0.001$^{*}$ & -0.62 [-1.30,-0.45] & 0.000$^{*}$ & 0.000$^{*}$ & -1.63 [-2.54,-1.05] \\
+Random vs LLM + Struct. FB & 0.074 & 0.005 & -0.60 [-1.14,-0.41] & 0.000$^{*}$ & 0.000$^{*}$ & -1.37 [-2.27,-0.77] \\
+Random vs Reg. Evolution & 0.400 & 0.066 & -0.27 [-0.84,+0.35] & 0.017 & 0.014 & -0.79 [-1.61,-0.19] \\
+Filtered Random vs LLM Zero-Shot & 0.008 & 0.000$^{*}$ & -0.94 [-1.40,-0.62] & 0.006 & 0.000$^{*}$ & -0.98 [-1.74,-0.75] \\
+Filtered Random vs LLM + Unstr. FB & 0.012 & 0.002$^{*}$ & -0.88 [-1.34,-0.52] & 0.005 & 0.000$^{*}$ & -1.01 [-1.86,-0.78] \\
+Filtered Random vs LLM + Struct. FB & 0.013 & 0.016 & -0.86 [-1.33,-0.49] & 0.007 & 0.000$^{*}$ & -0.94 [-1.59,-0.69] \\
+Filtered Random vs Reg. Evolution & 0.066 & 0.051 & -0.60 [-1.20,-0.01] & 0.028 & 0.009 & -0.74 [-1.18,-0.35] \\
+LLM Zero-Shot vs LLM + Unstr. FB & 0.007 & 0.042 & +0.93 [+0.37,+1.63] & 0.606 & 0.787 & -0.16 [-0.87,+0.44] \\
+LLM Zero-Shot vs LLM + Struct. FB & 0.001$^{*}$ & 0.002$^{*}$ & +1.25 [+0.54,+2.71] & 0.809 & 0.387 & +0.08 [-0.59,+0.66] \\
+LLM Zero-Shot vs Reg. Evolution & 0.138 & 0.507 & +0.49 [+0.35,+1.20] & 0.099 & 0.351 & +0.54 [-0.04,+1.08] \\
+LLM + Unstr. FB vs LLM + Struct. FB & 0.498 & 0.409 & +0.22 [-0.40,+0.99] & 0.509 & 0.330 & +0.21 [-0.44,+0.83] \\
+LLM + Unstr. FB vs Reg. Evolution & 0.248 & 0.968 & +0.38 [-0.23,+0.75] & 0.054 & 0.086 & +0.64 [+0.06,+1.20] \\
+LLM + Struct. FB vs Reg. Evolution & 0.291 & 0.871 & +0.34 [-0.38,+0.69] & 0.165 & 0.310 & +0.45 [-0.17,+1.04] \\
+\bottomrule
+\end{tabular}
+\end{table}

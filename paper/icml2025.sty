@@ -1,0 +1,86 @@
+% ICML 2025/2026 Style File (simplified for workshop papers)
+% Based on the official ICML formatting guidelines
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{icml2025}[2025/01/01 ICML 2025 Style]
+
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{natbib}
+\RequirePackage{graphicx}
+\RequirePackage{booktabs}
+\RequirePackage{hyperref}
+\RequirePackage{url}
+\RequirePackage{microtype}
+\RequirePackage{xcolor}
+\RequirePackage{algorithm}
+\RequirePackage{algorithmic}
+
+% Page geometry: ICML uses 6.875in x 9.25in text area
+\RequirePackage[
+  letterpaper,
+  textwidth=6.875in,
+  textheight=9.25in,
+  left=0.8125in,
+  top=1.0in,
+  headheight=12pt,
+  headsep=18pt
+]{geometry}
+
+% Two-column layout handled by \documentclass[twocolumn]
+
+% Font setup
+\RequirePackage{times}
+
+% Paragraph formatting
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0pt}
+
+% Section formatting
+\RequirePackage{titlesec}
+\titleformat{\section}{\normalfont\large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\normalsize\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\normalfont\normalsize\itshape}{\thesubsubsection}{1em}{}
+
+% Title formatting
+\newcommand{\icmltitle}[1]{%
+  \begin{center}
+    {\Large\bfseries #1\par}
+    \vskip 0.4em
+  \end{center}
+}
+
+\newcommand{\icmlauthor}[1]{%
+  \begin{center}
+    {#1\par}
+    \vskip 1em
+  \end{center}
+}
+
+% Abstract environment
+\renewenvironment{abstract}{%
+  \centerline{\large\bfseries Abstract}
+  \vskip 0.5em
+  \begin{quote}
+  \small
+}{%
+  \end{quote}
+  \vskip 1em
+}
+
+% Bibliography style
+\bibliographystyle{plainnat}
+
+% Hyperref setup
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue,
+  pdfborder={0 0 0}
+}
+
+% Caption formatting
+\RequirePackage{caption}
+\captionsetup{font=small,labelfont=bf}
+
+\endinput
