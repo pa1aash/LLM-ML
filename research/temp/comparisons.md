@@ -98,12 +98,19 @@ source establishes whether a size-confounded proxy is *sufficient* for the
 ablation's conclusion to transfer to accuracy-based feedback. That is an
 empirical question nobody in the corpus has asked.
 
-**S2. Evidence-strength asymmetry between the two verdicts.** L1's "partially
-scooped" verdict rests on **one un-peer-reviewed arXiv v2 preprint** (CoLLM-NAS)
-with no corroborating source in the corpus. L5's verdict rests on a NeurIPS
-D&B-track benchmark paper plus two independently fetched proxy papers. **The
-verdict carrying the most consequence for the subject paper's novelty is the one
-resting on the weakest evidence.** Flagged to step 8 as C6.
+**S2. CORRECTED BY STEP 8 (C6) — the asymmetry was overstated.** This seam
+originally read that L1's "partially scooped" verdict rested on *one
+un-peer-reviewed arXiv v2 preprint*. **That is wrong. CoLLM-NAS was accepted as
+an Oral at the CVPR 2026 NAS Workshop, and the evidence for that was already in
+the vault** — missed by L1 and by this file's first draft. The verdict carrying
+the most consequence for the subject paper's novelty is therefore **peer-reviewed
+and orally accepted**, which strengthens rather than weakens the "partially
+scooped" finding.
+
+What remains genuinely open is narrower: whether CoLLM-NAS's noise-accumulation
+ablation has been **independently cited, replicated or challenged**. Step 8
+returned that as **NOT SETTLED — fetch budget exhausted**, with five candidate
+citing papers listed as unverified leads.
 
 **S3. L1's GENIUS finding is based on partial sampling.** The investigator read
 one appendix table (NAS-Bench-Macro, Temperature=1) of several in Appendix A.3.
