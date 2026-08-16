@@ -209,3 +209,23 @@ regenerable at any time by re-running `hyperresearch install`, so nothing is
 lost. Confirm this disposition, and note that re-running `install` recreates
 them and that a fresh clone will not exclude them until
 `.git/info/exclude` is repopulated.
+
+**OA-36. arXiv PDF extraction is broken environment-wide — root-caused.**
+`hyperresearch fetch` on any arXiv PDF returns
+`JUNK_CONTENT: Binary PDF garbage in content`. **The cause is not pymupdf, not a
+redirect, and not a bot wall**: curl returns a valid 625 KB `%PDF-1.5` for the
+same URL and pymupdf parses all 17 pages cleanly. The CLI applies a
+text-heuristic to the downloaded bytes and discards the payload *before*
+invoking the parser.
+
+*Consequence:* every arXiv PDF fetched during the S0 width sweep was silently
+reduced to its abstract landing page — 37 of 66 active notes (56%) were
+abstract-only, including sources carrying the novelty verdict.
+
+*Disposition:* **routed around in S1, not fixed.** A direct curl + pymupdf
+extraction repaired 27 notes (0 failures); ABSTRACT-ONLY fell 37 → 10, and all
+10 remaining are genuinely short web pages, not paper abstracts. See
+`research/temp/fulltext-repair-log.md` and `audit/HR_STEP_LOG.md`. **The defect
+will recur on every future run** until the package is patched or upgraded —
+patching an installed third-party package was out of scope. [OPERATOR] Decide
+whether to pin a fix, upgrade, or keep the workaround script.
