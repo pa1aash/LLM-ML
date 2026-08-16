@@ -1,0 +1,104 @@
+{
+  "vault_tag": "llm-nas-feedback-positioning-7125b1",
+  "step": 4,
+  "mode": "MANUAL",
+  "mode_rationale": "All five loci are operator-specified verbatim in the S1d brief. Loci-analyst subagents were not spawned because their output was fully determined in advance; spawning them would have re-derived a fixed answer at cost. Scoring and budgets assigned by the orchestrator against the 94-note corpus.",
+  "corpus_size": 94,
+  "breadth_note": "CLI-default breadth. The contracted `premier` gear (100-130 sources) does not exist in hyperresearch v0.8.5 - no profile/gear subcommand. Source count is NOT the contracted figure.",
+  "loci": [
+    {
+      "id": "L1",
+      "operator_specified": true,
+      "question": "What is the priority of the claim 'iterative feedback degrades LLM-guided NAS' against RZ-NAS (ICML 2025) and the 2025-26 agentic/multi-agent NAS work?",
+      "type": "dialectical",
+      "scores": {"importance": 5, "uncertainty": 4, "disagreement": 5, "decision_impact": 5},
+      "source_budget": 12,
+      "disposition": "STEP 5 depth investigator",
+      "must_read_note_ids": [
+        "icml-poster-rz-nas-enhancing-llm-guided-neural-architectur",
+        "evoprompting-language-models-for-code-level-neural-archite",
+        "can-gpt-4-perform-neural-architecture-search",
+        "230601102v8-llmatic-neural-architecture-search-via-large-l",
+        "230505351v4-gpt-nas-evolutionary-neural-architecture-searc",
+        "250926037v2-collm-nas-collaborative-large-language-models-",
+        "241002189-agent-oriented-planning-in-multi-agent-systems",
+        "240110034v3-evolutionary-computation-in-the-era-of-large-l",
+        "neural-architecture-search-insights-from-1000-papers"
+      ],
+      "why_load_bearing": "Decides whether the paper has a novelty claim at all. GENIUS already reports non-monotonic iteration behaviour; RZ-NAS and CoLLM-NAS report reflective/iterative LLM-NAS working. The unqualified claim cannot survive both."
+    },
+    {
+      "id": "L2",
+      "operator_specified": true,
+      "question": "Rival explanations for generation-diversity collapse - sanitisation, quantisation, decoding temperature, RLHF mode collapse - assessed on PREDICTED MAGNITUDE, not direction. The subject paper reported near-total collapse; a rival predicting partial loss does not explain it.",
+      "type": "mechanistic",
+      "scores": {"importance": 5, "uncertainty": 3, "disagreement": 4, "decision_impact": 5},
+      "source_budget": 8,
+      "disposition": "DEFERRED TO STEP 8 (corpus critic, as citation check)",
+      "deferral_rationale": "The magnitude evidence is already assembled and quantified in the S1a gap-fill: 4-bit causes mild Signal Degradation while catastrophic Computation Collapse is a 2-bit phenomenon; RLHF mode collapse is graded, not total; decoding effects are partial by construction. Only sanitiser coercion predicts exact identity. A depth investigator would re-derive a settled comparison; the corpus critic verifying each magnitude claim against its source is the higher-value use.",
+      "relevant_note_ids": [
+        "241210271-benchmarking-linguistic-diversity-of-large-language-models",
+        "260419884-from-signal-degradation-to-computation-collapse-uncovering-the-two-fai",
+        "241117691-low-bit-quantization-favors-undertrained-llms-scaling-laws-for-quantiz",
+        "251011696-qerl-beyond-efficiency-quantization-enhanced-reinforcement-learning-fo",
+        "260511128-sampling-more-getting-less-calibration-is-the-diversity-bottleneck-in",
+        "understanding-the-effects-of-rlhf-on-llm-generalisation-an",
+        "240204477v1-detecting-mode-collapse-in-language-models-via",
+        "161002424-diverse-beam-search-decoding-diverse-solutions-f"
+      ]
+    },
+    {
+      "id": "L3",
+      "operator_specified": true,
+      "question": "What is the correct estimand under a fixed search budget - population mean or expected-best-of-k - and what do NAS reviewers actually require?",
+      "type": "methodological",
+      "scores": {"importance": 5, "uncertainty": 2, "disagreement": 3, "decision_impact": 5},
+      "source_budget": 6,
+      "disposition": "DEFERRED TO STEP 8 (corpus critic, as citation check)",
+      "deferral_rationale": "The 1000-papers survey states the estimand explicitly (expected-best-of-k = top 100/k% in expectation). This is a citation-verification task, not an open question requiring investigation. What needs checking is that the quotation is accurate and that the reviewer-expectation claim is not over-read from a single survey.",
+      "relevant_note_ids": [
+        "neural-architecture-search-insights-from-1000-papers",
+        "best-practices-for-scientific-researchon-neural-architectu",
+        "190207638-random-search-and-reproducibility-for-neural-arc",
+        "nas-evaluation-is-frustratingly-hard"
+      ]
+    },
+    {
+      "id": "L4",
+      "operator_specified": true,
+      "question": "What inference is valid when proposals are serially dependent within one context, and what follows from taking the run rather than the architecture as the unit?",
+      "type": "methodological",
+      "scores": {"importance": 4, "uncertainty": 3, "disagreement": 2, "decision_impact": 4},
+      "source_budget": 6,
+      "disposition": "DEFERRED TO STEP 8 (corpus critic, as citation check)",
+      "deferral_rationale": "The dependence is established from the subject repo's own code (audit/FORENSICS.md F3), not from the literature. The literature's role is to supply the standard for what inference is then valid - Agarwal et al. on interval estimates, Colas et al. on seed counts. Verification, not investigation.",
+      "relevant_note_ids": [
+        "210813264-deep-reinforcement-learning-at-the-edge-of-the-s",
+        "180608295-how-many-random-seeds-statistical-power-analysis",
+        "230401910-on-the-variance-of-neural-network-training-with-",
+        "evaluating-the-search-phase-of-neural-architecture-search"
+      ]
+    },
+    {
+      "id": "L5",
+      "operator_specified": true,
+      "question": "Which zero-cost proxy or proxies does RZ-NAS's reflective mechanism refine against, and does the paper validate them for cross-benchmark generalisation? Does NAS-Bench-Suite-Zero's size-confound finding apply?",
+      "type": "evidential",
+      "scores": {"importance": 5, "uncertainty": 5, "disagreement": 3, "decision_impact": 5},
+      "source_budget": 6,
+      "disposition": "STEP 5 depth investigator",
+      "must_read_note_ids": [
+        "icml-poster-rz-nas-enhancing-llm-guided-neural-architectur",
+        "221003230-nas-bench-suite-zero-accelerating-research-on-zero-cost-proxies",
+        "200100326v2-nas-bench-201-extending-the-scope-of-reproduci",
+        "200900437v6-nats-bench-benchmarking-nas-algorithms-for-arc"
+      ],
+      "why_load_bearing": "Directly checkable and falsifiable from full text already in the vault. Determines whether the NAS-Bench-Suite-Zero size-confound narrows RZ-NAS's priority over the subject paper, or is irrelevant to it. The answer is permitted to go either way and must not be stretched."
+    }
+  ],
+  "scoping_decision": {
+    "step_5_investigators": 2,
+    "deferred_to_step_8": ["L2", "L3", "L4"],
+    "rationale": "L2, L3 and L4 are citation-verification problems against evidence already assembled, not open investigations. L1 and L5 require reading long full texts and reaching a committed position that is not yet determined. Two investigators, not five."
+  }
+}

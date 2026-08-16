@@ -288,3 +288,49 @@ never fetched — AI-Native Academia, XAI4Science, AutoMLR confirmation, EvoRobu
 confirmation — plus three fetched in earlier sessions but not re-extracted to
 these eleven fields (Who Verifies the Agents?, SLM-Agents, JUDGe). The table is
 a partial substrate, not the shortlist.
+
+| Step | Mode | Artifacts | Notes |
+|---|---|---|---|
+| 3 contradiction graph | MANUAL | `research/temp/contradiction-graph.json` | 5 ranked fight clusters, 4 consensus claims; built from claims files + prior findings, not by re-reading bodies (S1d context discipline) |
+| 4 loci analysis | MANUAL | `research/loci.json` | 5 operator-specified loci, scored, budgets assigned |
+| 5 depth investigation | invoked (2 subagents) | 2 interim notes (pending) | L1 and L5 dispatched in parallel |
+
+### S1d scoping decision — three loci deferred to step 8
+
+**L2, L3 and L4 are DEFERRED TO STEP 8** and handled by the corpus critic as
+citation checks rather than by depth investigators. Recorded as a scoping
+decision, not a skip.
+
+Rationale: each is a *verification* problem against evidence already assembled,
+not an open investigation.
+- **L2** — the magnitude comparison is already quantified from the S1a gap-fill
+  (4-bit = mild Signal Degradation; catastrophic Computation Collapse is 2-bit;
+  RLHF collapse is graded; decoding effects partial by construction; only
+  sanitiser coercion predicts exact identity). An investigator would re-derive a
+  settled comparison.
+- **L3** — the 1000-papers survey states the estimand explicitly. What needs
+  checking is quotation accuracy and whether reviewer-expectation is over-read
+  from one survey.
+- **L4** — the serial dependence is established from the subject repo's own code
+  (`audit/FORENSICS.md` F3), not from the literature; the literature only
+  supplies the standard for valid inference.
+
+**L1 and L5 went to investigators** because both require reading long full texts
+and reaching a position that is genuinely not yet determined.
+
+### Step 4 loci summary
+
+| Locus | Type | Budget | Disposition |
+|---|---|---|---|
+| L1 priority vs RZ-NAS / agentic NAS | dialectical | 12 | step 5 investigator |
+| L2 rival magnitudes for diversity collapse | mechanistic | 8 | deferred → step 8 |
+| L3 estimand: mean vs expected-best-of-k | methodological | 6 | deferred → step 8 |
+| L4 valid inference under serial dependence | methodological | 6 | deferred → step 8 |
+| L5 RZ-NAS proxy validation | evidential | 6 | step 5 investigator |
+
+Step 4 was run MANUAL rather than by spawning loci analysts: all five loci were
+operator-specified verbatim, so analyst output was fully determined in advance
+and spawning them would have re-derived a fixed answer at cost.
+
+**Breadth caveat for the digest front matter:** source count is CLI-default, NOT
+the contracted 100-130 — hyperresearch v0.8.5 has no `profile`/`gear` subcommand.

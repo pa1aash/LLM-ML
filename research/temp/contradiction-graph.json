@@ -1,0 +1,147 @@
+{
+  "vault_tag": "llm-nas-feedback-positioning-7125b1",
+  "step": 3,
+  "mode": "MANUAL",
+  "mode_rationale": "Built by the orchestrator from claims files and prior full-text findings rather than by re-reading source bodies, per the S1d context-discipline constraint. Each fight cluster is anchored to note IDs so a critic can verify it against source text.",
+  "corpus_size": 94,
+  "fight_clusters": [
+    {
+      "id": "F1",
+      "rank": 1,
+      "title": "Does iterative feedback help or hurt LLM-guided architecture search?",
+      "side_a": {
+        "position": "Feedback / reflection improves LLM-guided NAS",
+        "notes": [
+          "icml-poster-rz-nas-enhancing-llm-guided-neural-architectur",
+          "250926037v2-collm-nas-collaborative-large-language-models-",
+          "evoprompting-language-models-for-code-level-neural-archite"
+        ]
+      },
+      "side_b": {
+        "position": "Iteration fails to improve, or degrades",
+        "notes": [
+          "can-gpt-4-perform-neural-architecture-search",
+          "230601102v8-llmatic-neural-architecture-search-via-large-l",
+          "large-language-models-cannot-self-correct-reasoning-yet"
+        ]
+      },
+      "feeds_locus": "L1",
+      "note": "The likely resolution is that the two sides differ in MECHANISM (external/proxy-scored/evolutionary vs intrinsic sequential refinement on a scalar), not in fact. L1 must test that rather than assume it."
+    },
+    {
+      "id": "F2",
+      "rank": 2,
+      "title": "Does quantisation collapse generation diversity?",
+      "side_a": {
+        "position": "4-bit quantisation reduces lexical and syntactic diversity, worse at small scale",
+        "notes": ["241210271-benchmarking-linguistic-diversity-of-large-language-models"]
+      },
+      "side_b": {
+        "position": "Quantisation noise INCREASES sampling entropy; 4-bit degradation is mild, collapse is a 2-bit phenomenon",
+        "notes": [
+          "251011696-qerl-beyond-efficiency-quantization-enhanced-reinforcement-learning-fo",
+          "260419884-from-signal-degradation-to-computation-collapse-uncovering-the-two-fai"
+        ]
+      },
+      "feeds_locus": "L2",
+      "note": "Genuine unresolved disagreement in the literature. Any claim here must be stated as contested. The magnitude asymmetry - partial vs total - is what makes this decidable for the subject paper."
+    },
+    {
+      "id": "F3",
+      "rank": 3,
+      "title": "Are zero-cost proxies a trustworthy search signal?",
+      "side_a": {
+        "position": "Zero-cost proxies are a usable refinement signal",
+        "notes": ["icml-poster-rz-nas-enhancing-llm-guided-neural-architectur"]
+      },
+      "side_b": {
+        "position": "Few of 13 proxies generalise; synflow correlates 0.57 with architecture size",
+        "notes": ["221003230-nas-bench-suite-zero-accelerating-research-on-zero-cost-proxies"]
+      },
+      "feeds_locus": "L5",
+      "note": "Directly checkable from full text on both sides. L5 resolves it."
+    },
+    {
+      "id": "F4",
+      "rank": 4,
+      "title": "Is self-correction failure a property of the method or of model scale?",
+      "side_a": {
+        "position": "Intrinsic self-correction fails as such, without external verification",
+        "notes": [
+          "large-language-models-cannot-self-correct-reasoning-yet",
+          "on-the-self-verification-limitations-of-large-language-mod",
+          "when-can-llms-actually-correct-their-own-mistakesa-critica"
+        ]
+      },
+      "side_b": {
+        "position": "The failure is scale-dependent - the generation-verification gap scales with pretraining FLOPs; error LOCATION, not correction, is the bottleneck",
+        "notes": [
+          "241202674-mind-the-gap-examining-the-self-improvement-capa",
+          "231108516-llms-cannot-find-reasoning-errors-but-can-correc"
+        ]
+      },
+      "feeds_locus": "L1",
+      "note": "Bears on whether a small-model demonstration is confirmatory or novel. If the failure is scale-predictable, observing it at 1.7B adds little."
+    },
+    {
+      "id": "F5",
+      "rank": 5,
+      "title": "Mean-of-population vs expected-best-of-k as the estimand for a fixed budget",
+      "side_a": {
+        "position": "Expected-best-of-k is the search-relevant estimand",
+        "notes": ["neural-architecture-search-insights-from-1000-papers"]
+      },
+      "side_b": {
+        "position": "Population statistics with significance testing are the reporting norm in practice",
+        "notes": [
+          "evaluating-the-search-phase-of-neural-architecture-search",
+          "best-practices-for-scientific-researchon-neural-architectu"
+        ]
+      },
+      "feeds_locus": "L3",
+      "note": "Not a true contradiction so much as a mismatch between what is reported and what the task requires. Decisive for the subject paper, whose headline inverts under best-of-k."
+    }
+  ],
+  "consensus_claims": [
+    {
+      "claim": "Random search is a mandatory and surprisingly strong NAS baseline; many published NAS methods do not beat it convincingly.",
+      "independent_support": [
+        "190207638-random-search-and-reproducibility-for-neural-arc",
+        "nas-evaluation-is-frustratingly-hard",
+        "evaluating-the-search-phase-of-neural-architecture-search",
+        "best-practices-for-scientific-researchon-neural-architectu"
+      ],
+      "confidence": "high - 4 independent sources"
+    },
+    {
+      "claim": "Self-correction succeeds when feedback is external, executable, or otherwise grounded, and fails when it is intrinsic.",
+      "independent_support": [
+        "large-language-models-cannot-self-correct-reasoning-yet",
+        "on-the-self-verification-limitations-of-large-language-mod",
+        "230511738-critic-large-language-models-can-self-correct-wi",
+        "240201817-llms-cant-plan-but-can-help-planning-in-llm-modu",
+        "230311366v4-reflexion-language-agents-with-verbal-reinforc"
+      ],
+      "confidence": "high - 5 independent sources, and no source in the corpus contradicts it"
+    },
+    {
+      "claim": "Single-seed, point-estimate comparisons are inadequate for ranking methods under stochastic training.",
+      "independent_support": [
+        "210813264-deep-reinforcement-learning-at-the-edge-of-the-s",
+        "180608295-how-many-random-seeds-statistical-power-analysis",
+        "nas-evaluation-is-frustratingly-hard",
+        "230401910-on-the-variance-of-neural-network-training-with-"
+      ],
+      "confidence": "high - 4 independent sources"
+    },
+    {
+      "claim": "Near-identical generation is a documented decoding-procedure artifact, independent of any feedback mechanism.",
+      "independent_support": [
+        "161002424-diverse-beam-search-decoding-diverse-solutions-f",
+        "240105054v2-generating-diverse-and-high-quality-texts-by-m",
+        "260511128-sampling-more-getting-less-calibration-is-the-diversity-bottleneck-in"
+      ],
+      "confidence": "medium-high - 3 independent sources"
+    }
+  ]
+}
