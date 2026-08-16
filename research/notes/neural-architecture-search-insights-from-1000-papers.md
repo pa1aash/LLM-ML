@@ -3,16 +3,77 @@ title: 'Neural Architecture Search: Insights from 1000 Papers'
 id: neural-architecture-search-insights-from-1000-papers
 tags:
 - llm-nas-feedback-positioning-7125b1
+- nas-evaluation-standards
+- nas-benchmarks
+- priority-source
 created: '2026-08-16T15:46:33.156926Z'
+updated: '2026-08-16T15:50:30.900220Z'
 source: https://arxiv.org/html/2301.08727
 source_domain: arxiv.org
 fetched_at: '2026-08-16T15:46:33.155053Z'
 fetch_provider: builtin
-status: draft
+status: review
 type: note
 tier: institutional
 content_type: paper
 deprecated: false
+summary: 'White, Safari, Sukthanker, Ru, Elsken, Zela, Dey, Hutter, ''Neural Architecture
+  Search: Insights from 1000 Papers'' (arXiv:2301.08727, Jan 2023, full-text HTML
+  fetched at 31,224 words). Comprehensive taxonomy of NAS search spaces, search strategies,
+  speedup techniques, benchmarks, and evaluation best practices synthesizing 1000+
+  papers since 2020. Predates the LLM-as-optimizer NAS literature (GENIUS, EvoPrompting)
+  and does not discuss LLMs as search algorithms — GPT/language-model mentions are
+  confined to NAS-for-transformer-architecture search spaces (searching GPT/BERT hyperparameters),
+  not LLMs as the search method. Its primary value for this project is Q3 (methodology
+  standards).\n\nSection 3.1 ''Baselines'': states random search is ''highly recommended
+  as a baseline comparison for new NAS algorithms (Yang et al. 2020; Lindauer and
+  Hutter 2020)'' and explains the correct theoretical property: ''random search with
+  a budget of k evaluations will, in expectation, find architectures in the top 100/k%
+  of the search space'' — i.e. establishes expected-best-of-k as the canonical estimand,
+  directly relevant to the query''s methodology question about mean-of-population
+  vs. expected-best-of-k. Cites Sciuto et al. 2020, Li and Talwalkar 2019, Yang et
+  al. 2020, and Chen et al. 2018 as showing random search ''performs surprisingly
+  well,'' while Bender et al. 2020 and Real et al. 2020 show it underperforms on large/diverse
+  search spaces — establishing that random-search competitiveness is search-space-dependent,
+  a caveat any positioning paper must address.\n\nSection 9 ''Best Practices'' is
+  the load-bearing section: identifies Li and Talwalkar 2019, Yang et al. 2020, and
+  Lindauer and Hutter 2020 as having ''laid out best practices and guidelines for
+  conducting sound NAS research that is reproducible and makes fair comparisons,''
+  available as a checklist (Lindauer and Hutter 2020) that NAS researchers are urged
+  to attach to paper appendices. Verbatim requirements extracted: (1) release full
+  code including random seeds; (2) release all training pipelines (search-stage and
+  final-evaluation pipelines are often different and both must be released); (3) report
+  whether/how NAS-method hyperparameters were tuned, and tune on one dataset before
+  fixing across others since ''hyperparameters often do not transfer well across datasets
+  and search spaces'' (Mehta et al. 2022); (4) use the EXACT SAME NAS benchmark (fixed
+  train-test split, search space, evaluation pipeline) when comparing methods, not
+  just ''the same datasets''; (5) always compare against random sampling and random
+  search baselines; (6) for anytime algorithms, compare on a performance-over-time
+  plot; (7) run thorough ablations showing which components of the method drive improvement;
+  (8) run MULTIPLE TRIALS and report random seeds for each, because ''NAS methods
+  can have high variance in the randomness of the algorithm, so running many trials
+  is important to verify statistically significant comparisons.''\n\nSection 8 (benchmarks,
+  ~line 102800) catalogs the tabular benchmark landscape precisely: NAS-Bench-101
+  (Ying et al. 2019, 423,624 architectures, 3 seeds each on CIFAR-10), NAS-Bench-201
+  (Dong and Yang 2020, 6466 unique architectures x CIFAR-10/CIFAR-100/ImageNet-16-120,
+  3 seeds each), NATS-Bench (Dong et al. 2021b, extends NAS-Bench-201 with a macro/size
+  search space), Surr-NAS-Bench-DARTS/NAS-Bench-301 (Siems et al. 2020, surrogate
+  benchmark trained on 60,000 architectures), NAS-Bench-x11 (Yan et al. 2021b, predicts
+  full learning curves), NAS-Bench-Suite (Mehta et al. 2022, unifies 28 benchmark
+  tasks), and NAS-Bench-Suite-Zero (Krishnakumar et al. 2022, precomputed zero-cost
+  proxies across all tasks) — this is precisely the benchmark landscape named in the
+  query. Explicitly warns: ''over-reliance on a few benchmarks can lead to the field
+  over-fitting (Raji et al. 2021; Koch et al. 2021)... researchers should use a large
+  set of diverse NAS benchmarks whenever possible'' — a critique the target paper
+  (single CNN search space, apparently) would need to answer.\n\nIdentifies the exact
+  bibliographic keys for the three canonical methodology critiques named in the query''s
+  Q3: Li and Talwalkar (2019) ''Random search and reproducibility for neural architecture
+  search'' (UAI 2019); Yang, Esperança, Carlucci (2020) ''NAS evaluation is frustratingly
+  hard'' (ICLR 2020); Lindauer and Hutter (2020) ''Best practices for scientific research
+  on neural architecture search'' (JMLR 2020); plus Sciuto, Yu, Jaggi, Musat, Salzmann
+  (2020) ''Evaluating the search phase of neural architecture search'' (ICLR 2020).
+  All four fetched directly as primary sources in Phase 2 (see arXiv:1902.07638, 1912.12522,
+  1909.02453, 1902.08142).'
 ---
 
 *Suggested by [[230108727-neural-architecture-search-insights-from-1000-papers]] — full-text HTML version of NAS survey abstract page fetched in batch*

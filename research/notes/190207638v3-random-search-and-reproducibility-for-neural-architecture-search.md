@@ -4,11 +4,12 @@ id: 190207638v3-random-search-and-reproducibility-for-neural-architecture-search
 tags:
 - llm-nas-feedback-positioning-7125b1
 created: '2026-08-16T15:45:41.763689Z'
+updated: '2026-08-16T15:49:36.530941Z'
 source: https://arxiv.org/abs/1902.07638v3
 source_domain: arxiv.org
 fetched_at: '2026-08-16T15:45:41.763275Z'
 fetch_provider: builtin
-status: draft
+status: deprecated
 type: note
 tier: institutional
 content_type: paper

@@ -166,3 +166,47 @@ practice, Q2 quantisation-specific diversity loss, and Q1 agentic/multi-agent NA
 2025–26 — all four returned noise in the sweep and none has adequate coverage
 yet. The `premier` gear that would have widened this automatically does not exist
 in v0.8.5 (OA-33), so the compensation has to be manual.
+
+### Step 2 — batch 5 returned (7 notes: 5 assigned + 2 chased)
+
+**Correction absorbed.** My batch-5 instruction guessed arXiv 1902.09635 was
+Li & Talwalkar. It is NAS-Bench-101 (Ying et al., ICML 2019). The fetcher flagged
+the mismatch rather than writing up the wrong paper, then chased the real
+Li & Talwalkar (arXiv 1902.07638, UAI 2019) as a Phase 2 primary source. Both are
+now in the vault. Batch 7 also carried 1902.07638, so expect a duplicate — dedupe
+at the redundancy audit, not before.
+
+**Two high-value additions neither planned nor assigned:**
+
+1. **Li & Talwalkar (UAI 2019)** — reports **6 seeds per benchmark** as its own
+   remedy for the NAS reproducibility crisis, and shows random search beating
+   ENAS on PTB and CIFAR-10. This is the concrete numeric standard Q3 asks
+   whether the subject paper meets. The subject paper has **1 primary seed** with
+   a partial second whose numbers are ORPHAN. That is a direct, citable failure
+   against the exact source the query names.
+
+2. **"Position: Embracing Negative Results in Machine Learning" (Karl et al.,
+   2024)** — argues predictive performance alone is an inadequate publication
+   criterion and calls for normalising negative-result publication. This is
+   load-bearing for **Q5 and Q6 simultaneously**: it is the citation that makes a
+   null result publishable *on principle* rather than as a curiosity, and it
+   strengthens the reframe toward an evaluation-methodology contribution.
+
+**Q4 counter-evidence sharpening.** OPRO (Yang et al., ICLR 2024) is confirmed as
+the strongest counter-case so far: an explicit iterative feedback loop —
+past solutions plus scores in the prompt — measurably improved results (up to 8%
+GSM8K, 50% Big-Bench Hard). But it is demonstrated on **prompt optimisation and
+toy numerical optimisation, not architecture search, and at frontier scale, not
+small quantised scale.** That is exactly the "bounds it rather than defeats it"
+verdict shape predicted before fetching. Note the full-text PDF extraction failed
+twice (JUNK_CONTENT) — only abstract-level detail captured. **Flag for a
+source-analyst pass** if the iteration-count-vs-performance curve is needed to
+make the bounding argument precisely.
+
+**Also confirmed:** ELM enforced diversity via an external MAP-Elites
+quality-diversity algorithm, not intrinsically. That supports the emerging thesis
+that diversity in LLM-guided search comes from the scaffold, not the model —
+which reframes the subject paper's diversity collapse as expected rather than
+surprising.
+
+Vault: 58 notes. Batches 1, 2, 3, 4, 6, 7, 8 still outstanding.

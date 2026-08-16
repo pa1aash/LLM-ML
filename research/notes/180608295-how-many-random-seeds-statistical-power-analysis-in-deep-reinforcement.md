@@ -4,7 +4,10 @@ title: '[1806.08295] How Many Random Seeds? Statistical Power Analysis in Deep R
 id: 180608295-how-many-random-seeds-statistical-power-analysis-in-deep-reinforcement
 tags:
 - llm-nas-feedback-positioning-7125b1
+- nas-methodology
+- random-search-baseline
 created: '2026-08-16T15:45:02.114154Z'
+updated: '2026-08-16T15:51:01.459675Z'
 source: https://arxiv.org/abs/1806.08295
 source_domain: arxiv.org
 fetched_at: '2026-08-16T15:45:02.113639Z'
@@ -14,6 +17,18 @@ type: note
 tier: institutional
 content_type: paper
 deprecated: false
+summary: 'Colas, Sigaud & Oudeyer (2018) tutorial establishing how many random seeds
+  are statistically required to compare two algorithms'' performance with adequate
+  power, using t-tests and bootstrap confidence intervals, plus guidance on the consequences
+  of violating test assumptions (non-normality, unequal variance). Written for deep
+  RL reproducibility but is the standard methodological citation across empirical
+  deep-learning subfields, including NAS, for ''how many seeds/runs justify a significance
+  claim.'' Directly bears on the paper''s methodology defensibility: a claim that
+  a handful of LLM-proposed architectures (or a small number of random-search runs)
+  differ from each other requires a seed count and statistical test calibrated by
+  exactly this kind of power analysis — reviewers following this standard would flag
+  single-run or few-run comparisons between LLM proposals and random search as statistically
+  underpowered regardless of which mean looks larger.'
 ---
 
 [1806.08295] How Many Random Seeds? Statistical Power Analysis in Deep Reinforcement Learning Experiments

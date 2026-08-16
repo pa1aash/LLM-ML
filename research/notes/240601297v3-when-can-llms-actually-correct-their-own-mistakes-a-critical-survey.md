@@ -5,11 +5,12 @@ id: 240601297v3-when-can-llms-actually-correct-their-own-mistakes-a-critical-sur
 tags:
 - llm-nas-feedback-positioning-7125b1
 created: '2026-08-16T15:45:40.483172Z'
+updated: '2026-08-16T15:49:35.812503Z'
 source: https://arxiv.org/abs/2406.01297v3
 source_domain: arxiv.org
 fetched_at: '2026-08-16T15:45:40.482755Z'
 fetch_provider: builtin
-status: draft
+status: deprecated
 type: note
 tier: institutional
 content_type: paper

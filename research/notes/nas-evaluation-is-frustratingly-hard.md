@@ -3,7 +3,11 @@ title: NAS evaluation is frustratingly hard
 id: nas-evaluation-is-frustratingly-hard
 tags:
 - llm-nas-feedback-positioning-7125b1
+- nas-methodology
+- random-search-baseline
+- nas-benchmark
 created: '2026-08-16T15:46:36.130783Z'
+updated: '2026-08-16T15:49:55.320739Z'
 source: https://arxiv.org/html/1912.12522
 source_domain: arxiv.org
 fetched_at: '2026-08-16T15:46:36.129965Z'
@@ -13,6 +17,27 @@ type: note
 tier: institutional
 content_type: paper
 deprecated: false
+summary: 'Yang, Esperanca & Carlucci (ICLR 2020) benchmark 8 NAS methods (DARTS, StacNAS,
+  PDARTS, MANAS, CNAS, NSGANET, ENAS, NAO) on 5 datasets (CIFAR10, CIFAR100, SPORT8,
+  MIT67, FLOWERS102), comparing each method''s searched architecture against the relative
+  improvement (RI) over the average randomly SAMPLED architecture from the same search
+  space (distinct from random SEARCH). Most methods barely beat RI=0: e.g. on CIFAR10,
+  RI ranges from -0.48% (NSGANET) to 0.74% (CNAS); several methods are negative on
+  individual datasets (DARTS -0.13% on SPORT8, ENAS -3.44% on CIFAR100, CNAS -2.48%
+  on FLOWERS102). Sensitivity experiments on the DARTS CIFAR10 search space show:
+  (i) training-protocol tricks (Cutout, DropPath, AutoAugment, extended epochs, more
+  channels) create a >3 percentage-point swing, larger than any search-algorithm gain
+  observed (best RI was only 0.69pp); (ii) 214 randomly sampled architectures from
+  the DARTS space cluster within one accuracy point (mean 97.03+/-0.23, range 96.18-97.56);
+  (iii) swapping the random seed alone changes Kendall-tau architecture ranking to
+  only 0.48, and changing cell depth (8 vs 20 cells) drops Kendall-tau to 0.54 with
+  architectures shifting up to 18/32 ranks; (iv) operations matter little -- an intentionally
+  impoverished operation set shifts mean accuracy by only 0.18pp, so the hand-designed
+  macro-structure (cell wiring), not the searched micro-structure (which ops), drives
+  performance. Recommends: report both tricked and untricked accuracy, quantify search-space
+  variability via random sampling (k archs, mean+/-std), average over multiple seeds,
+  and use NAS-Bench-101 to isolate search-strategy quality from search-space/training-protocol
+  confounds.'
 ---
 
 *Suggested by [[191212522-nas-evaluation-is-frustratingly-hard]] — HTML full-text of load-bearing methodology source, PDF extraction failed*

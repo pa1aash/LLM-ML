@@ -4,7 +4,11 @@ title: When Can LLMs Actually Correct Their Own Mistakes?A Critical Survey of Se
 id: when-can-llms-actually-correct-their-own-mistakesa-critical-survey-of-self-corre
 tags:
 - llm-nas-feedback-positioning-7125b1
+- llm-self-correction
+- mechanism-literature
+- evaluation-methodology
 created: '2026-08-16T15:46:40.273407Z'
+updated: '2026-08-16T15:50:28.912139Z'
 source: https://arxiv.org/html/2406.01297
 source_domain: arxiv.org
 fetched_at: '2026-08-16T15:46:40.272983Z'
@@ -14,6 +18,40 @@ type: note
 tier: institutional
 content_type: paper
 deprecated: false
+summary: 'Kamoi, Zhang, Zhang, Han & Zhang (TACL 2024, Penn State/UIUC) critically
+  survey LLM self-correction and find no prior work demonstrates successful intrinsic
+  self-correction (same model, in-context feedback, no external verifier) in general
+  tasks under fair evaluation. Core contribution is a taxonomy of three research questions
+  -- RQ1: can LLMs self-correct their best-possible initial response using only inherent
+  capability (intrinsic); RQ2: can they self-correct with external information (tools,
+  retrieval, fine-tuning); RQ3: is the final self-corrected output better than strong
+  baselines like self-consistency/generate-and-rank -- plus a checklist distinguishing
+  ''fair'' (best-possible initial response) from ''unfair'' (deliberately weakened
+  initial response, e.g. Self-Refine''s wrong few-shot demonstrations) and ''realistic''
+  from ''unrealistic'' (oracle ground-truth feedback, e.g. RCI Prompting, Reflexion''s
+  exact-match-to-answer feedback) evaluation setups. Auditing Self-Refine, RCI, CAI
+  Revisions, and others (Table 4) shows every claimed positive intrinsic-self-correction
+  result relied on either oracle information unavailable at inference or artificially
+  weak initial-response prompting -- once corrected for these confounds, intrinsic
+  self-correction on reasoning, closed-book QA, code generation, plan generation,
+  and graph coloring shows null or negative effects (citing Huang et al. 2024a, Gou
+  et al. 2024/CRITIC, Olausson et al. 2024, Valmeekam et al. 2023, Stechly et al.
+  2023). The identified bottleneck is unreliable self-generated FEEDBACK, not the
+  refinement step itself -- LLMs can act on good feedback but cannot reliably self-detect
+  their own errors absent an external verifier (citing Tyen et al. 2024, Kamoi et
+  al. 2024 on self-detection failure). Self-correction only succeeds with (a) reliable
+  external tools/knowledge (code interpreters, web search) providing feedback, (b)
+  large-scale fine-tuning (>100K examples typically) of the feedback/refinement modules,
+  or (c) tasks with an inherent decomposability property making verification strictly
+  easier than generation (e.g., verifying each claim in a multi-fact answer). Proposes
+  an 8-row checklist (Table 7/8) for self-correction research requiring: explicit
+  RQ statement, no oracle leakage, strong (not weakened) initial-response prompts,
+  disclosure of fine-tuning data scale, and comparison against self-consistency/generate-and-rank
+  baselines under matched compute. Directly relevant to positioning: this survey pre-establishes
+  ''intrinsic self-correction fails without external verification'' as a broad, cross-task
+  empirical consensus as of mid-2024, meaning any 2025-26 small-model NAS demonstration
+  of feedback degradation would need to show it clears this survey''s fairness/realism
+  checklist to register as a novel confirmatory (not merely repetitive) data point.'
 ---
 
 *Suggested by [[240601297v3-when-can-llms-actually-correct-their-own-mistakes-a-critical-survey]] — HTML full-text, PDF extraction failed*

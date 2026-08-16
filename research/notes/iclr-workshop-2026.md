@@ -3,7 +3,10 @@ title: ICLR Workshop 2026
 id: iclr-workshop-2026
 tags:
 - llm-nas-feedback-positioning-7125b1
+- venue-cfp
+- negative-results
 created: '2026-08-16T15:48:16.347925Z'
+updated: '2026-08-16T15:51:06.915534Z'
 source: https://sites.google.com/view/icbinb-2026
 source_domain: sites.google.com
 fetched_at: '2026-08-16T15:48:16.345784Z'
@@ -13,6 +16,23 @@ type: note
 tier: unknown
 content_type: unknown
 deprecated: false
+summary: 'ICBINB (''I Can''t Believe It''s Not Better: Where Large Language Models
+  Need to Improve'') 2026 edition is a workshop AT ICLR 2026 in Rio de Janeiro, Brazil
+  — NOT a NeurIPS workshop. In-person session held April 26th/27th 2026 (already past
+  as of this fetch), Room 201C. Explicitly part of the broader ICBINB initiative (''there
+  is more to machine learning research than tables with bold numbers''; prior editions
+  themed ''ideas motivated by beauty'' and ''gaps between theory and practice in probabilistic
+  ML''), which also runs a monthly seminar series. Scope solicits (a) work explicitly
+  showcasing an LLM limitation and (b) work that attempted a promising fix but fell
+  short (negative results), across reasoning, alignment, agents, efficiency/scaling,
+  and hallucination topics. States plainly: ''current publication mechanism tends
+  to prioritize positive over negative results'' and frames the workshop as a corrective
+  venue. Because the 2026 edition is calendared to ICLR (not NeurIPS) and its submission
+  deadline (per companion CFP page) has already elapsed relative to today''s date,
+  this specific workshop instance is NOT a live NeurIPS 2026 submission target — any
+  positioning argument for this venue would need to reference a hypothetical/future
+  NeurIPS-affiliated ICBINB edition or track historical rotation across venues, not
+  this page.'
 ---
 
 ICLR Workshop 2026

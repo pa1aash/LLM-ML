@@ -3,7 +3,10 @@ title: NeurIPS 2025 Workshops
 id: neurips-2025-workshops
 tags:
 - llm-nas-feedback-positioning-7125b1
+- venue-mismatch
+- neurips-workshops
 created: '2026-08-16T15:44:17.713343Z'
+updated: '2026-08-16T15:50:37.046062Z'
 source: https://neurips.cc/virtual/2025/events/workshop
 source_domain: neurips.cc
 fetched_at: '2026-08-16T15:44:17.712730Z'
@@ -13,6 +16,31 @@ type: note
 tier: unknown
 content_type: unknown
 deprecated: false
+summary: 'IMPORTANT VENUE MISMATCH: this URL (https://neurips.cc/virtual/2025/events/workshop)
+  resolves to the NeurIPS 2025 workshop list, not NeurIPS 2026. As of the fetch date
+  (2026-08-16), NeurIPS 2025 is a PAST conference: the page lists 56 workshop events
+  scheduled Dec 6-7, 2025 across four venues (San Diego, Sydney, Atlanta, Mexico City),
+  each with organizer names, exact date/time/room, and an abstract/scope description.
+  This page contains NO information about NeurIPS 2026 workshops -- no 2026 CFPs,
+  page limits, anonymity policies, archival status, or submission mechanics were found
+  or should be inferred from it. None of the 56 NeurIPS 2025 workshops is a dedicated
+  AutoML/NAS workshop (checked explicitly: no hits for ''AutoML'' or ''Neural Architecture
+  Search'' in the workshop titles/descriptions). The closest thematic matches among
+  2025 workshops, useful only as background context for what null-result/critique-friendly
+  workshop framing looks like at this venue (NOT as citable 2026 venue candidates):
+  (1) ''Foundations of Reasoning in Language Models'' (Huang, Block, Malladi, Merrill,
+  Hashimoto, Foster, Krishnamurthy, Izmailov) -- explicitly scopes ''controlled empirical
+  studies that illuminate how reasoning emerges, WHERE IT FAILS, and how it can be
+  systematically improved''; (2) ''Learning to Sense (L2S)'' -- explicitly lists ''Failure
+  case studies and negative results in joint optimization pipelines'' as a welcomed
+  topic, though its domain is sensor-model co-design, not NAS; (3) ''Deep Learning
+  for Code in the Agentic Era'' (DL4C, 4th edition) -- covers coding agents, benchmarks,
+  and evaluation methods but not architecture search. None of these three found a
+  stated position on negative results/replication as a CORE mission (only L2S lists
+  it as one topic among many). This note cannot be used to answer the research query''s
+  Question 5 about the NeurIPS 2026 workshop landscape; that requires a fresh fetch
+  once/if NeurIPS 2026 CFPs are published, or explicit confirmation from the parent
+  agent that no such page exists yet.'
 ---
 
 NeurIPS 2025 Workshops

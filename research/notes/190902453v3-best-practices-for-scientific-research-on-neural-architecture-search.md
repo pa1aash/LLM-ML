@@ -4,7 +4,11 @@ title: '[1909.02453v3] Best Practices for Scientific Research on Neural Architec
 id: 190902453v3-best-practices-for-scientific-research-on-neural-architecture-search
 tags:
 - llm-nas-feedback-positioning-7125b1
+- nas-methodology
+- random-search-baseline
+- nas-benchmarks
 created: '2026-08-16T15:45:58.564073Z'
+updated: '2026-08-16T15:49:44.238782Z'
 source: https://arxiv.org/abs/1909.02453v3
 source_domain: arxiv.org
 fetched_at: '2026-08-16T15:45:58.563690Z'
@@ -14,6 +18,21 @@ type: note
 tier: institutional
 content_type: paper
 deprecated: false
+summary: Lindauer & Hutter (2020, v3), the canonical NAS-evaluation methodology checklist
+  (automl.org/nas_checklist.pdf). Proposes 14 best practices grouped under code release,
+  fair comparison, and detail reporting. Best Practice 8 explicitly distinguishes
+  random SAMPLING (one draw, ~zero runtime) from random SEARCH (anytime procedure
+  evaluating multiple samples over the same time budget as the compared method) and
+  requires comparison against both, citing Sciuto et al. 2019 and Xie et al. 2019
+  (random sampling can be strong in well-designed spaces) and Li & Talwalkar 2019
+  (random search is very competitive). Best Practice 9 requires multiple seeded runs
+  with mean+stdev reporting, since 'NAS methods are almost always stochastic.' Best
+  Practices 4/10 push toward tabular/surrogate benchmarks, tabulating NAS-Bench-101
+  (423k archs), NAS-Bench-201 (6k, 3 datasets), NAS-Bench-301 (10^18, surrogate).
+  Notes many NAS benchmarks are 'relatively easy' -- random search often lands within
+  0.5% of optimal -- meaning small claimed margins over random search require careful
+  statistical treatment. This is the primary methodology-standards authority for evaluating
+  any NAS paper's use of random-search baselines, seeds, and tabular benchmarks.
 ---
 
 [1909.02453v3] Best Practices for Scientific Research on Neural Architecture Search

@@ -1,0 +1,44 @@
+[
+  {
+    "claim": "Switching an LLM's internal 'language of thought' from English to non-English languages consistently increases output diversity, with languages farther from English in thinking space yielding larger diversity gains.",
+    "stance": "neutral",
+    "stance_target": "Rival explanations for output-diversity collapse in LLM-guided generation (relevant to the target paper's mode-collapse claim)",
+    "evidence_type": "empirical",
+    "scope_conditions": "Repeated sampling under Single-Language and Mixed-Language Sampling strategies; output constrained to English regardless of thinking language",
+    "quoted_support": "switching the thinking language from English to non-English languages consistently increases output diversity, with a clear and consistent positive correlation such that languages farther from English in the thinking space yield larger gains.",
+    "numbers": [],
+    "entities": ["Language of Thought", "Single-Language Sampling", "Mixed-Language Sampling"],
+    "time_period": "submitted Jan 2026, revised Apr 2026",
+    "region": null,
+    "confidence": "medium",
+    "source_note_id": "260111227v2-language-of-thought-shapes-output-diversity-in-large-language-models"
+  },
+  {
+    "claim": "Aggregating samples across multiple thinking languages yields additional output-diversity improvements through compositional effects, expanding the model's overall diversity ceiling beyond what any single sampling strategy achieves.",
+    "stance": "neutral",
+    "stance_target": "Whether output diversity is a fixed model-intrinsic property or a manipulable generation-time property",
+    "evidence_type": "empirical",
+    "scope_conditions": "Multilingual thinking, pluralistic alignment evaluation",
+    "quoted_support": "aggregating samples across multiple thinking languages yields additional improvements through compositional effects, and that scaling sampling with linguistic heterogeneity expands the model's diversity ceiling.",
+    "numbers": [],
+    "entities": [],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "medium",
+    "source_note_id": "260111227v2-language-of-thought-shapes-output-diversity-in-large-language-models"
+  },
+  {
+    "claim": "Output diversity in LLMs is shaped by a structural, controllable factor (thinking-language choice) that is separable from and additional to model scale, quantization, or RLHF as candidate causes of diversity collapse.",
+    "stance": "supports",
+    "stance_target": "That diversity/mode-collapse in LLM generation has multiple independent causal levers, complicating attribution of a small quantized model's template collapse to any single cause",
+    "evidence_type": "theoretical",
+    "scope_conditions": "General LLM output-diversity literature, 2026",
+    "quoted_support": "we reveal that controlling the language used during model thinking-the language of thought-provides a novel and structural source of output diversity.",
+    "numbers": [],
+    "entities": [],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "low",
+    "source_note_id": "260111227v2-language-of-thought-shapes-output-diversity-in-large-language-models"
+  }
+]

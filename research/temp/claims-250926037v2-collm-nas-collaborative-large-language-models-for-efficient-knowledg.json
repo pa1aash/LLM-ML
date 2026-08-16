@@ -1,0 +1,58 @@
+[
+  {
+    "claim": "CoLLM-NAS, a two-stage LLM-guided NAS system using a stateful Navigator LLM plus stateless Generator LLM, surpasses existing NAS methods and conventional search algorithms on ImageNet and NAS-Bench-201 while cutting search cost 4-10x.",
+    "stance": "refutes",
+    "stance_target": "Blanket claim that iterative LLM feedback degrades LLM-guided NAS proposals",
+    "evidence_type": "empirical",
+    "scope_conditions": "NAS-Bench-201 and ImageNet; MobileNet/ShuffleNet/AutoFormer search spaces; two-stage NAS pipelines (OFA, SPOS, AutoFormer)",
+    "quoted_support": "CoLLM-NAS efficiently guides the search process by combining LLMs' inherent knowledge of structured neural architectures with progressive knowledge from iterative feedback and historical trajectory... achieving new state-of-the-art results while significantly reducing search costs by 4--10x.",
+    "numbers": ["4-10x search cost reduction", "NAS-Bench-201 SOTA"],
+    "entities": ["CoLLM-NAS", "Navigator LLM", "Generator LLM", "NAS-Bench-201", "ImageNet", "OFA", "SPOS", "AutoFormer"],
+    "time_period": "submitted Sep 2025, revised May 2026",
+    "region": null,
+    "confidence": "medium",
+    "source_note_id": "250926037v2-collm-nas-collaborative-large-language-models-for-efficient-knowledg"
+  },
+  {
+    "claim": "CoLLM-NAS uses a stateful Navigator LLM specifically to guide search direction using historical trajectory, i.e., a persistent multi-turn feedback loop rather than single-context sequential generation.",
+    "stance": "neutral",
+    "stance_target": "Whether the target paper's negative feedback result generalizes across LLM-NAS architectures",
+    "evidence_type": "theoretical",
+    "scope_conditions": "Two-LLM collaborative architecture (Navigator + Generator + Coordinator)",
+    "quoted_support": "we propose a stateful Navigator LLM to guide search direction, a stateless Generator LLM to synthesize high-quality candidates, and a Coordinator module to orchestrate inter-LLM communication and manage evaluation processes.",
+    "numbers": [],
+    "entities": ["Navigator LLM", "Generator LLM", "Coordinator module"],
+    "time_period": "2025-2026",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "250926037v2-collm-nas-collaborative-large-language-models-for-efficient-knowledg"
+  },
+  {
+    "claim": "Most existing LLM+NAS methods (as of 2025) face critical limitations including architectural invalidity, computational inefficiency, and inferior performance compared to traditional NAS.",
+    "stance": "supports",
+    "stance_target": "That prior LLM-NAS baselines already underperform, setting up a plausible field-wide skepticism the target paper's negative result fits into",
+    "evidence_type": "expert-opinion",
+    "scope_conditions": "LLM-NAS literature as characterized by CoLLM-NAS authors, 2025",
+    "quoted_support": "most existing methods face critical limitations, including architectural invalidity, computational inefficiency, and inferior performance compared to traditional NAS.",
+    "numbers": [],
+    "entities": ["LLM-NAS"],
+    "time_period": "2025",
+    "region": null,
+    "confidence": "medium",
+    "source_note_id": "250926037v2-collm-nas-collaborative-large-language-models-for-efficient-knowledg"
+  },
+  {
+    "claim": "CoLLM-NAS was accepted as an Oral at the CVPR 2026 Workshop on Neural Architecture Search, indicating an active, competing NAS-workshop venue outside NeurIPS that already features LLM-NAS work with positive iterative-feedback results.",
+    "stance": "neutral",
+    "stance_target": "Venue landscape for LLM-NAS papers",
+    "evidence_type": "empirical",
+    "scope_conditions": "CVPR 2026 Workshop on NAS",
+    "quoted_support": "Comments: Accepted as Oral at CVPR 2026 Workshop on Neural Architecture Search (NAS)",
+    "numbers": [],
+    "entities": ["CVPR 2026 Workshop on NAS"],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "250926037v2-collm-nas-collaborative-large-language-models-for-efficient-knowledg"
+  }
+]

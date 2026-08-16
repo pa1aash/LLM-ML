@@ -1,0 +1,58 @@
+[
+  {
+    "claim": "NAS is a specialized instance of hyperparameter optimization, and since random search is already known to be a competitive baseline for hyperparameter optimization generally, it follows that random search should be a mandatory competitive baseline for NAS specifically.",
+    "stance": "neutral",
+    "stance_target": "the methodological standard that a NAS paper must beat a properly-tuned random-search baseline, directly bearing on the target paper's central claim of beating random search",
+    "evidence_type": "theoretical",
+    "scope_conditions": "general NAS framing, validated on PTB (language modeling) and CIFAR-10 (image classification) benchmarks",
+    "quoted_support": "\"we propose new NAS baselines that build off the following observations: (i) NAS is a specialized hyperparameter optimization problem; and (ii) random search is a competitive baseline for hyperparameter optimization.\"",
+    "numbers": [],
+    "entities": ["Liam Li", "Ameet Talwalkar", "NAS", "hyperparameter optimization"],
+    "time_period": "2019",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "190207638-random-search-and-reproducibility-for-neural-architecture-search"
+  },
+  {
+    "claim": "Random search with early-stopping performs at least as well as ENAS, a leading NAS method at the time, on both the PTB and CIFAR-10 benchmarks; random search with weight-sharing further outperforms random search with early-stopping and achieves a state-of-the-art result on PTB and a highly competitive result on CIFAR-10.",
+    "stance": "neutral",
+    "stance_target": "empirical bar that any NAS method must clear to claim it 'beats random search'",
+    "evidence_type": "empirical",
+    "scope_conditions": "PTB and CIFAR-10 benchmarks, comparison against ENAS specifically, circa 2019",
+    "quoted_support": "\"Our results show that random search with early-stopping is a competitive NAS baseline, e.g., it performs at least as well as ENAS, a leading NAS method, on both benchmarks. Additionally, random search with weight-sharing outperforms random search with early-stopping, achieving a state-of-the-art NAS result on PTB and a highly competitive result on CIFAR-10.\"",
+    "numbers": [],
+    "entities": ["ENAS", "PTB", "CIFAR-10", "random search with early-stopping", "random search with weight-sharing"],
+    "time_period": "2019",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "190207638-random-search-and-reproducibility-for-neural-architecture-search"
+  },
+  {
+    "claim": "Published NAS results as of 2019 commonly lacked the source material (code, exact random seeds, documentation) needed to exactly reproduce them, and the paper explicitly interrogates the robustness of published NAS gains given the many sources of variability in NAS experimental setups.",
+    "stance": "supports",
+    "stance_target": "the general NAS reproducibility crisis that motivates strict methodological standards (seeds, code release) for any new NAS claim, including the target paper's",
+    "evidence_type": "empirical",
+    "scope_conditions": "NAS literature as surveyed circa 2019",
+    "quoted_support": "\"we explore the existing reproducibility issues of published NAS results. We note the lack of source material needed to exactly reproduce these results, and further discuss the robustness of published results given the various sources of variability in NAS experimental setups.\"",
+    "numbers": [],
+    "entities": ["NAS reproducibility"],
+    "time_period": "2019",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "190207638-random-search-and-reproducibility-for-neural-architecture-search"
+  },
+  {
+    "claim": "The authors' own remedy for the reproducibility problem was to release full code, random seeds, and documentation, and to report their random-search-with-weight-sharing results across multiple runs (expanded to 6 sets of random seeds for CNN experiments per the v2 changelog) rather than relying on a single run.",
+    "stance": "supports",
+    "stance_target": "the multi-seed / multi-run reporting standard that question THREE asks whether the target paper meets",
+    "evidence_type": "empirical",
+    "scope_conditions": "CIFAR-10 CNN search space specifically for the 6-seed figure",
+    "quoted_support": "\"Relatedly, we provide all information (code, random seeds, documentation) needed to exactly reproduce our results, and report our random search with weight-sharing results for each benchmark on multiple runs... Expanded broad reproducibility study for random search with WS for CNN to 6 sets of random seeds\"",
+    "numbers": ["6 sets of random seeds"],
+    "entities": ["random search with weight-sharing", "CIFAR-10"],
+    "time_period": "2019",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "190207638-random-search-and-reproducibility-for-neural-architecture-search"
+  }
+]

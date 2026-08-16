@@ -4,7 +4,11 @@ title: '[2305.05351v4] GPT-NAS: Evolutionary Neural Architecture Search with the
 id: 230505351v4-gpt-nas-evolutionary-neural-architecture-search-with-the-generative
 tags:
 - llm-nas-feedback-positioning-7125b1
+- llm-nas
+- evolutionary-search
+- prior-art
 created: '2026-08-16T15:44:45.029534Z'
+updated: '2026-08-16T15:50:36.270653Z'
 source: https://arxiv.org/abs/2305.05351v4
 source_domain: arxiv.org
 fetched_at: '2026-08-16T15:44:45.028981Z'
@@ -14,6 +18,20 @@ type: note
 tier: institutional
 content_type: paper
 deprecated: false
+summary: 'GPT-NAS (Yu, Liu, Wang, Liu, Feng, Xiong, Tang, Lv — confirmed true author
+  list, all eight affiliated w/ the GPT-NAS project, Sichuan University group) optimizes
+  neural architectures by using a GPT-style generative model to propose reasonable
+  architecture components given a basic one, then runs an evolutionary algorithm (EA)
+  as the outer search strategy to select among GPT-proposed candidates across generations.
+  Reports outperforming 7 manually-designed and 13 competing NAS-derived architectures,
+  and improving finely-tuned architecture performance by up to ~12% vs. an EA-only
+  ablation without the GPT component. Critically, GPT-NAS is NOT a zero-shot single-proposal
+  method: the GPT model is embedded inside an iterative EA loop across many generations,
+  so any priority claim about ''small-model zero-shot LLM-NAS'' must distinguish itself
+  from GPT-NAS''s use of LLM-proposed variation operators inside continued evolutionary
+  iteration. First submitted May 2023 (v1), last revised Feb 2025 (v4); companion
+  DOI links to Big Data Mining and Analytics journal, not a top-tier ML conference,
+  suggesting the peer-reviewed venue was a specialty journal rather than NeurIPS/ICML/ICLR.'
 ---
 
 [2305.05351v4] GPT-NAS: Evolutionary Neural Architecture Search with the Generative Pre-Trained Model

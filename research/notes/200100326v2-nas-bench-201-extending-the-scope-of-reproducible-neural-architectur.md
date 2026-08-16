@@ -4,7 +4,11 @@ title: '[2001.00326v2] NAS-Bench-201: Extending the Scope of Reproducible Neural
 id: 200100326v2-nas-bench-201-extending-the-scope-of-reproducible-neural-architectur
 tags:
 - llm-nas-feedback-positioning-7125b1
+- nas-benchmark
+- nas-methodology
+- random-search-baseline
 created: '2026-08-16T15:44:46.730824Z'
+updated: '2026-08-16T15:50:41.002297Z'
 source: https://arxiv.org/abs/2001.00326v2
 source_domain: arxiv.org
 fetched_at: '2026-08-16T15:44:46.730408Z'
@@ -14,6 +18,19 @@ type: note
 tier: institutional
 content_type: paper
 deprecated: false
+summary: 'NAS-Bench-201 (Dong & Yang, ICLR 2020 spotlight) is a tabular NAS benchmark
+  extending NAS-Bench-101: a fixed cell-based search space of 4 nodes x 5 predefined
+  operations yielding exactly 15,625 candidate architectures, each pre-trained and
+  logged (fine-grained loss/accuracy trajectories) across three datasets (CIFAR-10,
+  CIFAR-100, ImageNet16-120), letting any NAS algorithm be evaluated by table lookup
+  rather than retraining. The paper benchmarks 10 contemporary NAS algorithms against
+  this fixed table, explicitly framing the benchmark as a fix for the ''comparability
+  problem'' created when different NAS papers train searched architectures under different
+  hyperparameters/augmentation/regularization. This is the standard tabular-benchmark
+  evidentiary bar invoked in NAS methodology critiques (Li & Talwalkar; Yang et al.)
+  — a claim that an LLM-proposed architecture ''beats random search'' is expected
+  to be validated against exactly this kind of fixed, reproducible lookup table with
+  many random-search repetitions/seeds, not a handful of one-off trained models.'
 ---
 
 [2001.00326v2] NAS-Bench-201: Extending the Scope of Reproducible Neural Architecture Search

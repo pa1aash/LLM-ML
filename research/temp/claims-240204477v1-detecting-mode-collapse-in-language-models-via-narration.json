@@ -1,0 +1,58 @@
+[
+  {
+    "claim": "Successive, more heavily-aligned (instruction-tuned + RLHF) versions of GPT-3 exhibit increasing 'mode collapse,' losing the ability to generalize over authorial perspective and instead producing repetitive, template-like output regardless of the requested persona/demographic.",
+    "stance": "supports",
+    "stance_target": "RLHF/alignment intensity is a rival mechanism (independent of any NAS-specific claim) that can explain a model producing near-identical outputs across varied prompts",
+    "evidence_type": "empirical",
+    "scope_conditions": "3 OpenAI models (davinci-instruct-beta, text-davinci-003, gpt-3.5-turbo) of increasing alignment; 4,374 sampled stories; temperature=1.0; fictional narrative generation only",
+    "quoted_support": "we show successive versions of GPT-3 suffer from increasing degrees of \"mode collapse\" whereby overfitting the model during alignment constrains it from generalizing over authorship: models suffering from mode collapse become unable to assume a multiplicity of perspectives.",
+    "numbers": ["4,374 stories sampled", "8 demographic descriptors crossed", "temperature=1.0", "max 400 tokens (~307 words) per generation"],
+    "entities": ["gpt-3.5-turbo", "text-davinci-003", "davinci-instruct-beta", "OpenAI", "RLHF", "BERTopic"],
+    "time_period": "2024 (data current as of December 2023)",
+    "region": "n/a",
+    "confidence": "medium",
+    "source_note_id": "240204477v1-detecting-mode-collapse-in-language-models-via-narration"
+  },
+  {
+    "claim": "The most-aligned model (gpt-3.5-turbo) repeatedly generates identical or near-identical named entities (e.g., specific character names) across stories regardless of demographic prompt variation, a concrete instance of output collapse to a narrow template.",
+    "stance": "supports",
+    "stance_target": "alignment-driven mode collapse can manifest as convergence to a small set of repeated concrete outputs independent of varied input conditioning",
+    "evidence_type": "empirical",
+    "scope_conditions": "gpt-3.5-turbo only, narrative generation task",
+    "quoted_support": "we find gpt-3.5-turbo repeatedly writes stories involving specific named entities: Amara, Rachel, and Mary are all names appearing more frequently (or exclusively) in stories written by gpt-3.5-turbo more so than stories written by our other models of interest. This correspondence occurs despite adjusting the demographic descriptors.",
+    "numbers": [],
+    "entities": ["gpt-3.5-turbo", "Amara", "Rachel", "Mary"],
+    "time_period": "2024",
+    "region": "n/a",
+    "confidence": "medium",
+    "source_note_id": "240204477v1-detecting-mode-collapse-in-language-models-via-narration"
+  },
+  {
+    "claim": "This paper explicitly claims to be an early empirical report that LLMs (not just GANs) can suffer mode collapse, attributing the cause to 'overalignment' during RLHF/instruction tuning rather than to decoding parameters or quantisation.",
+    "stance": "neutral",
+    "stance_target": "novelty of attributing LLM output collapse to a specific mechanism (alignment) versus other mechanisms (quantisation, temperature)",
+    "evidence_type": "theoretical",
+    "scope_conditions": "As stated by the author in Feb 2024, non-archival EACL workshop (ScaleLLM 2024)",
+    "quoted_support": "We suspect the model suffers from mode collapse due to overalignment. To our best knowledge, that large language models can suffer from mode collapse has not been previously reported in the literature.",
+    "numbers": [],
+    "entities": ["Sil Hamilton", "McGill University"],
+    "time_period": "2024",
+    "region": "n/a",
+    "confidence": "low",
+    "source_note_id": "240204477v1-detecting-mode-collapse-in-language-models-via-narration"
+  },
+  {
+    "claim": "This study does not manipulate or test quantisation as an independent variable; it isolates alignment/RLHF intensity only, so it cannot by itself establish that quantisation (as opposed to RLHF) drives diversity loss in a small quantised LLM's architecture proposals.",
+    "stance": "neutral",
+    "stance_target": "quantisation is the specific mechanism causing output collapse in a small quantised LLM's NAS proposals",
+    "evidence_type": "theoretical",
+    "scope_conditions": "Scope limitation drawn from the paper's own experimental design (no quantised model variants tested)",
+    "quoted_support": "Our goal is to assess whether aligned language models can evoke a multiplicity of implied authors by testing the narration abilities of three aligned OpenAI models",
+    "numbers": [],
+    "entities": ["quantisation", "RLHF"],
+    "time_period": "2024",
+    "region": "n/a",
+    "confidence": "medium",
+    "source_note_id": "240204477v1-detecting-mode-collapse-in-language-models-via-narration"
+  }
+]

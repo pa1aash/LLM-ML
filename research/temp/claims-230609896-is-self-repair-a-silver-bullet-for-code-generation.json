@@ -1,0 +1,58 @@
+[
+  {
+    "claim": "When the cost of carrying out self-repair is taken into account, LLM self-repair performance gains on HumanEval/APPS are often modest, vary a lot between data subsets, and are sometimes not present at all, across Code Llama, GPT-3.5, and GPT-4.",
+    "stance": "supports",
+    "stance_target": "That intrinsic self-correction/self-refinement without external verification is unreliable and can fail to improve over baseline",
+    "evidence_type": "empirical",
+    "scope_conditions": "Code generation on HumanEval and APPS; Code Llama, GPT-3.5, GPT-4",
+    "quoted_support": "We find that when the cost of carrying out repair is taken into account, performance gains are often modest, vary a lot between subsets of the data, and are sometimes not present at all.",
+    "numbers": [],
+    "entities": ["Code Llama", "GPT-3.5", "GPT-4", "HumanEval", "APPS"],
+    "time_period": "2023 (orig.), ICLR 2024",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "230609896-is-self-repair-a-silver-bullet-for-code-generation"
+  },
+  {
+    "claim": "Self-repair is bottlenecked by the model's own ability to provide feedback on its own code; using a stronger model to generate feedback (rather than the same model self-critiquing) produces substantially larger performance gains than intrinsic self-feedback.",
+    "stance": "supports",
+    "stance_target": "That self-correction requires external/stronger verification to be effective, i.e. intrinsic self-correction is capability-gated",
+    "evidence_type": "empirical",
+    "scope_conditions": "Code generation self-repair; feedback source ablation (self vs. stronger-model vs. human)",
+    "quoted_support": "We hypothesize that this is because self-repair is bottlenecked by the model's ability to provide feedback on its own code; using a stronger model to artificially boost the quality of the feedback, we observe substantially larger performance gains.",
+    "numbers": [],
+    "entities": ["GPT-4", "GPT-3.5"],
+    "time_period": "2023",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "230609896-is-self-repair-a-silver-bullet-for-code-generation"
+  },
+  {
+    "claim": "Even for the strongest models tested (GPT-4), self-repair using the model's own feedback still lags far behind self-repair using human-provided feedback, in a small-scale human-feedback study.",
+    "stance": "supports",
+    "stance_target": "That model self-generated feedback is qualitatively weaker than external (human) feedback, independent of model scale/capability at the top end",
+    "evidence_type": "empirical",
+    "scope_conditions": "Small-scale human-participant feedback study with GPT-4",
+    "quoted_support": "a small-scale study in which we provide GPT-4 with feedback from human participants suggests that even for the strongest models, self-repair still lags far behind what can be achieved with human-level debugging.",
+    "numbers": [],
+    "entities": ["GPT-4"],
+    "time_period": "2023",
+    "region": null,
+    "confidence": "medium",
+    "source_note_id": "230609896-is-self-repair-a-silver-bullet-for-code-generation"
+  },
+  {
+    "claim": "This 2023 finding (self-repair gains are inconsistent and gated by feedback quality) predates and generalizes to a domain (code generation) distinct from NAS, establishing that a small model's self-refinement failing to improve or degrading proposals is directionally consistent with, not novel beyond, prior code-generation self-repair literature.",
+    "stance": "neutral",
+    "stance_target": "Novelty of the target paper's feedback-degrades-proposals finding",
+    "evidence_type": "theoretical",
+    "scope_conditions": "Cross-domain comparison: code self-repair (2023) vs. LLM-guided NAS feedback (2025-2026 target claim)",
+    "quoted_support": "existing studies of self-repair have been limited in scope; in many settings, its efficacy thus remains poorly understood.",
+    "numbers": [],
+    "entities": [],
+    "time_period": "2023-2026",
+    "region": null,
+    "confidence": "medium",
+    "source_note_id": "230609896-is-self-repair-a-silver-bullet-for-code-generation"
+  }
+]

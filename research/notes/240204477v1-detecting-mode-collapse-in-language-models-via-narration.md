@@ -3,7 +3,11 @@ title: '[2402.04477v1] Detecting Mode Collapse in Language Models via Narration'
 id: 240204477v1-detecting-mode-collapse-in-language-models-via-narration
 tags:
 - llm-nas-feedback-positioning-7125b1
+- mode-collapse
+- output-diversity
+- rlhf
 created: '2026-08-16T15:45:56.861822Z'
+updated: '2026-08-16T15:49:51.502047Z'
 source: https://arxiv.org/abs/2402.04477v1
 source_domain: arxiv.org
 fetched_at: '2026-08-16T15:45:56.861031Z'
@@ -13,6 +17,21 @@ type: note
 tier: institutional
 content_type: paper
 deprecated: false
+summary: 'Hamilton (McGill), EACL 2024 ScaleLLM workshop (non-archival, single-author).
+  Samples 4,374 stories (temp=1.0) from three OpenAI models of increasing alignment
+  intensity (davinci-instruct-beta: instruction-tuning only; text-davinci-003: +RLHF;
+  gpt-3.5-turbo: +conversational fine-tuning) across 8 crossed demographic ''virtual
+  author'' prompt variables, clusters via BERTopic. Finds gpt-3.5-turbo (most-aligned)
+  produces the most topically repetitive, template-like stories -- reusing specific
+  named entities (Amara, Rachel, Mary) regardless of requested demographic -- while
+  earlier/less-aligned models produce more topically diffuse (if less coherent) output.
+  Frames this as LLM ''mode collapse'' by direct analogy to GAN mode collapse, attributed
+  to ''overalignment,'' and claims to be an early empirical report of this phenomenon
+  in LLMs (as of Feb 2024). Does NOT test quantisation as a variable -- isolates RLHF/alignment
+  intensity only, so it partially but not fully covers a ''quantisation causes diversity
+  loss'' rival explanation. Useful precedent that alignment/RLHF intensity alone can
+  drive output-diversity collapse independent of any architecture-search-specific
+  claim.'
 ---
 
 [2402.04477v1] Detecting Mode Collapse in Language Models via Narration
@@ -187,3 +206,18 @@ Disable MathJax
 (
 What is MathJax?
 )
+---
+
+## Full-text extraction (from PDF, arxiv.org/pdf/2402.04477v1, Sil Hamilton, McGill University, EACL 2024 ScaleLLM workshop)
+
+**Core empirical setup:** 4,374 stories sampled (temperature=1.0, max 400 tokens ≈307 words) from three OpenAI models of increasing alignment: davinci-instruct-beta (instruction-tuning only, no RLHF), text-davinci-003 (instruction tuning + RLHF), gpt-3.5-turbo (further conversational fine-tuning). All are 175B-parameter decoder-only models sharing lineage from InstructGPT. Prompts varied 8 demographic descriptors (education, orientation, ethnicity, implied reader, gender, story type) crossed to create 4,374 unique "virtual author" prompts, topic-clustered via BERTopic.
+
+**Central finding — mode collapse increases monotonically with alignment intensity:** "successive versions of GPT-3 suffer from increasing degrees of 'mode collapse' whereby overfitting the model during alignment constrains it from generalizing over authorship: models suffering from mode collapse become unable to assume a multiplicity of perspectives." gpt-3.5-turbo (most-aligned, RLHF+conversational-FT) produces the MOST topically repetitive stories despite varying demographic prompts, repeatedly reusing specific named entities ("Amara, Rachel, and Mary... appearing more frequently (or exclusively) in stories written by gpt-3.5-turbo... despite adjusting the demographic descriptors"). The two less-aligned/earlier models (davinci-instruct-beta, text-davinci-003) instead produced topically diffuse, lexically ambiguous stories that BERTopic mostly failed to cluster into coherent topics at all.
+
+**Mechanism claim:** "We suspect the model suffers from mode collapse due to overalignment." Explicit analogy to GAN mode collapse ("wherein overfitting a GAN results in the model failing to generalize over their target distribution... GANs suffering from mode collapse consequently becoming more repetitive the more training they receive"). Author states: "To our best knowledge, that large language models can suffer from mode collapse has not been previously reported in the literature" (as of Feb 2024) — i.e., this paper claims to be an early/first empirical demonstration of LLM-side mode collapse attributable to RLHF/alignment, distinct from the classical GAN usage of the term.
+
+**Relation to "alignment tax":** Cites Ouyang et al. 2022 (InstructGPT paper) acknowledging an "alignment tax" — degraded performance on "several public NLP datasets" post-RLHF — but notes it was previously unclear whether this tax extended to out-of-distribution creative/generative tasks; this paper argues it does, manifesting as loss of narrative/authorial diversity.
+
+**Limitations (author-stated):** Only tested OpenAI proprietary, now-deprecated models (2024 deprecations limit reproducibility); recommends future work use open-weight models (Llama 2, Mistral) for reproducibility. Confined to fictional narrative genre; does not test whether mode collapse appears in conversational or non-fictional generation.
+
+**Relevance to the query's mechanism question (rival explanations for "twenty identical designs"):** This is a directly on-point, small/informal (EACL workshop, single-author, non-archival ScaleLLM workshop) precedent for the mechanism "RLHF/alignment intensity → reduced generation diversity → repetitive/templated outputs," independent of and prior to any NAS-specific claim. It supports treating "RLHF-induced mode collapse" as a plausible rival explanation for a quantised chat/instruct model collapsing to one architecture template, separate from any decoding-temperature or quantisation-specific explanation. Note: this paper does NOT test quantisation as a variable — alignment/RLHF intensity is the only mechanism it isolates, so it only partially covers the query's "quantisation" rival-explanation angle and cannot be used alone to establish a quantisation-specific diversity-loss mechanism.

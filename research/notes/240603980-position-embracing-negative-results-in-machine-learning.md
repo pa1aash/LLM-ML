@@ -3,7 +3,11 @@ title: '[2406.03980] Position: Embracing Negative Results in Machine Learning'
 id: 240603980-position-embracing-negative-results-in-machine-learning
 tags:
 - llm-nas-feedback-positioning-7125b1
+- negative-results
+- venue-fit
+- load-bearing
 created: '2026-08-16T15:48:54.102715Z'
+updated: '2026-08-16T15:49:19.197178Z'
 source: https://arxiv.org/abs/2406.03980
 source_domain: arxiv.org
 fetched_at: '2026-08-16T15:48:54.101322Z'
@@ -13,6 +17,20 @@ type: note
 tier: institutional
 content_type: paper
 deprecated: false
+summary: 'Karl, Kemeter, Dax, Sierak (2024). ICML-style position paper arguing that
+  predictive/performance-improvement results alone are an inadequate criterion for
+  judging the worth of an ML publication, and that this norm actively harms the field:
+  it creates community-wide inefficiency (redundant failed replications never get
+  published, so others repeat the same failed approaches) and sets perverse incentives
+  for researchers (p-hacking-style tuning to show a positive result rather than reporting
+  an honest negative one). Calls explicitly for normalizing publication of negative
+  results and proposes concrete community-level measures (e.g., dedicated venues/tracks,
+  reviewer norms, incentive changes) to make this happen. Directly relevant to question
+  FIVE (venue mapping for a controlled negative/null result about LLM self-refinement):
+  this paper is the closest thing to a manifesto for why venues should exist for exactly
+  this kind of paper, and its ''concrete measures'' section should be checked against
+  whatever NeurIPS 2026 workshops are found, since it may itself reference or call
+  for the kind of workshop being sought.'
 ---
 
 *Suggested by [[230401910-on-the-variance-of-neural-network-training-with-respect-to-test-sets-a]] — position paper on embracing negative results in ML, directly relevant to venue-fit question for a null/negative feedback result*

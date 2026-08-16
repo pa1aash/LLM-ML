@@ -3,7 +3,11 @@ title: '[2310.01798] Large Language Models Cannot Self-Correct Reasoning Yet'
 id: 231001798-large-language-models-cannot-self-correct-reasoning-yet
 tags:
 - llm-nas-feedback-positioning-7125b1
+- self-correction
+- intrinsic-feedback
+- model-scale
 created: '2026-08-16T15:45:59.373659Z'
+updated: '2026-08-16T15:49:38.336488Z'
 source: https://arxiv.org/abs/2310.01798
 source_domain: arxiv.org
 fetched_at: '2026-08-16T15:45:59.373278Z'
@@ -13,6 +17,20 @@ type: note
 tier: institutional
 content_type: paper
 deprecated: false
+summary: Huang, Chen, Mishra, Zheng, Yu, Song, Zhou (Google DeepMind/UIUC), ICLR 2024.
+  Defines 'intrinsic self-correction' as an LLM correcting its own output using only
+  inherent capability, no external feedback/oracle labels. Finds intrinsic self-correction
+  consistently DEGRADES reasoning accuracy across GPT-3.5, GPT-4, GPT-4-Turbo, and
+  Llama-2-70b-chat on GSM8K/CommonSenseQA/HotpotQA (e.g. Llama-2 GSM8K 62.0->36.5,
+  CommonSenseQA 64.0->36.5 after 2 rounds; GPT-4-Turbo degrades least, 91.5->90.0
+  and 84.0->83.0). Shows prior optimistic results (RCI, Reflexion) relied on oracle
+  labels to decide when to stop correcting. Also shows multi-agent debate underperforms
+  simple self-consistency at equal inference cost, and that 'self-correction gains'
+  in Self-Refine stem from a weak initial prompt, not genuine correction. Weakest
+  model tested (Llama-2) shows the largest relative degradation; strongest (GPT-4-Turbo)
+  the smallest -- the paper's closest approach to a scale-dependence claim, though
+  not stated as a monotonic law. Explicitly scopes findings to reasoning tasks and
+  notes self-correction has succeeded in other domains (style, safety).
 ---
 
 *Suggested by [[231108516-llms-cannot-find-reasoning-errors-but-can-correct-them-given-the-error]] — Huang et al. 2023 is the paper Tyen et al. cite as showing self-correction causes correct answers to become incorrect -- the foundational negative result on intrinsic LLM self-correction*

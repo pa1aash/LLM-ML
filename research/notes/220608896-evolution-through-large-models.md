@@ -9,12 +9,12 @@ tags:
 - quality-diversity
 - prior-art
 created: '2026-08-16T15:44:24.467484Z'
-updated: '2026-08-16T15:47:45.822884Z'
+updated: '2026-08-16T15:50:02.312636Z'
 source: https://arxiv.org/abs/2206.08896
 source_domain: arxiv.org
 fetched_at: '2026-08-16T15:44:24.467110Z'
 fetch_provider: builtin
-status: draft
+status: deprecated
 type: note
 tier: institutional
 content_type: paper

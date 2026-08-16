@@ -4,11 +4,12 @@ id: 191212522-nas-evaluation-is-frustratingly-hard
 tags:
 - llm-nas-feedback-positioning-7125b1
 created: '2026-08-16T15:45:43.056762Z'
+updated: '2026-08-16T15:49:37.041757Z'
 source: https://arxiv.org/abs/1912.12522
 source_domain: arxiv.org
 fetched_at: '2026-08-16T15:45:43.056364Z'
 fetch_provider: builtin
-status: draft
+status: deprecated
 type: note
 tier: institutional
 content_type: paper

@@ -1,0 +1,58 @@
+[
+  {
+    "claim": "The URL https://neurips.cc/virtual/2025/events/workshop returns the NeurIPS 2025 workshop program (56 events, Dec 6-7 2025, San Diego/Sydney/Atlanta/Mexico City), not a NeurIPS 2026 workshop list; no NeurIPS 2026 CFP information exists at this URL as of the fetch date.",
+    "stance": "neutral",
+    "stance_target": "venue mapping for Question 5 of the research query (NeurIPS 2026 workshop landscape)",
+    "evidence_type": "empirical",
+    "scope_conditions": "as fetched 2026-08-16",
+    "quoted_support": "NeurIPS 2025 Workshops NeurIPS 2025 San Diego Sydney Atlanta Mexico City Workshops 56 Events",
+    "numbers": ["56 events", "Dec 6-7, 2025"],
+    "entities": ["NeurIPS 2025", "NeurIPS 2026"],
+    "time_period": "2025",
+    "region": "San Diego, Sydney, Atlanta, Mexico City",
+    "confidence": "high",
+    "source_note_id": "neurips-2025-workshops"
+  },
+  {
+    "claim": "None of the 56 NeurIPS 2025 workshops is a dedicated AutoML or Neural Architecture Search workshop.",
+    "stance": "neutral",
+    "stance_target": "existence of a natural AutoML/NAS-specific venue at recent NeurIPS workshop cycles",
+    "evidence_type": "empirical",
+    "scope_conditions": "NeurIPS 2025 workshop program only",
+    "quoted_support": "56 Events [workshop list contains no title or description matching 'AutoML' or 'Neural Architecture Search']",
+    "numbers": ["56"],
+    "entities": ["NeurIPS 2025"],
+    "time_period": "2025",
+    "region": null,
+    "confidence": "medium",
+    "source_note_id": "neurips-2025-workshops"
+  },
+  {
+    "claim": "The NeurIPS 2025 'Foundations of Reasoning in Language Models' workshop explicitly scopes controlled empirical studies of where LLM reasoning fails, not just where it succeeds, signaling workshop-level openness to negative findings about LLM reasoning/self-improvement.",
+    "stance": "neutral",
+    "stance_target": "which workshop framings at NeurIPS are receptive to negative/null results about LLM capabilities",
+    "evidence_type": "empirical",
+    "scope_conditions": "NeurIPS 2025 workshop, organized by Huang, Block, Malladi, Merrill, Hashimoto, Foster, Krishnamurthy, Izmailov",
+    "quoted_support": "These advancements are built upon theoretical analyses and controlled empirical studies that illuminate how reasoning emerges, where it fails, and how it can be systematically improved.",
+    "numbers": [],
+    "entities": ["Foundations of Reasoning in Language Models workshop"],
+    "time_period": "2025",
+    "region": null,
+    "confidence": "medium",
+    "source_note_id": "neurips-2025-workshops"
+  },
+  {
+    "claim": "The NeurIPS 2025 'Learning to Sense (L2S)' workshop explicitly lists 'failure case studies and negative results in joint optimization pipelines' as a welcomed submission topic, one of the few workshops in the 2025 program to name negative results as an explicit topic.",
+    "stance": "neutral",
+    "stance_target": "precedent for negative-result-friendly workshop calls at NeurIPS",
+    "evidence_type": "empirical",
+    "scope_conditions": "NeurIPS 2025 workshop, sensor-model co-design domain, not NAS",
+    "quoted_support": "Failure case studies and negative results in joint optimization pipelines",
+    "numbers": [],
+    "entities": ["Learning to Sense (L2S) workshop"],
+    "time_period": "2025",
+    "region": null,
+    "confidence": "medium",
+    "source_note_id": "neurips-2025-workshops"
+  }
+]

@@ -1,0 +1,58 @@
+[
+  {
+    "claim": "FunSearch, an evolutionary procedure pairing a frozen LLM with a systematic external evaluator and best-shot prompting (feeding highest-scoring prior programs back into the next prompt), discovered new cap set constructions improving the asymptotic lower bound on cap set capacity from 2.2180 to 2.2202 -- the largest improvement in 20 years to an open extremal-combinatorics problem.",
+    "stance": "refutes",
+    "stance_target": "the target paper's thesis that iterative LLM feedback degrades rather than improves search/design outcomes",
+    "evidence_type": "empirical",
+    "scope_conditions": "cap set problem in extremal combinatorics, Codey LLM (PaLM2-based), ~10^6 total samples",
+    "quoted_support": "This discovery alone already improves the lower bound on the cap set capacity from 2.2180... [to] a new lower bound on the cap set capacity of 2.2202",
+    "numbers": ["2.2180 to 2.2202", "20 years", "cap set of size 512 in n=8"],
+    "entities": ["FunSearch", "cap set problem", "Codey", "PaLM2"],
+    "time_period": "2023",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "mathematical-discoveries-from-program-search-with-large-language-models-nature"
+  },
+  {
+    "claim": "FunSearch's iterative loop is not LLM self-critique; it combines a frozen LLM (deliberately chosen for fast inference over higher quality) with a hard external evaluator that discards incorrect programs and scores correct ones, plus an island-based genetic algorithm explicitly engineered to preserve population diversity and avoid collapse to local optima.",
+    "stance": "neutral",
+    "stance_target": "mechanistic distinction between self-critique-driven iteration (which the mechanism literature shows degrades output) and external-verifier-driven evolutionary iteration (which this paper shows improves output)",
+    "evidence_type": "theoretical",
+    "scope_conditions": "FunSearch architecture, general",
+    "quoted_support": "FunSearch (short for searching in the function space) combines a pretrained (frozen) LLM, whose goal is to provide creative solutions, with an evaluator, which guards against confabulations and incorrect ideas... we maintain a large pool of diverse programs by using an island-based evolutionary method that encourages exploration and avoids local optima.",
+    "numbers": ["15 samplers", "150 CPU evaluators", "k=2 programs per prompt (diminishing returns beyond)"],
+    "entities": ["FunSearch", "island-based evolutionary method", "external evaluator"],
+    "time_period": "2023",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "mathematical-discoveries-from-program-search-with-large-language-models-nature"
+  },
+  {
+    "claim": "The authors report FunSearch's results are not highly sensitive to the specific choice of LLM, as long as the model was trained on a sufficiently large code corpus, suggesting the success of feedback-driven iteration in this setting is not narrowly dependent on frontier-scale model capability.",
+    "stance": "refutes",
+    "stance_target": "the hypothesis that feedback-driven iterative improvement is strictly model-scale/capability dependent and should not be expected from smaller models",
+    "evidence_type": "empirical",
+    "scope_conditions": "cap set and bin packing domains, code-pretrained LLMs of varying scale/quality",
+    "quoted_support": "we have empirically observed that the results obtained in this paper are not too sensitive to the exact choice of LLM, as long as it has been trained on a large enough corpus of code.",
+    "numbers": [],
+    "entities": ["FunSearch", "Codey", "PaLM2"],
+    "time_period": "2023",
+    "region": null,
+    "confidence": "medium",
+    "source_note_id": "mathematical-discoveries-from-program-search-with-large-language-models-nature"
+  },
+  {
+    "claim": "FunSearch discovered new heuristics for online bin packing that improve on widely used baseline heuristics on well-studied problem distributions, demonstrating generality of the iterative LLM+evaluator approach beyond the cap set problem.",
+    "stance": "refutes",
+    "stance_target": "the target paper's thesis that iterative LLM feedback degrades rather than improves proposals, tested here in a second, distinct combinatorial optimization domain",
+    "evidence_type": "empirical",
+    "scope_conditions": "online bin packing, well-studied distributions",
+    "quoted_support": "We showcase the generality of FunSearch by applying it to an algorithmic problem, online bin packing, finding new heuristics that improve on widely used baselines.",
+    "numbers": [],
+    "entities": ["FunSearch", "online bin packing"],
+    "time_period": "2023",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "mathematical-discoveries-from-program-search-with-large-language-models-nature"
+  }
+]

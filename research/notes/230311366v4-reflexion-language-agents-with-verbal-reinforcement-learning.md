@@ -3,7 +3,11 @@ title: '[2303.11366v4] Reflexion: Language Agents with Verbal Reinforcement Lear
 id: 230311366v4-reflexion-language-agents-with-verbal-reinforcement-learning
 tags:
 - llm-nas-feedback-positioning-7125b1
+- self-correction
+- counter-evidence
+- iterative-feedback
 created: '2026-08-16T15:44:54.348038Z'
+updated: '2026-08-16T15:50:49.450331Z'
 source: https://arxiv.org/abs/2303.11366v4
 source_domain: arxiv.org
 fetched_at: '2026-08-16T15:44:54.347310Z'
@@ -13,6 +17,21 @@ type: note
 tier: institutional
 content_type: paper
 deprecated: false
+summary: 'Reflexion (Shinn, Cassano, Berman, Gopinath, Narasimhan, Yao; 2023) reinforces
+  LLM agents via linguistic self-reflection stored in an episodic memory buffer, without
+  weight updates, across sequential-decision-making, coding, and reasoning tasks.
+  Headline result: 91% pass@1 on HumanEval, beating contemporaneous GPT-4 zero-shot
+  (80%). Critically, Reflexion''s feedback signal in the coding setting is grounded
+  in EXTERNAL verification — actual unit-test execution results (pass/fail, error
+  traces) — not the model''s own unaided judgment of quality; the paper''s ablations
+  vary feedback type (scalar vs. free-form language) and source (external vs. internally
+  simulated) and show source matters. This makes Reflexion a bounded counter-example
+  to a ''feedback always degrades'' thesis: it demonstrates iterative self-refinement
+  helping specifically when an external, ground-truth verifier (test execution) closes
+  the loop, which is consistent with rather than contradicting an ''intrinsic self-correction
+  fails without external verification'' account — a proposal-then-train-then-report-metric
+  NAS loop with a small/quantized model may lack an analogous crisp external verifier
+  that the model can act on, or the model may lack capacity to use it.'
 ---
 
 [2303.11366v4] Reflexion: Language Agents with Verbal Reinforcement Learning

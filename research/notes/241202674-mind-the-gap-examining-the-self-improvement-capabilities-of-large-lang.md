@@ -4,7 +4,11 @@ title: '[2412.02674] Mind the Gap: Examining the Self-Improvement Capabilities o
 id: 241202674-mind-the-gap-examining-the-self-improvement-capabilities-of-large-lang
 tags:
 - llm-nas-feedback-positioning-7125b1
+- self-correction
+- mechanism-literature
+- load-bearing
 created: '2026-08-16T15:44:56.770529Z'
+updated: '2026-08-16T15:50:54.547030Z'
 source: https://arxiv.org/abs/2412.02674
 source_domain: arxiv.org
 fetched_at: '2026-08-16T15:44:56.769997Z'
@@ -14,6 +18,20 @@ type: note
 tier: institutional
 content_type: paper
 deprecated: false
+summary: 'Mind the Gap (Song, Zhang, Eisenach, Kakade, Foster, Ghai; ICLR 2025) provides
+  a mathematical formulation of LLM self-improvement (model verifies own outputs,
+  filters/reweights data by that verification, distills the filtered data) governed
+  by a quantity they call the ''generation-verification gap.'' Central empirical finding:
+  this gap SCALES MONOTONICALLY WITH MODEL PRETRAINING FLOPS — i.e., self-improvement
+  capability is a function of model scale, and the paper characterizes when iterative
+  self-improvement is and is not possible as a function of that gap. This is the single
+  strongest piece of mechanism-literature evidence that a small (and additionally
+  quantized) model''s self-refinement failure is a predictable, scale-driven boundary
+  condition rather than a novel finding: if generation-verification gap shrinks or
+  inverts at small scale, iterative feedback would be expected a priori to fail to
+  improve — and could measurably degrade — outputs for a small quantized LLM, making
+  a demonstration of this exact failure mode read as confirmatory of an already-published
+  scaling law rather than a new discovery.'
 ---
 
 [2412.02674] Mind the Gap: Examining the Self-Improvement Capabilities of Large Language Models

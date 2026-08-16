@@ -3,7 +3,11 @@ title: Mathematical discoveries from program search with large language models |
 id: mathematical-discoveries-from-program-search-with-large-language-models-nature
 tags:
 - llm-nas-feedback-positioning-7125b1
+- funsearch
+- counter-evidence
+- mechanism-literature
 created: '2026-08-16T15:44:14.135215Z'
+updated: '2026-08-16T15:49:28.685993Z'
 source: https://www.nature.com/articles/s41586-023-06924-6
 source_domain: www.nature.com
 fetched_at: '2026-08-16T15:44:14.134588Z'
@@ -13,6 +17,35 @@ type: note
 tier: unknown
 content_type: unknown
 deprecated: false
+summary: 'Romera-Paredes, Barekatain, Novikov, et al. / Google DeepMind (Nature, Dec
+  2023, s41586-023-06924-6). Introduces FunSearch, an evolutionary procedure pairing
+  a frozen pretrained LLM (Codey, built on PaLM2, chosen deliberately as a fast-inference/lower-quality
+  model over slower higher-quality alternatives) with a systematic external evaluator
+  that scores generated programs, iterating best-shot prompting (feeding the highest-scoring
+  prior programs back into the next prompt) to evolve program logic. Central counter-evidence
+  value: this is a documented case where ITERATIVE LLM feedback measurably improves
+  search results beyond both zero-shot and beyond best-known human results -- FunSearch
+  discovers new constructions for the cap set problem (surpassing 20 years of no improvement
+  to the asymptotic lower bound, raising it from 2.2180 to 2.2202) and new heuristics
+  for online bin packing that beat widely-used baselines. Mechanistically, FunSearch''s
+  iteration is NOT LLM self-critique/self-correction -- there is no LLM verifying
+  its own output. It is evolutionary selection driven by (a) a hard external verifier/evaluator
+  that discards incorrect programs (execution failures, invalid outputs) and scores
+  correct ones, and (b) an island-based (multi-population/multi-deme) genetic algorithm
+  explicitly designed to preserve program diversity and avoid collapse to local optima,
+  periodically discarding worst-performing islands and reseeding from best performers.
+  Uses ~10^6 total LLM samples, 15 samplers plus 150 CPU evaluators in a distributed
+  asynchronous system, and reports diminishing returns beyond k=2 programs combined
+  per prompt. Authors state results ''are not too sensitive to the exact choice of
+  LLM, as long as it has been trained on a large enough corpus of code'' -- a direct
+  empirical claim bearing on the model-scale-dependence question. This paper is explicitly
+  cited by Stechly/Valmeekam/Kambhampati (arXiv:2402.08115, self-verification-limitations
+  note in this vault) as an example of ''similar architectures'' that succeed via
+  external verification where pure self-critique fails -- reinforcing the ''intrinsic
+  self-correction fails without external verification, but external-verifier-guided
+  iteration succeeds'' mechanism distinction that is central to how the target paper''s
+  small-quantised-LLM NAS result should be interpreted (feedback loop lacked an external
+  verifier/evaluator akin to FunSearch''s).'
 ---
 
 Mathematical discoveries from program search with large language models | Nature

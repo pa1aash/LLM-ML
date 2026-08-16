@@ -3,7 +3,11 @@ title: Random Search and Reproducibility for Neural Architecture Search
 id: random-search-and-reproducibility-for-neural-architecture-search
 tags:
 - llm-nas-feedback-positioning-7125b1
+- nas-methodology
+- random-search-baseline
+- reproducibility
 created: '2026-08-16T15:46:38.932262Z'
+updated: '2026-08-16T15:50:10.801476Z'
 source: https://arxiv.org/html/1902.07638
 source_domain: arxiv.org
 fetched_at: '2026-08-16T15:46:38.931488Z'
@@ -13,6 +17,30 @@ type: note
 tier: institutional
 content_type: paper
 deprecated: false
+summary: 'Li & Talwalkar (UAI 2019) reframe NAS as a specialized hyperparameter-optimization
+  problem and show two random-search variants are highly competitive against 2018-19
+  SOTA NAS methods. (1) Random search + early-stopping (ASHA) evaluates ~300-700 architectures
+  within the same compute budget where DARTS/ENAS evaluated only 1-24: on PTB it reaches
+  test perplexity 56.4 (vs published ENAS 56.3, DARTS-1st-order random baseline 59.4);
+  on CIFAR-10 it reaches 3.03+/-0.13% test error (best seed 2.85%, better than published
+  ENAS 2.89%). (2) Random search + weight-sharing (their proposed method) achieves
+  SOTA on PTB (test perplexity 55.5, beating DARTS 2nd-order''s 55.7) and comparable
+  results to DARTS/SNAS on CIFAR-10 (2.85+/-0.08% avg over 10 seeds vs DARTS 2.76+/-0.09%).
+  The paper documents a systemic reproducibility failure: auditing 12 NAS papers from
+  NeurIPS/ICML/ICLR 2018-19 (Table 1), NONE satisfy exact reproducibility -- each
+  is missing some combination of architecture-search code, model-evaluation code,
+  random seeds, or hyperparameter-tuning documentation; published random-search baselines
+  used only 1 (Pham et al. ENAS) or 8-24 (Liu et al. DARTS) architectures, vastly
+  undercounting the compute random search actually needs to be a fair comparator.
+  Broad-reproducibility experiments show high run-to-run variance: their own random-search-WS
+  CIFAR-10 result ranges 2.85 to 3.00 test error (avg 2.92) across 6 independent seed
+  runs, and DARTS itself only reaches 2.94 avg / 2.77 best across 4 reproduced trials
+  versus the published 2.76+/-0.09. Recommends (i) reporting a method''s ''multiple
+  of random search'' compute-equivalence as the standard baseline metric, analogous
+  to Li et al. 2017''s hyperparameter-optimization convention, (ii) ablations isolating
+  search-space/evaluation-scheme/search-algorithm contributions, and (iii) averaging
+  over >=10 independent runs with released seeds, as is standard in traditional HPO
+  benchmarking.'
 ---
 
 *Suggested by [[190207638v3-random-search-and-reproducibility-for-neural-architecture-search]] — HTML full-text, PDF extraction failed*
