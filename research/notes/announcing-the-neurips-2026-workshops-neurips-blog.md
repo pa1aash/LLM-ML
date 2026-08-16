@@ -3,16 +3,59 @@ title: Announcing the NeurIPS 2026 Workshops – NeurIPS Blog
 id: announcing-the-neurips-2026-workshops-neurips-blog
 tags:
 - llm-nas-feedback-positioning-7125b1
+- neurips-2026-workshops
+- venue-landscape
+- priority-source
 created: '2026-08-16T15:46:36.347226Z'
+updated: '2026-08-16T15:53:23.195745Z'
 source: https://blog.neurips.cc/2026/08/10/announcing-the-neurips-2026-workshops/
 source_domain: blog.neurips.cc
 fetched_at: '2026-08-16T15:46:36.340534Z'
 fetch_provider: builtin
-status: draft
+status: review
 type: note
 tier: unknown
 content_type: unknown
 deprecated: false
+summary: 'Official NeurIPS Blog post (blog.neurips.cc, dated Aug 10, 2026) announcing
+  the complete accepted-workshop list for NeurIPS 2026. This is the authoritative,
+  current-as-of-fetch-date source for the Q5 venue landscape question. Key facts:
+  477 submissions received (454 valid), 102 workshops accepted total — 48 in Sydney,
+  28 in Paris, 26 in Atlanta — with acceptance rates of 21.5% (Sydney), 25.4% (Paris),
+  23.6% (Atlanta). Workshops run Fri Dec 11-Sat Dec 12 2026 in Sydney; Sat Dec 12-Sun
+  Dec 13 2026 in Paris and Atlanta. Reviewers were asked to weigh ''scientific merits
+  and broader impacts... fitness for NeurIPS, potential for high impact, originality
+  and novelty, quality and clarity, organizers'' quality, speakers'' quality, diversity
+  and quality of logistics.'' New 2026 organizer constraints: max 8 organizers per
+  workshop, no organizer on more than 2 proposals. Individual workshops set their
+  own paper submission deadlines/CFPs (suggested common date Aug 29, 2026) — this
+  blog post itself does NOT give page limits, format requirements, anonymity policy,
+  or archival status for any individual workshop; those must be sourced from each
+  workshop''s own site, which this post explicitly warns readers to distinguish from
+  ''informal workshop lists circulating on the internet.'' Workshop Chairs: Ghada
+  Zamzmi, Elisa Ricci, Shao-Hua Sun, Khoa Doan, Theodore Papamarkou, Piotr Koniusz.\n\nThe
+  full 102-workshop list is captured verbatim in the note body, organized by location.
+  CANDIDATE WORKSHOPS most relevant to a controlled null/negative result on LLM-guided
+  NAS self-refinement, screened by title/scope alone (their individual CFP pages were
+  NOT fetched in this batch and must be sourced separately): (1) ''Workshop for Autonomous
+  Machine Learning Research'' (Sydney) — most likely home for an AutoML/NAS-specific
+  submission; (2) ''Self-Evolving Diversity-Driven Search for Robust AI Systems''
+  (Sydney) — title directly combines ''self-evolving'' (iterative refinement) and
+  ''diversity-driven search,'' precisely matching the paper''s core phenomena (mode
+  collapse under iteration, search diversity loss); (3) ''Who Verifies the Agents?
+  Toward Reliable Agent Development'' (Sydney) — verification/self-correction theme
+  relevant to the ''intrinsic self-correction fails without external verification''
+  framing; (4) ''AI for Meta-Science: Scaling and Organizing Science in the Age of
+  AI Scientists'' (Paris) — broader AI-for-science/AI-scientist critique angle; (5)
+  ''Trustworthy AI Evaluation (TAI-Eval)'' (Sydney) and ''Can We Trust the Judge?
+  Building Reliable Evaluation for Language Models'' (Atlanta) — evaluation-rigor
+  angle; (6) ''I Can''t Believe It''s Not Better (ICBINB): Failure Modes of AI in
+  Biology'' (Sydney) — the ICBINB workshop series historically centers on negative/failure-mode
+  results, but the 2026 theme is scoped to biology specifically, which may narrow
+  fit; (7) ''Foundations of Agentic Systems Theory'' (Paris) and ''Optimization for
+  Machine Learning'' (Sydney) as secondary candidates. None of these titles explicitly
+  reference NAS; the closest AutoML-labeled workshop and the diversity/self-evolving-search
+  workshop are the top two candidates pending CFP verification.'
 ---
 
 *Suggested by [[2026-conference]] — blog post announcing NeurIPS 2026 workshop list, linked from main neurips.cc conference page*

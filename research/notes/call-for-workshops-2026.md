@@ -3,16 +3,39 @@ title: Call For Workshops 2026
 id: call-for-workshops-2026
 tags:
 - llm-nas-feedback-positioning-7125b1
+- neurips-2026
+- workshop-cfp
+- neurips-2026-workshops
+- venue-landscape
 created: '2026-08-16T15:46:39.106625Z'
+updated: '2026-08-16T15:54:28.948421Z'
 source: https://neurips.cc/Conferences/2026/CallForWorkshops
 source_domain: neurips.cc
 fetched_at: '2026-08-16T15:46:39.105880Z'
 fetch_provider: builtin
-status: draft
+status: review
 type: note
 tier: unknown
 content_type: unknown
 deprecated: false
+summary: 'Official NeurIPS 2026 Call for Workshop PROPOSALS page (organizer-facing,
+  generic annual template) -- authored by 2026 Workshop Chairs Ghada Zamzmi, Elisa
+  Ricci, Shao-Hua Sun, Khoa Doan, Theodore Papamarkou, Piotr Koniusz. This page does
+  NOT list accepted/confirmed individual workshops for NeurIPS 2026; it is the call
+  inviting researchers to PROPOSE workshops. Key dates: Application Open April 21,
+  2026 AoE; Application Deadline June 06, 2026 AoE; Acceptance Notification July 11,
+  2026 AoE; Suggested submission date for workshop contributions August 29, 2026 AoE;
+  Accept/Reject notification September 29, 2026 AoE. Conference dates: Dec 11-12,
+  2026 (Sydney) and Dec 12-13, 2026 (Paris, Atlanta) -- NeurIPS 2026 runs across three
+  simultaneous host cities. Proposals submitted via OpenReview (openreview.net/group?id=NeurIPS.cc/2026/Workshop_Proposals).
+  Format: 7-9 hours session content, in-person only this year, max 8 organizers per
+  proposal, max 2 proposals sharing an author, references a separate ''NeurIPS 2026
+  Guidance for Workshop Proposals'' doc (not fetched) and an ''LLM use policy'' (not
+  fetched). CRITICAL GAP: as of the fetch date, the actual list of accepted 2026 workshops
+  (which would exist post-July 11, 2026 acceptance notifications) is NOT present on
+  this page -- this page alone cannot answer which specific workshops (e.g., on LLM
+  self-refinement, negative results, or NAS) exist at NeurIPS 2026; a separate accepted-workshops
+  listing page must be located.'
 ---
 
 *Suggested by [[2026-conference]] — official call for workshops page for NeurIPS 2026*

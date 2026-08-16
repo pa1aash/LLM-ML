@@ -1,0 +1,30 @@
+[
+  {
+    "claim": "CRITIC's framework has LLMs validate and revise outputs by interacting with external tools (search engines, code interpreters) rather than relying on purely intrinsic self-critique, and reports this consistently enhances performance on QA, program synthesis, and toxicity reduction.",
+    "stance": "neutral",
+    "stance_target": "mechanism distinction between externally-grounded and purely intrinsic LLM self-correction",
+    "evidence_type": "empirical",
+    "scope_conditions": "free-form question answering, mathematical program synthesis, toxicity reduction tasks",
+    "quoted_support": "Comprehensive evaluations involving free-form question answering, mathematical program synthesis, and toxicity reduction demonstrate that CRITIC consistently enhances the performance of LLMs. Meanwhile, our research highlights the crucial importance of external feedback in promoting the ongoing self-improvement of LLMs.",
+    "numbers": [],
+    "entities": ["CRITIC", "external tools", "LLM self-correction"],
+    "time_period": "2023-2024",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "230511738-critic-large-language-models-can-self-correct-with-tool-interactive-cr"
+  },
+  {
+    "claim": "According to a later paper's related-work review, CRITIC's authors (Gou et al. 2023) were the first to document that LLM self-critique can, in some cases, decrease performance compared to sound external verification, establishing the earliest node in the priority chain for 'self-refinement can degrade output.'",
+    "stance": "neutral",
+    "stance_target": "novelty/priority of the claim that LLM self-refinement can hurt rather than help",
+    "evidence_type": "historical",
+    "scope_conditions": "as reported by Stechly, Valmeekam & Kambhampati 2024",
+    "quoted_support": "highlights the crucial importance of external feedback in promoting the ongoing self-improvement of LLMs",
+    "numbers": [],
+    "entities": ["CRITIC", "Gou et al. 2023"],
+    "time_period": "2023",
+    "region": null,
+    "confidence": "medium",
+    "source_note_id": "230511738-critic-large-language-models-can-self-correct-with-tool-interactive-cr"
+  }
+]

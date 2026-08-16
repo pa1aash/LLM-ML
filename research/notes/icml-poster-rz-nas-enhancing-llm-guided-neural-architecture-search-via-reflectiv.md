@@ -37,6 +37,8 @@ summary: 'ICML 2025 poster/lay-summary page for RZ-NAS, adding mechanism detail 
   is bot-gated.'
 ---
 
+*Suggested by [[rz-nas-icml-2025-reflective-zero-cost-nas-at-duckduckgo]] — ICML 2025 official poster page for RZ-NAS*
+
 *Suggested by [[rz-nas-enhancing-llm-guided-neural-architecture-search-via-reflective-zero-cost]] — ICML 2025 poster page, confirms official venue listing*
 
 ICML Poster RZ-NAS: Enhancing LLM-guided Neural Architecture Search via Reflective Zero-Cost Strategy

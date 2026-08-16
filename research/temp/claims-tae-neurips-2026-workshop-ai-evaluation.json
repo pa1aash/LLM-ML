@@ -1,0 +1,44 @@
+[
+  {
+    "claim": "TAE's scope explicitly names 'how stable are evaluation conclusions under sampling variation, calibration error, random seeds, data splits, prompts, metrics, evaluator choices' as a core topic of interest, matching the target paper's Q3 concerns about seeds, sample sizes, and sequential-generation independence.",
+    "stance": "supports",
+    "stance_target": "Fit of TAE for a paper reframed around estimand/statistical-independence critique of NAS evaluation",
+    "evidence_type": "legal",
+    "scope_conditions": "TAE (Trust-AI-Eval), NeurIPS 2026, Sydney",
+    "quoted_support": "Uncertainty and robustness: How stable are evaluation conclusions under sampling variation, calibration error, random seeds, data splits, prompts, metrics, evaluator choices, noisy or delayed feedback, tail risk, and worst-case behavior?",
+    "numbers": [],
+    "entities": ["TAE", "Trust-AI-Eval", "NeurIPS 2026"],
+    "time_period": "2026",
+    "region": "Sydney, Australia",
+    "confidence": "high",
+    "source_note_id": "tae-neurips-2026-workshop-ai-evaluation"
+  },
+  {
+    "claim": "TAE's published CFP page does not state page limit, format template, anonymity policy, or archival status; it defers to a separate 'Call for Papers' page that was not captured by this fetch.",
+    "stance": "neutral",
+    "stance_target": "Completeness of available CFP data for this candidate venue",
+    "evidence_type": "empirical",
+    "scope_conditions": "TAE workshop homepage as fetched Aug 2026",
+    "quoted_support": "See the Call for Papers for details. Submissions will be managed through the OpenReview submission site.",
+    "numbers": [],
+    "entities": ["TAE"],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "tae-neurips-2026-workshop-ai-evaluation"
+  },
+  {
+    "claim": "TAE submission deadline is August 29, 2026 (AoE), review deadline September 14, author notification September 22, final program posted September 27, workshop December 11 or 12 in Sydney.",
+    "stance": "neutral",
+    "stance_target": "Submission mechanics timeline",
+    "evidence_type": "legal",
+    "scope_conditions": "TAE indicative dates",
+    "quoted_support": "Paper submission deadline: August 29, 2026 (AoE) / Review deadline: September 14, 2026 (AoE) / Author notification: September 22, 2026 (AoE) / Final program posted: September 27, 2026",
+    "numbers": ["August 29, 2026", "September 14, 2026", "September 22, 2026", "September 27, 2026"],
+    "entities": ["TAE"],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "tae-neurips-2026-workshop-ai-evaluation"
+  }
+]

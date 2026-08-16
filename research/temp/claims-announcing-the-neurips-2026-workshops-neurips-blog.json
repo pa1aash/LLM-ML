@@ -1,0 +1,44 @@
+[
+  {
+    "claim": "NeurIPS 2026 accepted 102 workshops from 454 valid submissions across three venues: 48 in Sydney, 28 in Paris, 26 in Atlanta, with acceptance rates of 21.5%, 25.4%, and 23.6% respectively.",
+    "stance": "neutral",
+    "stance_target": "establishes the current, authoritative NeurIPS 2026 workshop landscape for Q5",
+    "evidence_type": "empirical",
+    "scope_conditions": "NeurIPS 2026, as announced Aug 10, 2026",
+    "quoted_support": "\"We received 477 submissions (454 valid)... we have accepted 102 workshops: 48, 28, and 26, to be hosted in Sydney, Paris, and Atlanta, respectively. The acceptance rates were 21.5%, 25.4%, and 23.6% for Sydney, Paris, and Atlanta, respectively.\"",
+    "numbers": ["477 submissions", "454 valid", "102 accepted", "48 Sydney", "28 Paris", "26 Atlanta", "21.5%", "25.4%", "23.6%"],
+    "entities": ["NeurIPS 2026"],
+    "time_period": "2026",
+    "region": "Sydney, Paris, Atlanta",
+    "confidence": "high",
+    "source_note_id": "announcing-the-neurips-2026-workshops-neurips-blog"
+  },
+  {
+    "claim": "Workshops accepted at NeurIPS 2026 that plausibly fit a controlled null/negative result on LLM-guided NAS self-refinement include 'Workshop for Autonomous Machine Learning Research' and 'Self-Evolving Diversity-Driven Search for Robust AI Systems' (both Sydney), and 'Who Verifies the Agents? Toward Reliable Agent Development' (Sydney), based on title/scope screening alone.",
+    "stance": "neutral",
+    "stance_target": "candidate venue shortlist for Q5, pending individual CFP verification",
+    "evidence_type": "empirical",
+    "scope_conditions": "NeurIPS 2026 Sydney workshop track, title-level screening only",
+    "quoted_support": "\"Workshop for Autonomous Machine Learning Research\" / \"Self-Evolving Diversity-Driven Search for Robust AI Systems\" / \"Who Verifies the Agents? Toward Reliable Agent Development\" [workshop titles, official accepted list]",
+    "numbers": [],
+    "entities": ["Workshop for Autonomous Machine Learning Research", "Self-Evolving Diversity-Driven Search for Robust AI Systems", "Who Verifies the Agents"],
+    "time_period": "2026",
+    "region": "Sydney",
+    "confidence": "medium",
+    "source_note_id": "announcing-the-neurips-2026-workshops-neurips-blog"
+  },
+  {
+    "claim": "Individual workshops set their own submission deadlines and CFPs independently of the master acceptance announcement, with Aug 29, 2026 suggested as a common date; page limits, format, anonymity, and archival policy are not disclosed in the master list and must be sourced per-workshop.",
+    "stance": "neutral",
+    "stance_target": "clarifies what information gaps remain for a complete Q5 venue-fit table",
+    "evidence_type": "empirical",
+    "scope_conditions": "NeurIPS 2026 workshop track",
+    "quoted_support": "\"Several workshops have begun soliciting submissions, many using our suggested submission date of Aug 29, 2026. We typically let each workshop advertise its own call for papers (if they plan to include workshop papers).\"",
+    "numbers": ["Aug 29, 2026"],
+    "entities": ["NeurIPS 2026"],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "announcing-the-neurips-2026-workshops-neurips-blog"
+  }
+]

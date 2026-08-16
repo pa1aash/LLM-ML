@@ -1,0 +1,30 @@
+[
+  {
+    "claim": "On average, state-of-the-art NAS algorithms perform similarly to random architecture selection when evaluated with a fair, matched-conditions framework isolating the search phase from downstream task results.",
+    "stance": "neutral",
+    "stance_target": "the strength/validity of random-search baselines as a bar for NAS methods to clear, a methodology standard the target paper's random-search comparison must be held to",
+    "evidence_type": "empirical",
+    "scope_conditions": "standard CNN search space used for weight sharing and NAS-Bench-101, ICLR 2020",
+    "quoted_support": "On average, the state-of-the-art NAS algorithms perform similarly to the random policy",
+    "numbers": [],
+    "entities": ["random policy", "NAS-Bench-101", "weight sharing"],
+    "time_period": "2019-2020",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "190208142-evaluating-the-search-phase-of-neural-architecture-search"
+  },
+  {
+    "claim": "The widely-used weight sharing strategy degrades the ranking of NAS candidates to the point of not reflecting their true performance, reducing the effectiveness of the search process -- a methodological confound reviewers should check for.",
+    "stance": "neutral",
+    "stance_target": "methodological rigor standards for NAS evaluation, specifically confounds from weight-sharing/one-shot evaluation",
+    "evidence_type": "empirical",
+    "scope_conditions": "one-shot/weight-sharing NAS methods (e.g. DARTS, ENAS style)",
+    "quoted_support": "the widely-used weight sharing strategy degrades the ranking of the NAS candidates to the point of not reflecting their true performance, thus reducing the effectiveness of the search process.",
+    "numbers": [],
+    "entities": ["weight sharing", "DARTS", "ENAS"],
+    "time_period": "2019-2020",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "190208142-evaluating-the-search-phase-of-neural-architecture-search"
+  }
+]

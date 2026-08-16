@@ -3,16 +3,46 @@ title: 2026 Conference
 id: 2026-conference
 tags:
 - llm-nas-feedback-positioning-7125b1
+- neurips-2026-workshops
+- venue-landscape
 created: '2026-08-16T15:45:36.317542Z'
+updated: '2026-08-16T15:55:05.867249Z'
 source: https://neurips.cc/
 source_domain: neurips.cc
 fetched_at: '2026-08-16T15:45:36.316979Z'
 fetch_provider: builtin
-status: draft
+status: review
 type: note
 tier: unknown
 content_type: unknown
 deprecated: false
+summary: 'Official NeurIPS main site (neurips.cc/) as it stood on fetch date 2026-08-16.
+  NeurIPS 2026 is ''The Fortieth Annual Conference on Neural Information Processing
+  Systems,'' main venue Sydney Australia Dec 6-12 2026, with satellite venues in Atlanta
+  (Dec 9-13) and Paris (Dec 9-13). Latest announcement (Jul 23, 2026): reviews and
+  initial meta-reviews were being re-released after a technical issue; an ''AI Reviewing
+  Experiment'' is noted for this year. A separate notice addresses an ''Author Eligibility''
+  controversy: NeurIPS states a link to a US government sanctions tool included in
+  the 2026 handbook was broader than NeurIPS''s actual compliance obligations due
+  to ''miscommunication between the NeurIPS Foundation and our legal team''; the policy
+  was corrected and NeurIPS states it ''welcomes submissions from all compliant institutions
+  and individuals,'' consistent with ACM/IEEE practice.\n\nImportant Dates block on
+  the page (as of fetch date) shows only two forward dates: Paper Author Notifications
+  Sep 24 2026 AoE, and Workshop Mandatory Accept/Reject Notification Date Sep 29 2026
+  AoE — the fuller dates list requires clicking through (not captured in this fetch).
+  Blog entries listed confirm the workshop track is live: ''Announcing the NeurIPS
+  2026 Workshops'' (Aug 10, 2026) — chased as a primary source in this batch (see
+  note ''announcing-the-neurips-2026-workshops-neurips-blog'') — plus ''Meet the Organizing
+  Team Behind NeurIPS 2026'' (Aug 12), ''NeurIPS 2026 Competitions Announced'' (Jul
+  28), and ''AI-Generated Papers in the NeurIPS 2026 Position Paper Track'' (Jun 02).
+  Full organizing-committee roster captured, including Senior Workshop Chair Piotr
+  Koniusz (UNSW) and Workshop Chairs Theodore Papamarkou, Khoa D Doan, Shao-Hua Sun,
+  Elisa Ricci, Ghada Zamzmi — matching the chairs credited on the workshop-announcement
+  blog and CallForWorkshops page. General Chairs: Hsuan-Tien Lin (National Taiwan
+  University), Razvan Pascanu (Google DeepMind/Mila). CONFIRMS 2026 workshop information
+  IS already published (not a case of ''not yet published'') — the environment note''s
+  caution about not inventing 2026 workshop info was appropriately heeded by chasing
+  the actual blog post rather than guessing.'
 ---
 
 2026 Conference

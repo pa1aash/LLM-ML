@@ -268,3 +268,65 @@ diversity-loss source has landed under that exact framing. Confirmed against my
 own pre-fetch gap list. **Wave 2 target.**
 
 Vault: 58+ notes. Batches 1, 2, 4, 6, 7, 8 outstanding.
+
+### Step 2 — batch 8 returned (5 new + 2 enriched, 22 claims)
+
+**1. RZ-NAS CONFIRMED REAL — and it bounds the thesis rather than scooping it.**
+The query's assertion checked out. *"RZ-NAS: Enhancing LLM-Guided Neural
+Architecture Search via Reflective Zero-Cost Strategy"* — Zipeng Ji, Guanghui
+Zhu, Chunfeng Yuan, Yihua Huang, **ICML 2025**, OpenReview `id=9UExQpH078`, code
+at `github.com/PasaLab/RZ-NAS`. Google blocked scraping; the fetcher fell back to
+DuckDuckGo and then pulled the GitHub README as a primary source.
+
+Structurally decisive: RZ-NAS's *reflection* is embedded in **evolutionary
+mutation–selection scored by zero-cost proxies**, not sequential self-refinement
+against full-training accuracy. So the strongest same-year counter-case does
+**not** run the subject paper's mechanism. It is a published existence proof that
+*reflective* LLM-NAS works — under an architecture the subject paper never
+tested. That bounds the claim; it does not defeat it. But it also means "feedback
+degrades LLM-guided NAS" is **false as an unqualified claim**, and the paper
+cannot state it unqualified while RZ-NAS exists at ICML 2025.
+
+**2. The scale-dependence signal is already published — this is the novelty
+problem in its sharpest form.** Huang et al. (ICLR 2024), full-text Tables 2–8:
+intrinsic self-correction *degrades* reasoning across every model tested, and the
+degradation is **largest for the weakest model** — Llama-2-70b-chat GSM8K
+62.0→36.5, CommonSenseQA 64.0→36.5 — while GPT-4-Turbo barely moves
+(91.5→90.0, 84.0→83.0). Not stated as a monotonic law, but the trend is explicit
+in the data.
+
+A 1.7B 4-bit model showing large degradation under self-refinement is therefore
+**exactly what this table predicts**. The subject paper's headline is confirmatory
+of a published trend at a smaller scale — which is the honest reading of Q2 and
+directly answers "does a small-model demonstration read as confirmatory rather
+than novel." It does. The novelty has to live somewhere else: the controlled
+six-arm matched-budget design, not the direction of the effect.
+
+Also from Huang: self-correction *succeeds* on style and safety, and multi-agent
+debate ≈ self-consistency at equal cost. Both are scope limits worth citing.
+
+**3. Q3 now has its checklist.** Lindauer & Hutter, *Best Practices for
+Scientific Research on NAS* — 14 numbered best practices, captured verbatim.
+**BP8** distinguishes random *sampling* from random *search* as separate required
+baselines (citing Li & Talwalkar 2019 and Sciuto et al. 2019); **BP9** requires
+seeded multi-run reporting with mean and stdev. This is the concrete instrument
+for answering "state which of them this paper would fail" — the answer can now be
+enumerated against a published checklist rather than asserted.
+
+**4. Mode collapse tracks alignment intensity, but quantisation is still
+untested.** Hamilton (EACL 2024 ScaleLLM), 4,374 sampled stories: mode collapse
+rises monotonically across davinci-instruct-beta → text-davinci-003 →
+gpt-3.5-turbo. It isolates *alignment* intensity only and does **not** test
+quantisation. So the quantisation rival explanation remains genuinely
+under-sourced — **wave-2 target, now confirmed by two independent fetchers.**
+
+**5. Venue housekeeping.** `CallForWorkshops/2026` is the organizer-facing
+proposal template (deadline Jun 6 2026, notification Jul 11 2026), **not** the
+accepted-workshop list. Already covered — the real list came from the Aug 10
+blog announcement. `/Conferences/2026/Workshops` 404s.
+
+**Dedup queue for step 2.6:** `1909.02453` ×3 (abs/html/duplicate),
+`2310.01798` ×2 (abs/html), `2206.08896` ×2. Do not deprecate — mark
+`derivative-of` and discount in coverage counting.
+
+Vault: 64+ notes. Batches 1, 2, 4, 6, 7 outstanding.

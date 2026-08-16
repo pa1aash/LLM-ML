@@ -1,0 +1,44 @@
+[
+  {
+    "claim": "The ICBINB ('I Can't Believe It's Not Better') 2026 workshop is affiliated with ICLR 2026 in Rio de Janeiro, Brazil, held in person April 26th/27th 2026 in Room 201C — it is NOT a NeurIPS 2026 workshop.",
+    "stance": "refutes",
+    "stance_target": "the assumption that ICBINB is a candidate NeurIPS 2026 workshop for this paper",
+    "evidence_type": "empirical",
+    "scope_conditions": "ICBINB 2026 edition, as published on the workshop's Google Sites page",
+    "quoted_support": "We propose to organise this workshop as a platform to investigate important limitations of current LLMs... In-Person Workshop: April 27th, 2026, at Room 201C... Whilst we will have a range of fantastic speakers appearing in person at the workshop we understand that many people are not able to travel to ICLR at this moment in time.",
+    "numbers": [],
+    "entities": ["ICBINB", "ICLR 2026", "Rio de Janeiro"],
+    "time_period": "2026",
+    "region": "Rio de Janeiro, Brazil",
+    "confidence": "high",
+    "source_note_id": "iclr-workshop-2026"
+  },
+  {
+    "claim": "ICBINB explicitly positions itself as a venue correcting a structural bias in ML publishing toward positive results, inviting both papers that showcase LLM limitations and papers that tried a promising fix and failed, with an explicit call for such negative results.",
+    "stance": "supports",
+    "stance_target": "the fit between a null/negative LLM-NAS-feedback result and the ICBINB workshop's stated scope",
+    "evidence_type": "empirical",
+    "scope_conditions": "ICBINB workshop CFP/home page, 2026 edition",
+    "quoted_support": "it is hard to share the found insights about the limitations of LLMs (or failed attempts in resolving them) since the current publication mechanism tends to prioritize positive over negative results. However, sharing and discussing limitations of LLMs and failed attempts to resolve them can be valuable for the community",
+    "numbers": [],
+    "entities": ["ICBINB"],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "iclr-workshop-2026"
+  },
+  {
+    "claim": "ICBINB's scope list (reasoning, alignment, agents, efficiency/scaling, hallucinations) does not explicitly name neural architecture search or AutoML, but includes a catch-all 'well-supported finding that challenges prevailing assumptions or exposes key limitations of LLMs' category that an LLM-NAS-feedback null result could plausibly fit under 'agents' (self-reflection failure) or the catch-all.",
+    "stance": "neutral",
+    "stance_target": "topical fit precision between LLM-NAS feedback degradation and ICBINB's named topic list",
+    "evidence_type": "empirical",
+    "scope_conditions": "ICBINB 2026 scope statement",
+    "quoted_support": "Additionally, we welcome any well-supported finding that challenges prevailing assumptions or exposes key limitations of LLMs.",
+    "numbers": [],
+    "entities": ["ICBINB"],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "medium",
+    "source_note_id": "iclr-workshop-2026"
+  }
+]

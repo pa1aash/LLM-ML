@@ -3,7 +3,12 @@ title: TAE | NeurIPS 2026 Workshop - AI Evaluation
 id: tae-neurips-2026-workshop-ai-evaluation
 tags:
 - llm-nas-feedback-positioning-7125b1
+- neurips-2026-workshop
+- venue-candidate
+- cfp-details
+- evaluation-methodology
 created: '2026-08-16T15:51:22.670019Z'
+updated: '2026-08-16T15:54:01.568408Z'
 source: https://tai-eval.github.io
 source_domain: tai-eval.github.io
 fetched_at: '2026-08-16T15:51:22.658959Z'
@@ -13,6 +18,23 @@ type: note
 tier: unknown
 content_type: unknown
 deprecated: false
+summary: 'TAE (Trust-AI-Eval: Can We Trust AI Evaluation?, NeurIPS 2026, Sydney, Dec
+  11 or 12) treats evaluation itself as the object of study: ''what is measured, which
+  assumptions connect a protocol to a claim, how uncertainty and failure modes are
+  reported, and when the resulting evidence is strong enough to guide deployment.''
+  Topics of interest directly include ''Uncertainty and robustness: How stable are
+  evaluation conclusions under sampling variation, calibration error, random seeds,
+  data splits, prompts, metrics, evaluator choices...'' -- a near-verbatim match to
+  the target paper''s Q3 concerns about seeds, sample sizes, and statistical independence
+  when proposals are generated sequentially. Also covers benchmark/leaderboard auditing,
+  measurement/causal validity, and deployment risk. Submissions via OpenReview; paper
+  submission deadline Aug 29, 2026 (AoE); review deadline Sep 14; notification Sep
+  22; program posted Sep 27. IMPORTANT GAP: the fetched page does not state page limit,
+  format template, anonymity policy, or archival status -- it defers to a separate
+  ''Call for Papers'' page not captured here, so these fields remain unconfirmed and
+  must not be assumed. Best framing fit if the target paper is repositioned as an
+  evaluation-methodology contribution (estimand mismatch, sequential-generation independence
+  violation) rather than a search-method result.'
 ---
 
 *Suggested by [[announcing-the-neurips-2026-workshops-neurips-blog]] — NeurIPS 2026 Trust-AI-Eval workshop - Tier 2 methodology/evaluation venue candidate*

@@ -1,0 +1,44 @@
+[
+  {
+    "claim": "NeurIPS 2026 is held Dec 6-12 in Sydney (main venue) with satellite venues in Atlanta and Paris, Dec 9-13.",
+    "stance": "neutral",
+    "stance_target": "establishes basic venue/date facts for Q5",
+    "evidence_type": "empirical",
+    "scope_conditions": "NeurIPS 2026",
+    "quoted_support": "\"Main: Sydney, Australia Dec 6th - 12th. Satellites: Atlanta, Georgia Dec 9th - 13th. Paris, France Dec 9th - 13th.\"",
+    "numbers": ["Dec 6-12", "Dec 9-13"],
+    "entities": ["NeurIPS 2026", "Sydney", "Atlanta", "Paris"],
+    "time_period": "2026",
+    "region": "Sydney, Atlanta, Paris",
+    "confidence": "high",
+    "source_note_id": "2026-conference"
+  },
+  {
+    "claim": "As of the fetch date (2026-08-16), the NeurIPS 2026 main page's Important Dates block shows Paper Author Notifications on Sep 24 2026 AoE and Workshop Mandatory Accept/Reject Notification Date on Sep 29 2026 AoE.",
+    "stance": "neutral",
+    "stance_target": "confirms current, non-invented dates for Q5 timeline",
+    "evidence_type": "empirical",
+    "scope_conditions": "main conference page, fetch date 2026-08-16",
+    "quoted_support": "\"Paper Author Notifications Sep 24 '26 (Anywhere on Earth). Workshop Mandatory Accept/ Reject Notification Date Sep 29 '26 (Anywhere on Earth).\"",
+    "numbers": ["Sep 24 2026", "Sep 29 2026"],
+    "entities": ["NeurIPS 2026"],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "2026-conference"
+  },
+  {
+    "claim": "NeurIPS 2026 workshop information is already published as of Aug 2026 (blog post 'Announcing the NeurIPS 2026 Workshops', Aug 10 2026), contradicting a null hypothesis that 2026 workshop information was not yet available.",
+    "stance": "refutes",
+    "stance_target": "hypothesis that 2026 NeurIPS workshop info is not yet published",
+    "evidence_type": "empirical",
+    "scope_conditions": "NeurIPS 2026, fetch date 2026-08-16",
+    "quoted_support": "\"Announcing the NeurIPS 2026 Workshops Aug 10, 2026\" [blog entry listed on main page]",
+    "numbers": [],
+    "entities": ["NeurIPS 2026"],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "2026-conference"
+  }
+]

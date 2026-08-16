@@ -4,7 +4,12 @@ title: 'SLM-Agents: 1st Workshop on SLMs for Agentic Systems | NeurIPS 2026 · P
 id: slm-agents-1st-workshop-on-slms-for-agentic-systems-neurips-2026-paris-france
 tags:
 - llm-nas-feedback-positioning-7125b1
+- neurips-2026-workshop
+- venue-candidate
+- cfp-details
+- small-language-models
 created: '2026-08-16T15:51:15.087894Z'
+updated: '2026-08-16T15:53:54.181142Z'
 source: https://slmw2026.github.io/
 source_domain: slmw2026.github.io
 fetched_at: '2026-08-16T15:51:15.083674Z'
@@ -14,6 +19,24 @@ type: note
 tier: unknown
 content_type: unknown
 deprecated: false
+summary: 'SLM-Agents (1st Workshop on SLMs for Agentic Systems, NeurIPS 2026, Paris,
+  Dec 12-13) is scoped to small language models as the foundation of agentic AI systems,
+  spanning ''(1) efficient language model architectures and compression techniques,
+  (2) agentic AI systems capable of autonomous reasoning and tool use, and (3) edge
+  computing and on-device deployment,'' with explicit open-problem topics including
+  quantization/pruning/distillation, hardware co-design, and ''task-success-per-watt''
+  evaluation benchmarks. Format: Short paper up to 4 content pages or Long paper up
+  to 6 content pages, NeurIPS workshop template, double-blind review through OpenReview,
+  three reviewers per submission. Non-archival, not included in NeurIPS proceedings,
+  accepted papers hosted on OpenReview with author opt-in. Eligibility requires original
+  work-in-progress not under review at the NeurIPS 2026 main program and not previously
+  published at a major venue. Submission deadline extended to Aug 29, 2026 (AoE);
+  portal opened July 25; review period Aug 30-Sep 19; notification Sep 22; camera-ready
+  Oct 13. No explicit statement welcoming negative results specifically. Strong topical
+  match on the ''quantised'' half of the target paper (SLM + quantization is literally
+  in-scope), but the workshop''s core interest is SLMs as agent substrates for tool-use/planning,
+  not architecture search outcomes per se -- the target paper would need to frame
+  its LLM as an agentic component (an architecture-proposal agent) to fit cleanly.'
 ---
 
 *Suggested by [[announcing-the-neurips-2026-workshops-neurips-blog]] — NeurIPS 2026 SLM-Agents workshop - Tier 1 venue candidate, small-model agentic systems angle matches subject paper's 1.7B 4-bit model*

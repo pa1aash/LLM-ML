@@ -1,0 +1,30 @@
+[
+  {
+    "claim": "AOP, a multi-agent LLM planning framework, integrates an iterative feedback loop for sub-task adjustment and scheduling and reports this improves effectiveness and robustness relative to single-agent systems and prior multi-agent planning strategies.",
+    "stance": "refutes",
+    "stance_target": "generality of 'iterative LLM feedback degrades outputs' claim — offers a published counter-example in a different domain (task planning, not architecture/program search)",
+    "evidence_type": "empirical",
+    "scope_conditions": "general multi-agent LLM problem-solving, ICLR 2025, abstract-level claim only, not architecture or code search",
+    "quoted_support": "\"we integrate a feedback loop into AOP to further enhance the effectiveness and robustness of such a problem-solving process. Extensive experiments demonstrate the advancement of AOP in solving real-world problems compared to both single-agent systems and existing planning strategies for multi-agent systems.\"",
+    "numbers": [],
+    "entities": ["AOP", "multi-agent systems", "meta-agent"],
+    "time_period": "2024-2025",
+    "region": null,
+    "confidence": "low",
+    "source_note_id": "241002189-agent-oriented-planning-in-multi-agent-systems"
+  },
+  {
+    "claim": "AOP's feedback mechanism operates over task decomposition and agent scheduling assessed by a learned reward model, not over architecture proposals scored against a fixed numeric objective, making it structurally different from NAS feedback loops.",
+    "stance": "neutral",
+    "stance_target": "bounds applicability of AOP as counter-evidence to the target paper's NAS-specific claim",
+    "evidence_type": "theoretical",
+    "scope_conditions": "AOP framework design, ICLR 2025",
+    "quoted_support": "\"leveraging a fast task decomposition and allocation process followed by an effective and efficient evaluation via a reward model... the meta-agent is also responsible for promptly making necessary adjustments to sub-tasks and scheduling.\"",
+    "numbers": [],
+    "entities": ["AOP", "meta-agent", "reward model"],
+    "time_period": "2024-2025",
+    "region": null,
+    "confidence": "medium",
+    "source_note_id": "241002189-agent-oriented-planning-in-multi-agent-systems"
+  }
+]

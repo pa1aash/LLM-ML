@@ -3,7 +3,12 @@ title: Who Verifies the Agents? · NeurIPS 2026 Workshop
 id: who-verifies-the-agents-neurips-2026-workshop
 tags:
 - llm-nas-feedback-positioning-7125b1
+- neurips-2026-workshop
+- venue-candidate
+- cfp-details
+- agent-verification
 created: '2026-08-16T15:51:41.045798Z'
+updated: '2026-08-16T15:54:04.987999Z'
 source: https://verify-agents-workshop.github.io/
 source_domain: verify-agents-workshop.github.io
 fetched_at: '2026-08-16T15:51:41.043198Z'
@@ -13,6 +18,26 @@ type: note
 tier: unknown
 content_type: unknown
 deprecated: false
+summary: 'Who Verifies the Agents? Toward Reliable Agent Development (NeurIPS 2026,
+  Sydney, Dec 11 or 12) frames verification as ''the bottleneck between fragile prototypes
+  and scalable, reliable agent systems'' and asks, of any agent change, ''did it actually
+  get better?'' Three topic pillars: (1) Safety/Robustness of Verification, (2) Environment-Grounded
+  Verification and Simulators -- explicitly listing ''Evolutionary and search-based
+  methods for environment-driven agent optimization'' and ''Automated agent design,
+  prompt optimization, and scaffold search with verifiable feedback'' -- and (3) Diverse/Heterogeneous
+  Verifiable Signals, listing ''Beyond scalar rewards: holistic evaluation of agentic
+  behavior'' and ''Reflective and self-improving verification (agents that verify
+  other agents).'' A cross-cutting topic is explicitly ''Self-evolving agents: stable
+  improvement without collapse or reward hacking'' and ''Evaluation of agent-generated
+  designs vs. human-engineered systems'' -- both near-exact matches to the target
+  paper''s thesis (an agent''s self-refinement loop failing to improve, collapsing
+  to one design). Format: papers 4-9 pages excluding references/appendices, NeurIPS
+  2026 template; demo papers <=4 pages. Double-blind review; non-archival (OpenReview
+  posting, no formal proceedings); dual-submission-friendly (accepts work under review
+  or recently published elsewhere). Submission deadline Aug 29, 2026; review period
+  Aug 30-Sep 12; AC discussion Sep 13-23; notification Sep 29. No explicit position
+  statement on negative results, but the framing implicitly wants exactly this kind
+  of result (a case where an update did NOT make an agent better).'
 ---
 
 *Suggested by [[announcing-the-neurips-2026-workshops-neurips-blog]] — NeurIPS 2026 Who Verifies the Agents workshop - maps to intrinsic self-correction fails without external verification thesis*

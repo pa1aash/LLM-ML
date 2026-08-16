@@ -39,6 +39,8 @@ summary: 'Li & Talwalkar (UAI 2019; this is the correct ''Li and Talwalkar'' pap
   both of which the target paper''s evaluation protocol must be checked against.'
 ---
 
+*Suggested by [[neural-architecture-search-insights-from-1000-papers]] — canonical NAS random-search/reproducibility critique cited by the 1000-papers survey, directly named in the research query*
+
 *Suggested by [[190209635v2-nas-bench-101-towards-reproducible-neural-architecture-search]] — correct paper for Li and Talwalkar random-search baseline standard named explicitly in query THREE; original assigned URL 1902.09635 turned out to be NAS-Bench-101, not this paper*
 
 [1902.07638] Random Search and Reproducibility for Neural Architecture Search

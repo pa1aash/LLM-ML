@@ -4,7 +4,11 @@ title: 'Automated machine learning: past, present and future | Artificial Intell
 id: automated-machine-learning-past-present-and-future-artificial-intelligence-revie
 tags:
 - llm-nas-feedback-positioning-7125b1
+- nas-methodology
+- tabular-nas-benchmarks
+- automl-survey
 created: '2026-08-16T15:44:44.065602Z'
+updated: '2026-08-16T15:52:11.135753Z'
 source: https://link.springer.com/article/10.1007/s10462-024-10726-1
 source_domain: link.springer.com
 fetched_at: '2026-08-16T15:44:44.052550Z'
@@ -14,6 +18,41 @@ type: note
 tier: unknown
 content_type: unknown
 deprecated: false
+summary: 'Open-access AutoML survey published in Artificial Intelligence Review, vol.
+  57, article 122 (18 April 2024). Comprehensive review of AutoML/HPO/NAS spanning
+  search spaces, search strategies, performance evaluation, and available systems;
+  46,142 words, LONG SOURCE flagged for possible source-analyst delegation. Directly
+  relevant to the methodology-standards question: covers grid/random search for NAS
+  explicitly citing Li & Talwalkar (2019) and Bergstra & Bengio (2012), stating random
+  search ''has been considered a competitive baseline for NAS'' and that Li & Talwalkar''s
+  random-search-with-early-stopping-and-weight-sharing on the DARTS search space achieved
+  performance competitive with DARTS/ENAS, attributing this to well-constrained search
+  spaces rather than random search being intrinsically strong (''In a well-constrained
+  search space, even random search can perform well''), and separately notes weight-sharing
+  can negatively bias architecture ranking during search. Also cites Yu et al. (2020,
+  ''Evaluating the Search Phase of NAS'') showing ENAS/DARTS/NAO have similar average
+  performance to random search on PTB and CIFAR-10 under matched search space -- but
+  does NOT cite or discuss Yang, Esperança & Carlucci''s ICLR 2020 ''NAS evaluation
+  is frustratingly hard'' (searched explicitly, zero hits), a notable gap since the
+  research query names that paper specifically; that citation should be independently
+  chased. Gives a compact catalog of tabular NAS benchmarks with exact sizes -- NAS-Bench-101
+  (423,000 unique cell-based architectures, DAG of 7 nodes/3 operations, CIFAR-10,
+  5M+ trained models), NAS-Bench-201 (15,625 neural cell candidates, DAG of 4 nodes/5
+  operations), NAS-Bench-1Shot1 (reuses NAS-Bench-101 for one-shot methods), NATS-Bench
+  (9 evolutionary-NAS algorithms, fixed- and variable-length encoding, single/multi-objective),
+  NAS-Bench-301 (surrogate-model-based, much larger search space than exhaustive tabular
+  benchmarks), NAS-Bench-NLP, HPO-Bench (144 feedforward architectures) -- explicitly
+  framed as created to address a ''reproducibility issue'' in NAS research by enabling
+  faithful simulation of NAS runs without retraining. On the LLM x AutoML/NAS intersection
+  specifically: as of this April 2024 survey, LLM-guided NAS is treated as a SPECULATIVE
+  future direction, not an established literature with known failure modes -- citing
+  only Tornede et al. (2023a) ''speculating'' about synergies and Shen et al.''s HuggingGP
+  T as an LLM-as-AutoML-interface example; the survey contains ZERO mentions of EvoPrompting,
+  GENIUS, LLMatic, GPT-NAS, or any LLM-guided architecture-proposal method by name,
+  and zero discussion of feedback/self-refinement effects on LLM-generated architectures.
+  This absence is itself evidence for the novelty question: as of April 2024, LLM-guided
+  NAS had not yet been absorbed into mainstream AutoML survey literature as a distinct
+  sub-field with established empirical findings.'
 ---
 
 Automated machine learning: past, present and future | Artificial Intelligence Review | Springer Nature Link

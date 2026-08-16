@@ -16,6 +16,8 @@ content_type: paper
 deprecated: false
 ---
 
+*Suggested by [[neural-architecture-search-insights-from-1000-papers]] — canonical NAS evaluation critique 'NAS evaluation is frustratingly hard' cited by the 1000-papers survey, directly named in the research query*
+
 [1912.12522] NAS evaluation is frustratingly hard
 Skip to main content
 Search arXiv

@@ -1,0 +1,30 @@
+[
+  {
+    "claim": "NeurIPS 2026 workshop contributions (papers submitted to individual workshops) have a suggested common submission date of August 29, 2026 AoE, with a mandatory accept/reject notification date of September 29, 2026 AoE.",
+    "stance": "neutral",
+    "stance_target": "establishes the operative submission timeline for a Q5 venue recommendation, as of the 2026-08-16 fetch date",
+    "evidence_type": "empirical",
+    "scope_conditions": "NeurIPS 2026 workshop track, official CFP page",
+    "quoted_support": "\"Suggested Submission Date for Workshop Contributions: August 29, 2026, AoE\" / \"Mandatory Accept/Reject Notification Date: September 29, 2026, AoE\"",
+    "numbers": ["August 29, 2026", "September 29, 2026"],
+    "entities": ["NeurIPS 2026"],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "call-for-workshops-2026"
+  },
+  {
+    "claim": "NeurIPS 2026 workshops will be in-person only with live-streaming, roughly 7-9 hours of session content each, no organizer travel funding, and per-workshop formatting/anonymity/archival requirements are set independently by each workshop rather than centrally by NeurIPS.",
+    "stance": "neutral",
+    "stance_target": "clarifies that Q5's per-workshop format/anonymity/archival requirements must be sourced from each workshop's own CFP, not the master NeurIPS page",
+    "evidence_type": "empirical",
+    "scope_conditions": "NeurIPS 2026 workshop operations",
+    "quoted_support": "\"Each workshop is expected to have approximately 7 to 9 hours of session content... NeurIPS will host only in-person workshops this year, with full-stack technical support to broadcast the workshop to the online audience.\"",
+    "numbers": ["7 to 9 hours"],
+    "entities": ["NeurIPS 2026"],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "call-for-workshops-2026"
+  }
+]

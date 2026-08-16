@@ -3,7 +3,11 @@ title: Interpretability as a Science · Workshop
 id: interpretability-as-a-science-workshop
 tags:
 - llm-nas-feedback-positioning-7125b1
+- neurips-2026-workshop
+- venue-candidate
+- cfp-incomplete
 created: '2026-08-16T15:51:51.440517Z'
+updated: '2026-08-16T15:54:08.306523Z'
 source: https://interpscience.github.io/
 source_domain: interpscience.github.io
 fetched_at: '2026-08-16T15:51:51.415780Z'
@@ -13,6 +17,18 @@ type: note
 tier: unknown
 content_type: unknown
 deprecated: false
+summary: 'Interpretability as a Science (NeurIPS 2026, Sydney) asks ''what it would
+  take to ground interpretability as a rigorous empirical science,'' focusing on standards
+  for measurement, causal claims, and falsifiability, and ''how to design experiments
+  that rule out alternative explanations.'' Distinctive interactive format: multiple
+  facilitator-led breakout sessions rather than a standard poster/oral track. The
+  fetched page is thin (280 words) and does NOT state page limit, anonymity policy,
+  archival status, or submission mechanics -- only a ''Call for Papers'' link is referenced,
+  unfetched. Scope is specifically about interpretability of LLM internals (mechanistic/causal
+  understanding), not architecture search or design-agent evaluation; the rigor/falsifiability
+  framing is generically relevant to the target paper''s methodological argument but
+  the subject-matter fit (interpretability vs. search) is weak. Lowest-priority candidate
+  among the seven fetched in this batch pending confirmation of CFP mechanics.'
 ---
 
 *Suggested by [[announcing-the-neurips-2026-workshops-neurips-blog]] — NeurIPS 2026 Interpretability as a Science workshop - Tier 2 rigor-of-method framing candidate*

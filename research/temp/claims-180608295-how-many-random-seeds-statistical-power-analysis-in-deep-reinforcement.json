@@ -1,0 +1,30 @@
+[
+  {
+    "claim": "Colas, Sigaud & Oudeyer (2018) give theoretical guidelines, via t-test and bootstrap confidence-interval power analysis, for the number of random seeds needed to make a statistically significant claim that one algorithm outperforms another in deep RL, and this standard generalizes to any empirical deep-learning comparison including NAS.",
+    "stance": "supports",
+    "stance_target": "the methodological requirement that a NAS paper claiming an LLM's proposals 'beat random search' must report seed counts and significance tests calibrated to detect the claimed effect size",
+    "evidence_type": "theoretical",
+    "scope_conditions": "deep RL experiments, generalizable statistical methodology",
+    "quoted_support": "we explain how the number of random seeds relates to the probabilities of statistical errors. For both the t-test and the bootstrap confidence interval test, we recall theoretical guidelines to determine the number of random seeds one should use to provide a statistically significant comparison of the performance of two algorithms.",
+    "numbers": [],
+    "entities": ["Cédric Colas", "Olivier Sigaud", "Pierre-Yves Oudeyer"],
+    "time_period": "2018",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "180608295-how-many-random-seeds-statistical-power-analysis-in-deep-reinforcement"
+  },
+  {
+    "claim": "Deviations from the assumptions underlying standard significance tests (e.g. non-normal or unequal-variance performance distributions across seeds) can lead to inaccurate evaluations of statistical error, requiring explicit guidelines to counter these negative effects.",
+    "stance": "neutral",
+    "stance_target": "robustness of significance claims made from small numbers of LLM-proposal or random-search runs",
+    "evidence_type": "theoretical",
+    "scope_conditions": "deep RL / general empirical DL comparisons",
+    "quoted_support": "we discuss the influence of deviations from the assumptions usually made by statistical tests. We show that they can lead to inaccurate evaluations of statistical errors and provide guidelines to counter these negative effects.",
+    "numbers": [],
+    "entities": [],
+    "time_period": "2018",
+    "region": null,
+    "confidence": "medium",
+    "source_note_id": "180608295-how-many-random-seeds-statistical-power-analysis-in-deep-reinforcement"
+  }
+]

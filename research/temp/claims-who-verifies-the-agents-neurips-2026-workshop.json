@@ -1,0 +1,44 @@
+[
+  {
+    "claim": "Verify-Agents explicitly lists 'Self-evolving agents: stable improvement without collapse or reward hacking' and 'Evaluation of agent-generated designs vs. human-engineered systems' as cross-cutting topics of interest, near-exactly matching the target paper's core finding (self-refinement collapsing rather than improving designs, compared implicitly against human/random-search baselines).",
+    "stance": "supports",
+    "stance_target": "Topical fit of Verify-Agents for the target paper",
+    "evidence_type": "legal",
+    "scope_conditions": "Who Verifies the Agents?, NeurIPS 2026, Sydney",
+    "quoted_support": "Self-evolving agents: stable improvement without collapse or reward hacking / Evaluation of agent-generated designs vs. human-engineered systems",
+    "numbers": [],
+    "entities": ["Who Verifies the Agents?", "NeurIPS 2026"],
+    "time_period": "2026",
+    "region": "Sydney, Australia",
+    "confidence": "high",
+    "source_note_id": "who-verifies-the-agents-neurips-2026-workshop"
+  },
+  {
+    "claim": "Verify-Agents' Pillar 2 explicitly lists 'Evolutionary and search-based methods for environment-driven agent optimization' and 'Automated agent design, prompt optimization, and scaffold search with verifiable feedback' as topics of interest.",
+    "stance": "supports",
+    "stance_target": "Topical fit of Verify-Agents for LLM-guided architecture/design search papers",
+    "evidence_type": "legal",
+    "scope_conditions": "Verify-Agents Pillar 2: Environment-Grounded Verification and Simulators",
+    "quoted_support": "Evolutionary and search-based methods for environment-driven agent optimization / ... / Automated agent design, prompt optimization, and scaffold search with verifiable feedback",
+    "numbers": [],
+    "entities": ["Verify-Agents"],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "who-verifies-the-agents-neurips-2026-workshop"
+  },
+  {
+    "claim": "Verify-Agents format is 4-9 pages excluding references/appendices (NeurIPS 2026 template, demo papers <=4 pages), double-blind review, non-archival, dual-submission-friendly ('We welcome work that is under review or has been recently published at other venues'), submission deadline Aug 29 2026, notification Sep 29 2026.",
+    "stance": "neutral",
+    "stance_target": "Format, anonymity, archival status, and submission mechanics for this candidate venue",
+    "evidence_type": "legal",
+    "scope_conditions": "Verify-Agents CFP",
+    "quoted_support": "Format: Papers should be between 4 to 9 pages (excluding references and appendices), using the NeurIPS 2026 template... Review: Reviews will be double blind... Non-archival: The workshop is non-archival; accepted papers will be made available on OpenReview but do not constitute formal proceedings.",
+    "numbers": ["4 pages", "9 pages", "August 29, 2026", "September 29, 2026"],
+    "entities": ["Verify-Agents"],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "who-verifies-the-agents-neurips-2026-workshop"
+  }
+]

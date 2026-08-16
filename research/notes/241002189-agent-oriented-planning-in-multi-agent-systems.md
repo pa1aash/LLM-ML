@@ -3,16 +3,38 @@ title: '[2410.02189] Agent-Oriented Planning in Multi-Agent Systems'
 id: 241002189-agent-oriented-planning-in-multi-agent-systems
 tags:
 - llm-nas-feedback-positioning-7125b1
+- tangential
+- counter-evidence-context
 created: '2026-08-16T15:45:33.341127Z'
+updated: '2026-08-16T15:52:18.803390Z'
 source: https://arxiv.org/abs/2410.02189
 source_domain: arxiv.org
 fetched_at: '2026-08-16T15:45:33.340472Z'
 fetch_provider: builtin
-status: draft
+status: review
 type: note
 tier: institutional
 content_type: paper
 deprecated: false
+summary: 'Li, Xie, Li, Tsung, Ding, Li, ''Agent-Oriented Planning in Multi-Agent Systems''
+  (arXiv:2410.02189, ICLR 2025). NOT a NAS or architecture-search paper — it is a
+  general multi-agent LLM task-planning framework (AOP) that decomposes user queries
+  into sub-tasks for specialist agents, evaluated for solvability/completeness/non-redundancy,
+  with a meta-agent reward model and an integrated feedback loop for adjusting sub-tasks/scheduling.
+  Only the arXiv abstract page was fetched (691 words); no methodology or numeric
+  results beyond the abstract were captured.\n\nRelevance is tangential rather than
+  direct: the abstract claims ''we integrate a feedback loop into AOP to further enhance
+  the effectiveness and robustness of such a problem-solving process'' and reports
+  that ''extensive experiments demonstrate the advancement of AOP in solving real-world
+  problems compared to both single-agent systems and existing planning strategies
+  for multi-agent systems'' — i.e. this is a published case where an iterative feedback
+  loop is reported to IMPROVE a multi-agent LLM system''s output quality. This is
+  potentially useful as Q4 counter-evidence context (a domain where feedback reportedly
+  helps), but it differs from the target paper''s claim in kind: AOP''s feedback loop
+  operates over task decomposition/scheduling in general problem-solving, not over
+  architecture or program search proposals scored against a fixed numeric objective,
+  so it bounds rather than directly rebuts a NAS-specific feedback-degradation claim.
+  Should not be over-weighted as a rebuttal; flagged as weak/tangential evidence only.'
 ---
 
 [2410.02189] Agent-Oriented Planning in Multi-Agent Systems

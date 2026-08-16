@@ -1,0 +1,30 @@
+[
+  {
+    "claim": "LLM self-improvement (model verifies its own outputs, filters/reweights data by that verification, distills the filtered data) is governed by a formalized 'generation-verification gap' that scales monotonically with the model's pretraining FLOPs.",
+    "stance": "supports",
+    "stance_target": "the hypothesis that self-refinement's helpfulness is model-scale dependent, and that a small model's self-refinement failure is scale-predictable rather than novel",
+    "evidence_type": "theoretical",
+    "scope_conditions": "various model families and tasks, ICLR 2025",
+    "quoted_support": "we discover a scaling phenomenon of self-improvement -- a variant of the generation-verification gap scales monotonically with the model pre-training flops.",
+    "numbers": [],
+    "entities": ["Mind the Gap", "generation-verification gap"],
+    "time_period": "2024-2025",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "241202674-mind-the-gap-examining-the-self-improvement-capabilities-of-large-lang"
+  },
+  {
+    "claim": "The paper provides a mathematical/modular framework for exactly when iterative self-improvement is possible at all, plus an iterative self-improvement procedure and methods to improve its performance, meaning the boundary conditions under which self-refinement helps vs. hurts are already an object of formal study as of ICLR 2025.",
+    "stance": "neutral",
+    "stance_target": "whether 'small model self-refinement fails' is a settled/confirmatory finding vs. a novel contribution",
+    "evidence_type": "theoretical",
+    "scope_conditions": "ICLR 2025, controlled modular study of self-improvement",
+    "quoted_support": "we initiate a comprehensive, modular and controlled study on LLM self-improvement... We also examine when self-improvement is possible, an iterative self-improvement procedure, and ways to improve its performance.",
+    "numbers": [],
+    "entities": ["Mind the Gap"],
+    "time_period": "2024-2025",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "241202674-mind-the-gap-examining-the-self-improvement-capabilities-of-large-lang"
+  }
+]

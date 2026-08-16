@@ -3,7 +3,12 @@ title: JUDGe 2026 — Can We Trust the Judge?
 id: judge-2026-can-we-trust-the-judge
 tags:
 - llm-nas-feedback-positioning-7125b1
+- neurips-2026-workshop
+- venue-candidate
+- cfp-details
+- negative-results-explicit
 created: '2026-08-16T15:51:46.588897Z'
+updated: '2026-08-16T15:54:06.514486Z'
 source: https://judge2026.github.io
 source_domain: judge2026.github.io
 fetched_at: '2026-08-16T15:51:46.586973Z'
@@ -13,6 +18,24 @@ type: note
 tier: unknown
 content_type: unknown
 deprecated: false
+summary: 'JUDGe (Can We Trust the Judge?, NeurIPS 2026, Atlanta, Dec 12-13) is scoped
+  specifically to reliability/validity of LLM-BASED EVALUATORS (judge models) inside
+  pipelines like RLHF/DPO/Constitutional AI -- construct validity, calibration, positional/sycophancy
+  bias, criteria drift, benchmark construction including explicitly ''negative-result
+  datasets.'' Format: Full Papers 6pp+refs (oral), Short Papers 4pp+refs (poster),
+  Junior Spotlight 2pp+refs (oral, students/early-career only). Double-blind, >=3
+  reviews per paper, NeurIPS LaTeX template. Non-archival, posted on workshop website
+  with author opt-out; previously published work at a major venue is explicitly NOT
+  eligible (stricter than Verify-Agents'' dual-submission-friendly policy). Submission
+  deadline Aug 29, 2026; notifications Sep 29; camera-ready Oct 15. STRONGEST explicit
+  statement on negative results found in this batch, stated twice: ''Works in progress,
+  negative results, practitioner case studies, and cross-disciplinary contributions
+  are particularly encouraged'' and ''negative results, and works in progress are
+  all welcome -- not just finished research.'' However, scope mismatch: JUDGe is about
+  LLM-as-judge/reward-model reliability specifically, not about search-loop feedback
+  or NAS -- the target paper''s iterative-feedback signal is scalar validation accuracy
+  from a real training pipeline, not an LLM judge, so despite the strongest negative-results
+  welcome, topical fit is weaker than Verify-Agents or TAE unless heavily reframed.'
 ---
 
 *Suggested by [[announcing-the-neurips-2026-workshops-neurips-blog]] — NeurIPS 2026 JUDGe workshop on Reliable Evaluation for LMs - evaluation methodology angle*

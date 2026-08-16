@@ -1,0 +1,16 @@
+[
+  {
+    "claim": "ICBINB @ ICLR 2025 ('Challenges in Applied Deep Learning') was held in-person April 28 2025 at Hall 4 #1, Singapore EXPO, co-located with ICLR 2025, and used framing nearly identical to the 2026 edition about publication mechanisms failing to systematically collect real-world failure cases.",
+    "stance": "neutral",
+    "stance_target": "establishing the immediate precedent edition confirming ICBINB's move from NeurIPS to ICLR",
+    "evidence_type": "empirical",
+    "scope_conditions": "ICBINB @ ICLR 2025, Singapore",
+    "quoted_support": "Current publication mechanisms tend to prioritize solutions that work on standard bench, lacking a platform to systematically collect real-world failure cases.",
+    "numbers": [],
+    "entities": ["ICBINB", "ICLR 2025", "Singapore EXPO"],
+    "time_period": "2025",
+    "region": "Singapore",
+    "confidence": "high",
+    "source_note_id": "iclr-workshop-2025"
+  }
+]

@@ -1,0 +1,30 @@
+[
+  {
+    "claim": "The ICBINB workshop series has run at NeurIPS 2022, NeurIPS 2023, ICLR 2025, and ICLR 2026 (announced Dec 2025 as 'the next ICBINB workshop'), with no NeurIPS 2026 edition announced as of the most recent news update.",
+    "stance": "refutes",
+    "stance_target": "the assumption that ICBINB is a currently viable NeurIPS 2026 workshop target for this paper",
+    "evidence_type": "empirical",
+    "scope_conditions": "ICBINB workshop series news feed, icbinb.cc, as of Dec 2025 / fetched Aug 2026",
+    "quoted_support": "[Dec/2025] The next ICBINB workshop takes place at ICLR 2026! This year's theme: Where large language models need to improve. [Dec/2024] We are organizing the next ICBINB workshop at ICLR 2025!... [Jun/2023] The ICBINB workshop will be back at NeurIPS 2023!... [Jan/2023] The talks of our NeurIPS 2022 workshop are now online.",
+    "numbers": [],
+    "entities": ["ICBINB", "NeurIPS 2022", "NeurIPS 2023", "ICLR 2025", "ICLR 2026"],
+    "time_period": "2022-2026",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "icbinb-crack-open-the-research-process"
+  },
+  {
+    "claim": "ICBINB's stated mission is to re-value negative results, question well-established default practices, and provide a platform for high-quality but under-valued research (negative results/failed attempts, simple approaches that work well in practice, applied work) as opposed to solely rewarding benchmark-beating approaches.",
+    "stance": "supports",
+    "stance_target": "topical/mission fit between a null LLM-NAS-feedback result and the ICBINB initiative broadly (independent of which specific conference hosts a given year's edition)",
+    "evidence_type": "empirical",
+    "scope_conditions": "ICBINB initiative mission statement",
+    "quoted_support": "The goals of the initiative are to crack open the research process, to re-value unexpected negative results, question well-established default practices, and advance the understanding, elegance, and diversity of the field as opposed to focusing solely on the outcome and just rewarding approaches that beat previous works on a given benchmark.",
+    "numbers": [],
+    "entities": ["ICBINB"],
+    "time_period": null,
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "icbinb-crack-open-the-research-process"
+  }
+]

@@ -1,0 +1,44 @@
+[
+  {
+    "claim": "SLM-Agents workshop scope explicitly lists quantization, pruning, knowledge distillation, and architectural innovations for parameter-efficient LMs as open problems, directly matching the target paper's small quantized LLM subject.",
+    "stance": "supports",
+    "stance_target": "Topical fit of SLM-Agents as a venue for the target paper",
+    "evidence_type": "legal",
+    "scope_conditions": "SLM-Agents, NeurIPS 2026, Paris",
+    "quoted_support": "Compression and distillation: quantization, pruning, knowledge distillation, and architectural innovations for parameter-efficient LMs.",
+    "numbers": [],
+    "entities": ["SLM-Agents", "NeurIPS 2026"],
+    "time_period": "2026",
+    "region": "Paris, France",
+    "confidence": "high",
+    "source_note_id": "slm-agents-1st-workshop-on-slms-for-agentic-systems-neurips-2026-paris-france"
+  },
+  {
+    "claim": "SLM-Agents submission format is Short paper (up to 4 content pages) or Long paper (up to 6 content pages), NeurIPS workshop template, double-blind review through OpenReview with three reviewers per submission, non-archival, deadline extended to Aug 29 2026 AoE.",
+    "stance": "neutral",
+    "stance_target": "Format and mechanics of this candidate venue",
+    "evidence_type": "legal",
+    "scope_conditions": "SLM-Agents CFP",
+    "quoted_support": "Short paper — up to 4 content pages / Long paper — up to 6 content pages / NeurIPS workshop template / Double-blind review through OpenReview / Three reviewers per submission ... Non-archival and not included in the NeurIPS proceedings.",
+    "numbers": ["4 pages", "6 pages", "3 reviewers", "August 29, 2026"],
+    "entities": ["SLM-Agents"],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "slm-agents-1st-workshop-on-slms-for-agentic-systems-neurips-2026-paris-france"
+  },
+  {
+    "claim": "SLM-Agents eligibility excludes work already under review at or accepted to the NeurIPS 2026 main program, or previously published at a major ML or AI venue -- original work-in-progress only.",
+    "stance": "neutral",
+    "stance_target": "Eligibility constraints for this candidate venue",
+    "evidence_type": "legal",
+    "scope_conditions": "SLM-Agents CFP",
+    "quoted_support": "Original work in progress / Not under review at or accepted to the NeurIPS 2026 main program / Not previously published at a major ML or AI venue",
+    "numbers": [],
+    "entities": ["SLM-Agents"],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "slm-agents-1st-workshop-on-slms-for-agentic-systems-neurips-2026-paris-france"
+  }
+]

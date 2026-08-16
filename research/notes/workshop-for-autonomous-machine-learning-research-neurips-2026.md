@@ -3,7 +3,11 @@ title: Workshop for Autonomous Machine Learning Research · NeurIPS 2026
 id: workshop-for-autonomous-machine-learning-research-neurips-2026
 tags:
 - llm-nas-feedback-positioning-7125b1
+- neurips-2026-workshop
+- venue-candidate
+- cfp-details
 created: '2026-08-16T15:51:11.660343Z'
+updated: '2026-08-16T15:53:40.087087Z'
 source: https://automlr.com
 source_domain: automlr.com
 fetched_at: '2026-08-16T15:51:11.657356Z'
@@ -13,6 +17,24 @@ type: note
 tier: unknown
 content_type: unknown
 deprecated: false
+summary: 'AutoMLR (Workshop for Autonomous Machine Learning Research, NeurIPS 2026,
+  Sydney, Dec 11 or 12) is a discussant-led workshop with a specific and restrictive
+  eligibility bar: ''We invite machine learning research in which an autonomous agent
+  either conducted the research end-to-end or made a decisive contribution to the
+  paper''s primary result... Without the agent''s contribution, the qualifying result
+  could not have been established.'' This is NOT simply an AutoML/NAS venue -- it
+  requires the submitted paper itself to have been substantially produced BY an autonomous
+  agent, not merely to be a paper ABOUT using an LLM as a design tool. Format is unusual:
+  three labelled parts (Part 1 ''Auto research result'' <=4pp, Part 2 ''System design''
+  <=4pp, Part 3 ''Reflections'' <=1pp; 9pp total excluding refs, Overleaf template),
+  each accepted paper gets a non-author discussant who publicly critiques it (blind
+  review for acceptance, then open post-acceptance discussion with named discussant).
+  Non-archival. Submission via OpenReview; final submission Aug 29, 2026; decisions
+  Sep 24; discussant notification Sep 29; camera-ready Nov 13. A single first-author-submission
+  limit and mandatory reviewing commitment (min(3, #authors) reviewers per paper)
+  apply. Fit for the target LLM-NAS paper is weaker than ''Autonomous ML Research''
+  in the title suggests unless the authors can truthfully claim the *research itself*
+  (not just the architecture proposals) was substantially agent-driven end-to-end.'
 ---
 
 *Suggested by [[announcing-the-neurips-2026-workshops-neurips-blog]] — NeurIPS 2026 Workshop for Autonomous Machine Learning Research - Tier 1 venue candidate for LLM-guided NAS negative result*

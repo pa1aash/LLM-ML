@@ -1,0 +1,44 @@
+[
+  {
+    "claim": "The AI4Science NeurIPS 2026 workshop is explicitly subtitled and framed around 'The bottleneck for AI for Science is no longer hypothesis generation, it is verification,' asking how to trust AI-generated science 'when verifiers are imperfect, scarce, or absent.'",
+    "stance": "supports",
+    "stance_target": "Thematic (not domain-specific) fit of AI4Science for a paper about verification/feedback failing to improve AI-generated design proposals",
+    "evidence_type": "legal",
+    "scope_conditions": "AI for Science: Verification in the Age of AI Scientists, NeurIPS 2026",
+    "quoted_support": "The bottleneck for AI for Science is no longer hypothesis generation, it is verification. Our NeurIPS 2026 workshop, Verification in the Age of AI Scientists, asks how we should trust, judge, and act on AI-generated science when verifiers are imperfect, scarce, or absent.",
+    "numbers": [],
+    "entities": ["AI for Science", "NeurIPS 2026"],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "verification-in-the-age-of-ai-scientists-ai-for-science"
+  },
+  {
+    "claim": "Subtle failure modes such as data leakage, benchmark gaming, and hallucinated citations can make an AI-generated scientific output look verified without actually being so -- a stated concern directly analogous to the target paper's need to rule out instrumental/pipeline confounds behind a collapsed-to-one-template result.",
+    "stance": "supports",
+    "stance_target": "Relevance of verification-failure-mode framing to the target paper's methodology concerns",
+    "evidence_type": "expert-opinion",
+    "scope_conditions": "AI4Science workshop framing, general AI-for-science domain",
+    "quoted_support": "Subtle failure modes such as data leakage, benchmark gaming, and hallucinated citations can make an output look verified without being so, and human taste, intuition, and domain expertise remain essential filters that are not yet well understood as learnable verifiers.",
+    "numbers": [],
+    "entities": ["AI for Science"],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "medium",
+    "source_note_id": "verification-in-the-age-of-ai-scientists-ai-for-science"
+  },
+  {
+    "claim": "AI4Science format is 4-8 pages with unlimited references/appendices, NeurIPS 2026 LaTeX template (NeurIPS checklist not required), nonarchival, OpenReview submission, submission deadline Aug 29 2026 AoE, notifications Sep 29 2026; the page does not state an explicit anonymity/double-blind policy or any position on negative results.",
+    "stance": "neutral",
+    "stance_target": "Format, submission mechanics, and stated gaps for this candidate venue",
+    "evidence_type": "legal",
+    "scope_conditions": "AI4Science CFP tentative dates",
+    "quoted_support": "Submissions should be 4-8 pages, with unlimited references and appendices... Our workshop is nonarchival, and accepted papers will be posted on the workshop website.",
+    "numbers": ["4-8 pages", "August 29, 2026", "September 29, 2026"],
+    "entities": ["AI for Science"],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "verification-in-the-age-of-ai-scientists-ai-for-science"
+  }
+]
