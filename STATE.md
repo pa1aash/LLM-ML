@@ -8,9 +8,11 @@ S4 build → S5 results-file layer → S6 write → S7 referee
 
 ---
 
-## Current stage: **S0 — ground truth**
+## Current stage: **S1b — positioning, in progress**
 
-Audit complete. **G0 is unsigned.**
+S0 audit complete (G0 unsigned). S1 Block A complete (corpus repaired).
+S1a Block B complete (coverage audit + Q2/Q3 gap-fill). S1b: venue sweep in
+flight; pipeline steps 3-9 not started.
 
 ---
 

@@ -172,3 +172,47 @@ Corpus: **78 → 94 notes.**
    proxies generalise poorly and synflow partly measures model size. RZ-NAS's
    positive result is therefore contingent on proxy validity — narrowing, though
    not dissolving, its tension with the subject paper's negative result.
+
+## S1b session
+
+| Step | Mode | Artifacts | Notes |
+|---|---|---|---|
+| A venue sweep | invoked (fetcher, IN FLIGHT) | `research/temp/venue-candidates.md` (pending) | Agent from S1a still running at S1b entry; refined spec delivered mid-flight rather than restarting — hardened enumeration source, 5 additional required workshops, 11 fields, two-framing scope test |
+| B steps 3–9 | NOT RUN | — | Stopped at the Block A boundary; see below |
+
+### Block A — spec hardening delivered mid-flight
+
+Rather than duplicate a running agent, the S1b requirements were sent to it:
+
+1. **Enumeration source hardened.** Official NeurIPS blog list only
+   (`announcing-the-neurips-2026-workshops-neurips-blog`). Aggregators may locate
+   a workshop's site but are never evidence about its rules — NeurIPS has warned
+   its own community that circulating lists are unaffiliated and unreliable.
+2. **Scope test widened to two framings.** (a) does iterative feedback improve
+   LLM-guided architecture search; (b) **how experimental instrumentation in
+   LLM-driven research manufactures its own findings.** Framing (b) is what puts
+   AI for Meta-Science, AI-Native Academia and XAI4Science in scope — none of
+   which the earlier title-inspection shortlist would have surfaced.
+3. **Fields expanded 7 → 11**, adding: what the page limit excludes, required
+   footnote/template modification, checklist requirement, dual-submission policy,
+   tracks offered, and author reviewing obligations. `NOT STATED` is mandatory
+   where a page is silent — no inference, no carry-over from another workshop,
+   no filling from general NeurIPS policy.
+
+### Block B — not started, deliberately
+
+Stopped at the Block A boundary under the session's own instruction: *"If context
+runs short, stop at the last completed boundary and report — do not compress
+remaining steps to fit."*
+
+Steps 3–9 are seven steps, and step 5 alone spawns one depth-investigator per
+locus (L1–L5 are operator-specified, so at least five). Beginning that chain with
+the remaining budget would have produced a truncated depth investigation — the
+step whose entire purpose is to read full sources carefully — and a contradiction
+graph and loci set built to be consumed by steps that would never run.
+
+**Entry state for the next session is unchanged and complete:** corpus 94 notes,
+Q1/Q4 YES, Q2/Q3 closed by gap-fill, Q5 pending only the in-flight sweep. The
+five operator-specified loci (L1 priority vs RZ-NAS; L2 rival magnitudes; L3
+estimand; L4 independence; L5 RZ-NAS proxy validation) are recorded in the S1b
+brief and carry forward verbatim.
