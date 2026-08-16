@@ -177,3 +177,35 @@ private email address`. The authorship contract mandates
 `palaashgang@gmail.com`. Operator elected to disable the protection at
 github.com/settings/emails; as of the end of this session it was still enabled
 and the push had not landed. The commits exist locally with correct authorship.
+
+**OA-33. hyperresearch v0.8.5 has no `premier` gear and no `profile` command.**
+The S0 session contract specifies `hyperresearch profile use premier` (100–130
+sources, doubled depth budget). v0.8.5 exposes no `profile` or `gear` subcommand
+at all — `hyperresearch profile list` errors with `No such command 'profile'`.
+**UNRESOLVED — the requested gear could not be selected or confirmed.** The
+positioning run therefore executes at the CLI's default breadth. Either upgrade
+hyperresearch to a version exposing gears, or accept default breadth and record
+that the source count is not the contracted 100–130.
+
+**OA-34. `[scholar] contact_email` cannot be set through the CLI in v0.8.5.**
+Configuration is stored in `.hyperresearch/hyperresearch.db` (sqlite), and the
+valid config keys are only `vault.*`, `web.*`, `search.*`, `sync.*`, `index.*` —
+`config set scholar.contact_email` is rejected as an unknown key.
+`.hyperresearch/config.toml` was written by hand carrying the address, but
+**it is not known to be read by v0.8.5**, so Unpaywall may still be skipped
+rather than enabled. Verify against the installed version's source before relying
+on open-access resolution.
+
+**OA-35. `hyperresearch install` writes filenames the authorship contract
+forbids.** [OPERATOR] It creates an agent-instruction file at the repository root
+and an agent-configuration directory beside it, both named after an AI assistant,
+plus `.hyperresearch/hook.js`. The contract bars naming an assistant in
+filenames.
+
+Disposition taken: all three are excluded through `.git/info/exclude` rather than
+`.gitignore`, so the forbidden names never enter committed content at all — a
+`.gitignore` entry would itself have to spell them. They remain on disk, and are
+regenerable at any time by re-running `hyperresearch install`, so nothing is
+lost. Confirm this disposition, and note that re-running `install` recreates
+them and that a fresh clone will not exclude them until
+`.git/info/exclude` is repopulated.

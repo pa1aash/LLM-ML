@@ -49,3 +49,7 @@ wandb/
 
 # Internal planning notes — kept local, not part of the public surface
 docs/
+
+# Agent tooling scaffolding is excluded locally via .git/info/exclude
+# (kept out of committed content by the authorship contract).
+.hyperresearch/hyperresearch.db

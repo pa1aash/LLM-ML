@@ -1,0 +1,10 @@
+# hyperresearch project configuration
+#
+# NOTE (S0 audit): hyperresearch v0.8.5 stores its live configuration in
+# .hyperresearch/hyperresearch.db (sqlite) and exposes no `scholar` config key —
+# `config set scholar.contact_email` is rejected as unknown. This file is written
+# per the S0 session contract so the contact address is recorded and is picked up
+# by any version that reads TOML. It is NOT known to be read by v0.8.5.
+
+[scholar]
+contact_email = "palaashgang@gmail.com"
