@@ -1,0 +1,44 @@
+[
+  {
+    "claim": "Self-Refine, where a single LLM iteratively generates, critiques, and revises its own output with no additional training/RL, improves outputs by approximately 20% absolute on average across 7 diverse tasks judged by humans and automatic metrics, using GPT-3.5, ChatGPT, and GPT-4.",
+    "stance": "refutes",
+    "stance_target": "the target paper's claim (ii) that iterative performance feedback degrades LLM-guided proposals",
+    "evidence_type": "empirical",
+    "scope_conditions": "7 tasks including dialog response generation and mathematical reasoning; GPT-3.5/ChatGPT/GPT-4 only, no small or quantized models tested",
+    "quoted_support": "Across all evaluated tasks, outputs generated with Self-Refine are preferred by humans and automatic metrics over those generated with the same LLM using conventional one-step generation, improving by ~20% absolute on average in task performance.",
+    "numbers": ["~20% absolute average improvement", "7 tasks", "3 model families (GPT-3.5, ChatGPT, GPT-4)"],
+    "entities": ["Self-Refine", "Aman Madaan", "GPT-4", "GPT-3.5", "ChatGPT"],
+    "time_period": "2023",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "230317651v2-self-refine-iterative-refinement-with-self-feedback"
+  },
+  {
+    "claim": "Self-Refine's feedback loop uses the same LLM as generator, critic, and refiner with no external verifier, ground-truth signal, or supervised training data.",
+    "stance": "neutral",
+    "stance_target": "definition of intrinsic (unverified) self-correction as tested in the mechanism literature",
+    "evidence_type": "theoretical",
+    "scope_conditions": "Self-Refine method design, 2023",
+    "quoted_support": "Self-Refine does not require any supervised training data, additional training, or reinforcement learning, and instead uses a single LLM as the generator, refiner, and feedback provider.",
+    "numbers": [],
+    "entities": ["Self-Refine"],
+    "time_period": "2023",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "230317651v2-self-refine-iterative-refinement-with-self-feedback"
+  },
+  {
+    "claim": "Self-Refine demonstrated that even state-of-the-art LLMs like GPT-4 can be further improved at test time via iterative self-feedback, establishing the strongest published positive baseline against which any feedback-degrades-search claim must be positioned.",
+    "stance": "refutes",
+    "stance_target": "generality of the claim that iterative feedback degrades LLM outputs",
+    "evidence_type": "empirical",
+    "scope_conditions": "test-time refinement of large frontier models (GPT-4-class), not small/quantized models or combinatorial search tasks with hard external objectives",
+    "quoted_support": "Our work demonstrates that even state-of-the-art LLMs like GPT-4 can be further improved at test time using our simple, standalone approach.",
+    "numbers": [],
+    "entities": ["Self-Refine", "GPT-4"],
+    "time_period": "2023",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "230317651v2-self-refine-iterative-refinement-with-self-feedback"
+  }
+]
