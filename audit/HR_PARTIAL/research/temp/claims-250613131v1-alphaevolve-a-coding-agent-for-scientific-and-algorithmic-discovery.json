@@ -1,0 +1,58 @@
+[
+  {
+    "claim": "AlphaEvolve, an evolutionary coding agent orchestrating a pipeline of LLMs that continuously receives feedback from one or more evaluators, iteratively improves algorithms and achieved a 56-year-first improvement over Strassen's algorithm for 4x4 complex matrix multiplication (48 scalar multiplications).",
+    "stance": "refutes",
+    "stance_target": "Blanket claim that iterative performance feedback degrades LLM-guided architecture/program search proposals",
+    "evidence_type": "empirical",
+    "scope_conditions": "Program/algorithm discovery at Google/DeepMind, frontier LLMs, multi-evaluator population-based evolutionary loop",
+    "quoted_support": "Using an evolutionary approach, continuously receiving feedback from one or more evaluators, AlphaEvolve iteratively improves the algorithm... AlphaEvolve developed a search algorithm that found a procedure to multiply two 4x4 complex-valued matrices using 48 scalar multiplications; offering the first improvement, after 56 years, over Strassen's algorithm in this setting.",
+    "numbers": ["48 scalar multiplications", "56 years since last improvement", "4x4 complex-valued matrices"],
+    "entities": ["AlphaEvolve", "Strassen's algorithm", "DeepMind", "Google"],
+    "time_period": "Jun 2025",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "250613131v1-alphaevolve-a-coding-agent-for-scientific-and-algorithmic-discovery"
+  },
+  {
+    "claim": "AlphaEvolve applied to Google's computational infrastructure produced a more efficient data-center scheduling algorithm, a simplification in TPU hardware accelerator circuit design, and accelerated training of the LLM underpinning AlphaEvolve itself, all via iterative LLM-driven evolutionary feedback loops.",
+    "stance": "refutes",
+    "stance_target": "That iterative feedback cannot improve real-world engineering/architecture search outcomes",
+    "evidence_type": "empirical",
+    "scope_conditions": "Google production infrastructure, 2025",
+    "quoted_support": "AlphaEvolve developed a more efficient scheduling algorithm for data centers, found a functionally equivalent simplification in the circuit design of hardware accelerators, and accelerated the training of the LLM underpinning AlphaEvolve itself.",
+    "numbers": [],
+    "entities": ["AlphaEvolve", "Google", "TPU"],
+    "time_period": "2025",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "250613131v1-alphaevolve-a-coding-agent-for-scientific-and-algorithmic-discovery"
+  },
+  {
+    "claim": "AlphaEvolve explicitly extends prior automated discovery methods from Romera-Paredes et al. 2023 (FunSearch), situating iterative LLM+evaluator feedback loops as a maturing, incrementally-improving research lineage rather than a one-off result.",
+    "stance": "neutral",
+    "stance_target": "Novelty and lineage of iterative-feedback LLM search methods",
+    "evidence_type": "theoretical",
+    "scope_conditions": "Program/algorithm discovery lineage 2023-2025",
+    "quoted_support": "significantly expanding the scope of prior automated discovery methods (Romera-Paredes et al., 2023).",
+    "numbers": [],
+    "entities": ["Romera-Paredes et al. 2023", "FunSearch"],
+    "time_period": "2023-2025",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "250613131v1-alphaevolve-a-coding-agent-for-scientific-and-algorithmic-discovery"
+  },
+  {
+    "claim": "AlphaEvolve's positive iterative-feedback results come from a large-scale, frontier-model, multi-evaluator, population-based evolutionary system, not a single small quantized model refining proposals sequentially within one context -- a scale/architecture confound that bounds rather than defeats a narrower 'small single-model self-refinement degrades proposals' claim.",
+    "stance": "neutral",
+    "stance_target": "Whether AlphaEvolve's success defeats, bounds, or is orthogonal to the target paper's thesis",
+    "evidence_type": "theoretical",
+    "scope_conditions": "Comparison of system architectures: AlphaEvolve (multi-LLM, population-based, external evaluators) vs. small single-model sequential self-refinement",
+    "quoted_support": "AlphaEvolve orchestrates an autonomous pipeline of LLMs, whose task is to improve an algorithm by making direct changes to the code.",
+    "numbers": [],
+    "entities": ["AlphaEvolve"],
+    "time_period": "2025",
+    "region": null,
+    "confidence": "medium",
+    "source_note_id": "250613131v1-alphaevolve-a-coding-agent-for-scientific-and-algorithmic-discovery"
+  }
+]

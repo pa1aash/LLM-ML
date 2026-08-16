@@ -1,0 +1,44 @@
+[
+  {
+    "claim": "A comprehensive 2024 survey categorizes LLM-evolutionary-algorithm synergy into two directions, LLM-enhanced EA and EA-enhanced LLM, and explicitly names neural architecture search as one of the domains where this synergy is applied.",
+    "stance": "neutral",
+    "stance_target": "existence and structure of the LLM+NAS/EA literature as of 2024",
+    "evidence_type": "theoretical",
+    "scope_conditions": "survey covering literature through May 2024 (v3)",
+    "quoted_support": "\"this paper provides a thorough review and a forward-looking roadmap, categorizing the reciprocal inspiration into two main avenues: LLM-enhanced EA and EA-enhanced LLM... including code generation, software engineering, neural architecture search, and various generation tasks.\"",
+    "numbers": [],
+    "entities": ["Xingyu Wu", "Sheng-hao Wu", "Jibin Wu", "Liang Feng", "Kay Chen Tan", "LLM-enhanced EA", "EA-enhanced LLM"],
+    "time_period": "through May 2024",
+    "region": null,
+    "confidence": "medium",
+    "source_note_id": "240110034v3-evolutionary-computation-in-the-era-of-large-language-model-survey-a"
+  },
+  {
+    "claim": "The survey frames LLMs' contribution to EA as supplying domain knowledge for more intelligent search, and EA's contribution to LLMs as a black-box optimization framework, positioning this exchange as the central complementary mechanism across the covered domains including NAS.",
+    "stance": "neutral",
+    "stance_target": "mechanism by which LLMs are claimed to improve evolutionary/architecture search",
+    "evidence_type": "theoretical",
+    "scope_conditions": "framing-level claim, not an empirical result",
+    "quoted_support": "\"EA can provide an optimization framework for LLM's further enhancement under black-box settings, empowering LLM with flexible global search capacities... the abundant domain knowledge inherent in LLMs could enable EA to conduct more intelligent searches.\"",
+    "numbers": [],
+    "entities": ["LLM", "evolutionary algorithm", "black-box optimization"],
+    "time_period": "2024",
+    "region": null,
+    "confidence": "medium",
+    "source_note_id": "240110034v3-evolutionary-computation-in-the-era-of-large-language-model-survey-a"
+  },
+  {
+    "claim": "This survey is presented as the first comprehensive review focused specifically on evolutionary computation research in the LLM era, implying that as of early-to-mid 2024 there was no prior systematic synthesis of the LLM+NAS/EA landscape.",
+    "stance": "neutral",
+    "stance_target": "novelty/priority landscape mapping for LLM-guided NAS",
+    "evidence_type": "theoretical",
+    "scope_conditions": "self-reported claim of survey novelty, submitted Jan 2024",
+    "quoted_support": "\"As the first comprehensive review focused on the EA research in the era of LLMs, this paper provides a foundational stepping stone for understanding the collaborative potential of LLMs and EAs.\"",
+    "numbers": [],
+    "entities": ["evolutionary computation", "LLM"],
+    "time_period": "as of January 2024",
+    "region": null,
+    "confidence": "low",
+    "source_note_id": "240110034v3-evolutionary-computation-in-the-era-of-large-language-model-survey-a"
+  }
+]

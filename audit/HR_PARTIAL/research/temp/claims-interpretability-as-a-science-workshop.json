@@ -1,0 +1,16 @@
+[
+  {
+    "claim": "Interpretability as a Science is scoped to rigor/falsifiability standards for LLM interpretability claims specifically, not to architecture search or design-agent evaluation, and its own fetched CFP page omits page limit, anonymity policy, archival status, and submission mechanics entirely.",
+    "stance": "neutral",
+    "stance_target": "Whether Interpretability as a Science is a viable venue candidate for the target paper",
+    "evidence_type": "legal",
+    "scope_conditions": "Interpretability as a Science workshop homepage as fetched Aug 2026",
+    "quoted_support": "This workshop asks what it would take to ground interpretability as a rigorous empirical science—drawing lessons from disciplines that have long studied complex systems.",
+    "numbers": [],
+    "entities": ["Interpretability as a Science", "NeurIPS 2026"],
+    "time_period": "2026",
+    "region": "Sydney, Australia",
+    "confidence": "medium",
+    "source_note_id": "interpretability-as-a-science-workshop"
+  }
+]

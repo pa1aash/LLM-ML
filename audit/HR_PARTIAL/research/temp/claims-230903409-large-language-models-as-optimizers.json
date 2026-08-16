@@ -1,0 +1,58 @@
+[
+  {
+    "claim": "OPRO (Optimization by PROmpting) implements an explicit iterative feedback loop: at each optimization step the LLM is given a prompt containing all previously generated solutions together with their evaluated objective values, generates new candidate solutions conditioned on that trajectory, and the new solutions are evaluated and appended to the prompt for the next step.",
+    "stance": "refutes",
+    "stance_target": "the target paper's thesis that iterative performance feedback degrades LLM-guided design/search proposals",
+    "evidence_type": "empirical",
+    "scope_conditions": "prompt optimization, linear regression, and traveling salesman problem tasks; ICLR 2024, peer-reviewed",
+    "quoted_support": "\"In each optimization step, the LLM generates new solutions from the prompt that contains previously generated solutions with their values, then the new solutions are evaluated and added to the prompt for the next optimization step.\"",
+    "numbers": [],
+    "entities": ["Chengrun Yang", "Xuezhi Wang", "Yifeng Lu", "Hanxiao Liu", "Quoc V. Le", "Denny Zhou", "Xinyun Chen", "Google DeepMind", "OPRO"],
+    "time_period": "2023-2024",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "230903409-large-language-models-as-optimizers"
+  },
+  {
+    "claim": "OPRO's iterative feedback loop, applied to prompt optimization, produced prompts that outperformed human-designed prompts by up to 8% on GSM8K and up to 50% on Big-Bench Hard tasks, across a variety of LLMs used as both optimizer and scorer.",
+    "stance": "refutes",
+    "stance_target": "the target paper's thesis that iterative performance feedback degrades LLM-guided design/search proposals",
+    "evidence_type": "empirical",
+    "scope_conditions": "prompt-optimization benchmarks GSM8K and Big-Bench Hard; tested with multiple LLMs, published ICLR 2024",
+    "quoted_support": "\"we demonstrate that the best prompts optimized by OPRO outperform human-designed prompts by up to 8% on GSM8K, and by up to 50% on Big-Bench Hard tasks.\"",
+    "numbers": ["up to 8% on GSM8K", "up to 50% on Big-Bench Hard"],
+    "entities": ["OPRO", "GSM8K", "Big-Bench Hard"],
+    "time_period": "2023-2024",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "230903409-large-language-models-as-optimizers"
+  },
+  {
+    "claim": "OPRO's positive iterative-feedback result was demonstrated using large frontier-scale LLMs as both optimizer and scorer, not small quantized models, meaning the paper's counter-evidence value against a small-quantized-model NAS study is bounded by a scale gap rather than a direct refutation.",
+    "stance": "neutral",
+    "stance_target": "whether OPRO's positive result defeats, bounds, or is orthogonal to a small-quantized-LLM NAS negative-feedback finding",
+    "evidence_type": "theoretical",
+    "scope_conditions": "inferred from 'a variety of LLMs' framing in the abstract; exact model sizes require full-text extraction, not available from abstract-only fetch",
+    "quoted_support": "\"With a variety of LLMs, we demonstrate that the best prompts optimized by OPRO outperform human-designed prompts...\"",
+    "numbers": [],
+    "entities": ["OPRO"],
+    "time_period": "2023-2024",
+    "region": null,
+    "confidence": "low",
+    "source_note_id": "230903409-large-language-models-as-optimizers"
+  },
+  {
+    "claim": "OPRO's demonstrated iterative-improvement task domain is prompt optimization and simple derivative-free numerical optimization (linear regression, TSP), not neural architecture search, so it establishes that feedback helps in some LLM-as-optimizer settings but does not directly establish that feedback helps in the CNN-architecture-proposal setting the target paper studies.",
+    "stance": "neutral",
+    "stance_target": "domain scope of OPRO's counter-evidence relative to the target paper's CNN-NAS claim",
+    "evidence_type": "theoretical",
+    "scope_conditions": "OPRO applications: linear regression, traveling salesman, prompt optimization for GSM8K/BBH -- no architecture search task tested",
+    "quoted_support": "\"We first showcase OPRO on linear regression and traveling salesman problems, then move on to our main application in prompt optimization\"",
+    "numbers": [],
+    "entities": ["OPRO", "linear regression", "traveling salesman problem", "prompt optimization"],
+    "time_period": "2023-2024",
+    "region": null,
+    "confidence": "medium",
+    "source_note_id": "230903409-large-language-models-as-optimizers"
+  }
+]

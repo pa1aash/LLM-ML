@@ -1,0 +1,30 @@
+[
+  {
+    "claim": "Standard beam search explores the search space in a greedy left-right fashion retaining only the top-B candidates, producing sequences that differ only slightly from each other -- a documented artifact of the search procedure itself, not of any feedback or refinement mechanism.",
+    "stance": "supports",
+    "stance_target": "rival mechanistic explanation that near-identical/collapsed LLM outputs can arise purely from standard greedy decoding, independent of iterative feedback",
+    "evidence_type": "theoretical",
+    "scope_conditions": "neural sequence models generally (image captioning, machine translation, visual QG), predates LLMs but mechanism is decoding-procedure-general",
+    "quoted_support": "BS explores the search space in a greedy left-right fashion retaining only the top-B candidates - resulting in sequences that differ only slightly from each other. Producing lists of nearly identical sequences is not only computationally wasteful but also typically fails to capture the inherent ambiguity of complex AI tasks.",
+    "numbers": [],
+    "entities": ["Diverse Beam Search", "Ashwin K Vijayakumar", "beam search"],
+    "time_period": "2016-2018",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "161002424-diverse-beam-search-decoding-diverse-solutions-from-neural-sequence-mo"
+  },
+  {
+    "claim": "Diverse Beam Search (DBS), which optimizes a diversity-augmented objective during decoding, finds better top-1 solutions than standard beam search by better controlling the exploration-exploitation trade-off, with minimal added computational or memory overhead.",
+    "stance": "neutral",
+    "stance_target": "whether enforcing diversity during search is compatible with, or even improves, solution quality",
+    "evidence_type": "empirical",
+    "scope_conditions": "image captioning, machine translation, visual question generation tasks",
+    "quoted_support": "We observe that our method finds better top-1 solutions by controlling for the exploration and exploitation of the search space - implying that DBS is a better search algorithm.",
+    "numbers": [],
+    "entities": ["Diverse Beam Search"],
+    "time_period": "2016-2018",
+    "region": null,
+    "confidence": "medium",
+    "source_note_id": "161002424-diverse-beam-search-decoding-diverse-solutions-from-neural-sequence-mo"
+  }
+]

@@ -1,0 +1,30 @@
+[
+  {
+    "claim": "Auto-regressive LLMs cannot, by themselves, do planning or self-verification; the LLM-Modulo Framework instead pairs LLMs (as approximate knowledge sources generating candidates) with external model-based verifiers in tight bi-directional interaction.",
+    "stance": "supports",
+    "stance_target": "intrinsic self-correction fails without external verification, as a settled theoretical position in the 2024 LLM reasoning/planning literature",
+    "evidence_type": "theoretical",
+    "scope_conditions": "general planning and reasoning tasks, position paper accepted at ICML 2024",
+    "quoted_support": "We argue that auto-regressive LLMs cannot, by themselves, do planning or self-verification (which is after all a form of reasoning)... We present a vision of LLM-Modulo Frameworks that combine the strengths of LLMs with external model-based verifiers in a tighter bi-directional interaction regime.",
+    "numbers": [],
+    "entities": ["LLM-Modulo Framework", "Kambhampati", "ICML 2024"],
+    "time_period": "2024",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "240201817-llms-cant-plan-but-can-help-planning-in-llm-modulo-frameworks"
+  },
+  {
+    "claim": "The paper explicitly rejects both extremes -- LLMs as reliable self-verifying planners, and LLMs as mere syntactic translators for symbolic solvers -- positioning LLMs as valuable generators whose outputs must be checked by external verifiers to be trustworthy.",
+    "stance": "neutral",
+    "stance_target": "correct framing of the LLM role in search/planning systems that combine generation with verification",
+    "evidence_type": "theoretical",
+    "scope_conditions": "general position paper on LLM planning/reasoning",
+    "quoted_support": "In this position paper, we take the view that both these extremes are misguided.",
+    "numbers": [],
+    "entities": ["LLM-Modulo", "planning", "reasoning"],
+    "time_period": "2024",
+    "region": null,
+    "confidence": "medium",
+    "source_note_id": "240201817-llms-cant-plan-but-can-help-planning-in-llm-modulo-frameworks"
+  }
+]

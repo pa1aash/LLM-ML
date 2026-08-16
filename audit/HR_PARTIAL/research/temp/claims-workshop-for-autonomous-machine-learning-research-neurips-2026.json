@@ -1,0 +1,44 @@
+[
+  {
+    "claim": "AutoMLR requires the submitted paper's primary result to have been produced end-to-end or decisively by an autonomous agent, not merely to be a paper about applying an LLM as a design tool -- a narrower eligibility bar than the workshop's name suggests.",
+    "stance": "neutral",
+    "stance_target": "Whether the target LLM-NAS paper is eligible for AutoMLR",
+    "evidence_type": "legal",
+    "scope_conditions": "AutoMLR (Workshop for Autonomous Machine Learning Research), NeurIPS 2026, Sydney",
+    "quoted_support": "We invite machine learning research in which an autonomous agent either conducted the research end-to-end or made a decisive contribution to the paper's primary result... Without the agent's contribution, the qualifying result could not have been established, or the paper's main conclusions would be materially different.",
+    "numbers": [],
+    "entities": ["AutoMLR", "NeurIPS 2026"],
+    "time_period": "2026",
+    "region": "Sydney, Australia",
+    "confidence": "high",
+    "source_note_id": "workshop-for-autonomous-machine-learning-research-neurips-2026"
+  },
+  {
+    "claim": "AutoMLR requires a specific three-part submission structure (Part 1 auto research result <=4pp, Part 2 human-written system design <=4pp, Part 3 reflections <=1pp; 9pp total excluding references) using an Overleaf template, non-reallocatable between parts.",
+    "stance": "neutral",
+    "stance_target": "Format requirements for this candidate venue",
+    "evidence_type": "legal",
+    "scope_conditions": "AutoMLR submission guidelines",
+    "quoted_support": "Submissions must contain three clearly labelled parts. Part 1 may be up to four pages, Part 2 may be up to four pages, and Part 3 may be up to one page. These limits apply separately and may not be reallocated between parts. The total limit is nine pages, excluding references.",
+    "numbers": ["4 pages", "4 pages", "1 page", "9 pages total"],
+    "entities": ["AutoMLR"],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "workshop-for-autonomous-machine-learning-research-neurips-2026"
+  },
+  {
+    "claim": "AutoMLR is non-archival, uses blind review for acceptance followed by a public discussant-led dialogue format, with important dates: abstract deadline Aug 22 2026, final submission Aug 29 2026, decisions Sep 24 2026, camera-ready Nov 13 2026.",
+    "stance": "neutral",
+    "stance_target": "Submission mechanics and archival status of this candidate venue",
+    "evidence_type": "legal",
+    "scope_conditions": "AutoMLR NeurIPS 2026",
+    "quoted_support": "Is the workshop archival? No. Authors may continue developing and submitting their work elsewhere, subject to those venues' policies.",
+    "numbers": ["August 22", "August 29", "September 24", "September 29", "November 13"],
+    "entities": ["AutoMLR"],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "workshop-for-autonomous-machine-learning-research-neurips-2026"
+  }
+]

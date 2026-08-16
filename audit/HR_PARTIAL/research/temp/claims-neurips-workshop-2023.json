@@ -1,0 +1,16 @@
+[
+  {
+    "claim": "ICBINB @ NeurIPS 2023 ('Failure Modes in the Age of Foundation Models') was held in-person December 16 2023, explicitly soliciting unexpected negative results and failure modes of foundation models in response to ChatGPT/Stable Diffusion/SegmentAnything-driven hype.",
+    "stance": "neutral",
+    "stance_target": "establishing the most recent confirmed NeurIPS-affiliated ICBINB edition",
+    "evidence_type": "empirical",
+    "scope_conditions": "ICBINB @ NeurIPS 2023",
+    "quoted_support": "At this year's I Can't Believe It's Not Better workshop we invite papers to cooly reflect on this optimism and to demonstrate that there are in fact many difficult and interesting open questions. The workshop will specifically focus on failure modes of foundation models, especially unexpected negative results.",
+    "numbers": [],
+    "entities": ["ICBINB", "NeurIPS 2023"],
+    "time_period": "2023",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "neurips-workshop-2023"
+  }
+]

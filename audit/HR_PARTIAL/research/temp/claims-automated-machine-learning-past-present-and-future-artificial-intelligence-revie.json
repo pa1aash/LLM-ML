@@ -1,0 +1,58 @@
+[
+  {
+    "claim": "Li & Talwalkar (2019) showed random search with early stopping and weight-sharing on the DARTS search space achieves performance competitive with DARTS and ENAS, and this survey attributes that result to the constrained nature of the search space rather than intrinsic strength of random search.",
+    "stance": "neutral",
+    "stance_target": "correct interpretation of random-search baselines in NAS after Li and Talwalkar",
+    "evidence_type": "empirical",
+    "scope_conditions": "DARTS search space, recurrent and convolutional cell search",
+    "quoted_support": "Li and Talwalkar (2019) evaluated random search with early stopping and weight-sharing strategies... on the search space of DARTS and demonstrated that it achieves performance competitive with that of DARTS and ENAS. This is not due to the poor performance of the latter NAS algorithms but mainly the consequence of the constraints they have imposed on the search space. In a well-constrained search space, even random search can perform well.",
+    "numbers": [],
+    "entities": ["Li and Talwalkar", "DARTS", "ENAS", "random search"],
+    "time_period": "2019",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "automated-machine-learning-past-present-and-future-artificial-intelligence-revie"
+  },
+  {
+    "claim": "Yu et al. (2020) demonstrated that ENAS, DARTS, and NAO have on-average similar performance to random search when using the same search space on PTB language modelling and CIFAR-10, reinforcing random search as a mandatory NAS baseline.",
+    "stance": "neutral",
+    "stance_target": "requirement for a random-search baseline in NAS evaluation",
+    "evidence_type": "empirical",
+    "scope_conditions": "Penn Tree Bank language modelling, CIFAR-10 image classification",
+    "quoted_support": "Yu et al. (2020) demonstrated that, on average, a number of state-of-the-art NAS algorithms [ENAS, DARTS, and NAO] have similar performance to random search when using the same search space for finding a recurrent and convolutional cell.",
+    "numbers": [],
+    "entities": ["Yu et al. 2020", "ENAS", "DARTS", "NAO", "PTB", "CIFAR-10"],
+    "time_period": "2020",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "automated-machine-learning-past-present-and-future-artificial-intelligence-revie"
+  },
+  {
+    "claim": "Tabular NAS benchmarks (NAS-Bench-101, NAS-Bench-201, NATS-Bench, NAS-Bench-301, NAS-Bench-1Shot1, NAS-Bench-NLP) were created specifically to address a reproducibility issue in NAS research by allowing faithful simulation of NAS runs from pre-computed exhaustive/surrogate architecture performance data, avoiding costly retraining.",
+    "stance": "neutral",
+    "stance_target": "methodology standard requiring use of tabular benchmarks for reproducible NAS evaluation",
+    "evidence_type": "empirical",
+    "scope_conditions": "general NAS benchmark literature",
+    "quoted_support": "To address this reproducibility issue, in the past few years, there has been a number of efforts to create benchmarks for facilitating NAS research... Having access to information such as running time and training/validation/test accuracy of all networks within a given search space, NAS researchers can faithfully simulate runs of a NAS procedure.",
+    "numbers": ["NAS-Bench-101: 423,000 unique architectures, 5M+ trained models", "NAS-Bench-201: 15,625 neural cell candidates", "NATS-Bench: 9 EvNAS algorithms covered"],
+    "entities": ["NAS-Bench-101", "NAS-Bench-201", "NATS-Bench", "NAS-Bench-301", "NAS-Bench-1Shot1", "NAS-Bench-NLP", "HPO-Bench"],
+    "time_period": "2019-2022",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "automated-machine-learning-past-present-and-future-artificial-intelligence-revie"
+  },
+  {
+    "claim": "As of this April 2024 survey, LLM-guided NAS is treated purely as a speculative future direction rather than an established sub-field; the survey contains zero mentions of EvoPrompting, GENIUS, LLMatic, or GPT-NAS by name and no discussion of feedback/self-refinement effects on LLM-generated architectures.",
+    "stance": "neutral",
+    "stance_target": "novelty question -- whether LLM-guided NAS with feedback ablations was mainstream-recognized by April 2024",
+    "evidence_type": "empirical",
+    "scope_conditions": "general AutoML survey literature as of April 2024",
+    "quoted_support": "Tornede et al. (2023a) already speculate about various ways in which large language models and AutoML can be synergistic: (i) automated machine learning can be used to optimise various components of large language models, and (ii) large language models can be used as an interface to automated machine learning models.",
+    "numbers": [],
+    "entities": ["Tornede et al. 2023a", "HuggingGPT", "Shen et al. 2023"],
+    "time_period": "2024",
+    "region": null,
+    "confidence": "medium",
+    "source_note_id": "automated-machine-learning-past-present-and-future-artificial-intelligence-revie"
+  }
+]

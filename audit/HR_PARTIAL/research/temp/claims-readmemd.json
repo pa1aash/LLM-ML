@@ -1,0 +1,30 @@
+[
+  {
+    "claim": "RZ-NAS's official implementation confirms its search procedure is an evolutionary search (evolution_search.py) parameterized by a choice of zero-cost proxy score and search space, not a chain of sequential LLM self-refinement calls each treated as the new baseline.",
+    "stance": "neutral",
+    "stance_target": "structural comparability between RZ-NAS's positive feedback result and the target paper's sequential-refinement degradation claim",
+    "evidence_type": "empirical",
+    "scope_conditions": "Official code repository, PasaLab/RZ-NAS on GitHub",
+    "quoted_support": "One example of the whole prompt is saved in template.txt. More zero-cost proxies and search spaces are saved under the folder descriptions. For different zero-cost proxies, you can change the parameter zero_shot_score.",
+    "numbers": [],
+    "entities": ["RZ-NAS", "PasaLab", "evolution_search.py", "zero_shot_score"],
+    "time_period": "2025",
+    "region": "n/a",
+    "confidence": "high",
+    "source_note_id": "readmemd"
+  },
+  {
+    "claim": "RZ-NAS prompts combine a role, detailed instructions, an in-context example, and a reflective module, replacing full architecture training with zero-cost proxies to reduce compute cost while retaining competitive performance, per the method's own description.",
+    "stance": "neutral",
+    "stance_target": "mechanism by which RZ-NAS's LLM feedback loop is made computationally cheap and structured, distinguishing it from unstructured chat-based self-refinement",
+    "evidence_type": "empirical",
+    "scope_conditions": "Official README, RZ-NAS ICML 2025 code release",
+    "quoted_support": "We rethink LLMs' roles in NAS in current work and design a structured, prompt-based to comprehensively understand the search task and architectures from both text and code levels.",
+    "numbers": [],
+    "entities": ["RZ-NAS"],
+    "time_period": "2025",
+    "region": "n/a",
+    "confidence": "medium",
+    "source_note_id": "readmemd"
+  }
+]

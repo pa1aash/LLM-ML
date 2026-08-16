@@ -1,0 +1,58 @@
+[
+  {
+    "claim": "The ICBINB @ ICLR 2026 CFP requires submitted papers to contain four specific elements: Problem (domain/assumptions/metrics), Proposed solution (prior-literature mechanism and preconditions), Observed outcome (quantitative failure evidence with error bars/compute/seeds), and Reason for failure (diagnostics identifying causes such as reward hacking, distribution shift, or evaluation mismatch) — a template that a controlled LLM-NAS-feedback-degradation study would need to match structurally to be well-fit for this venue.",
+    "stance": "supports",
+    "stance_target": "structural fit of a null LLM-NAS-feedback result to the ICBINB submission template",
+    "evidence_type": "empirical",
+    "scope_conditions": "ICBINB @ ICLR 2026 CFP, submission requirements",
+    "quoted_support": "Problem. A problem in a clearly specified domain/setting... Proposed solution... Observed outcome. A concise description of the negative or null outcome, including what failed to improve (and by how much)... Reason for failure. An investigation (and ideally an answer) to why it did not work as promised by the literature",
+    "numbers": [],
+    "entities": ["ICBINB"],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "iclr-workshop-2026-submit"
+  },
+  {
+    "claim": "ICBINB @ ICLR 2026 caps submissions at 4 pages excluding references (plus unlimited but non-mandatory appendices), uses ICLR style files, requires double-blind review hosted on OpenReview, and mandates an LLM-use disclosure paragraph.",
+    "stance": "neutral",
+    "stance_target": "format requirements a paper would have to meet for this venue",
+    "evidence_type": "empirical",
+    "scope_conditions": "ICBINB @ ICLR 2026 formatting instructions",
+    "quoted_support": "Submissions should be no more than 4 pages long (excluding references)... We use OpenReview to host papers, and submissions will be double-blind... We ask the authors to disclose any use of Large Language Models (LLMs) with a paragraph describing the roles in their work.",
+    "numbers": ["4 pages excluding references", "2 pages for tiny papers"],
+    "entities": ["ICBINB", "OpenReview", "ICLR"],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "iclr-workshop-2026-submit"
+  },
+  {
+    "claim": "ICBINB @ ICLR 2026's archival status was 'still being clarified' as of the CFP snapshot, but the workshop commits to always offering a non-archival track so authors can preserve rights to submit the full work to another venue later.",
+    "stance": "neutral",
+    "stance_target": "archival-status due diligence for venue selection",
+    "evidence_type": "empirical",
+    "scope_conditions": "ICBINB @ ICLR 2026 CFP",
+    "quoted_support": "The archival status of this workshop is still being clarified and will be published on our website nearer the submission deadline, but there will always be an option for authors to have their paper in a non-archival track",
+    "numbers": [],
+    "entities": ["ICBINB"],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "iclr-workshop-2026-submit"
+  },
+  {
+    "claim": "The full ICBINB @ ICLR 2026 submission cycle (deadline Jan 31 2026, notification Mar 1 2026, camera-ready Mar 8 2026, workshop Apr 26-27 2026) has already fully elapsed as of the current research date (Aug 2026), making this specific instance non-actionable as a forward-looking submission target; any recommendation must reference a future/hypothetical NeurIPS-affiliated ICBINB edition rather than this one.",
+    "stance": "refutes",
+    "stance_target": "using this specific ICBINB 2026 CFP as a live, actionable NeurIPS 2026 submission target",
+    "evidence_type": "empirical",
+    "scope_conditions": "ICBINB @ ICLR 2026 key dates",
+    "quoted_support": "Paper Submission Deadline - January 31st, 2026... Notification of Acceptance/Rejection - March 1st, 2026... In-person Workshop - April 26th or 27th, 2026 (TBA)",
+    "numbers": ["Jan 31 2026 deadline", "Mar 1 2026 notification", "Mar 8 2026 camera-ready", "Apr 26-27 2026 workshop"],
+    "entities": ["ICBINB", "ICLR 2026"],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "iclr-workshop-2026-submit"
+  }
+]

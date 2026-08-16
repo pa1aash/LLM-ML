@@ -1,0 +1,72 @@
+[
+  {
+    "claim": "RLHF substantially reduces per-input output diversity compared to SFT across multiple externally-validated diversity metrics (syntactic, semantic, and logical), in both summarisation and instruction-following settings.",
+    "stance": "supports",
+    "stance_target": "output-diversity loss under RLHF as a rival mechanism explaining single-template collapse in LLM generation tasks",
+    "evidence_type": "empirical",
+    "scope_conditions": "LLaMA-7B base model, summarisation (TL;DR) and instruction-following (AlpacaFarm) tasks",
+    "quoted_support": "However, RLHF significantly reduces output diversity compared to SFT across a variety of measures, implying a tradeoff in current LLM fine-tuning methods between generalisation and diversity.",
+    "numbers": ["LLaMA 7B", "5 OPT model sizes tested in Appendix J"],
+    "entities": ["RLHF", "SFT", "BoN", "LLaMA", "OPT", "PPO"],
+    "time_period": "2023-2024",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "understanding-the-effects-of-rlhf-on-llm-generalisation-and-diversity"
+  },
+  {
+    "claim": "The authors claim theirs is the first rigorous empirical demonstration of across-input mode collapse emerging specifically from RLHF training, where models trained with RLHF produce more similar outputs even across different inputs, not just repeated samples for the same input.",
+    "stance": "supports",
+    "stance_target": "mode collapse under RLHF as a documented, prior-published phenomenon (bears on novelty question: RLHF-diversity-loss is NOT a novel finding as of 2023-2024)",
+    "evidence_type": "empirical",
+    "scope_conditions": "LLaMA-7B and OPT models, summarisation task specifically (diversity effects not observed for instruction-following outputs due to metric length confounds)",
+    "quoted_support": "We believe that this is the first rigorous empirical demonstration of across-input mode collapse emerging from RLHF training specifically.",
+    "numbers": [],
+    "entities": ["mode collapse", "RLHF", "across-input diversity"],
+    "time_period": "2023-2024",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "understanding-the-effects-of-rlhf-on-llm-generalisation-and-diversity"
+  },
+  {
+    "claim": "The RLHF diversity-loss effect (both per-input and across-input) replicates across all five tested OPT model scales, indicating the effect in this paper's data is not confined to a single model size and does not simply vanish or reverse as scale changes.",
+    "stance": "neutral",
+    "stance_target": "whether output-diversity loss under RLHF is model-scale dependent",
+    "evidence_type": "empirical",
+    "scope_conditions": "OPT model family, summarisation task, five model sizes tested in Appendix J.4",
+    "quoted_support": "Both these trends are the same for OPT across model sizes (see Section J.4 for full results)",
+    "numbers": ["5 OPT model sizes"],
+    "entities": ["OPT", "diversity metrics"],
+    "time_period": "2023-2024",
+    "region": null,
+    "confidence": "medium",
+    "source_note_id": "understanding-the-effects-of-rlhf-on-llm-generalisation-and-diversity"
+  },
+  {
+    "claim": "Increasing the KL penalty coefficient in RLHF training (which pulls the policy closer to the more-diverse SFT reference policy) reduces performance as expected but also reduces per-input diversity rather than restoring it, undermining a simple explanation that diversity loss is just a function of distance from the base/SFT model.",
+    "stance": "neutral",
+    "stance_target": "mechanistic explanation of why RLHF causes diversity loss / mode collapse",
+    "evidence_type": "empirical",
+    "scope_conditions": "RLHF summarisation models, KL penalty coefficient sweep, Appendix I",
+    "quoted_support": "increasing the KL penalty coefficient leads to a drop in performance as expected, but also to a drop in per-input diversity, rather than a gain",
+    "numbers": [],
+    "entities": ["KL penalty", "RLHF"],
+    "time_period": "2023-2024",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "understanding-the-effects-of-rlhf-on-llm-generalisation-and-diversity"
+  },
+  {
+    "claim": "The paper frames the generalisation-diversity tradeoff as possibly fundamental to current RLHF fine-tuning methods rather than a fixable bug, and explicitly calls for future research into why RLHF reduces diversity, citing RL diversity-injection techniques as a possible remedy.",
+    "stance": "neutral",
+    "stance_target": "whether mode collapse under RLHF is a solved/settled problem as of 2023-2024",
+    "evidence_type": "theoretical",
+    "scope_conditions": "general RLHF fine-tuning pipeline",
+    "quoted_support": "It is unclear whether this tradeoff is a fundamental one in fine-tuning LLMs with RLHF or just demonstrates a deficiency in current methods... Future work should investigate why RLHF reduces the output diversity so much, and whether this diversity can be recovered without the loss of performance.",
+    "numbers": [],
+    "entities": ["RLHF", "generalisation-diversity tradeoff"],
+    "time_period": "2023-2024",
+    "region": null,
+    "confidence": "medium",
+    "source_note_id": "understanding-the-effects-of-rlhf-on-llm-generalisation-and-diversity"
+  }
+]

@@ -1,0 +1,44 @@
+[
+  {
+    "claim": "Most published deep RL benchmark results compare point estimates of aggregate performance (mean/median) across a small number of runs, ignoring the statistical uncertainty implied by a finite number of training runs.",
+    "stance": "neutral",
+    "stance_target": "current field-wide evaluation standards that NAS/RL reviewers now hold new methods to",
+    "evidence_type": "theoretical",
+    "scope_conditions": "deep RL benchmark evaluation practice as of 2021, still cited as the standard reference through 2025-2026",
+    "quoted_support": "Most published results on deep RL benchmarks compare point estimates of aggregate performance such as mean and median scores across tasks, ignoring the statistical uncertainty implied by the use of a finite number of training runs.",
+    "numbers": [],
+    "entities": ["Rishabh Agarwal", "Marc G. Bellemare", "Atari 100k", "Procgen", "DeepMind Control Suite"],
+    "time_period": "2021",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "210813264-deep-reinforcement-learning-at-the-edge-of-the-statistical-precipice"
+  },
+  {
+    "claim": "A case study on the Atari 100k benchmark finds substantial discrepancies between conclusions drawn from point estimates alone versus a more thorough statistical analysis, meaning algorithm rankings can flip depending on the aggregation method used.",
+    "stance": "supports",
+    "stance_target": "the methodological standard that reviewers would apply to a small-N LLM-NAS claim of 'beats random search'",
+    "evidence_type": "empirical",
+    "scope_conditions": "Atari 100k benchmark, deep RL",
+    "quoted_support": "We illustrate this point using a case study on the Atari 100k benchmark, where we find substantial discrepancies between conclusions drawn from point estimates alone versus a more thorough statistical analysis.",
+    "numbers": [],
+    "entities": ["Atari 100k"],
+    "time_period": "2021",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "210813264-deep-reinforcement-learning-at-the-edge-of-the-statistical-precipice"
+  },
+  {
+    "claim": "The paper advocates reporting interval estimates of aggregate performance, performance profiles across runs/tasks, and robust aggregate metrics such as the interquartile mean (IQM), operationalized in the open-source 'rliable' library, as the correct way to report results with a handful of runs.",
+    "stance": "neutral",
+    "stance_target": "concrete statistical-reporting standard applicable to NAS search-method claims under small sample budgets",
+    "evidence_type": "theoretical",
+    "scope_conditions": "few-run deep RL/benchmark evaluation regime, generalizable to any small-N comparative ML evaluation including NAS",
+    "quoted_support": "we advocate for reporting interval estimates of aggregate performance and propose performance profiles to account for the variability in results, as well as present more robust and efficient aggregate metrics, such as interquartile mean scores, to achieve small uncertainty in results.",
+    "numbers": [],
+    "entities": ["rliable", "interquartile mean (IQM)"],
+    "time_period": "2021",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "210813264-deep-reinforcement-learning-at-the-edge-of-the-statistical-precipice"
+  }
+]

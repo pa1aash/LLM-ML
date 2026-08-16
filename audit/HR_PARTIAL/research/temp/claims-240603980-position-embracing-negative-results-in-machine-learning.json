@@ -1,0 +1,30 @@
+[
+  {
+    "claim": "Predictive/performance improvement alone is an inadequate criterion for judging the scientific worth of a machine learning publication, and using it as the sole criterion causes field-wide inefficiency and sets perverse incentives for researchers.",
+    "stance": "supports",
+    "stance_target": "the legitimacy and value of publishing a controlled negative/null result about LLM-guided architecture search, as the target paper aims to do",
+    "evidence_type": "theoretical",
+    "scope_conditions": "position paper, general ML publication culture, 2024",
+    "quoted_support": "\"Publications proposing novel machine learning methods are often primarily rated by exhibited predictive performance on selected problems. In this position paper we argue that predictive performance alone is not a good indicator for the worth of a publication.\"",
+    "numbers": [],
+    "entities": ["Florian Karl", "Lukas Malte Kemeter", "Gabriel Dax", "Paulina Sierak"],
+    "time_period": "2024",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "240603980-position-embracing-negative-results-in-machine-learning"
+  },
+  {
+    "claim": "The paper issues an explicit call for normalizing publication of negative results in ML and proposes concrete community-level measures to move toward that norm.",
+    "stance": "supports",
+    "stance_target": "the venue-fit question of whether NeurIPS 2026 workshops on negative/null results are a coherent, field-recognized target for the target paper",
+    "evidence_type": "theoretical",
+    "scope_conditions": "position paper proposing field-level reforms, 2024",
+    "quoted_support": "\"We therefore put out a call for the publication of 'negative' results, which can help alleviate some of these problems and improve the scientific output of the machine learning research community... we present the advantages of publishing negative results and provide concrete measures for the community to move towards a paradigm where their publication is normalized.\"",
+    "numbers": [],
+    "entities": ["negative results", "machine learning research community"],
+    "time_period": "2024",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "240603980-position-embracing-negative-results-in-machine-learning"
+  }
+]

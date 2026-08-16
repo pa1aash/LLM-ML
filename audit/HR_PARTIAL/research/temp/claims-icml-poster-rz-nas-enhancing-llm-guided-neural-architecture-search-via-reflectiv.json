@@ -1,0 +1,58 @@
+[
+  {
+    "claim": "RZ-NAS (Ji, Zhu, Yuan, Huang; ICML 2025) is a confirmed, officially published counter-example in which LLM-generated reflective feedback embedded in an iterative evolutionary search loop achieves state-of-the-art performance across multiple NAS benchmarks and downstream tasks, contradicting a blanket claim that LLM feedback always degrades architecture search.",
+    "stance": "refutes",
+    "stance_target": "iterative LLM feedback always degrades rather than improves architecture search proposals",
+    "evidence_type": "empirical",
+    "scope_conditions": "ICML 2025 (42nd ICML), micro and macro NAS search spaces, multiple standard NAS benchmarks and downstream tasks",
+    "quoted_support": "By integrating LLM reflection modules, we use LLM-generated feedback to provide linguistic guidance within architecture optimization. RZ-NAS enables effective search within both micro and macro search spaces without extensive time cost, achieving SOTA performance across multiple downstream tasks.",
+    "numbers": [],
+    "entities": ["Zipeng Ji", "Guanghui Zhu", "Chunfeng Yuan", "Yihua Huang", "ICML 2025", "RZ-NAS"],
+    "time_period": "2025",
+    "region": "n/a",
+    "confidence": "high",
+    "source_note_id": "icml-poster-rz-nas-enhancing-llm-guided-neural-architecture-search-via-reflectiv"
+  },
+  {
+    "claim": "RZ-NAS's reflective feedback loop scores mutations with zero-cost (training-free) proxy metrics rather than full trained accuracy, and operates within an evolutionary mutation-selection pipeline that can discard a bad LLM-suggested mutation -- structurally different from a pure sequential self-refinement setup where every LLM output must be accepted as the new baseline for the next round.",
+    "stance": "neutral",
+    "stance_target": "whether RZ-NAS's positive feedback result directly contradicts or merely differs in scale/setup from a claim about sequential self-refinement degradation",
+    "evidence_type": "theoretical",
+    "scope_conditions": "RZ-NAS method design, ICML 2025 poster lay summary",
+    "quoted_support": "The reflective module guides the LLM to reflect on mutation performance and generates targeted suggestions for further iteration improvements.",
+    "numbers": [],
+    "entities": ["RZ-NAS", "zero-cost proxies", "evolutionary search"],
+    "time_period": "2025",
+    "region": "n/a",
+    "confidence": "medium",
+    "source_note_id": "icml-poster-rz-nas-enhancing-llm-guided-neural-architecture-search-via-reflectiv"
+  },
+  {
+    "claim": "Existing LLM-to-NAS methods prior to RZ-NAS were explicitly criticized by its authors for limited search spaces, poor time-cost search efficiency, and uncompetitive performance versus standard NAS benchmarks -- an admission from within the LLM-NAS literature itself that the field's baseline LLM-guided methods often underperform.",
+    "stance": "neutral",
+    "stance_target": "general competitiveness of LLM-guided NAS methods against standard baselines prior to reflective/zero-cost improvements",
+    "evidence_type": "expert-opinion",
+    "scope_conditions": "RZ-NAS abstract framing of prior LLM-to-NAS work, ICML 2025",
+    "quoted_support": "However, the existing LLM-to-NAS methods face the challenges of limited search spaces, time-cost search efficiency, and uncompetitive performance across standard NAS benchmarks and multiple downstream tasks.",
+    "numbers": [],
+    "entities": ["LLM-to-NAS"],
+    "time_period": "2025",
+    "region": "n/a",
+    "confidence": "medium",
+    "source_note_id": "icml-poster-rz-nas-enhancing-llm-guided-neural-architecture-search-via-reflectiv"
+  },
+  {
+    "claim": "The base LLM's parameter scale and quantisation status are not disclosed on the RZ-NAS poster/lay-summary page, so RZ-NAS cannot be directly cited as evidence about how feedback effects vary with model scale or quantisation without consulting the full paper.",
+    "stance": "neutral",
+    "stance_target": "RZ-NAS as evidence for or against a scale/quantisation-dependent feedback effect",
+    "evidence_type": "theoretical",
+    "scope_conditions": "Limitation of the poster-level source; full paper PDF needed to resolve",
+    "quoted_support": "the base LLM's scale/quantization is not disclosed on this page",
+    "numbers": [],
+    "entities": ["RZ-NAS"],
+    "time_period": "2025",
+    "region": "n/a",
+    "confidence": "medium",
+    "source_note_id": "icml-poster-rz-nas-enhancing-llm-guided-neural-architecture-search-via-reflectiv"
+  }
+]

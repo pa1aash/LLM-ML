@@ -1,0 +1,58 @@
+[
+  {
+    "claim": "Recent attempts to have LLMs self-correct logical or reasoning errors often cause correct answers to become incorrect, resulting in worse overall performance, citing Huang et al. 2023.",
+    "stance": "supports",
+    "stance_target": "the target paper's claim (ii) that iterative performance feedback degrades LLM-guided proposals",
+    "evidence_type": "empirical",
+    "scope_conditions": "logical/reasoning tasks, self-correction without external verification",
+    "quoted_support": "recent attempts to self-correct logical or reasoning errors often cause correct answers to become incorrect, resulting in worse performances overall (Huang et al., 2023).",
+    "numbers": [],
+    "entities": ["Huang et al. 2023", "Gladys Tyen"],
+    "time_period": "2023-2024",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "231108516-llms-cannot-find-reasoning-errors-but-can-correct-them-given-the-error"
+  },
+  {
+    "claim": "Poor self-correction performance stems from LLMs' inability to find logical mistakes in their own outputs, not from an inability to correct a mistake once it is identified.",
+    "stance": "supports",
+    "stance_target": "mechanistic explanation for when/why intrinsic self-correction fails (mistake-finding vs. mistake-fixing bottleneck)",
+    "evidence_type": "empirical",
+    "scope_conditions": "5 reasoning tasks, state-of-the-art LLMs benchmarked on mistake-finding",
+    "quoted_support": "we show that poor self-correction performance stems from LLMs' inability to find logical mistakes, rather than their ability to correct a known mistake.",
+    "numbers": ["5 reasoning tasks"],
+    "entities": ["BIG-Bench Mistake", "Gladys Tyen"],
+    "time_period": "2023-2024",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "231108516-llms-cannot-find-reasoning-errors-but-can-correct-them-given-the-error"
+  },
+  {
+    "claim": "When ground-truth mistake-location information is fed to an LLM externally (a backtracking setup), correction ability boosts downstream task performance across 5 reasoning tasks, indicating that correction ability itself is robust and the missing ingredient is external verification, not correction capability.",
+    "stance": "refutes",
+    "stance_target": "a naive claim that self-correction/feedback is universally degrading regardless of feedback quality",
+    "evidence_type": "empirical",
+    "scope_conditions": "5 reasoning tasks, ground-truth error location supplied externally",
+    "quoted_support": "We show that this boosts downstream task performance across our 5 reasoning tasks, indicating that LLMs' correction abilities are robust.",
+    "numbers": ["5 reasoning tasks"],
+    "entities": ["BIG-Bench Mistake"],
+    "time_period": "2023-2024",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "231108516-llms-cannot-find-reasoning-errors-but-can-correct-them-given-the-error"
+  },
+  {
+    "claim": "A small classifier trained on out-of-domain data with no in-domain training data can find LLM reasoning mistakes more accurately than prompting a large LLM for the same task.",
+    "stance": "neutral",
+    "stance_target": "feasibility of obtaining external verification signal without ground-truth labels",
+    "evidence_type": "empirical",
+    "scope_conditions": "mistake-finding on BIG-Bench Mistake dataset, out-of-domain classifier training",
+    "quoted_support": "We train a small classifier with out-of-domain data, which exhibits stronger mistake-finding performance than prompting a large model.",
+    "numbers": [],
+    "entities": ["BIG-Bench Mistake"],
+    "time_period": "2023-2024",
+    "region": null,
+    "confidence": "medium",
+    "source_note_id": "231108516-llms-cannot-find-reasoning-errors-but-can-correct-them-given-the-error"
+  }
+]

@@ -1,0 +1,30 @@
+[
+  {
+    "claim": "RZ-NAS's official implementation performs an evolutionary search (evolution_search.py) over CNN-style search spaces (SuperResIDWEXKX, SuperResK1KXK1, SuperResKXKX, PlainNet) using zero-cost proxy metrics configurable via a --zero_shot_score flag, combined with structured LLM prompts stored in a template.txt.",
+    "stance": "neutral",
+    "stance_target": "the concrete implementation details of RZ-NAS's search loop, relevant to assessing how directly comparable it is to a target paper's zero-shot vs iterative-feedback CNN search setup",
+    "evidence_type": "empirical",
+    "scope_conditions": "official code repository, CNN-style macro/micro search spaces",
+    "quoted_support": "python evolution_search.py --gpu 0 --zero_shot_score <zero-cost proxy> --search_space <micro/macro search space>",
+    "numbers": [],
+    "entities": ["RZ-NAS", "evolution_search.py", "zero-cost proxy"],
+    "time_period": "2025",
+    "region": "n/a",
+    "confidence": "high",
+    "source_note_id": "github-pasalabrz-nas-github"
+  },
+  {
+    "claim": "The RZ-NAS repository is a low-visibility artifact (5 stars, 0 forks, 19 commits as of the fetch date), suggesting limited community adoption or independent verification of its claimed SOTA results.",
+    "stance": "neutral",
+    "stance_target": "the degree of external scrutiny/replication RZ-NAS's claimed results have received",
+    "evidence_type": "empirical",
+    "scope_conditions": "GitHub repository metadata as of 2026-08-16",
+    "quoted_support": "Stars 5 stars Watchers 0 watching Forks 0 forks",
+    "numbers": ["5 stars", "0 forks", "19 commits"],
+    "entities": ["RZ-NAS", "GitHub"],
+    "time_period": "2026-08-16 (fetch date)",
+    "region": "n/a",
+    "confidence": "medium",
+    "source_note_id": "github-pasalabrz-nas-github"
+  }
+]

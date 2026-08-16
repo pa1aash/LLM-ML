@@ -1,0 +1,44 @@
+[
+  {
+    "claim": "Existing diversity-promoting decoding algorithms (beam search variants, random sampling) cap output quality because diversity is imposed on top of an underlying decoding method whose quality ceiling is fixed, creating an inherent quality-diversity trade-off.",
+    "stance": "supports",
+    "stance_target": "rival mechanistic explanation that collapsed/identical LLM outputs (mode collapse) can arise from decoding-method choice rather than from any property of iterative feedback",
+    "evidence_type": "theoretical",
+    "scope_conditions": "text generation with encoder-decoder models and prompted LLMs",
+    "quoted_support": "However, existing algorithms proposed for generating diverse outputs are predominantly based on beam search or random sampling, thus their output quality is capped by these underlying methods.",
+    "numbers": [],
+    "entities": ["Minimum Bayes-Risk decoding", "Diverse MBR", "k-medoids MBR", "beam search"],
+    "time_period": "2024",
+    "region": null,
+    "confidence": "medium",
+    "source_note_id": "240105054v2-generating-diverse-and-high-quality-texts-by-minimum-bayes-risk-deco"
+  },
+  {
+    "claim": "Diverse MBR (DMBR) and k-medoids MBR (KMBR), which explicitly enforce a diversity objective within Minimum Bayes-Risk decoding, achieve a better quality-diversity trade-off than diverse beam search and sampling algorithms across directed text generation tasks.",
+    "stance": "neutral",
+    "stance_target": "methods for mitigating output collapse/low diversity in LLM generation",
+    "evidence_type": "empirical",
+    "scope_conditions": "directed text generation tasks, encoder-decoder models and a large language model with prompting",
+    "quoted_support": "The experimental results show that the proposed method achieves a better trade-off than the diverse beam search and sampling algorithms.",
+    "numbers": [],
+    "entities": ["DMBR", "KMBR", "MBR decoding"],
+    "time_period": "2024",
+    "region": null,
+    "confidence": "medium",
+    "source_note_id": "240105054v2-generating-diverse-and-high-quality-texts-by-minimum-bayes-risk-deco"
+  },
+  {
+    "claim": "Producing a diverse and high-quality set of outputs is framed as one of the most important open challenges in text generation systems, independent of any iterative-refinement mechanism.",
+    "stance": "neutral",
+    "stance_target": "generality of output-diversity loss as a known problem class in LLM generation",
+    "evidence_type": "expert-opinion",
+    "scope_conditions": "general text generation systems",
+    "quoted_support": "One of the most important challenges in text generation systems is to produce outputs that are not only correct but also diverse.",
+    "numbers": [],
+    "entities": ["text generation", "MBR decoding"],
+    "time_period": "2024",
+    "region": null,
+    "confidence": "medium",
+    "source_note_id": "240105054v2-generating-diverse-and-high-quality-texts-by-minimum-bayes-risk-deco"
+  }
+]

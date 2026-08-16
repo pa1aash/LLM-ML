@@ -1,0 +1,44 @@
+[
+  {
+    "claim": "NAS-Bench-101 is the first public tabular architecture dataset for NAS research, built by reducing a cell-based search space via graph isomorphism to 423,000 unique convolutional architectures, each trained and evaluated multiple times on CIFAR-10.",
+    "stance": "neutral",
+    "stance_target": "existence and construction of the canonical tabular NAS benchmark named in question THREE",
+    "evidence_type": "empirical",
+    "scope_conditions": "CIFAR-10 image classification, cell-based convolutional search space",
+    "quoted_support": "\"we carefully constructed a compact, yet expressive, search space, exploiting graph isomorphisms to identify 423k unique convolutional architectures. We trained and evaluated all of these architectures multiple times on CIFAR-10 and compiled the results into a large dataset of over 5 million trained models.\"",
+    "numbers": ["423,000 unique architectures", "over 5 million trained models"],
+    "entities": ["Chris Ying", "Aaron Klein", "Esteban Real", "Eric Christiansen", "Kevin Murphy", "Frank Hutter", "NAS-Bench-101", "CIFAR-10"],
+    "time_period": "published ICML 2019",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "190209635v2-nas-bench-101-towards-reproducible-neural-architecture-search"
+  },
+  {
+    "claim": "NAS-Bench-101 was created explicitly to solve a reproducibility crisis in NAS: prior methods demanded tremendous compute, making experiments hard to reproduce and creating a barrier to entry for researchers without large-scale compute access.",
+    "stance": "supports",
+    "stance_target": "the methodological need for cheap, reproducible, lookup-based evaluation in NAS papers (relevant to whether a small quantized-LLM NAS paper can be evaluated cheaply and reproducibly)",
+    "evidence_type": "theoretical",
+    "scope_conditions": "framed as a general problem with NAS research circa 2019",
+    "quoted_support": "\"Recent advances in neural architecture search (NAS) demand tremendous computational resources, which makes it difficult to reproduce experiments and imposes a barrier-to-entry to researchers without access to large-scale computation. We aim to ameliorate these problems by introducing NAS-Bench-101.\"",
+    "numbers": [],
+    "entities": ["NAS-Bench-101"],
+    "time_period": "2019",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "190209635v2-nas-bench-101-towards-reproducible-neural-architecture-search"
+  },
+  {
+    "claim": "The NAS-Bench-101 paper itself validates the dataset's utility by benchmarking a range of architecture optimization algorithms against it, establishing the precedent that any new architecture-search method (including an LLM proposer) should be validated by querying this same lookup table rather than training new models from scratch.",
+    "stance": "supports",
+    "stance_target": "methodology standard for tabular-benchmark evaluation named in question THREE",
+    "evidence_type": "empirical",
+    "scope_conditions": "CIFAR-10 cell-based search space, algorithms available circa 2019 (e.g. random search, evolution, RL, Bayesian optimization)",
+    "quoted_support": "\"This allows researchers to evaluate the quality of a diverse range of models in milliseconds by querying the pre-computed dataset. We demonstrate its utility by analyzing the dataset as a whole and by benchmarking a range of architecture optimization algorithms.\"",
+    "numbers": ["milliseconds per query"],
+    "entities": ["NAS-Bench-101"],
+    "time_period": "2019",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "190209635v2-nas-bench-101-towards-reproducible-neural-architecture-search"
+  }
+]

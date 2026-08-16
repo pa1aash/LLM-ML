@@ -1,0 +1,72 @@
+[
+  {
+    "claim": "EvoPrompting's naive few-shot prompting baseline (single round, T=1, no evolutionary feedback loop) fails to design competitive architectures, while adding evolutionary selection and prompt-tuning across rounds substantially improves results.",
+    "stance": "refutes",
+    "stance_target": "the target paper's thesis that iterative feedback degrades LLM-guided NAS proposals",
+    "evidence_type": "empirical",
+    "scope_conditions": "62B-parameter PaLM code model on MNIST-1D CNN search and CLRS GNN search; not a small/quantised model",
+    "quoted_support": "It is also evident from both Figure 2(a) and 2(b) that performance suffers when any individual component is removed. Interestingly, Figure 2(a) indicates that prompting with randomly selected parents combined with prompt-tuning is no more effective than naive prompting alone.",
+    "numbers": ["10 rounds", "160 models/round", "1600 total models generated", "21/30 CLRS tasks beat SOTA"],
+    "entities": ["EvoPrompting", "PaLM", "MNIST-1D", "CLRS Algorithmic Reasoning Benchmark", "Triplet-GMPNN"],
+    "time_period": "2023",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "evoprompting-language-models-for-code-level-neural-architecture-search"
+  },
+  {
+    "claim": "The EvoPrompting random-parents ablation (removing fitness-based selection/feedback while keeping prompt-tuning) plateaus fastest and at the worst fitness of any tested variant, showing that removing feedback-driven selection hurts search rather than helps it.",
+    "stance": "refutes",
+    "stance_target": "the target paper's thesis that feedback degrades proposals",
+    "evidence_type": "empirical",
+    "scope_conditions": "MNIST-1D CNN search space, 62B PaLM",
+    "quoted_support": "The random parents baseline plateaus the quickest, reaching a maximum fitness by the time approximately 200 individuals have been generated. Furthermore, the maximum fitness it reaches is significantly worse than that of the other experiments.",
+    "numbers": ["~200 individuals to plateau"],
+    "entities": ["EvoPrompting", "random parents ablation"],
+    "time_period": "2023",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "evoprompting-language-models-for-code-level-neural-architecture-search"
+  },
+  {
+    "claim": "EvoPrompting explicitly attributes output diversity to mixed-temperature sampling (uniform over T in {0.2, 0.6, 0.8, 1.0}) rather than relying on a single fixed decoding temperature, and reports the method 'consistently finds diverse and high performing models,' contrasting with a single-template-collapse outcome.",
+    "stance": "refutes",
+    "stance_target": "the claim that LLM-guided architecture proposal inherently collapses to a single template",
+    "evidence_type": "empirical",
+    "scope_conditions": "62B PaLM, code-pretrained, prompt-tuned per round",
+    "quoted_support": "We always sample from πθ₀ with mixed temperature sampling, in which the sampling temperature is selected uniformly from [0.2, 0.6, 0.8, 1.0].",
+    "numbers": ["temperatures: 0.2, 0.6, 0.8, 1.0", "16 samples per prompt", "10 prompts per round"],
+    "entities": ["EvoPrompting", "mixed temperature sampling"],
+    "time_period": "2023",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "evoprompting-language-models-for-code-level-neural-architecture-search"
+  },
+  {
+    "claim": "EvoPrompting's authors self-identify a methodological limitation: they lack an extensive comparison against standard NAS techniques on a shared tabular benchmark, and their one NATS-Bench comparison handicaps EvoPrompting by removing its code-pretraining advantage and by pulling competitor accuracy numbers from a different paper (Dong et al. 2021) rather than re-running them under matched conditions.",
+    "stance": "neutral",
+    "stance_target": "methodology standards for LLM-NAS papers using tabular benchmarks",
+    "evidence_type": "empirical",
+    "scope_conditions": "NATS-Bench Size Search Space, CIFAR-10/CIFAR-100/ImageNet-16-120",
+    "quoted_support": "We make a brief comparison of EvoPrompting against other NAS algorithms on the NATS-Bench Size Search Space (Dong et al. 2021). However, we note that this comparison is limited because it handicaps EvoPrompting in multiple ways.",
+    "numbers": ["REA CIFAR-10 val 90.37±0.20, test 93.22±0.16"],
+    "entities": ["NATS-Bench", "REA", "Dong et al. 2021", "CIFAR-10", "CIFAR-100", "ImageNet-16-120"],
+    "time_period": "2023",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "evoprompting-language-models-for-code-level-neural-architecture-search"
+  },
+  {
+    "claim": "EvoPrompting discovered GNN architectures that outperform the prior state-of-the-art Triplet-GMPNN on 21 of 30 CLRS Algorithmic Reasoning Benchmark tasks while maintaining similar model size.",
+    "stance": "neutral",
+    "stance_target": "capability ceiling of LLM-guided architecture search when combined with evolutionary feedback",
+    "evidence_type": "empirical",
+    "scope_conditions": "CLRS Algorithmic Reasoning Benchmark, 30 classical algorithms",
+    "quoted_support": "EvoPrompting generates novel architectures that outperform state-of-the-art models on 21 out of 30 algorithmic reasoning tasks (Appendix 3).",
+    "numbers": ["21/30 tasks", "125.19% OOD accuracy increase for ConcatRep on heapsort with 6.68% model size increase"],
+    "entities": ["CLRS", "Triplet-GMPNN", "ConcatRep", "QuadNodeMinMax", "MaxMean", "Div2Mean", "TanhExpandTriplets"],
+    "time_period": "2023",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "evoprompting-language-models-for-code-level-neural-architecture-search"
+  }
+]

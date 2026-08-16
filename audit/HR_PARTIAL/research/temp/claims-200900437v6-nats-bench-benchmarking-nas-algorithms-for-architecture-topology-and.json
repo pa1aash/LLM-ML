@@ -1,0 +1,16 @@
+[
+  {
+    "claim": "NATS-Bench provides a unified tabular benchmark covering 15,625 candidate architecture topologies and 32,768 candidate architecture sizes across three datasets, with precomputed logs for all candidates under identical training setups, enabling exact statistical comparison without retraining.",
+    "stance": "supports",
+    "stance_target": "correct evaluation substrate the target paper should use for a CNN search-space claim (Q3)",
+    "evidence_type": "empirical",
+    "scope_conditions": "NATS-Bench, extension of NAS-Bench-201, IEEE TPAMI 2021",
+    "quoted_support": "\"NATS-Bench includes the search space of 15,625 neural cell candidates for architecture topology and 32,768 for architecture size on three datasets... All logs and diagnostic information trained using the same setup for each candidate are provided.\"",
+    "numbers": ["15,625 topology candidates", "32,768 size candidates", "3 datasets", "13 NAS algorithms benchmarked"],
+    "entities": ["NATS-Bench", "NAS-Bench-201", "Xuanyi Dong"],
+    "time_period": "2020-2021",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "200900437v6-nats-bench-benchmarking-nas-algorithms-for-architecture-topology-and"
+  }
+]

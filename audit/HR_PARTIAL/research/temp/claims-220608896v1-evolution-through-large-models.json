@@ -1,0 +1,44 @@
+[
+  {
+    "claim": "Evolution through Large Models (ELM) uses code-generating LLMs as mutation operators within genetic programming and MAP-Elites, arguing LLMs can approximate the kind of sequential code changes a human programmer would make, rather than relying on hand-coded random mutation operators.",
+    "stance": "neutral",
+    "stance_target": "LLM-as-search-operator mechanism in non-NAS program/design search, a comparison case for whether LLM guidance beats naive random search",
+    "evidence_type": "theoretical",
+    "scope_conditions": "genetic programming applied to Python program synthesis for robot morphology/control (Sodarace domain)",
+    "quoted_support": "\"large language models (LLMs) trained to generate code can vastly improve the effectiveness of mutation operators applied to programs in genetic programming (GP). Because such LLMs benefit from training data that includes sequential changes and modifications, they can approximate likely changes that humans would make.\"",
+    "numbers": [],
+    "entities": ["Joel Lehman", "Jonathan Gordon", "Shawn Jain", "Kamal Ndousse", "Cathy Yeh", "Kenneth O. Stanley", "MAP-Elites", "Sodarace"],
+    "time_period": "2022",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "220608896v1-evolution-through-large-models"
+  },
+  {
+    "claim": "ELM combined with MAP-Elites generated hundreds of thousands of functional Python programs producing working ambulating robots in a domain the base LLM had never seen during pretraining, and these self-generated search products were then used to bootstrap a new conditional model.",
+    "stance": "neutral",
+    "stance_target": "whether LLM-guided evolutionary search can produce diverse, high-quality, out-of-distribution design outputs at scale (contrast case to a single-template collapse finding)",
+    "evidence_type": "empirical",
+    "scope_conditions": "Sodarace robot-locomotion program synthesis domain, out-of-pretraining-distribution task",
+    "quoted_support": "\"ELM combined with MAP-Elites generates hundreds of thousands of functional examples of Python programs that output working ambulating robots in the Sodarace domain, which the original LLM had never seen in pre-training.\"",
+    "numbers": ["hundreds of thousands of functional programs"],
+    "entities": ["ELM", "MAP-Elites", "Sodarace"],
+    "time_period": "2022",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "220608896v1-evolution-through-large-models"
+  },
+  {
+    "claim": "ELM's headline result depended on combining the LLM mutation operator with an external quality-diversity search algorithm (MAP-Elites) rather than relying on the LLM's zero-shot or iterative-feedback proposals alone, implying diversity in ELM's outputs is enforced by the outer search algorithm, not guaranteed by the LLM itself.",
+    "stance": "supports",
+    "stance_target": "the claim that LLM output diversity in design/search tasks depends on external structuring rather than being intrinsic to the LLM, relevant to explaining single-template collapse without feedback",
+    "evidence_type": "theoretical",
+    "scope_conditions": "inferred from the paper's framing of MAP-Elites as the diversity-preserving mechanism paired with the LLM mutation operator",
+    "quoted_support": "\"in the main experiment ELM combined with MAP-Elites generates hundreds of thousands of functional examples of Python programs\"",
+    "numbers": [],
+    "entities": ["ELM", "MAP-Elites"],
+    "time_period": "2022",
+    "region": null,
+    "confidence": "low",
+    "source_note_id": "220608896v1-evolution-through-large-models"
+  }
+]

@@ -1,0 +1,44 @@
+[
+  {
+    "claim": "JUDGe's CFP explicitly and repeatedly states that negative results are welcome: 'Works in progress, negative results, practitioner case studies, and cross-disciplinary contributions are particularly encouraged' and again 'negative results, and works in progress are all welcome -- not just finished research.'",
+    "stance": "supports",
+    "stance_target": "Whether any NeurIPS 2026 workshop has an explicit stated position welcoming negative results",
+    "evidence_type": "legal",
+    "scope_conditions": "JUDGe (Can We Trust the Judge?), NeurIPS 2026, Atlanta",
+    "quoted_support": "Works in progress, negative results, practitioner case studies, and cross-disciplinary contributions are particularly encouraged — the workshop is designed for work that wouldn't fit neatly into a standard NLP or ML venue track.",
+    "numbers": [],
+    "entities": ["JUDGe", "NeurIPS 2026"],
+    "time_period": "2026",
+    "region": "Atlanta, Georgia",
+    "confidence": "high",
+    "source_note_id": "judge-2026-can-we-trust-the-judge"
+  },
+  {
+    "claim": "JUDGe's scope is specifically about reliability and validity of LLM-based evaluators/judges embedded in RLHF, DPO, and Constitutional AI pipelines -- not about search-loop feedback signals or NAS, creating a topical mismatch with the target paper despite its strong negative-results welcome.",
+    "stance": "neutral",
+    "stance_target": "Topical fit of JUDGe for the target NAS paper",
+    "evidence_type": "legal",
+    "scope_conditions": "JUDGe scope definition",
+    "quoted_support": "Judges embedded in RLHF, DPO, and Constitutional AI pipelines don't just mismeasure — their failure modes compound into model weights and downstream decisions.",
+    "numbers": [],
+    "entities": ["JUDGe"],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "medium",
+    "source_note_id": "judge-2026-can-we-trust-the-judge"
+  },
+  {
+    "claim": "JUDGe submission tracks: Full Papers 6 pages + references (oral), Short Papers 4 pages + references (poster), Junior Spotlight 2 pages + references (oral, students/early-career only); double-blind, at least 3 reviews per paper; non-archival with author opt-out; previously published work at a major venue is explicitly not eligible; deadline Aug 29 2026, notification Sep 29 2026, camera-ready Oct 15 2026.",
+    "stance": "neutral",
+    "stance_target": "Format, anonymity, archival status, and submission mechanics of this candidate venue",
+    "evidence_type": "legal",
+    "scope_conditions": "JUDGe CFP",
+    "quoted_support": "Full Papers 6 pages + references · Oral presentation / Short Papers 4 pages + references · Poster presentation / Junior Spotlight 2 pages + references · Oral · Students & early-career only ... All accepted work is non-archival and posted on the workshop website (authors may opt out). Previously published work at a major ML venue is not eligible.",
+    "numbers": ["6 pages", "4 pages", "2 pages", "3 reviews minimum", "August 29, 2026", "September 29, 2026", "October 15, 2026"],
+    "entities": ["JUDGe"],
+    "time_period": "2026",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "judge-2026-can-we-trust-the-judge"
+  }
+]

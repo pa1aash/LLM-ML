@@ -1,0 +1,58 @@
+[
+  {
+    "claim": "GPT-NAS's true author list is Caiyang Yu, Xianggen Liu, Yifan Wang, Yun Liu, Wentao Feng, Deng Xiong, Chenwei Tang, and Jiancheng Lv, per the arXiv abstract page and submission history (v1 May 2023, v4 Feb 2025).",
+    "stance": "neutral",
+    "stance_target": "correcting a fabricated-author-list mis-citation of GPT-NAS circulating in secondary literature",
+    "evidence_type": "empirical",
+    "scope_conditions": "as recorded on arXiv:2305.05351 abstract page",
+    "quoted_support": "Authors: Caiyang Yu, Xianggen Liu, Yifan Wang, Yun Liu, Wentao Feng, Deng Xiong, Chenwei Tang, Jiancheng Lv",
+    "numbers": [],
+    "entities": ["Caiyang Yu", "Xianggen Liu", "Yifan Wang", "Yun Liu", "Wentao Feng", "Deng Xiong", "Chenwei Tang", "Jiancheng Lv", "GPT-NAS"],
+    "time_period": "2023-2025",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "230505351v4-gpt-nas-evolutionary-neural-architecture-search-with-the-generative"
+  },
+  {
+    "claim": "GPT-NAS embeds an LLM (GPT-style generative model) inside an evolutionary algorithm as the outer search loop, proposing architecture components which the EA then iteratively selects across generations, rather than generating a single zero-shot final architecture.",
+    "stance": "neutral",
+    "stance_target": "novelty/priority of a zero-shot, non-iterative small-model LLM-NAS proposal method",
+    "evidence_type": "theoretical",
+    "scope_conditions": "GPT-NAS architecture search framework, CNN/image classification domain",
+    "quoted_support": "GPT-NAS leverages the GPT model to propose reasonable architecture components given the basic one and then utilizes EAs to search for the optimal solution.",
+    "numbers": [],
+    "entities": ["GPT-NAS", "evolutionary algorithm"],
+    "time_period": "2023-2025",
+    "region": null,
+    "confidence": "high",
+    "source_note_id": "230505351v4-gpt-nas-evolutionary-neural-architecture-search-with-the-generative"
+  },
+  {
+    "claim": "GPT-NAS reports outperforming seven manually-designed architectures and thirteen architectures from competing NAS methods, and improving finely-tuned architecture performance by up to about 12% compared to an ablation without the GPT component.",
+    "stance": "refutes",
+    "stance_target": "the target paper's implicit claim that LLM-guided proposals cannot benefit from any iterative process in NAS",
+    "evidence_type": "empirical",
+    "scope_conditions": "GPT-NAS evaluated against manual and competing-NAS baselines, CNN architecture search space",
+    "quoted_support": "our GPT-NAS method significantly outperforms seven manually designed neural architectures and thirteen architectures provided by competing NAS methods... the proposed algorithm improves the performance of finely tuned neural architectures by up to about 12% compared to those without GPT",
+    "numbers": ["7 manual architectures", "13 competing NAS architectures", "up to ~12% improvement"],
+    "entities": ["GPT-NAS"],
+    "time_period": "2023-2025",
+    "region": null,
+    "confidence": "medium",
+    "source_note_id": "230505351v4-gpt-nas-evolutionary-neural-architecture-search-with-the-generative"
+  },
+  {
+    "claim": "GPT-NAS's companion peer-reviewed publication is a Related DOI to the journal Big Data Mining and Analytics (BDMA), not a top-tier ML conference proceedings (NeurIPS/ICML/ICLR), despite the arXiv preprint circulating since 2023.",
+    "stance": "neutral",
+    "stance_target": "assessing the rigor/venue-prestige bar GPT-NAS was actually held to",
+    "evidence_type": "empirical",
+    "scope_conditions": "as recorded in arXiv metadata 'Related DOI' field",
+    "quoted_support": "Related DOI: https://doi.org/10.26599/BDMA.2024.9020036",
+    "numbers": [],
+    "entities": ["GPT-NAS", "Big Data Mining and Analytics"],
+    "time_period": "2024",
+    "region": null,
+    "confidence": "medium",
+    "source_note_id": "230505351v4-gpt-nas-evolutionary-neural-architecture-search-with-the-generative"
+  }
+]
