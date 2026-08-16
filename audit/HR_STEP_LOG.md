@@ -461,3 +461,32 @@ not be measuring the same phenomenon, so RZ-NAS's counter-example status is
 - **S5** Zen-Score tau discrepancy is **UNUSABLE** until C5 clears it as
   apples-to-apples.
 - **S6** MAE-DET size-confound status is **UNKNOWN**, not clean.
+
+| Step | Mode | Artifacts | Notes |
+|---|---|---|---|
+| 8 corpus critic | invoked — **FAILED, resumed** | 4 C1 notes fetched; findings file pending | API error terminated the agent just before write; resumed with write-first, no-new-fetch instruction |
+
+### Step 8 — first attempt failed, partial progress salvaged
+
+`API Error: The response stopped arriving` killed the critic immediately before
+it wrote `corpus-critic-findings.md`. Four C1 sources had already been fetched
+and are in the vault (corpus 102 → 106):
+
+| Note | Chars |
+|---|---|
+| `240802442-let-me-speak-freely-a-study-on-the-impact-of-format-restrictions-on-pe` | 4,662 |
+| `260810137-the-parser-already-knows-lightweight-bias-correction-in-constrained-de` | 5,349 |
+| `240521047-grammar-aligned-decoding` | 5,038 |
+| `260403616-the-format-tax` | 4,431 |
+
+All four bear directly on C1 — format restrictions changing measured
+performance, constrained-decoding bias, parser-side bias correction. **This is
+the first evidence that the instrumentation thesis has adjacent published work**,
+and it must be assessed before the thesis is relied on. Whether it is *scooped*
+or merely *adjacent* is exactly what the resumed critic has to settle.
+
+Resume instruction constrains it to: write the file **first and incrementally**
+(the previous attempt died holding a whole document in memory), **no new
+fetches**, and a priority order that puts C1 first and permits stopping at a
+clean section boundary. C6 is authorised to return **NOT SETTLED — fetch budget
+exhausted** with a statement of what search would settle it.
