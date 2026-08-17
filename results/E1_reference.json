@@ -1,0 +1,70 @@
+{
+  "generated_by": "tests/compute_d_rand_r4.py",
+  "plan_revision": 4,
+  "seed": 20260817,
+  "structure": {
+    "n_batches": 16,
+    "n_per_batch": 20
+  },
+  "D_rand": {
+    "value": 0.7192051368061476,
+    "definition": "corrected uniform sampler, block count FIXED, mean over K in {3,4,5,6}",
+    "per_block_count": {
+      "3": 0.7132730263157895,
+      "4": 0.7202682186234819,
+      "5": 0.720374177631579,
+      "6": 0.7229051246537399
+    },
+    "analytic": {
+      "3": 0.7125,
+      "4": 0.717948717948718,
+      "5": 0.7213541666666667,
+      "6": 0.7236842105263158
+    },
+    "analytic_mean": 0.7188717737854251,
+    "mean_batch_std": 0.006689271138303225
+  },
+  "D_rand_block_free": {
+    "value": 0.7764649644417215,
+    "note": "comparison only; block-count variation inflates d via the 6*|Kx-Ky| term"
+  },
+  "D_repo_sampler": {
+    "value": 0.7719311924009159,
+    "pooled": 0.7693338900069068,
+    "batch_std": 0.0079666807852662,
+    "fixed_k": {
+      "3": 0.7120046620046632,
+      "4": 0.7162244110404608,
+      "5": 0.7032953241537578,
+      "6": 0.698433145801562
+    },
+    "pooling_distribution": {
+      "strided_conv": 257,
+      "none": 701,
+      "avgpool": 254,
+      "maxpool": 242
+    },
+    "num_blocks_distribution": {
+      "3": 66,
+      "4": 92,
+      "5": 84,
+      "6": 78
+    },
+    "note": "reported for comparability with the original paper's random arm; NOT the anchor",
+    "sampler_file_sha256": "c656cedf8ff8f543805c6351e6989555036a43519cb4ec81475b0f11499c4914",
+    "sampler_extract_sha256": "d8e551f56766c74314caf3ca7a85e4fdb36b5c08282575865f983977270fef4e",
+    "sampler_extract_bytes": 1874,
+    "extraction_method": "ast source extraction; search_space.py imports torch at module level (D-11)"
+  },
+  "sanity_range": [
+    0.705,
+    0.735
+  ],
+  "thresholds": {
+    "collapsed_below": 0.10788077052092214,
+    "diverse_at_or_above": 0.43152308208368856,
+    "no_change_band": 0.07192051368061476,
+    "partial_change_lower": 0.07192051368061476,
+    "recovers_at_or_above": 0.1798012842015369
+  }
+}

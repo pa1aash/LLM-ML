@@ -11,45 +11,38 @@ S4 build → S5 results-file layer → S6 write → S7 referee
 
 ---
 
-## Current stage: **S3a complete — G2 still unsigned, revision 4 pending**
-
-S3a built the measurement instrument and ran its gates against the plan **before**
-G2 was signed, while revision is still available. It found **25 implementation
-defects, 7 of them blocking** (`audit/S3A_IMPLEMENTATION_DEFECTS.md`).
-
-**G2 must not be signed against revision 3.** The gates, metrics and emitter are
-executable; **§2.5/§2.6's signature-matching machinery is not** — and that is the
-mechanism deciding C2, which carries half the thesis. Revision 4 folds the
-defects in.
-
----
-
-## Prior stage: **S2 complete at revision 3**
+## Current stage: **S2c complete at revision 4 — G2 unsigned, S3 next**
 
 S0 audit complete (G0 unsigned). S1 positioning complete (G1 recorded PASSED on
-operator authorisation, unsigned). S2 produced the pre-registered experiment plan
-and froze it; **S2a** amended it as revision 2 and **S2b** as revision 3, both
-before any data collection.
+operator authorisation, unsigned). S2 produced the pre-registered plan; **S2a**,
+**S2b** and **S2c** amended it as revisions 2, 3 and 4, all before any data
+collection. **S3a** built the measurement instrument and ran it against revision 3
+*before* the gate was signed, finding **25 defects, 7 blocking**; revision 4 folds
+all 25 in.
 
-**Governing plan: `EXPERIMENT_PLAN_R3.md`** (revision 3), SHA-256
-`be61bda9f7b9a33dd9240ea56e010bc87bf0013495e7b0bbafeab0cbeccbdf03`, hashed
-2026-08-17T09:45:06Z.
+**Governing plan: `EXPERIMENT_PLAN_R4.md`** (revision 4), SHA-256
+`738601db1d55e81010a62ec1e1259f82e6466f7e8db02f0ec3de4ed15d80cc9d`, hashed
+2026-08-17T18:25:00Z.
+**FAMILY_SIZE = 17, ALPHA = 0.05/17 = 0.0029411764705882353.**
 
 ```
-  rev 1  aeb174ff…bad3d  EXPERIMENT_PLAN.md      05:10:13Z
+  rev 1  aeb174ff…bad3d  EXPERIMENT_PLAN.md      05:10:13Z   16 / 0.003125
     │ §5.6 rule 4
-  rev 2  a9954ba3…1df1   EXPERIMENT_PLAN_R2.md   09:25:13Z
+  rev 2  a9954ba3…1df1   EXPERIMENT_PLAN_R2.md   09:25:13Z   16 / 0.003125
     │ §5.6 rule 4
-  rev 3  be61bda9…df03   EXPERIMENT_PLAN_R3.md   09:45:06Z   ← GOVERNING
+  rev 3  be61bda9…df03   EXPERIMENT_PLAN_R3.md   09:45:06Z   16 / 0.003125
+    │ §5.6 rule 4   ← S3a implementation pass: 25 defects, 7 blocking
+  rev 4  738601db…cc9d   EXPERIMENT_PLAN_R4.md   18:25:00Z   17 / 0.00294   ← GOVERNING
 ```
 
-Revisions 1 and 2 remain in the repository **byte-identical**; both hashes were
-re-verified before revision 3 was written and again after it was committed. The
-successor route is what §5.6 rule 4 requires — the plan is never edited in place.
+Revisions 1, 2 and 3 remain **byte-identical**; every hash was re-verified before
+and after each step. The plan is never edited in place.
 
-**Revision 3 is the last pre-data revision.** Once G2 is signed the revision
-route closes and every change is a `DEVIATIONS.md` entry logged before the
-affected analysis runs.
+**The revision route closes at the END OF S3**, when the analysis code exists and
+G2 is signed against a plan that has been *executed*, not only read. Revision 3
+declared itself final on the assumption the gate would be signed next; the
+implementation pass then found 25 defects in it. **That ordering is now
+registered: build the analysis code, then sign the gate.**
 
 ---
 
@@ -63,7 +56,7 @@ affected analysis runs.
 structured decoding and output repair distorting what is measured about a model
 — is published 2024–2026 literature. Its instantiation in LLM-guided NAS is not.
 Any downstream sentence claiming the mechanism is a defect
-(`EXPERIMENT_PLAN_R3.md` §1.2).
+(`EXPERIMENT_PLAN_R4.md` §1.2).
 
 ---
 
@@ -131,7 +124,7 @@ Revision 1 remains byte-identical and its hash was re-verified at the moment
 revision 2 was hashed. Data status re-verified independently at
 2026-08-17T09:18:00Z, not carried forward.
 
-### S2b — plan amendment (revision 3) *(this session)*
+### S2b — plan amendment (revision 3)
 
 **`EXPERIMENT_PLAN_R3.md`** — 1,486 lines, wholesale successor, four amendments:
 
@@ -161,7 +154,7 @@ Revisions 1 and 2 both remain byte-identical, re-verified before and after. Data
 status re-verified independently at 2026-08-17T09:39:26Z, with the three known
 `*spec*`/`*transcript*` near-matches enumerated so the sweep stays reproducible.
 
-### S3a — build the instrument, run its gates against the plan *(this session)*
+### S3a — build the instrument, run its gates against the plan
 
 Built **before** G2 was signed, deliberately, because the last two revisions each
 shipped a defect that was invisible until someone tried to execute the plan.
@@ -189,6 +182,55 @@ no training, no GPU, no ML dependency installed.** `src/search_space.py` imports
 torch, which is absent, so the sampler was executed by verbatim source extraction
 (D-11) rather than by installing anything.
 
+### S2c — plan amendment (revision 4) *(this session)*
+
+**`EXPERIMENT_PLAN_R4.md`** — 1,653 lines, wholesale successor. Folds in all 25
+S3a defects; §9 carries a defect-by-defect disposition.
+
+- **R4-1** — new **§2.8 anchor-tracking sub-design**: enumeration order
+  {canonical, reversed} × in-context exemplar {modal, non-modal} at the anchor
+  configuration, **4 cells × 16 × 20 = 1,280 generations**. New outcome
+  `anchor_tracking` (`tracks_first`, `tracks_exemplar`), a **sixth prediction
+  column**, and one new confirmatory contrast **X5**. This is what fixes the
+  blocking defect D-02: `format tax` and `genuine prior` now differ in two
+  columns, one of which does **not** require free prose to parse, so **free-prose
+  becomes corroborating rather than load-bearing for C2**.
+  **FAMILY_SIZE 16 → 17; ALPHA → 0.05/17 = 0.0029411764705882353.**
+- **R4-2** — **`generations[]`** added to the schema at generation level, plus
+  `contrast_operands`, `pairing_key` and `test_statistic`, so every pooled,
+  bootstrapped and entropy quantity is recomputable and every contrast's operands
+  and stage are machine-readable. **`results/` removed from `.gitignore`** — the
+  layer G5 depends on is now tracked.
+- **R4-3** — **`D_rand` redefined** from a corrected uniform sampler at fixed
+  block count: **0.719205** (analytic 0.718872, agreement 0.000333). The
+  repository's sampler is reported separately as **`D_repo_sampler` = 0.771931**
+  and never anchors a threshold — it is not uniform (`pooling` is 48.21% `none`
+  against 25%) and its block-count variation inflates *d*. Sanity range tightened
+  **[0.65, 0.80] → [0.705, 0.735]**, which now rejects the repository sampler, the
+  block-free corrected sampler *and* revision 3's own 0.74 anchor.
+- **R4-4** — remaining blocking and material defects resolved: `partial` given a
+  ΔD band and `worsens` named; frontier precision substitution stated;
+  indeterminate rescaling generalised to *k* columns
+  (winner needs ≥ ceil(0.75·n_scoreable), n_s < 4 → no verdict); E2's
+  **difference-of-means** permutation statistic, Cliff's δ tie convention,
+  leave-one-run-out BCa jackknife and lowest-index validation tie-break all named.
+- **R4-5** — **full discreteness table re-run at ALPHA = 0.05/17. Every floor
+  clears.** `B_batch` = 16 keeps a ceiling of 96 assignment-pairs (was 102) and
+  one discordant batch at 17.6% of ALPHA; the discordance tolerance is unchanged
+  at 1, so no change to `B_batch` is required.
+
+**Budget: 10,880 + 320·R generations — 17,280 at the R floor of 20.**
+*(rev 1: 9,400 · rev 2: 12,400 · rev 3: 16,000 · rev 4: 17,280.)*
+
+`src/emit/constants.py` updated to the new family and alpha; the **B1–B8 gate
+fixtures re-run and 8/8 still behave as required**, with B1/B2 now testing
+16/18 against a family of 17 rather than 15/17 against 16 — they are written
+against `K.FAMILY_SIZE`, so they test the invariant rather than a literal.
+Full suite: **5/5 pass**.
+
+**No compute in S2, S2a, S2b, S3a or S2c. No model called — local or hosted — no
+training, no GPU, no ML dependency installed.**
+
 ## The findings that shape everything downstream
 
 1. **The repository contains no experimental data.** 0 RAW / 0 SPEC /
@@ -207,15 +249,15 @@ torch, which is absent, so the sampler was executed by verbatim source extractio
 ## Time — the calendar is not an input to scope
 
 **Recorded as CONSIDERED AND REJECTED at S2a, carried into revision 3**
-(`EXPERIMENT_PLAN_R3.md` §8). The nearest workshop deadline is 2026-08-29 AoE and
-the plan now specifies **9,600 + 320·R** generations — 16,000 at the R floor of
+(`EXPERIMENT_PLAN_R4.md` §8). The nearest workshop deadline is 2026-08-29 AoE and
+the plan now specifies **10,880 + 320·R** generations — 17,280 at the R floor of
 20 — with zero training runs. **The venue follows the artifact, not the reverse.**
 The chosen venue is non-archival, so missing a cycle costs nothing — no priority,
 no publication window, no claim to the result — and workshop cycles recur,
 whereas a design weakened to fit a date is permanent.
 
 **Every revision has raised the budget, not lowered it** — 9,400 → 12,400 →
-16,000 at the floor — each time because that is what made a confirmatory test
+16,000 → 17,280 at the floor — each time because that is what made a confirmatory test
 decidable. That is the precedent §8 fixes. §8.2 lists what may not be proposed as
 a scope cut on schedule or budget grounds, now including any reduction of *B*
 below 16, which must argue against the ceiling table rather than against cost.
@@ -226,22 +268,23 @@ a further revision, after G2 a `DEVIATIONS.md` entry.
 
 - **G0, G1, G2 all await operator signature.** G0's recommendation is in
   `audit/SESSION_1_REPORT.md` §8. Never self-sign.
-- **G2 must NOT be signed against revision 3.** S3a's implementation pass found
-  7 blocking defects; six are in the §2.5/§2.6 signature-matching machinery that
-  decides C2. Signing now would close the revision route over a mechanism that
-  cannot be executed. **Revision 4 first, then sign.**
+- **G2 is signed at the END OF S3**, not before. Revision 4 closed all 25 S3a
+  defects, but the lesson S3a taught is that a plan is only as sound as its last
+  execution — so the gate waits until the analysis code exists and has been run
+  against revision 4 the way S3a was run against revision 3.
 - **38 open actions**, `audit/OPEN_ACTIONS.md`. Blocking before S6: **OA-37**
   (CoLLM-NAS replication status, five unverified leads) and **OA-38** (8 of 15
   obliged citations absent from `references_verified.bib`).
 - **S3 must run before any data collection**: measure `D_rand`; run
-  `scripts/power_e2.py` and **set `R_final = max(20, its output)`** — raising R to
+  `scripts/power_e2.py` at the new ALPHA and **set `R_final = max(20, its output)`** — raising R to
   meet it is compliance, not a deviation (§3.4); select and pin the frontier API
   model; freeze and hash the E1/E2 prompts; **implement gate 2 and confirm it
   passes at plan-load** (§5.2); fix and test OA-10 through OA-17; complete the
   GENIUS Appendix A.3 pass left open by seam S3.
-- **The generation budget is not yet a fixed number.** It is `9,600 + 320·R`,
-  and R is set by the S3 simulation with a floor of 20 — 16,000 at the floor,
-  more if the simulation demands it. The plan does not cap it (§3.5, §8.2).
+- **The generation budget is not yet a fixed number.** It is `10,880 + 320·R`,
+  and R is set by the S3 simulation with a floor of 20 — 17,280 at the floor,
+  more if the simulation demands it. The plan does not cap it (§3.5, §8.2). The
+  simulation must run at the **new** ALPHA, 0.0029411764705882353.
 - `neurips_2026.sty` must be fetched and byte-verified from **two** independent
   mirrors at S6 (`media.neurips.cc` has returned 404/403).
 - Anonymity and archival status of the selected venue are **NOT STATED** on its

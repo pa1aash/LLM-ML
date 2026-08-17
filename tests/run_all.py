@@ -6,7 +6,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SUITES = [
     ("Block B  adversarial gate tests", "tests/test_gates.py"),
     ("Block C1-C5  known-answer metrics", "tests/test_metrics.py"),
-    ("Block C6-C7  D_rand + batch-variance probe", "tests/compute_d_rand.py"),
+    ("R4-3  D_rand (corrected uniform) + D_repo_sampler", "tests/compute_d_rand_r4.py"),
     ("Block D  replay test", "tests/test_replay.py"),
     ("Block E  signature-match probe", "tests/probe_signature_match.py"),
 ]

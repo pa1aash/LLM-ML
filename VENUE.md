@@ -27,7 +27,7 @@ policy.
 
 **Why it fits.** The workshop's scope is that research production has outpaced
 quality control — reproducibility norms, evaluation, publication criteria. The
-paper's thesis (`EXPERIMENT_PLAN_R3.md` §1.1) is that a reported effect in a
+paper's thesis (`EXPERIMENT_PLAN_R4.md` §1.1) is that a reported effect in a
 subfield is an artifact of its measurement apparatus. That is a meta-science
 claim with an ML instantiation, which is the workshop's premise rather than an
 awkward fit to it. The position track's 8 pages also accommodates the three

@@ -98,8 +98,9 @@ def build_fixture(path: Path) -> dict:
 
     specs = [{"id": "X1.fixture", "permutation_mode": "paired_exact",
               "n_pairs_planned": K.N_BATCHES_PER_CELL}]
+    n_pad = K.FAMILY_SIZE - 2  # one real contrast + one not_applicable slot
     specs += [{"id": f"PAD{i}", "permutation_mode": "paired_exact",
-               "n_pairs_planned": K.N_BATCHES_PER_CELL} for i in range(14)]
+               "n_pairs_planned": K.N_BATCHES_PER_CELL} for i in range(n_pad)]
     specs += [{"id": "X3.frontier", "permutation_mode": "not_applicable"}]
 
     em = ResultsEmitter(experiment="E1")
@@ -131,7 +132,7 @@ def build_fixture(path: Path) -> dict:
                    "ci95": [None, None], "u_stat": u},
         "status": "ok",
     })
-    for i in range(14):
+    for i in range(n_pad):
         em.add_statistic({
             "id": f"PAD{i}", "kind": "paired_permutation", "contrast": "pad",
             "paired": True, "permutation_mode": "paired_exact",

@@ -56,7 +56,7 @@ session on the operator's instruction, not self-assessed.
 |---|---|---|
 | Is "feedback degrades LLM-guided NAS" already published or partially scooped? | **Answered.** The unqualified thesis is **REFUTED** — contradicted by two controlled ablations (RZ-NAS, ICML 2025; EvoPrompting), and unsupported by its own strongest cited ally, GENIUS, whose per-trial Appendix A.3 tables show feedback beating zero-shot in every reported trajectory. The mechanism-specific version is **SCOOPED** by CoLLM-NAS (Oral, CVPR 2026 NAS Workshop), whose Generator-memory ablation reports uncurated in-context history "induces progressive noise accumulation, leading to performance degradation." | `research/notes/interim-report-l1-feedback-degradation-priority.md`, `research/temp/comparisons.md` |
 | Strongest published counter-evidence identified and answered | **Met.** RZ-NAS is the strongest counter-case. Answer: its ablation's *internal* validity stands (a confound in a shared signal cannot manufacture a between-arm difference), but its construct validity is narrowed — it refines against a single experimenter-chosen zero-cost proxy, validates rank correlation only on NAS-Bench-201 (the benchmark NAS-Bench-Suite-Zero itself calls the easy case), and never validates on the search spaces its headline claims rest on. | `research/temp/interim-report-L5.md`, `research/temp/comparisons.md` §1 |
-| Thesis selected | **Met.** Instrumentation-artifact thesis, framed as the **application** of an established 2024–26 mechanism to LLM-guided NAS, not as discovery of the mechanism. The general mechanism is published (4 sources); the NAS-scoped instantiation is NOT IN CORPUS across a vault sweep and a targeted arXiv wave. | `research/temp/corpus-critic-findings.md` C1; `EXPERIMENT_PLAN_R3.md` §1.1–1.2 |
+| Thesis selected | **Met.** Instrumentation-artifact thesis, framed as the **application** of an established 2024–26 mechanism to LLM-guided NAS, not as discovery of the mechanism. The general mechanism is published (4 sources); the NAS-scoped instantiation is NOT IN CORPUS across a vault sweep and a targeted arXiv wave. | `research/temp/corpus-critic-findings.md` C1; `EXPERIMENT_PLAN_R4.md` §1.1–1.2 |
 | Target venue selected with CFP requirements recorded | **Met.** AI for Meta-Science (NeurIPS 2026), position track, 8pp, NeurIPS 2026 template with modified footnote. Fallback: AI for Science — Verification in the Age of AI Scientists, Track B (Position), 4–8pp. | `VENUE.md`, `research/temp/venue-candidates.md` |
 
 **Operator signature:** ______________________  **Date:** ____________
@@ -65,10 +65,15 @@ session on the operator's instruction, not self-assessed.
 
 ## G2 — Claim surgery → pre-registration
 
-*Evidence below reflects the **amended** plan (revision 3, S2b). Revisions 1 and
-2 remain in the repository byte-identical; **revision 3 governs** and is the last
-pre-data revision — after this gate is signed, every change is a `DEVIATIONS.md`
-entry.*
+*Evidence below reflects the **amended** plan (revision 4, S2c). Revisions 1, 2
+and 3 remain in the repository byte-identical; **revision 4 governs**.*
+
+> **This gate is NOT signed yet, deliberately.** It is signed at the **end of
+> S3**, after the analysis code exists and has been run against revision 4 the way
+> S3a was run against revision 3. Revision 3 declared itself the last pre-data
+> revision on the assumption this gate would be signed next; an implementation
+> pass then found **25 defects in it, 7 blocking**. A plan is only as sound as its
+> last execution, so the gate waits for the code.
 
 **Criterion** *(current, set 2026-08-17)*
 
@@ -93,7 +98,7 @@ the work it governs has begun violates this file's own opening rule** ("each
 criterion is written before the work it governs"). The violation is recorded
 rather than hidden: the original text stands above, struck, and the replacement
 is dated. The surviving parts of the original criterion are not lost — the
-removal of every ORPHAN claim is discharged in `EXPERIMENT_PLAN_R3.md` §1.3, the
+removal of every ORPHAN claim is discharged in `EXPERIMENT_PLAN_R4.md` §1.3, the
 `CLAIM_TRACE.md` §5 inconsistencies are discharged there as abandoned claims, and
 the one-sentence thesis is §1.1.
 
@@ -101,25 +106,40 @@ the one-sentence thesis is §1.1.
 
 | Requirement | Status | Artifact |
 |---|---|---|
-| A pre-registered experiment plan exists | **Met.** 1,486 lines: thesis + novelty constraint, 8 abandoned claims each tied to the S0/S1 finding that killed it, 6 proposed claims, 3 fully specified experiments, analysis protocol with two enforced gates, deviation rules, citation obligations, explicit non-scope, and scope-protection rules. | `EXPERIMENT_PLAN_R3.md` (**revision 3, governing**) |
-| …is hashed | **Met.** SHA-256 `be61bda9f7b9a33dd9240ea56e010bc87bf0013495e7b0bbafeab0cbeccbdf03`, taken 2026-08-17T09:45:06Z. Chain: revision 1 `aeb174ff…bad3d` (05:10:13Z) → revision 2 `a9954ba3…1df1` (09:25:13Z) → revision 3. Revisions 1 and 2 remain byte-identical; both hashes were re-verified before revision 3 was written and again after it was committed. | `PREREGISTRATION.md` |
-| …and is committed before any data collection | **Met.** Re-verified independently at 2026-08-17T09:39:26Z, a fresh sweep not carried forward: `results/` absent, `results_v2/` absent, 0 `results*.json`, 0 `metadata.json`, 0 RAW / 0 SPEC / 0 TRANSCRIPT, `prompts/` absent, `scripts/power_e2.py` absent. No model served, no generation produced, no benchmark queried, no analysis script written. Three known near-matches on the `*spec*`/`*transcript*` sweep are enumerated so the check stays reproducible. | `PREREGISTRATION.md`, `audit/REPO_INVENTORY.json` |
-| Every claim is falsifiable | **Met.** C1–C6 each state the observation that refutes them, against numeric thresholds fixed in §2.6 and §5.2. The thesis itself is conditional on C2 ∧ C5 and is withdrawn if C2 fails. | `EXPERIMENT_PLAN_R3.md` §1.4 |
-| Every rival has a distinguishing prediction | **Met.** Five rivals × five cells; all five signatures are pairwise distinct. Distinguishing cells: repair-artifact vs format-tax → schema pre-repair; format-tax vs genuine-prior → free-prose; genuine-prior vs decoding → temperature; quantisation → bf16. Ties and ≤3-of-5 winners are pre-registered as "no clean winner"; "no rival matches" is a permitted reportable outcome. | `EXPERIMENT_PLAN_R3.md` §2.5–2.6 |
-| …**and each distinguishing prediction is decidable** | **Met at revision 3. NOT met at revision 1, and only marginally met at revision 2.** The discriminating load sits on the two ΔD change columns. A paired sign-flip permutation test over *B* differences admits a smallest two-sided *p* of 2/2^*B*, and rejection at ALPHA needs the as-or-more-extreme count under `2^B/640`. **At *B* = 5 (revision 1) that floor was 0.0625 — twenty times ALPHA, so X1–X4 could not have rejected on any data.** At *B* = 10 (revision 2) the ceiling is **1 assignment-pair**: the observation must be the strictly unique maximum, so a single discordant batch kills the contrast at any effect size. At *B* = 16 (revision 3) the ceiling is **102 pairs** and one discordant batch lands at *p* = 0.000519, 17% of ALPHA. The ceiling table for *B* = 10/12/14/16 is recorded in the plan so the choice is auditable and any future reduction must argue against it. | `EXPERIMENT_PLAN_R3.md` §2.3 |
-| …**and undecidability cannot recur silently** | **Met (new at revision 3).** The permutation floor is now **fatal, not merely reported**. Gate 2 computes `min_attainable_p` for every confirmatory test **at plan-load time, before any data is read**, and **aborts** if any test has `min_attainable_p ≥ ALPHA`, naming the test, its *B* or *n*, its floor and ALPHA. A run-time arm recomputes the floor from the *realised* usable count — which null batches and failed runs can reduce — and emits any degraded contrast as `undecidable_by_discreteness` with `significant: null`, **never `significant: false`**. This closes the defect *class*, not just the revision-1 instance: no future deviation or run-time degradation can reintroduce an undecidable confirmatory test unnoticed. Planned floors all pass with orders of margin (paired 3.05e-5; unpaired 3.33e-9; E2 exact 1.45e-11; Monte-Carlo 1.0e-5). | `EXPERIMENT_PLAN_R3.md` §5.2 gate 2 |
-| Multiplicity fixed numerically in advance | **Met, unchanged across all three revisions.** FAMILY_SIZE = 16, ALPHA = 0.05/16 = 0.003125, with gate 1 aborting if the confirmatory count ≠ 16 or any `alpha_applied` ≠ `alpha`. Each of the ten amendments across S2a and S2b was checked individually against the family definition; none adds a confirmatory test. Promoting E2's secondary tasks (which would force 24 and an alpha change) was explicitly considered and not done. Directly guards against OA-5 recurring. | `EXPERIMENT_PLAN_R3.md` masthead + §5.2 |
-| Sample size is registered as a procedure, not a stale number | **Met (new at revision 3).** `R_final = max(20, the value scripts/power_e2.py confirms at S3)`. Raising R to meet the simulation is **compliance, not a deviation**; lowering it below the floor of 20 is forbidden outright, including by a simulation saying fewer suffice. This removes an asymmetry revision 2 left open, where §8.2 forbade reducing R below the confirmed value while the plan stated 20 as a fixed number. Budget is stated as `9,600 + 320·R` rather than a fixed total. | `EXPERIMENT_PLAN_R3.md` §3.4, §3.5, §8.2 |
-| Deviation protocol in force | **Met.** `DEVIATIONS.md` carries zero deviation entries, the log-before-run rule, and `LATE — PROTOCOL VIOLATION` labelling. Both supersessions are recorded there as supersessions rather than deviations, per §5.6 rule 4, and the ledger states that it now governs departures from revision 3. | `DEVIATIONS.md` |
-| Scope is protected against non-methodological pressure | **Met.** The calendar consideration is recorded as CONSIDERED AND REJECTED, with an explicit list of reductions that may not be proposed on schedule or budget grounds — now including any reduction of *B* below 16, which must argue against the ceiling table rather than against cost. The venue's non-archival status means missing a cycle costs nothing. **Every revision has raised the budget, not lowered it** — 9,400 → 12,400 → 16,000 at the floor — each time because that is what made a confirmatory test decidable. | `EXPERIMENT_PLAN_R3.md` §8 |
-| The revision route is closed at signature | **Recorded.** Revision 3 is the last pre-data revision. Its masthead, §5.6 rule 4 and `DEVIATIONS.md` all state that once G2 is signed every change is a deviation entry logged before the affected analysis runs. | `EXPERIMENT_PLAN_R3.md` masthead, §5.6 |
+| A pre-registered experiment plan exists | **Met.** 1,653 lines: thesis + novelty constraint, 8 abandoned claims each tied to the finding that killed it, 6 proposed claims, 3 fully specified experiments plus an anchor-tracking sub-design, analysis protocol with two enforced gates, deviation rules, citation obligations, explicit non-scope, scope protection, and a defect disposition for all 25 S3a findings. | `EXPERIMENT_PLAN_R4.md` (**revision 4, governing**) |
+| …is hashed | **Met.** SHA-256 `738601db1d55e81010a62ec1e1259f82e6466f7e8db02f0ec3de4ed15d80cc9d`, taken 2026-08-17T18:25:00Z. Chain: rev 1 `aeb174ff…bad3d` → rev 2 `a9954ba3…1df1` → rev 3 `be61bda9…df03` → rev 4. All three predecessors remain byte-identical; every hash re-verified before and after each step. | `PREREGISTRATION.md` |
+| …and is committed before any data collection | **Met.** Re-verified independently, not carried forward: `results_v2/` absent, 0 experimental `results*.json`, 0 `metadata.json`, 0 RAW / 0 SPEC / 0 TRANSCRIPT, `prompts/` absent, `scripts/power_e2.py` absent. `results/` is now tracked (D-25) and holds exactly two **model-free** files — the D_rand computation and the replay-test fixture — neither of which is experimental data. Three known `*spec*`/`*transcript*` near-matches enumerated so the sweep stays reproducible. | `PREREGISTRATION.md`, `audit/REPO_INVENTORY.json` |
+| Every claim is falsifiable | **Met.** C1–C6 each state the observation that refutes them against numeric thresholds fixed in §2.6 and §5.2. The thesis is conditional on C2 ∧ C5 and is withdrawn if C2 fails. | `EXPERIMENT_PLAN_R4.md` §1.4 |
+| Every rival has a distinguishing prediction | **Met at revision 4, and NOT met at revision 3.** S3a proved that folding `partial` into `reduced` — which §2.6 requires, since they are one band — left three rival pairs separated by a **single** column, and that for the pair deciding **C2** (`format tax` vs `genuine prior`) that column was **free-prose**, the one column §2.6 is most likely to rule unreliable. Revision 4 adds a **sixth column**, anchor tracking (§2.8), measured at the schema-constrained anchor configuration and therefore independent of free-prose parsing. The two rivals now differ in two columns and **free-prose is corroborating rather than load-bearing**. | `EXPERIMENT_PLAN_R4.md` §2.5, §2.8 |
+| …and every prediction is *scoreable* | **Met at revision 4.** Revision 3's `quantisation` row predicted `partial` in a **change** column while §2.6 defined only `no chg` and `recovers` for changes — one rival had an unscoreable cell and was silently capped at 4 of 5. Revision 4 defines `partial` on a change (+0.10 to +0.25·D_rand) and names `worsens` for the negative direction, and registers that an observation no rival predicts scores as a **mismatch**, not indeterminate. | `EXPERIMENT_PLAN_R4.md` §2.6 |
+| …and each distinguishing prediction is decidable | **Met at revision 4. NOT met at revision 1; marginal at revisions 2–3.** A paired sign-flip test over *B* differences admits a smallest two-sided *p* of 2/2^*B*. At *B* = 5 (rev 1) that floor was **0.0625**, twenty times alpha — X1–X4 could not have rejected on any data. At *B* = 10 (rev 2) the ceiling was **1 assignment-pair**: one discordant batch killed the contrast at any effect size. At *B* = 16 (rev 3–4) the ceiling is **96 pairs at the new alpha** and one discordant batch lands at **17.6% of ALPHA**. The full ceiling table for *B* = 10/12/14/16/32 is in the plan so any future reduction must argue against it. | `EXPERIMENT_PLAN_R4.md` §2.3 |
+| …and undecidability cannot recur silently | **Met.** Gate 2 computes `min_attainable_p` for every confirmatory test **at plan-load, before any data is read**, and **aborts** naming the test, its `B_batch` or *n*, its floor and ALPHA. A run-time arm recomputes from the *realised* count — which null batches and failed runs reduce — and emits degraded contrasts as `undecidable_by_discreteness` with `significant: null`, **never `false`**. **Verified by execution:** 8 adversarial fixtures, 8/8 behave as required at the new alpha. | `EXPERIMENT_PLAN_R4.md` §5.2; `tests/test_gates.py` |
+| Multiplicity fixed numerically in advance | **Met. Changed at revision 4: FAMILY_SIZE 16 → 17, ALPHA 0.003125 → 0.05/17 = 0.0029411764705882353.** R4-1 adds exactly one confirmatory test (X5); R4-2 through R4-5 add none, and the per-amendment check is tabulated in the plan's masthead and §9. Gate 1 aborts if the confirmatory count ≠ 17 or any `alpha_applied` ≠ ALPHA. **Every floor in the re-run discreteness table clears the tighter alpha** — no STOP condition triggered. | `EXPERIMENT_PLAN_R4.md` masthead, §5.2 |
+| The results layer is a provenance record | **Met at revision 4. NOT met at revision 3.** S3a's replay test found only **5 of 12** inspected quantities recomputable: the schema stored batch-level aggregates while pooled D, S, the entropies and every bootstrap interval are defined at generation level, and no generation-level record existed. Revision 4 adds **`generations[]`**, plus `contrast_operands`, `pairing_key` and `test_statistic` so a contrast's operands and stage are machine-readable rather than prose. **`results/` is removed from `.gitignore`** — revision 3 directed the entire G5 layer into a gitignored path. | `EXPERIMENT_PLAN_R4.md` §5.5; `tests/test_replay.py` |
+| The threshold reference is measured, not assumed | **Met at revision 4.** Revision 3 called the repository sampler "uniform" and anchored on ≈0.74; S3a measured it and neither held — `pooling` is **48.21% `none`** against 25% under uniformity, and block-count variation inflates *d* by **+7.96%**. Revision 4 anchors on a **corrected uniform sampler at fixed block count, `D_rand` = 0.719205** (analytic 0.718872), reports the repository's sampler separately as `D_repo_sampler` = 0.771931, and **tightens the sanity range to [0.705, 0.735]** — which now rejects the repository sampler, the block-free corrected sampler, and revision 3's own 0.74 anchor, all three of which [0.65, 0.80] admitted. | `EXPERIMENT_PLAN_R4.md` §2.6; `results/E1_reference.json` |
+| Deviation protocol in force | **Met.** `DEVIATIONS.md` carries zero deviation entries, the log-before-run rule, and `LATE — PROTOCOL VIOLATION` labelling. All three supersessions are recorded there as supersessions rather than deviations, per §5.6 rule 4, and the ledger states it now governs departures from revision 4. | `DEVIATIONS.md` |
+| Sample size is a procedure, not a stale number | **Met.** `R_final = max(20, the value scripts/power_e2.py confirms at S3)`. Raising R to meet the simulation is compliance; lowering below 20 is forbidden outright. The simulation must run at the **new** ALPHA. Budget is `10,880 + 320·R`. | `EXPERIMENT_PLAN_R4.md` §3.4, §3.5, §8.2 |
+| Scope is protected against non-methodological pressure | **Met.** The calendar is recorded as CONSIDERED AND REJECTED, with an explicit list of reductions unavailable on schedule or budget grounds — now including any reduction of `B_batch` below 16 **and removal of the §2.8 sub-design**, which is the only reason C2 is decidable. **Every revision has raised the budget** — 9,400 → 12,400 → 16,000 → 17,280 at the floor — each time to make a test decidable or an attribution separable. | `EXPERIMENT_PLAN_R4.md` §8 |
+| Every S3a defect is dispositioned | **Met.** All 25 resolved, none deferred, each with the choice made and the alternatives rejected recorded. | `EXPERIMENT_PLAN_R4.md` §9; `audit/S3A_IMPLEMENTATION_DEFECTS.md` |
 
-**Not met by this session, and outstanding:** the C6 thread — whether
-CoLLM-NAS's noise-accumulation ablation has been independently cited, replicated
-or challenged — is unsettled, with five unverified candidate citing papers. It
-does not block G2 but must be resolved before S6 writing (OA-37). Likewise OA-38:
-eight of the fifteen obliged citations are still absent from
-`audit/references_verified.bib`.
+**Outstanding, and why the gate still waits:**
+
+- **The analysis code for the new machinery does not exist yet.** §2.8's
+  `anchor_tracking` outcome, the generalised signature scorer, `generations[]`
+  emission and the E2 inference primitives are specified but unexecuted. S3a's
+  lesson is that specification and execution diverge — **and revision 4 proved it
+  again in its own drafting**, when X5 was first written as `paired_exact` at
+  2³² = 4.29 × 10⁹ assignments, an unenumerable reference set, and had to be
+  re-registered as Monte Carlo. Signing before the code runs would repeat exactly
+  the mistake that produced revisions 2, 3 and 4.
+- **OA-37** — the C6 thread: whether CoLLM-NAS's noise-accumulation ablation has
+  been independently cited, replicated or challenged, with five unverified
+  candidate citing papers. Does not block G2; must be resolved before S6.
+- **OA-38** — ten of the fifteen obliged citations are still absent from
+  `audit/references_verified.bib`. Does not block G2; must be resolved before S6.
+- **New at revision 4:** §2.8's manipulation touches the in-context ordering and
+  exemplar literature, which must be cited as **prior art for the mechanism** per
+  the §1.2 defect rule. Sourcing it is an S6 task and is not yet an open action.
 
 **Operator signature:** ______________________  **Date:** ____________
 
@@ -137,7 +157,7 @@ eight of the fifteen obliged citations are still absent from
 
 **Evidence:** *(pending)* — note that the *plan* half of this criterion (estimand,
 unit of analysis, seeds, correction family and threshold, which comparisons are
-confirmatory) is already discharged by `EXPERIMENT_PLAN_R3.md` §3.4, §3.5 and §5.
+confirmatory) is already discharged by `EXPERIMENT_PLAN_R4.md` §3.4, §3.5 and §5.
 G3 is **not** thereby satisfied. What remains is the code-defect half — OA-10
 through OA-17 fixed and tested — plus the S3 tasks the plan defers to it: measure
 `D_rand`; run `scripts/power_e2.py` and set `R_final = max(20, its output)`

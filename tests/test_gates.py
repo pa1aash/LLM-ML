@@ -4,11 +4,15 @@ A gate is worthless unless it fires. Each fixture is built to trigger (or to
 deliberately NOT trigger) one gate, and the outcome is checked against arithmetic
 computed here rather than against the outcome we expect.
 
-B4 is the trap case: 2/2**10 = 0.001953125, which is BELOW alpha = 0.003125, so
-B=10 must NOT abort even though it is a batch count the plan rejected on other
-grounds (its ceiling of 1 assignment-pair, §2.3). The gate tests decidability,
-not adequacy. These are different properties and the fixture proves the gate does
-not conflate them.
+B4 is the trap case: 2/2**10 = 0.001953125, which is BELOW alpha (0.0029411765
+at plan revision 4, 0.003125 at revisions 1-3), so B=10 must NOT abort even
+though it is a batch count the plan rejects on other grounds — its ceiling is one
+assignment-pair (§2.3). The gate tests decidability, not adequacy. These are
+different properties and the fixture proves the gate does not conflate them.
+
+B1 and B2 are written against K.FAMILY_SIZE rather than a literal, so they test
+the invariant "confirmatory count != FAMILY_SIZE aborts" rather than a number
+that changes with the plan revision.
 """
 
 from __future__ import annotations
@@ -56,7 +60,9 @@ def paired_stat(test_id: str, b_planned: int = 16, b_realised: int | None = None
     }
 
 
-def full_family(n: int = 16, b: int = 16) -> tuple[list[dict], list[dict]]:
+def full_family(n: int | None = None, b: int = 16) -> tuple[list[dict], list[dict]]:
+    if n is None:
+        n = K.FAMILY_SIZE
     specs = [paired_spec(f"T{i}", b) for i in range(n)]
     stats = [paired_stat(f"T{i}", b) for i in range(n)]
     return specs, stats
@@ -87,27 +93,27 @@ def run_fixture(name: str, expected: str, fn) -> None:
 # ----------------------------------------------------------------- B1 .. B8
 
 def b1_family_15():
-    specs, stats = full_family(15)
+    specs, stats = full_family(K.FAMILY_SIZE - 1)
     em = ResultsEmitter(experiment="FIXTURE")
     em.declare_confirmatory_design(specs)
     for s in stats:
         em.add_statistic(s)
     em.build()
-    return "built with 15 confirmatory"
+    return f"built with {K.FAMILY_SIZE - 1} confirmatory"
 
 
 def b2_family_17():
-    specs, stats = full_family(17)
+    specs, stats = full_family(K.FAMILY_SIZE + 1)
     em = ResultsEmitter(experiment="FIXTURE")
     em.declare_confirmatory_design(specs)
     for s in stats:
         em.add_statistic(s)
     em.build()
-    return "built with 17 confirmatory"
+    return f"built with {K.FAMILY_SIZE + 1} confirmatory"
 
 
 def b3_hand_edited_alpha():
-    specs, stats = full_family(16)
+    specs, stats = full_family()
     em = ResultsEmitter(experiment="FIXTURE")
     em.declare_confirmatory_design(specs)
     for s in stats:
@@ -122,7 +128,7 @@ def b3_hand_edited_alpha():
 def b4_paired_b10():
     floor = min_attainable_p("paired_exact", n_pairs=10)
     assert floor == 2 / 1024, floor
-    specs, stats = full_family(16, b=10)
+    specs, stats = full_family(b=10)
     em = ResultsEmitter(experiment="FIXTURE")
     rec = em.declare_confirmatory_design(specs)
     for s in stats:
@@ -138,7 +144,7 @@ def b4_paired_b10():
 def b5_paired_b5():
     floor = min_attainable_p("paired_exact", n_pairs=5)
     assert floor == 0.0625, floor
-    specs, stats = full_family(16, b=5)
+    specs, stats = full_family(b=5)
     em = ResultsEmitter(experiment="FIXTURE")
     em.declare_confirmatory_design(specs)
     for s in stats:
@@ -151,10 +157,10 @@ def b6_monte_carlo_1000():
     floor = min_attainable_p("monte_carlo", n_permutations=1000)
     specs = [
         {"id": f"MC{i}", "permutation_mode": "monte_carlo", "n_permutations": 1000}
-        for i in range(16)
+        for i in range(K.FAMILY_SIZE)
     ]
     stats = []
-    for i in range(16):
+    for i in range(K.FAMILY_SIZE):
         stats.append(
             {
                 "id": f"MC{i}",
@@ -177,7 +183,7 @@ def b6_monte_carlo_1000():
 
 
 def b7_realised_degraded():
-    specs, stats = full_family(16, b=16)
+    specs, stats = full_family(b=16)
     # One contrast degrades from 16 usable pairs to 5 through null batches.
     stats[3] = paired_stat("T3", b_planned=16, b_realised=5)
     stats[3]["significant"] = False  # what a naive emitter would have written
@@ -200,9 +206,9 @@ def b7_realised_degraded():
 
 
 def b8_not_applicable_slot():
-    specs = [paired_spec(f"T{i}") for i in range(15)]
+    specs = [paired_spec(f"T{i}") for i in range(K.FAMILY_SIZE - 1)]
     specs.append({"id": "X3.frontier", "permutation_mode": "not_applicable"})
-    stats = [paired_stat(f"T{i}") for i in range(15)]
+    stats = [paired_stat(f"T{i}") for i in range(K.FAMILY_SIZE - 1)]
     stats.append(
         not_applicable_slot("X3.frontier", "frontier API has no precision factor")
     )
@@ -212,7 +218,7 @@ def b8_not_applicable_slot():
         em.add_statistic(s)
     doc = em.build()
     n_conf = sum(1 for s in doc["statistics"] if s.get("confirmatory"))
-    assert n_conf == 16, n_conf
+    assert n_conf == K.FAMILY_SIZE, n_conf
     na = next(s for s in doc["statistics"] if s["id"] == "X3.frontier")
     assert na["p"] is None and na["significant"] is None
     exempt = [r for r in rec["per_test"] if r["exempt"]]
@@ -223,8 +229,8 @@ def b8_not_applicable_slot():
 
 
 FIXTURES = [
-    ("B1  family of 15", "abort [G-family]", b1_family_15),
-    ("B2  family of 17", "abort [G-family]", b2_family_17),
+    (f"B1  family of {K.FAMILY_SIZE - 1}", "abort [G-family]", b1_family_15),
+    (f"B2  family of {K.FAMILY_SIZE + 1}", "abort [G-family]", b2_family_17),
     ("B3  hand-edited alpha_applied", "abort [G-alpha]", b3_hand_edited_alpha),
     ("B4  paired contrast at B=10", "no abort", b4_paired_b10),
     ("B5  paired contrast at B=5", "abort [G-discreteness]", b5_paired_b5),
@@ -250,9 +256,9 @@ def main() -> int:
             print(f"  {r['fixture']}: {r['detail']}")
 
     print()
-    print("Ceiling table (plan §2.3), recomputed here:")
+    print(f"Ceiling table (plan §2.3) at ALPHA = 0.05/{K.FAMILY_SIZE} = {ALPHA!r}:")
     print(f"  {'B':>3} {'2^B':>8} {'ceiling(pairs)':>15} {'min_p':>13} {'k_max':>6}")
-    for b in (10, 12, 14, 16):
+    for b in (10, 12, 14, 16, 32):
         print(
             f"  {b:>3} {2**b:>8} {ceiling_pairs(b, ALPHA):>15} "
             f"{min_attainable_p('paired_exact', n_pairs=b):>13.9f} "
