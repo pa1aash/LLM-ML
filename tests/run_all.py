@@ -9,6 +9,8 @@ SUITES = [
     ("R4-3  D_rand (corrected uniform) + D_repo_sampler", "tests/compute_d_rand_r4.py"),
     ("Block D  replay test", "tests/test_replay.py"),
     ("Block E  signature-match probe", "tests/probe_signature_match.py"),
+    ("S3b C1-C16  scorer fixtures", "tests/test_scorers.py"),
+    ("S3b Block D  plan-to-code coverage", "tests/check_coverage.py"),
 ]
 fail = 0
 for name, path in SUITES:

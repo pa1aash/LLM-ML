@@ -11,7 +11,7 @@ S4 build → S5 results-file layer → S6 write → S7 referee
 
 ---
 
-## Current stage: **S2c complete at revision 4 — G2 unsigned, S3 next**
+## Current stage: **S3b complete — G2 unsigned, revision 5 pending**
 
 S0 audit complete (G0 unsigned). S1 positioning complete (G1 recorded PASSED on
 operator authorisation, unsigned). S2 produced the pre-registered plan; **S2a**,
@@ -39,10 +39,10 @@ Revisions 1, 2 and 3 remain **byte-identical**; every hash was re-verified befor
 and after each step. The plan is never edited in place.
 
 **The revision route closes at the END OF S3**, when the analysis code exists and
-G2 is signed against a plan that has been *executed*, not only read. Revision 3
-declared itself final on the assumption the gate would be signed next; the
-implementation pass then found 25 defects in it. **That ordering is now
-registered: build the analysis code, then sign the gate.**
+G2 is signed against a plan that has been *executed*, not only read. **S3b
+implemented the two scorers that decide C2 and found 18 further defects, 5
+blocking** (`audit/S3B_SCORER_DEFECTS.md`) — so the ordering keeps earning its
+keep. Revision 5 folds those in together with four operator decisions.
 
 ---
 
@@ -231,6 +231,40 @@ Full suite: **5/5 pass**.
 **No compute in S2, S2a, S2b, S3a or S2c. No model called — local or hosted — no
 training, no GPU, no ML dependency installed.**
 
+### S3b — implement the two scorers that decide C2 *(this session)*
+
+Built **before** revision 5 and before G2, on the same principle as S3a: the plan
+is only as sound as its last execution.
+
+- **`src/emit/anchor.py`** — the anchor-tracking scorer (§2.4.7, §2.8).
+  Per-field modal extraction restricted to collapsed fields; `tracks_first` and
+  `tracks_exemplar` kept **separate, never merged**; ties broken toward the
+  earlier-enumerated value with `modal_tie_count` recorded; zero collapsed fields
+  → `null`, never imputed; BCa intervals bootstrapped over **batches**. Emits
+  **three** labellings side by side: the plan's flat 0.50 bar, a symmetric
+  per-field chance rule, and a **one-sided null-at-chance** rule.
+- **`src/emit/signature.py`** — the generalised signature scorer (§2.5, §2.6).
+  Five rivals × six columns; the new `partial` / `worsens` change bands;
+  indeterminate columns lowering `n_s` with threshold `ceil(0.75·n_s)` and
+  `n_s < 4` → no verdict; strict-max winner; tie or sub-threshold → mixed
+  attribution; zero-match → reportable outcome.
+- **`tests/test_scorers.py`** — C1–C16, **22/22 assertions pass**, including
+  **C15**: with free-prose forced `indeterminate`, `repair artifact` and
+  `format tax` still separate.
+- **`tests/check_coverage.py`** — plan-to-code coverage. **13/15 forward
+  mappings and 11/15 reverse mappings resolve; 6 gaps.**
+- **`audit/S3B_SCORER_DEFECTS.md`** — 18 defects: **5 blocking**, 9 material,
+  3 minor, 1 resolved by implementation.
+
+**The two that sit on C2's path:** the **pre-repair** tracking aggregate has no
+registered cell field, though both instrument rivals hinge on it (S3B-12); and the
+per-field rule as briefed, implemented symmetrically, makes `quantisation`,
+`decoding` and `genuine prior` unmatchable on the tracking column (S3B-11) — the
+**one-sided** form is required.
+
+**No compute. No model called — local or hosted — no training, no GPU, no ML
+dependency installed. All fixture data constructed by hand.**
+
 ## The findings that shape everything downstream
 
 1. **The repository contains no experimental data.** 0 RAW / 0 SPEC /
@@ -269,9 +303,14 @@ a further revision, after G2 a `DEVIATIONS.md` entry.
 - **G0, G1, G2 all await operator signature.** G0's recommendation is in
   `audit/SESSION_1_REPORT.md` §8. Never self-sign.
 - **G2 is signed at the END OF S3**, not before. Revision 4 closed all 25 S3a
-  defects, but the lesson S3a taught is that a plan is only as sound as its last
-  execution — so the gate waits until the analysis code exists and has been run
-  against revision 4 the way S3a was run against revision 3.
+  defects; S3b then implemented the two scorers and found 18 more, 5 blocking.
+  **Revision 5 first.**
+- **Revision 5 must fold in:** the 18 S3B defects, plus four operator decisions —
+  anchor-tracking extended to all three models (**FAMILY_SIZE 17 → 19, ALPHA =
+  0.05/19 = 0.0026315789473684210**, with every floor re-run and a STOP if any
+  fails); per-field reversal declined with the limit recorded; per-field chance
+  rates replacing the flat bar (**in the one-sided form**, per S3B-11); and every
+  rival predicting on both `tracks_first` and `tracks_exemplar`.
 - **38 open actions**, `audit/OPEN_ACTIONS.md`. Blocking before S6: **OA-37**
   (CoLLM-NAS replication status, five unverified leads) and **OA-38** (8 of 15
   obliged citations absent from `references_verified.bib`).

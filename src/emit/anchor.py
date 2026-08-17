@@ -1,0 +1,360 @@
+"""Anchor-tracking scorer — EXPERIMENT_PLAN_R4.md §2.4.7, §2.8.
+
+This is the outcome the sixth prediction column is built on, and therefore the
+one that decides C2 when the free-prose column is unreliable.
+
+Two things the plan does not register, decided here to proceed and recorded in
+audit/S3B_SCORER_DEFECTS.md:
+
+  S3B-01  What makes a FIELD "collapsed". §2.4.7 says "each field f whose
+          distribution in a cell is classified collapsed", but §2.6's `collapsed`
+          label is defined for D, a batch diversity, not for a field. §2.4.4
+          gives a normalised per-field entropy and no threshold. Implemented here
+          as normalised entropy < 0.15, mirroring D < 0.15*D_rand: both
+          quantities are normalised so that 1.0 is the uniform reference.
+
+  S3B-02  What the exemplar's value is for fields the exemplar does not name.
+          §2.8 specifies the exemplar only for conv_type / activation /
+          normalization. `tracks_exemplar` is therefore computed over those three
+          fields only, with its own denominator, reported separately from
+          `tracks_first`.
+
+PER-FIELD CHANCE RATES (proposed for revision 5) are computed alongside the
+plan's registered flat 0.50 bar. Both verdicts are always emitted; where they
+disagree, that is the evidence for the revision.
+"""
+
+from __future__ import annotations
+
+import math
+import random
+from dataclasses import dataclass, field as dc_field
+from typing import Any, Iterable, Sequence
+
+from . import constants as K
+from .metrics import normalised_field_entropy
+
+try:
+    from scipy.stats import norm as _norm
+
+    def _phi(x: float) -> float:
+        return float(_norm.cdf(x))
+
+    def _phi_inv(p: float) -> float:
+        return float(_norm.ppf(p))
+except Exception:  # pragma: no cover - scipy is present in this environment
+    def _phi(x: float) -> float:
+        return 0.5 * (1.0 + math.erf(x / math.sqrt(2.0)))
+
+    def _phi_inv(p: float) -> float:
+        raise RuntimeError("scipy required for BCa")
+
+
+# ---------------------------------------------------------------- field collapse
+
+#: S3B-01. Not registered by the plan. Mirrors D < 0.15*D_rand: normalised
+#: entropy is already scaled so 1.0 is the uniform reference.
+FIELD_COLLAPSE_ENTROPY_THRESHOLD = 0.15
+
+#: S3B-02. The three fields §2.8's exemplar actually specifies.
+EXEMPLAR_FIELDS = ("conv_type", "activation", "normalization")
+
+EXEMPLARS = {
+    "modal": {"conv_type": "standard_3x3", "activation": "relu",
+              "normalization": "batchnorm"},
+    "non_modal": {"conv_type": "depthwise_separable", "activation": "gelu",
+                  "normalization": "groupnorm"},
+}
+
+
+def enumeration_order(field: str, order: str) -> list:
+    """The value list as the harness presents it, per §2.8."""
+    vocab = list(K.FIELD_VOCAB[field])
+    if order == "canonical":
+        return vocab
+    if order == "reversed":
+        return list(reversed(vocab))
+    raise ValueError(f"unknown enumeration order {order!r}")
+
+
+def collapsed_fields(configs: Sequence[dict], threshold: float | None = None) -> list[str]:
+    """Fields whose normalised entropy falls below the collapse threshold."""
+    if threshold is None:
+        threshold = FIELD_COLLAPSE_ENTROPY_THRESHOLD
+    out = []
+    for f in K.PER_BLOCK_FIELDS:
+        h = normalised_field_entropy(configs, f)
+        if h is not None and h < threshold:
+            out.append(f)
+    return out
+
+
+def modal_value(configs: Sequence[dict], field: str, order: str) -> tuple[Any, bool]:
+    """Most frequent realised value, ties broken toward the earlier-enumerated.
+
+    Returns (value, tied). The tie-break deliberately biases toward finding
+    tracking, so a null result is conservative and a positive one must be read
+    with the tie count (§2.4.7).
+    """
+    counts: dict[Any, int] = {}
+    for cfg in configs:
+        for blk in cfg.get("blocks", []):
+            v = blk.get(field)
+            counts[v] = counts.get(v, 0) + 1
+    if not counts:
+        return None, False
+    top = max(counts.values())
+    tied_values = [v for v, c in counts.items() if c == top]
+    order_list = enumeration_order(field, order)
+    tied_values.sort(key=lambda v: order_list.index(v) if v in order_list else len(order_list))
+    return tied_values[0], len(tied_values) > 1
+
+
+# ------------------------------------------------------------------ per batch
+
+@dataclass
+class BatchTracking:
+    collapsed: list[str]
+    tracks_first: float | None          # proportion over collapsed fields
+    tracks_exemplar: float | None       # proportion over collapsed EXEMPLAR_FIELDS
+    n_first: int
+    n_exemplar: int
+    modal_tie_count: int
+    per_field_first: dict[str, int] = dc_field(default_factory=dict)
+    per_field_exemplar: dict[str, int] = dc_field(default_factory=dict)
+
+    def to_json(self) -> dict:
+        return {
+            "collapsed_fields": self.collapsed,
+            "tracks_first": self.tracks_first,
+            "tracks_exemplar": self.tracks_exemplar,
+            "n_first": self.n_first,
+            "n_exemplar": self.n_exemplar,
+            "modal_tie_count": self.modal_tie_count,
+            "per_field_first": self.per_field_first,
+            "per_field_exemplar": self.per_field_exemplar,
+        }
+
+
+def batch_tracking(configs: Sequence[dict], order: str, exemplar: str,
+                   threshold: float | None = None) -> BatchTracking:
+    """§2.4.7 for one batch at one stage. Zero collapsed fields -> null, never 0."""
+    coll = collapsed_fields(configs, threshold)
+    if not coll:
+        return BatchTracking([], None, None, 0, 0, 0)
+
+    ties = 0
+    first_hits: dict[str, int] = {}
+    exemplar_hits: dict[str, int] = {}
+    ex_values = EXEMPLARS[exemplar]
+
+    for f in coll:
+        modal, tied = modal_value(configs, f, order)
+        ties += int(tied)
+        first_hits[f] = int(modal == enumeration_order(f, order)[0])
+        if f in EXEMPLAR_FIELDS:
+            exemplar_hits[f] = int(modal == ex_values[f])
+
+    tf = sum(first_hits.values()) / len(first_hits)
+    te = (sum(exemplar_hits.values()) / len(exemplar_hits)) if exemplar_hits else None
+    return BatchTracking(coll, tf, te, len(first_hits), len(exemplar_hits), ties,
+                         first_hits, exemplar_hits)
+
+
+# ------------------------------------------------------------------- BCa
+
+def _bca(values: Sequence[float], n_boot: int, seed: int) -> tuple[float, float, float]:
+    """BCa 95% interval on the mean. Returns (point, lo, hi).
+
+    Falls back to the percentile interval when the bootstrap distribution is
+    degenerate (every resample identical), which happens whenever every batch
+    reports the same proportion — common with small collapsed-field counts.
+    """
+    n = len(values)
+    point = sum(values) / n
+    if n < 2:
+        return point, point, point
+
+    rng = random.Random(seed)
+    boots = []
+    for _ in range(n_boot):
+        s = [values[rng.randrange(n)] for _ in range(n)]
+        boots.append(sum(s) / n)
+    boots.sort()
+
+    n_less = sum(1 for b in boots if b < point)
+    if n_less == 0 or n_less == n_boot:
+        lo = boots[int(0.025 * (n_boot - 1))]
+        hi = boots[int(0.975 * (n_boot - 1))]
+        return point, lo, hi
+
+    z0 = _phi_inv(n_less / n_boot)
+
+    jack = []
+    for i in range(n):
+        rest = values[:i] + values[i + 1:]
+        jack.append(sum(rest) / len(rest))
+    jbar = sum(jack) / n
+    num = sum((jbar - x) ** 3 for x in jack)
+    den = 6.0 * (sum((jbar - x) ** 2 for x in jack) ** 1.5)
+    a = num / den if den != 0 else 0.0
+
+    out = []
+    for q in (0.025, 0.975):
+        z = _phi_inv(q)
+        adj = z0 + (z0 + z) / (1 - a * (z0 + z))
+        p = _phi(adj)
+        p = min(max(p, 0.0), 1.0)
+        out.append(boots[min(int(p * (n_boot - 1)), n_boot - 1)])
+    return point, out[0], out[1]
+
+
+# ------------------------------------------------------------------ labelling
+
+def label_against(point: float, lo: float, hi: float, bar: float) -> str:
+    """§2.6's three-way label, generalised over the reference bar.
+
+    The plan registers bar = 0.50 flat. The per-field form passes the chance rate.
+    `indeterminate` also covers the boundary case lo == bar or hi == bar, which
+    §2.6 leaves open (S3B-04): an interval whose endpoint sits exactly on the bar
+    does not exclude it.
+    """
+    if lo > bar:
+        return "tracks"
+    if hi < bar:
+        return "no tracking"
+    return "indeterminate"
+
+
+def label_null_at_chance(point: float, lo: float, hi: float, bar: float) -> str:
+    """Third rule, proposed alongside the other two (S3B-18).
+
+    Both registered rules treat `tracks` and `no tracking` as symmetric positive
+    claims, which forces `indeterminate` whenever the interval merely contains
+    the bar. But the substantive null IS chance: a genuine prior produces a
+    tracking rate AT chance, not below it. So:
+
+        tracks        -> the interval excludes the bar from ABOVE (lo > bar)
+        no tracking   -> the interval CONTAINS the bar, or lies below it
+        indeterminate -> reserved for insufficient data, decided upstream
+
+    Under the two symmetric rules `genuine prior` can essentially never MATCH
+    the tracking column, because "no tracking" would require the observed rate to
+    sit measurably BELOW chance — which nothing predicts.
+    """
+    if lo > bar:
+        return "tracks"
+    return "no tracking"
+
+
+def chance_rate(fields: Iterable[str]) -> float:
+    """Vocabulary-weighted expected tracking rate under a genuine prior.
+
+    Each collapsed field contributes 1/|V_f|; the aggregate is their mean over
+    every (batch, field) collapsed instance.
+    """
+    fs = list(fields)
+    if not fs:
+        return float("nan")
+    return sum(1.0 / len(K.FIELD_VOCAB[f]) for f in fs) / len(fs)
+
+
+# ------------------------------------------------------------------- per cell
+
+@dataclass
+class CellTracking:
+    quantity: str                       # "tracks_first" | "tracks_exemplar"
+    point: float | None
+    ci95: tuple[float, float] | None
+    n_batches_used: int
+    n_null_batches: int
+    modal_tie_count: int
+    chance_rate: float
+    label_flat: str                     # plan-registered, bar = 0.50
+    label_chance: str                   # proposed for revision 5, symmetric
+    label_null: str                     # proposed for revision 5, one-sided
+    per_field: dict[str, dict]
+
+    def to_json(self) -> dict:
+        return {
+            "quantity": self.quantity,
+            "point": self.point,
+            "ci95": list(self.ci95) if self.ci95 else None,
+            "n_batches_used": self.n_batches_used,
+            "n_null_batches": self.n_null_batches,
+            "modal_tie_count": self.modal_tie_count,
+            "chance_rate": self.chance_rate,
+            "label_flat_0p50": self.label_flat,
+            "label_per_field_chance": self.label_chance,
+            "label_null_at_chance": self.label_null,
+            "labels_agree": self.label_flat == self.label_chance == self.label_null,
+            "per_field": self.per_field,
+        }
+
+
+def cell_tracking(batches: Sequence[BatchTracking], quantity: str,
+                  n_boot: int = K.BOOTSTRAP_RESAMPLES,
+                  seed: int = K.BOOTSTRAP_SEED) -> CellTracking:
+    """Aggregate batch proportions to a cell, with both labelling rules.
+
+    The bootstrap unit is the BATCH (S3B-03): §2.4.5's registered unit is the
+    generation, but the statistic here is a per-batch proportion over fields, and
+    generations are not its sampling unit.
+    """
+    vals = [getattr(b, quantity) for b in batches]
+    used = [v for v in vals if v is not None]
+    n_null = len(vals) - len(used)
+    ties = sum(b.modal_tie_count for b in batches)
+
+    if quantity == "tracks_first":
+        instances = [f for b in batches for f in b.per_field_first]
+    else:
+        instances = [f for b in batches for f in b.per_field_exemplar]
+    cr = chance_rate(instances)
+
+    per_field: dict[str, dict] = {}
+    key = "per_field_first" if quantity == "tracks_first" else "per_field_exemplar"
+    fields_seen: set[str] = set()
+    for b in batches:
+        fields_seen |= set(getattr(b, key))
+    for f in sorted(fields_seen):
+        hits = [getattr(b, key)[f] for b in batches if f in getattr(b, key)]
+        if not hits:
+            continue
+        p, lo, hi = _bca(hits, n_boot, seed)
+        f_chance = 1.0 / len(K.FIELD_VOCAB[f])
+        per_field[f] = {
+            "n": len(hits), "point": p, "ci95": [lo, hi],
+            "chance_rate": f_chance,
+            "label_flat_0p50": label_against(p, lo, hi, K.ANCHOR_TRACKING_THRESHOLD),
+            "label_per_field_chance": label_against(p, lo, hi, f_chance),
+        }
+
+    if not used:
+        return CellTracking(quantity, None, None, 0, n_null, ties, cr,
+                            "indeterminate", "indeterminate", "indeterminate",
+                            per_field)
+
+    point, lo, hi = _bca(used, n_boot, seed)
+    return CellTracking(
+        quantity, point, (lo, hi), len(used), n_null, ties, cr,
+        label_against(point, lo, hi, K.ANCHOR_TRACKING_THRESHOLD),
+        label_against(point, lo, hi, cr),
+        label_null_at_chance(point, lo, hi, cr),
+        per_field,
+    )
+
+
+def score_cell(batch_configs: Sequence[Sequence[dict]], order: str, exemplar: str,
+               n_boot: int = K.BOOTSTRAP_RESAMPLES,
+               seed: int = K.BOOTSTRAP_SEED,
+               threshold: float | None = None) -> dict:
+    """End-to-end: batches of configs -> both tracking quantities for one cell."""
+    bts = [batch_tracking(cfgs, order, exemplar, threshold) for cfgs in batch_configs]
+    return {
+        "enumeration_order": order,
+        "exemplar": exemplar,
+        "batches": [b.to_json() for b in bts],
+        "tracks_first": cell_tracking(bts, "tracks_first", n_boot, seed).to_json(),
+        "tracks_exemplar": cell_tracking(bts, "tracks_exemplar", n_boot, seed).to_json(),
+    }
