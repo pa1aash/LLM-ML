@@ -1,7 +1,7 @@
 # DEVIATIONS
 
-Departures from the **governing plan** — currently `EXPERIMENT_PLAN_R2.md`
-(revision 2). The plan is frozen at the SHA-256 recorded in `PREREGISTRATION.md`
+Departures from the **governing plan** — currently `EXPERIMENT_PLAN_R3.md`
+(revision 3). The plan is frozen at the SHA-256 recorded in `PREREGISTRATION.md`
 and is **never edited**. Every change to what is actually done is logged here
 instead.
 
@@ -57,24 +57,52 @@ instead.
 
 ---
 
-## Supersession record — not a deviation
+## Supersession records — NOT deviations
 
-**2026-08-17 — revision 1 superseded by revision 2.** Six amendments (A1–A6) were
-made to the plan before any data collection. Under rule 5 above, a wholesale
-change is a **numbered revision written as a new file**, not a deviation entry:
-`EXPERIMENT_PLAN_R2.md`, SHA-256 `a9954ba3…1df1`, citing revision 1's
-`aeb174ff…bad3d`. `EXPERIMENT_PLAN.md` remains byte-identical and its hash was
-re-verified at the moment revision 2 was hashed.
+A wholesale change to the plan before any data collection is a **numbered
+revision written as a new file** under **rule 5 above** (the governing plan's own
+§5.6 rule 4, renumbered in this list), not a deviation entry. Two
+have occurred. Both are recorded here so the ledger is a complete history even
+though neither is a departure from a plan under which work had begun.
 
-The amendments are listed in revision 2's masthead and in `PREREGISTRATION.md`.
-The confirmatory family was checked amendment-by-amendment and is **unchanged at
-16 tests, ALPHA = 0.003125**.
+**2026-08-17 — revision 1 superseded by revision 2.** Six amendments (A1–A6):
+E1 batches 5 → 10; a within-cell bootstrap interval on D and ΔD; a parse-free
+surface diversity measure S; retention of all three E2 tasks with reasoning
+recorded; a new §8 recording the calendar as considered and rejected; and
+confirmation that the confirmatory family was unchanged. `EXPERIMENT_PLAN_R2.md`,
+SHA-256 `a9954ba3…1df1`, citing revision 1's `aeb174ff…bad3d`.
 
-This ledger governs departures from **revision 2** from this point forward.
+**2026-08-17 — revision 2 superseded by revision 3.** Four amendments (R3-1…4):
+E1 batches 10 → 16, chosen on the paired permutation test's discreteness ceiling
+and justified by a table for *B* = 10/12/14/16; the permutation floor made
+**fatal**, checked at plan-load before any data is read, with a run-time arm that
+marks degraded contrasts `undecidable_by_discreteness` rather than letting them
+read as nulls; **R redefined** as `max(20, the S3-confirmed value)` so that an
+increase demanded by the power simulation is compliance rather than a deviation;
+and confirmation that the family was unchanged. `EXPERIMENT_PLAN_R3.md`, SHA-256
+`be61bda9…df03`, citing revision 2's `a9954ba3…1df1`.
+
+`EXPERIMENT_PLAN.md` and `EXPERIMENT_PLAN_R2.md` both remain byte-identical;
+their hashes were re-verified before and after revision 3 was written. The
+confirmatory family was checked amendment-by-amendment at both steps and is
+**unchanged at 16 tests, ALPHA = 0.003125**.
+
+**This ledger governs departures from revision 3 from this point forward.**
+
+**The revision route closes when G2 is signed.** Revision 3 is the last pre-data
+revision. After the gate is signed, every change — including one that would
+previously have justified a new revision — is an entry in the Entries section
+below, logged before the affected analysis runs.
+
+**One thing that is explicitly not a deviation:** raising R to the value
+`scripts/power_e2.py` confirms at S3, where that value exceeds 20. Revision 3
+§3.4 registers the procedure rather than the number, so complying with its output
+is compliance. Lowering R below 20 is forbidden outright (§8.2) and is not
+available even as a logged deviation.
 
 ---
 
 ## Entries
 
 *None. No data has been collected and no analysis has been run as of the
-revision-2 pre-registration hash.*
+revision-3 pre-registration hash (`be61bda9…df03`, 2026-08-17T09:45:06Z).*

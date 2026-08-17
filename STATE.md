@@ -11,18 +11,32 @@ S4 build → S5 results-file layer → S6 write → S7 referee
 
 ---
 
-## Current stage: **S2 complete, amended (S2a) — awaiting G2 signature**
+## Current stage: **S2 complete at revision 3 — awaiting G2 signature**
 
 S0 audit complete (G0 unsigned). S1 positioning complete (G1 recorded PASSED on
 operator authorisation, unsigned). S2 produced the pre-registered experiment plan
-and froze it. **S2a amended the plan before any data collection, as revision 2.**
+and froze it; **S2a** amended it as revision 2 and **S2b** as revision 3, both
+before any data collection.
 
-**Governing plan: `EXPERIMENT_PLAN_R2.md`** (revision 2), SHA-256
-`a9954ba3c1dc61fce8e9ddb0b057eb4f14ab99c4b528c0b0446a7171e43b1df1`, hashed
-2026-08-17T09:25:13Z. It supersedes `EXPERIMENT_PLAN.md` (revision 1,
-`aeb174ff…bad3d`), which remains in the repository **byte-identical** and
-re-verified. The successor route is what revision 1 §5.6 rule 4 requires; the
-plan is never edited in place.
+**Governing plan: `EXPERIMENT_PLAN_R3.md`** (revision 3), SHA-256
+`be61bda9f7b9a33dd9240ea56e010bc87bf0013495e7b0bbafeab0cbeccbdf03`, hashed
+2026-08-17T09:45:06Z.
+
+```
+  rev 1  aeb174ff…bad3d  EXPERIMENT_PLAN.md      05:10:13Z
+    │ §5.6 rule 4
+  rev 2  a9954ba3…1df1   EXPERIMENT_PLAN_R2.md   09:25:13Z
+    │ §5.6 rule 4
+  rev 3  be61bda9…df03   EXPERIMENT_PLAN_R3.md   09:45:06Z   ← GOVERNING
+```
+
+Revisions 1 and 2 remain in the repository **byte-identical**; both hashes were
+re-verified before revision 3 was written and again after it was committed. The
+successor route is what §5.6 rule 4 requires — the plan is never edited in place.
+
+**Revision 3 is the last pre-data revision.** Once G2 is signed the revision
+route closes and every change is a `DEVIATIONS.md` entry logged before the
+affected analysis runs.
 
 ---
 
@@ -36,7 +50,7 @@ plan is never edited in place.
 structured decoding and output repair distorting what is measured about a model
 — is published 2024–2026 literature. Its instantiation in LLM-guided NAS is not.
 Any downstream sentence claiming the mechanism is a defect
-(`EXPERIMENT_PLAN_R2.md` §1.2).
+(`EXPERIMENT_PLAN_R3.md` §1.2).
 
 ---
 
@@ -74,7 +88,7 @@ Any downstream sentence claiming the mechanism is a defect
 - `audit/OPEN_ACTIONS.md` — OA-37 (C6 thread) and OA-38 (missing bib entries)
   opened; OA-5, OA-26 and OA-32 dispositions recorded.
 
-### S2a — plan amendment *(this session)*
+### S2a — plan amendment (revision 2)
 
 **`EXPERIMENT_PLAN_R2.md`** — 1,323 lines, wholesale successor, six amendments:
 
@@ -104,7 +118,37 @@ Revision 1 remains byte-identical and its hash was re-verified at the moment
 revision 2 was hashed. Data status re-verified independently at
 2026-08-17T09:18:00Z, not carried forward.
 
-**No compute was used in S2 or S2a. No model trained or called, no hardware
+### S2b — plan amendment (revision 3) *(this session)*
+
+**`EXPERIMENT_PLAN_R3.md`** — 1,486 lines, wholesale successor, four amendments:
+
+- **R3-1** — E1 batches per cell 10 → **16** (320 per cell, **9,600** E1
+  generations); seed vector extended to `[7001…7016]`. Chosen on the paired
+  permutation test's **discreteness ceiling**, tabulated for *B* = 10/12/14/16 so
+  the choice is auditable. At *B* = 10 the ceiling is **1 assignment-pair** — the
+  observation must be the strictly unique maximum, so a single discordant batch
+  kills the contrast at any effect size. At *B* = 16 the ceiling is **102** and
+  one discordant batch lands at *p* = 0.000519, 17% of ALPHA.
+- **R3-2** — the permutation floor becomes **FATAL**. The emitter computes
+  `min_attainable_p` for every confirmatory test **at plan-load time, before any
+  data is read**, and **aborts** if any test has `min_attainable_p ≥ ALPHA`. A
+  run-time arm recomputes from the *realised* usable count and marks degraded
+  contrasts `undecidable_by_discreteness` with `significant: null` — never
+  `significant: false`. This closes the defect **class** that made revision 1's
+  X1–X4 undecidable by construction, not just that instance.
+- **R3-3** — **R redefined** as `R_final = max(20, the value
+  scripts/power_e2.py confirms at S3)`. Raising R to meet the simulation is
+  **compliance, not a deviation**; lowering below 20 stays forbidden. Removes an
+  asymmetry revision 2 left open. Budget restated as **9,600 + 320·R** (16,000 at
+  the floor) rather than a fixed number.
+- **R3-4** — confirmatory family **unchanged at 16, ALPHA unchanged at
+  0.003125**; checked amendment-by-amendment.
+
+Revisions 1 and 2 both remain byte-identical, re-verified before and after. Data
+status re-verified independently at 2026-08-17T09:39:26Z, with the three known
+`*spec*`/`*transcript*` near-matches enumerated so the sweep stays reproducible.
+
+**No compute was used in S2, S2a or S2b. No model trained or called, no hardware
 provisioned, no ML dependency installed.**
 
 ## The findings that shape everything downstream
@@ -124,17 +168,21 @@ provisioned, no ML dependency installed.**
 
 ## Time — the calendar is not an input to scope
 
-**Recorded as CONSIDERED AND REJECTED at S2a** (`EXPERIMENT_PLAN_R2.md` §8).
-The nearest workshop deadline is 2026-08-29 AoE and the plan specifies ≈12,400
-generations with zero training runs. **The venue follows the artifact, not the
-reverse.** The chosen venue is non-archival, so missing a cycle costs nothing —
-no priority, no publication window, no claim to the result — and workshop cycles
-recur, whereas a design weakened to fit a date is permanent.
+**Recorded as CONSIDERED AND REJECTED at S2a, carried into revision 3**
+(`EXPERIMENT_PLAN_R3.md` §8). The nearest workshop deadline is 2026-08-29 AoE and
+the plan now specifies **9,600 + 320·R** generations — 16,000 at the R floor of
+20 — with zero training runs. **The venue follows the artifact, not the reverse.**
+The chosen venue is non-archival, so missing a cycle costs nothing — no priority,
+no publication window, no claim to the result — and workshop cycles recur,
+whereas a design weakened to fit a date is permanent.
 
-The precedent is already set: S2a *raised* the budget by 3,000 generations on
-rigour grounds, because that is what made E1's confirmatory tests decidable.
-§8.2 lists what may not be proposed as a scope cut on schedule grounds. Scope
-changes on **methodological** grounds remain available at any time.
+**Every revision has raised the budget, not lowered it** — 9,400 → 12,400 →
+16,000 at the floor — each time because that is what made a confirmatory test
+decidable. That is the precedent §8 fixes. §8.2 lists what may not be proposed as
+a scope cut on schedule or budget grounds, now including any reduction of *B*
+below 16, which must argue against the ceiling table rather than against cost.
+Scope changes on **methodological** grounds remain available; before G2 they are
+a further revision, after G2 a `DEVIATIONS.md` entry.
 
 ## Open
 
@@ -144,9 +192,14 @@ changes on **methodological** grounds remain available at any time.
   (CoLLM-NAS replication status, five unverified leads) and **OA-38** (8 of 15
   obliged citations absent from `references_verified.bib`).
 - **S3 must run before any data collection**: measure `D_rand`; run
-  `scripts/power_e2.py` and confirm or raise R **before** any run; select and pin
-  the frontier API model; freeze and hash the E1/E2 prompts; fix and test OA-10
-  through OA-17; complete the GENIUS Appendix A.3 pass left open by seam S3.
+  `scripts/power_e2.py` and **set `R_final = max(20, its output)`** — raising R to
+  meet it is compliance, not a deviation (§3.4); select and pin the frontier API
+  model; freeze and hash the E1/E2 prompts; **implement gate 2 and confirm it
+  passes at plan-load** (§5.2); fix and test OA-10 through OA-17; complete the
+  GENIUS Appendix A.3 pass left open by seam S3.
+- **The generation budget is not yet a fixed number.** It is `9,600 + 320·R`,
+  and R is set by the S3 simulation with a floor of 20 — 16,000 at the floor,
+  more if the simulation demands it. The plan does not cap it (§3.5, §8.2).
 - `neurips_2026.sty` must be fetched and byte-verified from **two** independent
   mirrors at S6 (`media.neurips.cc` has returned 404/403).
 - Anonymity and archival status of the selected venue are **NOT STATED** on its

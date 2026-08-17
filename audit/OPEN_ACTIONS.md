@@ -42,7 +42,7 @@ Paper states α = 0.05/7 = 0.0071; `deep_analysis_v2.py:413` applies α = 0.05/1
 reported against 0.0071. Decide which correction is intended and regenerate.
 
 *Disposition, S2 2026-08-17:* not recoverable for the original run — its numbers
-are abandoned wholesale (`EXPERIMENT_PLAN_R2.md` §1.3) — and **fixed prospectively**:
+are abandoned wholesale (`EXPERIMENT_PLAN_R3.md` §1.3) — and **fixed prospectively**:
 FAMILY_SIZE = 16, ALPHA = 0.05/16 = **0.003125**, read from one module-level
 constant, with the emitter asserting that the confirmatory-test count is exactly
 16 and that every `alpha_applied` equals the top-level `alpha`, aborting
@@ -259,7 +259,7 @@ until fetched and read in full.**
   unlikely relevant. Not checked.
 
 *Why it blocks S6 rather than S2.* The pre-registration does not depend on the
-answer — `EXPERIMENT_PLAN_R2.md` §7 records the thread as explicitly out of scope,
+answer — `EXPERIMENT_PLAN_R3.md` §7 records the thread as explicitly out of scope,
 and E2 is framed as a replication-in-a-new-regime claim (C4) precisely because
 CoLLM-NAS's priority is assumed to hold. But the manuscript's novelty paragraph
 does depend on it: if an independent paper has already replicated the ablation,
@@ -273,7 +273,7 @@ the S1 corpus post-dates it. Missing: CoLLM-NAS, RZ-NAS, The Format Tax, Let Me
 Speak Freely?, Grammar-Aligned Decoding, The Parser Already Knows,
 NAS-Bench-Suite-Zero, ZiCo, ZiCo-BC, Lindauer & Hutter. Each has a vault note
 with a verified fetch record and an arXiv or PMLR identifier, listed in
-`EXPERIMENT_PLAN_R2.md` §6. **They must be added to `references_verified.bib` and
+`EXPERIMENT_PLAN_R3.md` §6. **They must be added to `references_verified.bib` and
 verified against an academic API before S6 writing** — sourced from the fetched
 records, never from memory. Rows 8–11 are load-bearing for the novelty
 constraint, rows 12–14 are E3's entire evidence base, and row 15 is the only
