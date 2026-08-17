@@ -41,6 +41,13 @@ Paper states α = 0.05/7 = 0.0071; `deep_analysis_v2.py:413` applies α = 0.05/1
 = 0.00333. Every significance star in Table 3 was computed at 0.00333 and
 reported against 0.0071. Decide which correction is intended and regenerate.
 
+*Disposition, S2 2026-08-17:* not recoverable for the original run — its numbers
+are abandoned wholesale (`EXPERIMENT_PLAN.md` §1.3) — and **fixed prospectively**:
+FAMILY_SIZE = 16, ALPHA = 0.05/16 = **0.003125**, read from one module-level
+constant, with the emitter asserting that the confirmatory-test count is exactly
+16 and that every `alpha_applied` equals the top-level `alpha`, aborting
+otherwise (§5.2). The defect cannot recur silently.
+
 ---
 
 ## Determinations that require data to close
@@ -146,8 +153,11 @@ subsection has no evidentiary basis in the repository.
 
 **OA-25.** Hardware conflict: abstract says A100-40GB, `docs/` say GH200 480GB.
 
-**OA-26.** Page budget: `main.tex:12` targets 8 pages, README targeted a 4-page
-venue, the PDF is 10 pages. Must be reconciled against the chosen venue's limit.
+**OA-26. CLOSED, S2 2026-08-17.** Page budget: `main.tex:12` targets 8 pages,
+README targeted a 4-page venue, the PDF is 10 pages. **Reconciled: 8 pages
+excluding references**, per the selected venue (AI for Meta-Science, position
+track). See `VENUE.md`. The built PDF is 2 pages over and must be cut, not
+respaced.
 
 ---
 
@@ -172,11 +182,10 @@ log. [OPERATOR]
 `environment.yml`, or `pyproject.toml`. Python, torch, transformers and CUDA
 versions are unrecorded. A reproducibility-conscious reviewer will ask.
 
-**OA-32. GitHub push is blocked.** [OPERATOR] `GH007: your push would publish a
-private email address`. The authorship contract mandates
-`palaashgang@gmail.com`. Operator elected to disable the protection at
-github.com/settings/emails; as of the end of this session it was still enabled
-and the push had not landed. The commits exist locally with correct authorship.
+**OA-32. CLOSED.** GitHub push was blocked by `GH007: your push would publish a
+private email address`. The operator disabled the protection at
+github.com/settings/emails; `origin/main` is current and tracks local `main`
+with correct authorship. Verified S2, 2026-08-17.
 
 **OA-33. hyperresearch v0.8.5 has no `premier` gear and no `profile` command.**
 The S0 session contract specifies `hyperresearch profile use premier` (100–130
@@ -209,6 +218,66 @@ regenerable at any time by re-running `hyperresearch install`, so nothing is
 lost. Confirm this disposition, and note that re-running `install` recreates
 them and that a fresh clone will not exclude them until
 `.git/info/exclude` is repopulated.
+
+**OA-37. The C6 thread is unresolved: CoLLM-NAS's noise-accumulation ablation
+has five unverified candidate citing papers, and its replication status is
+unsettled. Must be resolved before S6 writing.**
+*Opened S2, 2026-08-17.* CoLLM-NAS is the source of the "partially scooped"
+verdict that governs this paper's novelty position, and its venue status is now
+settled — **Oral, CVPR 2026 Workshop on Neural Architecture Search**, verbatim
+from the vault's own copy of the paper's Comments field
+(`250926037v2-collm-nas-collaborative-large-language-models-for-efficient-knowledg`).
+What is **not** settled is whether its Generator-memory / noise-accumulation
+ablation (its §4.4 / Figure 6) has been independently cited, replicated, or
+challenged. No other note in the vault engages with it; a vault-wide search for
+"CoLLM-NAS" returns only the paper's own note and this project's interim reports.
+
+*The exact query that settles it*, run once in S1 before the fetch budget was
+exhausted and not followed through:
+`GET https://api.semanticscholar.org/graph/v1/paper/arXiv:2509.26037/citations?fields=title,year,venue`
+then fetch each citing paper's full text and check for engagement with the
+Generator-memory finding specifically, not a related-work mention.
+
+*Five candidate citing papers — UNVERIFIED LEADS, NOT EVIDENCE.* None has been
+fetched or read. **None may be cited as corroboration, replication, or challenge
+until fetched and read in full.**
+- arXiv 2605.04057, "Structured Progressive Knowledge Activation for LLM-Driven
+  Neural Architecture Search" (2026) — closest by topic; its abstract describes a
+  different LLM-NAS failure mode ("functional entanglement"), so on the abstract
+  alone it does not appear to replicate or challenge the noise-accumulation
+  finding. Full text not checked.
+- arXiv 2605.19247, "Structuring Open-Ended NAS: Semi-Automated Design Knowledge
+  Structuring with LLMs for Efficient Neural Architecture Search" (2026) —
+  adjacent territory ("inefficient exploration due to biased or low-quality
+  design ideas"). Full text not checked.
+- arXiv 2606.29582, "Bilevel Optimization for Neural Architecture Search" (2026)
+  — appears to cite CoLLM-NAS only as an example method. Not checked.
+- "Scaling Closed-Loop Feature Channel Configuration with LLMs" (2026, no arXiv
+  ID captured). Not checked.
+- "LLM-Driven Transient Stability Assessment: From Automated Simulation to Neural
+  Architecture Design" (2025, no arXiv ID captured) — power-systems domain,
+  unlikely relevant. Not checked.
+
+*Why it blocks S6 rather than S2.* The pre-registration does not depend on the
+answer — `EXPERIMENT_PLAN.md` §7 records the thread as explicitly out of scope,
+and E2 is framed as a replication-in-a-new-regime claim (C4) precisely because
+CoLLM-NAS's priority is assumed to hold. But the manuscript's novelty paragraph
+does depend on it: if an independent paper has already replicated the ablation,
+the "scooped" framing hardens; if one has challenged it, the framing must be
+reopened. Neither can be asserted from search hits.
+
+**OA-38. Eight of the fifteen obliged citations are absent from
+`audit/references_verified.bib`.** *Opened S2, 2026-08-17.* The S0 bibliography
+audit verified the manuscript's existing 47 entries; it did not add new ones, and
+the S1 corpus post-dates it. Missing: CoLLM-NAS, RZ-NAS, The Format Tax, Let Me
+Speak Freely?, Grammar-Aligned Decoding, The Parser Already Knows,
+NAS-Bench-Suite-Zero, ZiCo, ZiCo-BC, Lindauer & Hutter. Each has a vault note
+with a verified fetch record and an arXiv or PMLR identifier, listed in
+`EXPERIMENT_PLAN.md` §6. **They must be added to `references_verified.bib` and
+verified against an academic API before S6 writing** — sourced from the fetched
+records, never from memory. Rows 8–11 are load-bearing for the novelty
+constraint, rows 12–14 are E3's entire evidence base, and row 15 is the only
+citable source in the corpus for E2's estimand.
 
 **OA-36. arXiv PDF extraction is broken environment-wide — root-caused.**
 `hyperresearch fetch` on any arXiv PDF returns
