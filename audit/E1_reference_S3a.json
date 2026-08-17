@@ -1,0 +1,63 @@
+{
+  "generated_by": "tests/compute_d_rand.py",
+  "sampler_source": "src/search_space.py",
+  "sampler_file_sha256": "c656cedf8ff8f543805c6351e6989555036a43519cb4ec81475b0f11499c4914",
+  "sampler_extract_sha256": "d8e551f56766c74314caf3ca7a85e4fdb36b5c08282575865f983977270fef4e",
+  "seed": 20260817,
+  "plan_literal": {
+    "n": 200,
+    "form": "pooled",
+    "D_rand": 0.7733568932720375
+  },
+  "e1_batch_structure": {
+    "n_batches": 16,
+    "n_per_batch": 20,
+    "D_rand_batch_mean": 0.7719311924009159,
+    "D_rand_batch_std": 0.0079666807852662,
+    "D_rand_pooled": 0.7693338900069068,
+    "per_batch": [
+      0.7776510227999139,
+      0.7840236788834433,
+      0.7714838589388446,
+      0.7721723844023008,
+      0.7714050181120816,
+      0.783024984018751,
+      0.7589248614958447,
+      0.7747470967398253,
+      0.7829860963136582,
+      0.7742893671425523,
+      0.7738835766034516,
+      0.7693052152141486,
+      0.7687546611975277,
+      0.7669213456211375,
+      0.7653936714255271,
+      0.7559322395056467
+    ]
+  },
+  "thresholds_from_batch_mean": {
+    "collapsed_below": 0.11578967886013738,
+    "diverse_at_or_above": 0.46315871544054954,
+    "no_change_band": 0.07719311924009159,
+    "recovers_at_or_above": 0.19298279810022897
+  },
+  "sanity_range": [
+    0.65,
+    0.8
+  ],
+  "sanity_pass_batch_mean": true,
+  "sanity_pass_plan_literal": true,
+  "num_blocks_distribution": {
+    "3": 66,
+    "4": 92,
+    "5": 84,
+    "6": 78
+  },
+  "pooling_distribution": {
+    "strided_conv": 257,
+    "none": 701,
+    "avgpool": 254,
+    "maxpool": 242
+  },
+  "NOTE": "C7's across-batch std is a MODEL-FREE reference on random draws. It is not a pilot of model behaviour.",
+  "_tracked_copy_note": "results/ is gitignored (.gitignore:13), so the canonical results/E1_reference.json is untracked. This tracked copy exists so the D_rand reference the thresholds depend on survives in version control. See audit/S3A_IMPLEMENTATION_DEFECTS.md D-25."
+}

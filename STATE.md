@@ -11,7 +11,20 @@ S4 build → S5 results-file layer → S6 write → S7 referee
 
 ---
 
-## Current stage: **S2 complete at revision 3 — awaiting G2 signature**
+## Current stage: **S3a complete — G2 still unsigned, revision 4 pending**
+
+S3a built the measurement instrument and ran its gates against the plan **before**
+G2 was signed, while revision is still available. It found **25 implementation
+defects, 7 of them blocking** (`audit/S3A_IMPLEMENTATION_DEFECTS.md`).
+
+**G2 must not be signed against revision 3.** The gates, metrics and emitter are
+executable; **§2.5/§2.6's signature-matching machinery is not** — and that is the
+mechanism deciding C2, which carries half the thesis. Revision 4 folds the
+defects in.
+
+---
+
+## Prior stage: **S2 complete at revision 3**
 
 S0 audit complete (G0 unsigned). S1 positioning complete (G1 recorded PASSED on
 operator authorisation, unsigned). S2 produced the pre-registered experiment plan
@@ -148,8 +161,33 @@ Revisions 1 and 2 both remain byte-identical, re-verified before and after. Data
 status re-verified independently at 2026-08-17T09:39:26Z, with the three known
 `*spec*`/`*transcript*` near-matches enumerated so the sweep stays reproducible.
 
-**No compute was used in S2, S2a or S2b. No model trained or called, no hardware
-provisioned, no ML dependency installed.**
+### S3a — build the instrument, run its gates against the plan *(this session)*
+
+Built **before** G2 was signed, deliberately, because the last two revisions each
+shipped a defect that was invisible until someone tried to execute the plan.
+
+- **`src/emit/`** — the emitter (schema 1.2.0), the only path by which a number
+  reaches a results file. Three fatal gates: **G-family** (confirmatory count ≠ 16
+  → abort), **G-alpha** (any `alpha_applied` ≠ alpha → abort), **G-discreteness**
+  plan-load arm (any confirmatory test with `min_attainable_p ≥ alpha` → abort,
+  naming the test, its *B* or *n*, its floor and alpha). Plus the run-time arm,
+  which marks a degraded contrast `undecidable_by_discreteness` with
+  `significant: null` and does **not** abort.
+- **`tests/`** — 8 adversarial gate fixtures (**8/8** behaved as required),
+  11 known-answer metric cases (**11/11** matched), the D_rand computation, the
+  replay test, and the signature-matching probe. `tests/run_all.py` runs all five
+  suites: **5/5 pass**.
+- **`D_rand` measured** from the repository's own sampler, no model involved:
+  **0.771931** (E1 batch-mean form), across-batch std **0.007967**. Inside the
+  §2.6 sanity range, but not at the ≈0.74 anchor the plan cites — see D-09/D-10.
+  Tracked copy at `audit/E1_reference_S3a.json` because `results/` is gitignored.
+- **`audit/S3A_IMPLEMENTATION_DEFECTS.md`** — 25 defects: **7 blocking**,
+  13 material, 5 minor. Six of the seven blocking items are in §2.5/§2.6.
+
+**No compute was used in S2, S2a, S2b or S3a. No model called — local or hosted —
+no training, no GPU, no ML dependency installed.** `src/search_space.py` imports
+torch, which is absent, so the sampler was executed by verbatim source extraction
+(D-11) rather than by installing anything.
 
 ## The findings that shape everything downstream
 
@@ -186,8 +224,12 @@ a further revision, after G2 a `DEVIATIONS.md` entry.
 
 ## Open
 
-- **G0, G1, G2 all await operator signature.** G1 and G2 have complete evidence;
-  G0's recommendation is in `audit/SESSION_1_REPORT.md` §8. Never self-sign.
+- **G0, G1, G2 all await operator signature.** G0's recommendation is in
+  `audit/SESSION_1_REPORT.md` §8. Never self-sign.
+- **G2 must NOT be signed against revision 3.** S3a's implementation pass found
+  7 blocking defects; six are in the §2.5/§2.6 signature-matching machinery that
+  decides C2. Signing now would close the revision route over a mechanism that
+  cannot be executed. **Revision 4 first, then sign.**
 - **38 open actions**, `audit/OPEN_ACTIONS.md`. Blocking before S6: **OA-37**
   (CoLLM-NAS replication status, five unverified leads) and **OA-38** (8 of 15
   obliged citations absent from `references_verified.bib`).
