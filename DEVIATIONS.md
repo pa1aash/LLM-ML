@@ -1,8 +1,9 @@
 # DEVIATIONS
 
-Departures from `EXPERIMENT_PLAN.md`. The plan is frozen at the SHA-256 recorded
-in `PREREGISTRATION.md` and is **never edited**. Every change to what is actually
-done is logged here instead.
+Departures from the **governing plan** — currently `EXPERIMENT_PLAN_R2.md`
+(revision 2). The plan is frozen at the SHA-256 recorded in `PREREGISTRATION.md`
+and is **never edited**. Every change to what is actually done is logged here
+instead.
 
 ---
 
@@ -13,7 +14,7 @@ done is logged here instead.
 
 2. **Every entry carries five fields**, in this order:
    - **Date** — ISO-8601.
-   - **Plan section** — the §number in `EXPERIMENT_PLAN.md` being departed from.
+   - **Plan section** — the §number in the governing plan being departed from.
    - **What changed** — the old text and the new behaviour, concretely.
    - **Why** — the reason. "It seemed better" is not a reason; state what was
      learned that the plan did not anticipate.
@@ -32,11 +33,11 @@ done is logged here instead.
 
 5. **The plan is not edited.** If it must be superseded wholesale, a numbered
    revision is written as a **new file**, hashed separately, and cites the prior
-   hash it supersedes. `EXPERIMENT_PLAN.md` stays in the repository byte-identical
-   to the version that was hashed.
+   hash it supersedes. Every superseded plan file stays in the repository
+   byte-identical to the version that was hashed.
 
 6. **Unplanned analyses are deviations.** Any analysis not named in
-   `EXPERIMENT_PLAN.md` §5.1 is exploratory and is logged here before it runs.
+   the governing plan's §5.1 is exploratory and is logged here before it runs.
    It may not carry a p-value, and may not appear in the abstract, the
    contributions list, or the conclusions (§5.4).
 
@@ -56,7 +57,24 @@ done is logged here instead.
 
 ---
 
+## Supersession record — not a deviation
+
+**2026-08-17 — revision 1 superseded by revision 2.** Six amendments (A1–A6) were
+made to the plan before any data collection. Under rule 5 above, a wholesale
+change is a **numbered revision written as a new file**, not a deviation entry:
+`EXPERIMENT_PLAN_R2.md`, SHA-256 `a9954ba3…1df1`, citing revision 1's
+`aeb174ff…bad3d`. `EXPERIMENT_PLAN.md` remains byte-identical and its hash was
+re-verified at the moment revision 2 was hashed.
+
+The amendments are listed in revision 2's masthead and in `PREREGISTRATION.md`.
+The confirmatory family was checked amendment-by-amendment and is **unchanged at
+16 tests, ALPHA = 0.003125**.
+
+This ledger governs departures from **revision 2** from this point forward.
+
+---
+
 ## Entries
 
 *None. No data has been collected and no analysis has been run as of the
-pre-registration hash.*
+revision-2 pre-registration hash.*
