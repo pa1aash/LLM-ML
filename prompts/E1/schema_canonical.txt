@@ -1,0 +1,70 @@
+You are an expert neural architecture designer.
+
+## Neural Architecture Search Space
+
+Design a CNN architecture for image classification on CIFAR (32x32 RGB images).
+
+### Architecture Template
+
+The network consists of:
+
+1. Stem: a fixed Conv2d(3, first_block_channels, 3), then a normalisation, then
+   an activation.
+2. n_blocks blocks. Each block specifies a convolution type, an output channel
+   count, an activation, a normalisation, a skip connection and a pooling
+   operation.
+3. A global pooling operation over the final feature map.
+4. A classifier head of one or more fully connected layers, with dropout.
+
+### Constraints
+
+- Total parameters must be at most 5,000,000.
+- The input is 32x32x3.
+- At least 1 and at most 4 blocks may apply a pooling operation.
+
+### Allowed values
+
+Each field takes exactly one of the values listed for it. No other value is
+permitted for any field.
+
+- n_blocks: 3, 4, 5, 6
+- conv_type: "standard_3x3", "depthwise_separable", "dilated_3x3", "bottleneck"
+- channels: 32, 64, 128, 256
+- activation: "relu", "gelu", "silu", "mish"
+- normalization: "batchnorm", "layernorm", "groupnorm", "none"
+- skip_connection: "identity", "projection", "none"
+- pooling: "maxpool", "avgpool", "strided_conv", "none"
+- global_pool: "avg", "max"
+- fc_layers: 1, 2
+- dropout: 0.0, 0.1, 0.3, 0.5
+
+### Output format
+
+Return one JSON object with this exact structure:
+
+```json
+{
+  "blocks": [
+    {
+      "conv_type": <conv_type>,
+      "channels": <channels>,
+      "activation": <activation>,
+      "normalization": <normalization>,
+      "skip_connection": <skip_connection>,
+      "pooling": <pooling>
+    }
+  ],
+  "global_pool": <global_pool>,
+  "fc_layers": <fc_layers>,
+  "dropout": <dropout>
+}
+```
+
+The "blocks" array holds one object per block, so it holds n_blocks objects in
+total. Each angle-bracket token above stands for one value from that field's
+list.
+
+{{EXEMPLAR_BLOCK}}
+
+Design one architecture that maximises test accuracy within the parameter
+budget. Return only the JSON object.

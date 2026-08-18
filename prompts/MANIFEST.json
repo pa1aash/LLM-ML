@@ -1,0 +1,176 @@
+{
+  "frozen_at": "2026-08-18T18:13:14Z",
+  "frozen_by": "scripts/freeze_prompts.py",
+  "plan_revision": 6,
+  "plan_sha256": "d63a7625f06dcbaa08ad35182490036de12c3d0354febee9e141656ec79d340b",
+  "schema_version": "1.5.0",
+  "session": "S3-1",
+  "note": "Any change to a file below invalidates every emitted `prompts` header hash and is a DEVIATIONS.md entry (S3-1).",
+  "files": {
+    "E1/anchor/exemplar_absent.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "no exemplar block (zero bytes, D-002)",
+      "sent_to_model": true
+    },
+    "E1/anchor/exemplar_modal.txt": {
+      "sha256": "493103d58521e0d979e41fa4aa19cf542d16ea2210a0407fb577bc7b8f32f56f",
+      "bytes": 222,
+      "role": "worked example: standard_3x3 / relu / batchnorm",
+      "sent_to_model": true
+    },
+    "E1/anchor/exemplar_nonmodal.txt": {
+      "sha256": "6cd9e65d57ce2f05f6474e03a1f0e44636aace20b5ffae04c6f359a130786a8e",
+      "bytes": 229,
+      "role": "worked example: depthwise_separable / gelu / groupnorm",
+      "sent_to_model": true
+    },
+    "E1/freeprose.txt": {
+      "sha256": "888de8ab067ffa527963a3619ae0b62d661cb2a2e6a83eb4e9ab5adfee331981",
+      "bytes": 1763,
+      "role": "E1 free-prose description request",
+      "sent_to_model": true
+    },
+    "E1/schema_canonical.txt": {
+      "sha256": "b595bcc23859d2b7499ae36751c8b2d9a0c13bc646ff94925d4e92e547def51b",
+      "bytes": 2020,
+      "role": "E1 schema-constrained request, canonical enumeration order",
+      "sent_to_model": true
+    },
+    "E1/schema_reversed.txt": {
+      "sha256": "b193357c958e147cb0d6a94942e41d80106f3af3ab6768b78ab5283030817b94",
+      "bytes": 2020,
+      "role": "E1 schema-constrained request, reversed enumeration order",
+      "sent_to_model": true
+    },
+    "E2/e2_archive.txt": {
+      "sha256": "3bd1034b43cd475b44481aa78c0a35448fbfd185bf5da5074e61b7432b2938fe",
+      "bytes": 1386,
+      "role": "E2 arm: external archive, top-m",
+      "sent_to_model": true
+    },
+    "E2/e2_curated.txt": {
+      "sha256": "3d896200de82379908fcafd29f1cea57cc9e06969b97821eefe5bbfa691aacbd",
+      "bytes": 1901,
+      "role": "E2 arm: curated summary, plus the curation prompt",
+      "sent_to_model": true
+    },
+    "E2/e2_uncurated.txt": {
+      "sha256": "127359aaf1b44d53ebdd7da9e9eddfc99eb75f27b8aa1b5c4ea4cd78e6b448ea",
+      "bytes": 1404,
+      "role": "E2 arm: uncurated in-context accumulation",
+      "sent_to_model": true
+    },
+    "E2/e2_zeroshot.txt": {
+      "sha256": "8c3722730c58e478825634290fb506fe11700c29f138a6b163931b8ec130844b",
+      "bytes": 1201,
+      "role": "E2 arm: zero-shot",
+      "sent_to_model": true
+    },
+    "README.md": {
+      "sha256": "827ce507aa1f3b4f1dbe132fcf49b923f11c1ab3feca8adc3c8a6e0fb1c48d17",
+      "bytes": 2799,
+      "role": "documentation of the composition rule; never sent to a model",
+      "sent_to_model": false
+    }
+  },
+  "compositions": {
+    "e1_main_grid_schema": {
+      "template": "E1/schema_canonical.txt",
+      "exemplar": "E1/anchor/exemplar_absent.txt",
+      "note": "the 30 main-grid cells carry no worked example (D-002)"
+    },
+    "e1_main_grid_freeprose": {
+      "template": "E1/freeprose.txt",
+      "exemplar": "E1/anchor/exemplar_absent.txt"
+    },
+    "e1_anchor_2x2": {
+      "templates": [
+        "E1/schema_canonical.txt",
+        "E1/schema_reversed.txt"
+      ],
+      "exemplars": [
+        "E1/anchor/exemplar_modal.txt",
+        "E1/anchor/exemplar_nonmodal.txt"
+      ],
+      "note": "12 cells: 3 models x 2 orders x 2 exemplars (\u00a72.8)"
+    },
+    "rule": "the line holding {{EXEMPLAR_BLOCK}} is replaced by the exemplar file's contents; runs of 3+ newlines collapse to 2"
+  },
+  "exemplar_values": {
+    "modal": {
+      "conv_type": "standard_3x3",
+      "activation": "relu",
+      "normalization": "batchnorm"
+    },
+    "non_modal": {
+      "conv_type": "depthwise_separable",
+      "activation": "gelu",
+      "normalization": "groupnorm"
+    },
+    "note": "names 3 of the 6 per-block fields; tracks_exemplar's denominator is those 3",
+    "held_constant": {
+      "channels": 64,
+      "skip_connection": "projection",
+      "pooling": "avgpool",
+      "reason": "D-001: required to write a worked block, identical across both exemplar levels, and first-enumerated under neither canonical nor reversed order, so a model copying them biases tracks_first DOWN rather than up"
+    }
+  },
+  "e2_parameters": {
+    "archive_m": 5,
+    "strategy_word_bound": 120,
+    "source": "DEVIATIONS.md D-003"
+  },
+  "verification": {
+    "canonical_vs_reversed": {
+      "pass": true,
+      "n_lines": 71,
+      "n_differing_lines": 10,
+      "differing_line_numbers": [
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39
+      ],
+      "fields_reversed": [
+        "n_blocks",
+        "conv_type",
+        "channels",
+        "activation",
+        "normalization",
+        "skip_connection",
+        "pooling",
+        "global_pool",
+        "fc_layers",
+        "dropout"
+      ],
+      "n_fields_reversed": 10,
+      "token_multiset_identical": true,
+      "n_tokens": 279,
+      "character_count_identical": true,
+      "n_characters": 2020,
+      "findings": []
+    },
+    "modal_vs_nonmodal": {
+      "pass": true,
+      "fields_differing": [
+        "conv_type",
+        "activation",
+        "normalization"
+      ],
+      "findings": []
+    },
+    "absent_is_empty": {
+      "pass": true,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected_sha256_of_empty_file": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  }
+}

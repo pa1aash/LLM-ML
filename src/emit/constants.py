@@ -4,7 +4,7 @@ Every value here is stated in the governing plan. Nothing in this module is a
 tuning parameter. The plan hash is recorded so a results file can be traced back
 to the exact document that authorised its numbers.
 
-Sections cited refer to EXPERIMENT_PLAN_R5.md.
+Sections cited refer to EXPERIMENT_PLAN_R6.md.
 """
 
 from __future__ import annotations
@@ -12,7 +12,7 @@ from __future__ import annotations
 # ---------------------------------------------------------------- plan identity
 
 PLAN_REVISION = 6
-PLAN_FILENAME = "EXPERIMENT_PLAN_R5.md"
+PLAN_FILENAME = "EXPERIMENT_PLAN_R6.md"   # corrected: D-008
 PLAN_SHA256 = "d63a7625f06dcbaa08ad35182490036de12c3d0354febee9e141656ec79d340b"
 PLAN_SUPERSEDES_SHA256 = (
     "e3206e718161cc139830ff79741c6fe8f78e1d34f1147d3f644b36be2107b201"
@@ -114,6 +114,46 @@ FIELD_VOCAB = {
     "normalization": ["batchnorm", "layernorm", "groupnorm", "none"],
     "skip_connection": ["identity", "projection", "none"],
     "pooling": ["maxpool", "avgpool", "strided_conv", "none"],
+}
+
+# ------------------------------------------------- exemplar value map (§5.5)
+
+# The `exemplar_values` header field. §2.8 registers values for THREE of the six
+# per-block fields; a worked example is not writable without the other three, so
+# D-001 fills them, identically across both exemplar levels, at values that are
+# first-enumerated under NEITHER enumeration order. `tracks_exemplar`'s
+# denominator is unchanged and remains the three §2.4.7 registers -- the held
+# fields carry no exemplar manipulation because they do not vary across levels.
+EXEMPLAR_VALUES = {
+    "modal": {"conv_type": "standard_3x3", "activation": "relu",
+              "normalization": "batchnorm"},
+    "non_modal": {"conv_type": "depthwise_separable", "activation": "gelu",
+                  "normalization": "groupnorm"},
+    "note": "names 3 of the 6 per-block fields; "
+            "tracks_exemplar's denominator is those 3",
+    "held_constant": {
+        "channels": 64,
+        "skip_connection": "projection",
+        "pooling": "avgpool",
+        "reason": "D-001: required to write a worked block, identical across "
+                  "both exemplar levels, and first-enumerated under neither "
+                  "canonical nor reversed order, so a model copying them biases "
+                  "tracks_first DOWN rather than up",
+    },
+}
+
+# The three fields the exemplar actually manipulates (plan §2.4.7). Kept separate
+# from EXEMPLAR_VALUES["held_constant"] precisely so the denominator cannot drift.
+EXEMPLAR_MANIPULATED_FIELDS = ("conv_type", "activation", "normalization")
+
+# §5.5 `chance_rates` header. 1/|vocab| per field; the aggregate is the
+# vocabulary-weighted mean over the six per-block fields.
+CHANCE_RATES = {
+    "conv_type": 0.25, "channels": 0.25, "activation": 0.25,
+    "normalization": 0.25, "skip_connection": 0.3333333333333333,
+    "pooling": 0.25,
+    "aggregate_all_six": 0.2638888888888889,
+    "aggregate_exemplar_fields": 0.25,
 }
 
 # ------------------------------------------------------- surface diversity (§2.4.6)

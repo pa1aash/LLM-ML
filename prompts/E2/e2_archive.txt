@@ -1,0 +1,42 @@
+You are an expert neural architecture designer working in the NAS-Bench-201
+topology search space.
+
+## Search space
+
+A cell is a directed acyclic graph over 4 nodes. Node 0 is the input; each later
+node sums the outputs of the operations on every edge coming from an earlier
+node. The cell therefore has 6 edges, and one operation is chosen for each.
+
+Allowed operations, one per edge:
+
+- "none": the edge is dropped
+- "skip_connect": identity
+- "nor_conv_1x1": ReLU, then 1x1 convolution, then batch normalisation
+- "nor_conv_3x3": ReLU, then 3x3 convolution, then batch normalisation
+- "avg_pool_3x3": 3x3 average pooling, stride 1
+
+The network stacks this one cell throughout, so the cell is the whole design.
+
+### Output format
+
+Write the cell as one architecture string in this exact form:
+
+|op~0|+|op~0|op~1|+|op~0|op~1|op~2|
+
+Each op is one of the five operation names above; the number after the tilde is
+the index of the node the edge comes from. The three groups separated by "+"
+give the incoming edges of nodes 1, 2 and 3 in order.
+
+## Task
+
+Propose one architecture for {{TASK}}, aiming for the highest test accuracy.
+
+## Archive
+
+The 5 best proposals measured so far, with their validation accuracies, held
+outside this conversation and reproduced here in full. There is no other
+history.
+
+{{ARCHIVE}}
+
+Return only the architecture string, on one line, with nothing else.

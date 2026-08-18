@@ -1,0 +1,14 @@
+### Worked example
+
+One block, filled in:
+
+```json
+{
+  "conv_type": "standard_3x3",
+  "channels": 64,
+  "activation": "relu",
+  "normalization": "batchnorm",
+  "skip_connection": "projection",
+  "pooling": "avgpool"
+}
+```

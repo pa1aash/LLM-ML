@@ -1,0 +1,14 @@
+### Worked example
+
+One block, filled in:
+
+```json
+{
+  "conv_type": "depthwise_separable",
+  "channels": 64,
+  "activation": "gelu",
+  "normalization": "groupnorm",
+  "skip_connection": "projection",
+  "pooling": "avgpool"
+}
+```
