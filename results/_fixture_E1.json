@@ -11,8 +11,8 @@
     "738601db1d55e81010a62ec1e1259f82e6466f7e8db02f0ec3de4ed15d80cc9d",
     "e3206e718161cc139830ff79741c6fe8f78e1d34f1147d3f644b36be2107b201"
   ],
-  "code_commit": "df29df1e556b9ba31e4c608fff6d1c76f642c835",
-  "generated_at": "2026-08-18T04:18:46Z",
+  "code_commit": "663d3f61a66b621917fb46f35c93f4e070c56434",
+  "generated_at": "2026-08-18T18:23:40Z",
   "environment": {
     "python": "3.14.2",
     "platform": "macOS-26.3.1-arm64-arm-64bit-Mach-O",
@@ -46,11 +46,73 @@
     7016
   ],
   "n_batches_per_cell": 16,
+  "b_tracking": {
+    "value": 28,
+    "floor": 16,
+    "source": "results/pilots/pilot_tracking.json",
+    "binding_quantity": "cross_level_exemplar"
+  },
+  "r_final": {
+    "value": 24,
+    "floor": 20,
+    "source": "results/pilots/power_e2.json",
+    "power_at_floor": 0.702
+  },
+  "field_collapse_entropy_threshold": 0.15,
+  "exemplar_values": {
+    "modal": {
+      "conv_type": "standard_3x3",
+      "activation": "relu",
+      "normalization": "batchnorm"
+    },
+    "non_modal": {
+      "conv_type": "depthwise_separable",
+      "activation": "gelu",
+      "normalization": "groupnorm"
+    },
+    "note": "names 3 of the 6 per-block fields; tracks_exemplar's denominator is those 3",
+    "held_constant": {
+      "channels": 64,
+      "skip_connection": "projection",
+      "pooling": "avgpool",
+      "reason": "D-001: required to write a worked block, identical across both exemplar levels, and first-enumerated under neither canonical nor reversed order, so a model copying them biases tracks_first DOWN rather than up"
+    }
+  },
+  "chance_rates": {
+    "conv_type": 0.25,
+    "channels": 0.25,
+    "activation": 0.25,
+    "normalization": 0.25,
+    "skip_connection": 0.3333333333333333,
+    "pooling": 0.25,
+    "aggregate_all_six": 0.2638888888888889,
+    "aggregate_exemplar_fields": 0.25
+  },
+  "tracking_label_rule": "one_sided_at_chance",
+  "d_rand": {
+    "value": 0.719205,
+    "definition": "corrected uniform sampler, block count FIXED, mean over K in {3,4,5,6}",
+    "seed": 20260817,
+    "structure": {
+      "n_batches": 16,
+      "n_per_batch": 20
+    },
+    "analytic": 0.718872,
+    "sanity_range": [
+      0.705,
+      0.735
+    ],
+    "sanity_pass": true,
+    "d_repo_sampler": 0.771931
+  },
   "bootstrap": {
     "resamples": 10000,
     "method": "BCa",
     "seed": 90210,
-    "resampling_unit": "generation"
+    "resampling_unit_pooled": "generation",
+    "resampling_unit_delta": "batch_index_pair",
+    "resampling_unit_tracking": "batch",
+    "resampling_unit_cliffs_delta": "run"
   },
   "confirmatory_family_size": 17,
   "alpha": 0.0029411764705882353,
