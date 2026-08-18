@@ -18,7 +18,7 @@ sys.path.insert(0, str(ROOT / "src"))
 from emit import constants as K  # noqa: E402
 from emit.anchor import (  # noqa: E402
     EXEMPLARS, batch_tracking, cell_tracking, chance_rate, collapsed_fields,
-    enumeration_order, modal_value,
+    enumeration_order, is_dissociable, modal_value,
 )
 from emit.signature import (  # noqa: E402
     INDETERMINATE, RIVALS, classify_change, classify_level, score,
@@ -48,8 +48,10 @@ TRACK_NONE = {"pre_first": "no tracking", "pre_exemplar": "no tracking",
               "post_first": "no tracking", "post_exemplar": "no tracking"}
 TRACK_POST_ONLY = {"pre_first": "no tracking", "pre_exemplar": "no tracking",
                    "post_first": "tracks", "post_exemplar": "no tracking"}
-TRACK_PRE = {"pre_first": "tracks", "pre_exemplar": "tracks",
-             "post_first": "tracks", "post_exemplar": "tracks"}
+# A satisfiable format-tax grid: the prompt drove the model to the
+# first-enumerated value, and repair left it there.
+TRACK_PRE = {"pre_first": "tracks", "pre_exemplar": "no tracking",
+             "post_first": "tracks", "post_exemplar": "no tracking"}
 
 
 # ---------------------------------------------------------------- C1 .. C5
@@ -302,20 +304,26 @@ def c15_repair_vs_format():
     ft_pre = [_constant_batch(**first_vals) for _ in range(nb)]
     ft_post = [_constant_batch(**first_vals) for _ in range(nb)]
 
-    def grid(pre_batches, post_batches, order="canonical", exemplar="modal"):
+    # Plan 2.5: (canonical, modal) is the DEGENERATE cell -- the first-enumerated
+    # values of the three exemplar fields ARE the modal exemplar's values, so
+    # tracks_first and tracks_exemplar cannot be dissociated there. The fixture
+    # therefore runs in a dissociable cell.
+    def grid(pre_batches, post_batches, order="canonical", exemplar="non_modal"):
+        assert is_dissociable(order, exemplar), (order, exemplar)
         g = {}
         for stage, batches in (("pre", pre_batches), ("post", post_batches)):
             bts = [batch_tracking(b, order, exemplar) for b in batches]
             for q, short in (("tracks_first", "first"), ("tracks_exemplar", "exemplar")):
                 ct = cell_tracking(bts, q, n_boot=2000)
-                g[f"{stage}_{short}"] = ct.label_flat
+                g[f"{stage}_{short}"] = ct.label_registered
                 g[f"{stage}_{short}_chance"] = ct.label_chance
-                if ct.label_flat != ct.label_chance:
+                if ct.label_registered != ct.label_flat:
                     DISAGREEMENTS.append({
                         "fixture": "C15", "stage": stage, "quantity": q,
                         "point": ct.point, "ci95": ct.ci95,
                         "chance_rate": ct.chance_rate,
-                        "flat_0p50": ct.label_flat, "per_field": ct.label_chance,
+                        "registered": ct.label_registered,
+                        "rejected_flat_0p50": ct.label_flat,
                     })
         return g
 
@@ -354,35 +362,38 @@ def c16_genuine_prior_invariance():
     an instrument effect."""
     nb = K.N_BATCHES_PER_CELL
     # Collapsed onto a value that is NOT first under either order.
+    # Must avoid BOTH enumeration heads AND BOTH exemplars on the three exemplar
+    # fields, or a coincidence reads as tracking (see the S3b/S2d defect report).
     fixed = {"conv_type": "dilated_3x3", "channels": 128, "activation": "silu",
-             "normalization": "groupnorm", "skip_connection": "projection",
+             "normalization": "layernorm", "skip_connection": "projection",
              "pooling": "strided_conv"}
     batches = [_constant_batch(**fixed) for _ in range(nb)]
 
     grids = {}
     for order in ("canonical", "reversed"):
-        bts = [batch_tracking(b, order, "modal") for b in batches]
+        bts = [batch_tracking(b, order, "non_modal") for b in batches]
         cf = cell_tracking(bts, "tracks_first", n_boot=2000)
         ce = cell_tracking(bts, "tracks_exemplar", n_boot=2000)
         grids[order] = {"first": cf, "exemplar": ce}
-        if cf.label_flat != cf.label_chance:
+        if cf.label_registered != cf.label_flat:
             DISAGREEMENTS.append({
                 "fixture": f"C16 ({order})", "stage": "post", "quantity": "tracks_first",
                 "point": cf.point, "ci95": cf.ci95, "chance_rate": cf.chance_rate,
-                "flat_0p50": cf.label_flat, "per_field": cf.label_chance})
+                "registered": cf.label_registered,
+                "rejected_flat_0p50": cf.label_flat})
 
-    both_none = all(grids[o]["first"].label_flat == "no tracking"
-                    and grids[o]["exemplar"].label_flat == "no tracking"
+    both_none = all(grids[o]["first"].label_registered == "no tracking"
+                    and grids[o]["exemplar"].label_registered == "no tracking"
                     for o in grids)
     record("C16a no tracking under either enumeration order", "True", str(both_none),
-           "canonical: first=" + grids["canonical"]["first"].label_flat
-           + ", exemplar=" + grids["canonical"]["exemplar"].label_flat
-           + " | reversed: first=" + grids["reversed"]["first"].label_flat
-           + ", exemplar=" + grids["reversed"]["exemplar"].label_flat)
+           "canonical: first=" + grids["canonical"]["first"].label_registered
+           + ", exemplar=" + grids["canonical"]["exemplar"].label_registered
+           + " | reversed: first=" + grids["reversed"]["first"].label_registered
+           + ", exemplar=" + grids["reversed"]["exemplar"].label_registered)
 
     g = {"pre_first": "no tracking", "pre_exemplar": "no tracking",
-         "post_first": grids["canonical"]["first"].label_flat,
-         "post_exemplar": grids["canonical"]["exemplar"].label_flat}
+         "post_first": grids["canonical"]["first"].label_registered,
+         "post_exemplar": grids["canonical"]["exemplar"].label_registered}
     v = score(obs("collapsed", "collapsed", "collapsed", "no chg", "no chg", g))
     record("C16b invariance is not read as an instrument effect",
            "winner=genuine prior", f"winner={v.winner}",
@@ -406,15 +417,16 @@ def bar_comparison():
     print(f"  chance rate over all six fields          = {cr_all:.6f}")
     cr_ex = chance_rate(["conv_type", "activation", "normalization"])
     print(f"  chance rate over the 3 exemplar fields   = {cr_ex:.6f}")
-    print(f"  plan-registered flat bar                 = {K.ANCHOR_TRACKING_THRESHOLD:.6f}")
+    print(f"  REJECTED flat bar (rev 4)                = {K.ANCHOR_TRACKING_THRESHOLD:.6f}")
+    print(f"  REGISTERED rule (rev 5)                  = {K.TRACKING_LABEL_RULE}")
     print()
     print(f"  {'true rate':>10} {'point':>8} {'ci95':>20} {'flat 0.50':>14} "
-          f"{'per-field sym':>14} {'null-at-chance':>14}  disagree")
+          f"{'per-field sym':>14} {'REGISTERED':>14}  disagree")
     rows = []
     for true_rate in (0.10, 0.20, 0.25, 0.30, 0.35, 0.40, 0.45, 0.50, 0.60, 0.75, 0.90):
         n = K.N_BATCHES_PER_CELL
         vals = [1.0 if i < round(true_rate * n) else 0.0 for i in range(n)]
-        from emit.anchor import _bca, label_against, label_null_at_chance
+        from emit.anchor import _bca, label_against, label_null_at_chance  # noqa
         p, lo, hi = _bca(vals, 4000, K.BOOTSTRAP_SEED)
         lf = label_against(p, lo, hi, K.ANCHOR_TRACKING_THRESHOLD)
         lc = label_against(p, lo, hi, cr_all)

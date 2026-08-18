@@ -1,7 +1,7 @@
 # DEVIATIONS
 
-Departures from the **governing plan** — currently `EXPERIMENT_PLAN_R4.md`
-(revision 4). The plan is frozen at the SHA-256 recorded in `PREREGISTRATION.md`
+Departures from the **governing plan** — currently `EXPERIMENT_PLAN_R5.md`
+(revision 5). The plan is frozen at the SHA-256 recorded in `PREREGISTRATION.md`
 and is **never edited**. Every change to what is actually done is logged here
 instead.
 
@@ -61,8 +61,8 @@ instead.
 
 A wholesale change to the plan before any data collection is a **numbered
 revision written as a new file** under **rule 5 above** (the governing plan's own
-§5.6 rule 4, renumbered in this list), not a deviation entry. **Three have
-occurred**, all before any data collection. All three are recorded here so the
+§5.6 rule 4, renumbered in this list), not a deviation entry. **Four have
+occurred**, all before any data collection. All four are recorded here so the
 ledger is a complete history, even though none is a departure from a plan under
 which work had begun.
 
@@ -102,7 +102,25 @@ revision 3's `be61bda9…df03`.
 `EXPERIMENT_PLAN.md`, `EXPERIMENT_PLAN_R2.md` and `EXPERIMENT_PLAN_R3.md` all
 remain byte-identical; every hash was re-verified before and after each step.
 
-**This ledger governs departures from revision 4 from this point forward.**
+**2026-08-18 — revision 4 superseded by revision 5.** S3b implemented the two
+scorers that decide C2 and found **18 defects, five blocking**
+(`audit/S3B_SCORER_DEFECTS.md`). Revision 5 folds in all 18. The load-bearing
+changes: the **one-sided per-field chance rule** replaces the flat 0.50 bar
+(which returned `indeterminate` at 2.3× and 2.8× chance) and the symmetric
+per-field rule (which would have made three of five rivals unmatchable); the
+**pre-repair tracking aggregates are registered at cell level**, without which
+the column could not be scored at all; the tracking sub-design runs at **all
+three models**; and `B_tracking` becomes a floor-plus-procedure like R.
+**FAMILY_SIZE stays 17 and ALPHA stays 0.0029411764705882353** — the extra models
+add no confirmatory test, because column classification is descriptive by CI
+position rather than a hypothesis test. `EXPERIMENT_PLAN_R5.md`, SHA-256
+`e3206e71…b201`, citing revision 4's `738601db…cc9d`. Three further defects found
+in revision 5's own drafting were closed before freezing (plan §9).
+
+`EXPERIMENT_PLAN.md`, `_R2`, `_R3` and `_R4` all remain byte-identical; every hash
+was re-verified before and after each step.
+
+**This ledger governs departures from revision 5 from this point forward.**
 
 **The revision route closes at the END OF S3**, when the analysis code exists and
 G2 is signed against a plan that has been executed rather than only read.
@@ -114,8 +132,9 @@ a new revision — is an entry in the Entries section below, logged before the
 affected analysis runs.
 
 **One thing that is explicitly not a deviation:** raising R to the value
-`scripts/power_e2.py` confirms at S3, where that value exceeds 20. Revision 4
-§3.4 registers the procedure rather than the number, so complying with its output
+`scripts/power_e2.py` confirms at S3, where that value exceeds 20 — and, at
+revision 5, raising `B_tracking` above 16 to meet the tracking-CI-width pilot.
+Revision 5 §3.4 and §2.8 registers the procedure rather than the number, so complying with its output
 is compliance. Note that the simulation must now run against
 **ALPHA = 0.0029411764705882353**, not the 0.003125 of revisions 1–3. Lowering R below 20 is forbidden outright (§8.2) and is not
 available even as a logged deviation.
@@ -125,4 +144,4 @@ available even as a logged deviation.
 ## Entries
 
 *None. No data has been collected and no analysis has been run as of the
-revision-4 pre-registration hash (`738601db…cc9d`, 2026-08-17T18:25:00Z).*
+revision-5 pre-registration hash (`e3206e71…b201`, 2026-08-18T04:00:00Z).*

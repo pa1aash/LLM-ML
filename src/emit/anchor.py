@@ -3,25 +3,17 @@
 This is the outcome the sixth prediction column is built on, and therefore the
 one that decides C2 when the free-prose column is unreliable.
 
-Two things the plan does not register, decided here to proceed and recorded in
-audit/S3B_SCORER_DEFECTS.md:
+Everything below is REGISTERED at plan revision 5. Three things S3b had to decide
+for itself are now in the plan:
 
-  S3B-01  What makes a FIELD "collapsed". §2.4.7 says "each field f whose
-          distribution in a cell is classified collapsed", but §2.6's `collapsed`
-          label is defined for D, a batch diversity, not for a field. §2.4.4
-          gives a normalised per-field entropy and no threshold. Implemented here
-          as normalised entropy < 0.15, mirroring D < 0.15*D_rand: both
-          quantities are normalised so that 1.0 is the uniform reference.
+  field collapse   normalised per-field entropy < 0.15 (plan 2.4.4, R5-4)
+  denominators     tracks_first over all collapsed fields; tracks_exemplar over
+                   the three the exemplar names (plan 2.4.7, R5-4)
+  labelling        ONE-SIDED at the per-field chance rate (plan 2.6, R5-1)
 
-  S3B-02  What the exemplar's value is for fields the exemplar does not name.
-          §2.8 specifies the exemplar only for conv_type / activation /
-          normalization. `tracks_exemplar` is therefore computed over those three
-          fields only, with its own denominator, reported separately from
-          `tracks_first`.
-
-PER-FIELD CHANCE RATES (proposed for revision 5) are computed alongside the
-plan's registered flat 0.50 bar. Both verdicts are always emitted; where they
-disagree, that is the evidence for the revision.
+The flat 0.50 bar and the symmetric per-field rule are both REJECTED. They are
+still computed and emitted so a reader can see what the rejected rules would have
+said, but `label_registered` is the one that scores.
 """
 
 from __future__ import annotations
@@ -52,11 +44,11 @@ except Exception:  # pragma: no cover - scipy is present in this environment
 
 # ---------------------------------------------------------------- field collapse
 
-#: S3B-01. Not registered by the plan. Mirrors D < 0.15*D_rand: normalised
-#: entropy is already scaled so 1.0 is the uniform reference.
-FIELD_COLLAPSE_ENTROPY_THRESHOLD = 0.15
+#: Plan 2.4.4 (R5-4). Mirrors D < 0.15*D_rand: normalised entropy is already
+#: scaled so 1.0 is the uniform reference.
+FIELD_COLLAPSE_ENTROPY_THRESHOLD = K.FIELD_COLLAPSE_ENTROPY_THRESHOLD
 
-#: S3B-02. The three fields §2.8's exemplar actually specifies.
+#: Plan 2.4.7 (R5-4). The three fields 2.8's exemplar actually specifies.
 EXEMPLAR_FIELDS = ("conv_type", "activation", "normalization")
 
 EXEMPLARS = {
@@ -120,6 +112,7 @@ class BatchTracking:
     n_first: int
     n_exemplar: int
     modal_tie_count: int
+    no_collapse: bool = False           # plan 2.4.7: zero collapsed fields
     per_field_first: dict[str, int] = dc_field(default_factory=dict)
     per_field_exemplar: dict[str, int] = dc_field(default_factory=dict)
 
@@ -131,6 +124,7 @@ class BatchTracking:
             "n_first": self.n_first,
             "n_exemplar": self.n_exemplar,
             "modal_tie_count": self.modal_tie_count,
+            "no_collapse": self.no_collapse,
             "per_field_first": self.per_field_first,
             "per_field_exemplar": self.per_field_exemplar,
         }
@@ -141,7 +135,8 @@ def batch_tracking(configs: Sequence[dict], order: str, exemplar: str,
     """§2.4.7 for one batch at one stage. Zero collapsed fields -> null, never 0."""
     coll = collapsed_fields(configs, threshold)
     if not coll:
-        return BatchTracking([], None, None, 0, 0, 0)
+        # Plan 2.4.7: no collapse IS the evidence of no tracking, not a null.
+        return BatchTracking([], None, None, 0, 0, 0, no_collapse=True)
 
     ties = 0
     first_hits: dict[str, int] = {}
@@ -158,7 +153,7 @@ def batch_tracking(configs: Sequence[dict], order: str, exemplar: str,
     tf = sum(first_hits.values()) / len(first_hits)
     te = (sum(exemplar_hits.values()) / len(exemplar_hits)) if exemplar_hits else None
     return BatchTracking(coll, tf, te, len(first_hits), len(exemplar_hits), ties,
-                         first_hits, exemplar_hits)
+                         False, first_hits, exemplar_hits)
 
 
 # ------------------------------------------------------------------- BCa
@@ -226,21 +221,34 @@ def label_against(point: float, lo: float, hi: float, bar: float) -> str:
     return "indeterminate"
 
 
-def label_null_at_chance(point: float, lo: float, hi: float, bar: float) -> str:
-    """Third rule, proposed alongside the other two (S3B-18).
+def is_dissociable(order: str, exemplar: str) -> bool:
+    """Plan 2.5 (R5-5): can tracks_first and tracks_exemplar be told apart here?
 
-    Both registered rules treat `tracks` and `no tracking` as symmetric positive
-    claims, which forces `indeterminate` whenever the interval merely contains
-    the bar. But the substantive null IS chance: a genuine prior produces a
-    tracking rate AT chance, not below it. So:
+    Under `canonical` order the first-enumerated values of the three exemplar
+    fields ARE the `modal` exemplar's values, so in the (canonical, modal) cell
+    the two sub-quantities are numerically identical and tracks_exemplar is
+    excluded from the grid.
+    """
+    ex = EXEMPLARS[exemplar]
+    return any(enumeration_order(f, order)[0] != ex[f] for f in EXEMPLAR_FIELDS)
+
+
+def label_null_at_chance(point: float, lo: float, hi: float, bar: float) -> str:
+    """THE REGISTERED RULE (plan 2.6, R5-1). One-sided, against chance.
+
+    The substantive null IS chance: a genuine prior produces a tracking rate AT
+    chance, not below it. So:
 
         tracks        -> the interval excludes the bar from ABOVE (lo > bar)
         no tracking   -> the interval CONTAINS the bar, or lies below it
         indeterminate -> reserved for insufficient data, decided upstream
 
-    Under the two symmetric rules `genuine prior` can essentially never MATCH
-    the tracking column, because "no tracking" would require the observed rate to
-    sit measurably BELOW chance — which nothing predicts.
+    Under the two rejected symmetric rules `genuine prior` can essentially never
+    MATCH the tracking column, because "no tracking" would require the observed
+    rate to sit measurably BELOW chance — which nothing predicts.
+
+    `indeterminate` is NOT produced here: plan 2.6 reserves it for insufficient
+    data, decided upstream from the usable-batch count.
     """
     if lo > bar:
         return "tracks"
@@ -268,12 +276,14 @@ class CellTracking:
     ci95: tuple[float, float] | None
     n_batches_used: int
     n_null_batches: int
+    n_no_collapse_batches: int
     modal_tie_count: int
     chance_rate: float
-    label_flat: str                     # plan-registered, bar = 0.50
-    label_chance: str                   # proposed for revision 5, symmetric
-    label_null: str                     # proposed for revision 5, one-sided
+    label_registered: str               # plan 2.6 R5-1: one-sided at chance
+    label_flat: str                     # REJECTED rev-4 rule, reported only
+    label_chance: str                   # REJECTED symmetric rule, reported only
     per_field: dict[str, dict]
+    reason: str = "measured"            # measured | no_collapse | insufficient_data
 
     def to_json(self) -> dict:
         return {
@@ -282,12 +292,16 @@ class CellTracking:
             "ci95": list(self.ci95) if self.ci95 else None,
             "n_batches_used": self.n_batches_used,
             "n_null_batches": self.n_null_batches,
+            "n_no_collapse_batches": self.n_no_collapse_batches,
             "modal_tie_count": self.modal_tie_count,
             "chance_rate": self.chance_rate,
-            "label_flat_0p50": self.label_flat,
-            "label_per_field_chance": self.label_chance,
-            "label_null_at_chance": self.label_null,
-            "labels_agree": self.label_flat == self.label_chance == self.label_null,
+            "label_registered": self.label_registered,
+            "tracking_label_rule": K.TRACKING_LABEL_RULE,
+            "rejected_label_flat_0p50": self.label_flat,
+            "rejected_label_per_field_symmetric": self.label_chance,
+            "rejected_rules_agree_with_registered":
+                self.label_flat == self.label_chance == self.label_registered,
+            "reason": self.reason,
             "per_field": self.per_field,
         }
 
@@ -303,7 +317,8 @@ def cell_tracking(batches: Sequence[BatchTracking], quantity: str,
     """
     vals = [getattr(b, quantity) for b in batches]
     used = [v for v in vals if v is not None]
-    n_null = len(vals) - len(used)
+    n_nc = sum(1 for b in batches if b.no_collapse)
+    n_null = len(vals) - len(used) - n_nc
     ties = sum(b.modal_tie_count for b in batches)
 
     if quantity == "tracks_first":
@@ -330,18 +345,27 @@ def cell_tracking(batches: Sequence[BatchTracking], quantity: str,
             "label_per_field_chance": label_against(p, lo, hi, f_chance),
         }
 
-    if not used:
-        return CellTracking(quantity, None, None, 0, n_null, ties, cr,
+    # Plan 2.4.7: a majority of no-collapse batches IS `no tracking`, not null.
+    if n_nc * 2 > len(batches):
+        return CellTracking(quantity, None, None, len(used), n_null, n_nc, ties, cr,
+                            "no tracking", "no tracking", "no tracking", per_field,
+                            reason="no_collapse")
+
+    # Plan 2.7: `indeterminate` comes from insufficient data only. no_collapse
+    # batches count as usable.
+    min_usable = max(2, int(0.4 * len(batches)))
+    if not used or (len(used) + n_nc) < min_usable:
+        return CellTracking(quantity, None, None, len(used), n_null, n_nc, ties, cr,
                             "indeterminate", "indeterminate", "indeterminate",
-                            per_field)
+                            per_field, reason="insufficient_data")
 
     point, lo, hi = _bca(used, n_boot, seed)
     return CellTracking(
-        quantity, point, (lo, hi), len(used), n_null, ties, cr,
-        label_against(point, lo, hi, K.ANCHOR_TRACKING_THRESHOLD),
-        label_against(point, lo, hi, cr),
-        label_null_at_chance(point, lo, hi, cr),
-        per_field,
+        quantity, point, (lo, hi), len(used), n_null, n_nc, ties, cr,
+        label_null_at_chance(point, lo, hi, cr),                       # registered
+        label_against(point, lo, hi, K.ANCHOR_TRACKING_THRESHOLD),     # rejected
+        label_against(point, lo, hi, cr),                              # rejected
+        per_field, reason="measured",
     )
 
 
@@ -354,6 +378,7 @@ def score_cell(batch_configs: Sequence[Sequence[dict]], order: str, exemplar: st
     return {
         "enumeration_order": order,
         "exemplar": exemplar,
+        "exemplar_dissociable": is_dissociable(order, exemplar),
         "batches": [b.to_json() for b in bts],
         "tracks_first": cell_tracking(bts, "tracks_first", n_boot, seed).to_json(),
         "tracks_exemplar": cell_tracking(bts, "tracks_exemplar", n_boot, seed).to_json(),

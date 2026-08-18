@@ -11,38 +11,34 @@ S4 build → S5 results-file layer → S6 write → S7 referee
 
 ---
 
-## Current stage: **S3b complete — G2 unsigned, revision 5 pending**
+## Current stage: **S2d complete at revision 5 — G2 evidence filled, unsigned**
 
-S0 audit complete (G0 unsigned). S1 positioning complete (G1 recorded PASSED on
-operator authorisation, unsigned). S2 produced the pre-registered plan; **S2a**,
-**S2b** and **S2c** amended it as revisions 2, 3 and 4, all before any data
-collection. **S3a** built the measurement instrument and ran it against revision 3
-*before* the gate was signed, finding **25 defects, 7 blocking**; revision 4 folds
-all 25 in.
+S0 audit complete (G0 unsigned). S1 positioning complete (G1 PASSED on operator
+authorisation, unsigned). S2 produced the pre-registered plan; **S2a/S2b/S2c/S2d**
+amended it as revisions 2–5. **S3a** implemented the emitter and gates against
+revision 3 and found 25 defects; **S3b** implemented the two scorers that decide
+C2 against revision 4 and found 18. Revision 5 folds in all 18, plus three more it
+found in its own drafting.
 
-**Governing plan: `EXPERIMENT_PLAN_R4.md`** (revision 4), SHA-256
-`738601db1d55e81010a62ec1e1259f82e6466f7e8db02f0ec3de4ed15d80cc9d`, hashed
-2026-08-17T18:25:00Z.
-**FAMILY_SIZE = 17, ALPHA = 0.05/17 = 0.0029411764705882353.**
+**Governing plan: `EXPERIMENT_PLAN_R5.md`** (revision 5), SHA-256
+`e3206e718161cc139830ff79741c6fe8f78e1d34f1147d3f644b36be2107b201`, hashed
+2026-08-18T04:00:00Z.
+**FAMILY_SIZE = 17, ALPHA = 0.05/17 = 0.0029411764705882353 — unchanged.**
 
 ```
-  rev 1  aeb174ff…bad3d  EXPERIMENT_PLAN.md      05:10:13Z   16 / 0.003125
-    │ §5.6 rule 4
-  rev 2  a9954ba3…1df1   EXPERIMENT_PLAN_R2.md   09:25:13Z   16 / 0.003125
-    │ §5.6 rule 4
-  rev 3  be61bda9…df03   EXPERIMENT_PLAN_R3.md   09:45:06Z   16 / 0.003125
-    │ §5.6 rule 4   ← S3a implementation pass: 25 defects, 7 blocking
-  rev 4  738601db…cc9d   EXPERIMENT_PLAN_R4.md   18:25:00Z   17 / 0.00294   ← GOVERNING
+  rev 1  aeb174ff…bad3d  EXPERIMENT_PLAN.md      17 Aug 05:10Z   16 / 0.003125
+  rev 2  a9954ba3…1df1   EXPERIMENT_PLAN_R2.md   17 Aug 09:25Z   16 / 0.003125
+  rev 3  be61bda9…df03   EXPERIMENT_PLAN_R3.md   17 Aug 09:45Z   16 / 0.003125   ← S3a: 25 defects
+  rev 4  738601db…cc9d   EXPERIMENT_PLAN_R4.md   17 Aug 18:25Z   17 / 0.00294    ← S3b: 18 defects
+  rev 5  e3206e71…b201   EXPERIMENT_PLAN_R5.md   18 Aug 04:00Z   17 / 0.00294    ← GOVERNING
 ```
 
-Revisions 1, 2 and 3 remain **byte-identical**; every hash was re-verified before
-and after each step. The plan is never edited in place.
+Revisions 1–4 remain **byte-identical**; every hash re-verified before and after
+each step. The plan is never edited in place.
 
-**The revision route closes at the END OF S3**, when the analysis code exists and
-G2 is signed against a plan that has been *executed*, not only read. **S3b
-implemented the two scorers that decide C2 and found 18 further defects, 5
-blocking** (`audit/S3B_SCORER_DEFECTS.md`) — so the ordering keeps earning its
-keep. Revision 5 folds those in together with four operator decisions.
+**G2's evidence is now complete and the gate is still unsigned.** All four
+criteria are met (`GATES.md`). The operator signs; the revision route closes when
+they do.
 
 ---
 
@@ -56,7 +52,7 @@ keep. Revision 5 folds those in together with four operator decisions.
 structured decoding and output repair distorting what is measured about a model
 — is published 2024–2026 literature. Its instantiation in LLM-guided NAS is not.
 Any downstream sentence claiming the mechanism is a defect
-(`EXPERIMENT_PLAN_R4.md` §1.2).
+(`EXPERIMENT_PLAN_R5.md` §1.2).
 
 ---
 
@@ -184,7 +180,7 @@ torch, which is absent, so the sampler was executed by verbatim source extractio
 
 ### S2c — plan amendment (revision 4) *(this session)*
 
-**`EXPERIMENT_PLAN_R4.md`** — 1,653 lines, wholesale successor. Folds in all 25
+**`EXPERIMENT_PLAN_R5.md`** — 1,653 lines, wholesale successor. Folds in all 25
 S3a defects; §9 carries a defect-by-defect disposition.
 
 - **R4-1** — new **§2.8 anchor-tracking sub-design**: enumeration order
@@ -265,6 +261,49 @@ per-field rule as briefed, implemented symmetrically, makes `quantisation`,
 **No compute. No model called — local or hosted — no training, no GPU, no ML
 dependency installed. All fixture data constructed by hand.**
 
+### S2d — plan amendment (revision 5) *(this session)*
+
+**`EXPERIMENT_PLAN_R5.md`** — 2,158 lines. Folds in all 18 S3b defects; §9 carries
+the disposition, §10 keeps revision 4's disposition of the 25 from S3a.
+
+- **R5-1** — the **one-sided per-field chance rule** is registered for anchor
+  tracking. `tracks` = interval excludes chance from above; `no tracking` =
+  contains it or below; `indeterminate` = insufficient data only. Chance is
+  **1/|V_f|** per field, **0.263889** weighted over all six, **0.25** over the
+  three exemplar fields. The revision-4 flat 0.50 bar and the symmetric per-field
+  rule are both **rejected** — the flat bar returned `indeterminate` at 2.3× and
+  2.8× chance; the symmetric rule never fires `no tracking` and would have made
+  three of five rivals unmatchable.
+- **R5-2** — tracking runs at **all three models** (12 cells). **X5 stays one
+  contrast and FAMILY_SIZE stays 17**: column classification is descriptive by CI
+  position, not a hypothesis test, so per-model scoring needs no per-model
+  contrast, and tripling X5 would tighten alpha for sixteen other tests to buy
+  nothing.
+- **R5-3** — **`tracks_{first,exemplar}_pre_mean` and `_ci95` registered** at cell
+  level. The blocking one: without them the column could not be scored at all.
+- **R5-4/5/6/7/8** — field-collapse threshold (normalised entropy < 0.15); both
+  tracking denominators; three explicit grid predicates; `contingent_on_
+  indeterminacy` instead of preventing the behaviour; the level columns' inability
+  to falsify recorded as a KNOWN LIMITATION; **`B_tracking = max(16, S3 pilot)`**.
+- **R5-9/10** — schema → **1.4.0**, closing every Block D coverage gap.
+- **R5-11** — **full discreteness table re-run for all 17 tests; every floor
+  clears**, the binding one at 1.038% of ALPHA.
+
+**Three defects found in revision 5's own drafting and closed before freezing:**
+the (canonical, modal) **degenerate cell** where `tracks_first` and
+`tracks_exemplar` cannot be dissociated; **no collapse means no tracking**, without
+which `repair artifact` was untestable exactly when true; and the **logically
+unsatisfiable conjunction** in the format-tax predicate.
+
+**Budget: 9,600 + 240·B_tracking + 320·R — 19,840 at both floors.**
+*(rev 1: 9,400 · rev 2: 12,400 · rev 3: 16,000 · rev 4: 17,280 · rev 5: 19,840.)*
+
+Fixtures re-run against R5's constants: **B1–B8 8/8 unchanged**, **C1–C16 22/22**,
+full suite **7/7**.
+
+**No compute in any session. No model called — local or hosted — no training, no
+GPU, no ML dependency installed.**
+
 ## The findings that shape everything downstream
 
 1. **The repository contains no experimental data.** 0 RAW / 0 SPEC /
@@ -283,15 +322,15 @@ dependency installed. All fixture data constructed by hand.**
 ## Time — the calendar is not an input to scope
 
 **Recorded as CONSIDERED AND REJECTED at S2a, carried into revision 3**
-(`EXPERIMENT_PLAN_R4.md` §8). The nearest workshop deadline is 2026-08-29 AoE and
-the plan now specifies **10,880 + 320·R** generations — 17,280 at the R floor of
-20 — with zero training runs. **The venue follows the artifact, not the reverse.**
+(`EXPERIMENT_PLAN_R5.md` §8). The nearest workshop deadline is 2026-08-29 AoE and
+the plan now specifies **9,600 + 240·B_tracking + 320·R** generations — 19,840 at
+both floors — with zero training runs. **The venue follows the artifact, not the reverse.**
 The chosen venue is non-archival, so missing a cycle costs nothing — no priority,
 no publication window, no claim to the result — and workshop cycles recur,
 whereas a design weakened to fit a date is permanent.
 
 **Every revision has raised the budget, not lowered it** — 9,400 → 12,400 →
-16,000 → 17,280 at the floor — each time because that is what made a confirmatory test
+16,000 → 17,280 → 19,840 at the floors — each time because that is what made a confirmatory test
 decidable. That is the precedent §8 fixes. §8.2 lists what may not be proposed as
 a scope cut on schedule or budget grounds, now including any reduction of *B*
 below 16, which must argue against the ceiling table rather than against cost.
@@ -302,15 +341,14 @@ a further revision, after G2 a `DEVIATIONS.md` entry.
 
 - **G0, G1, G2 all await operator signature.** G0's recommendation is in
   `audit/SESSION_1_REPORT.md` §8. Never self-sign.
-- **G2 is signed at the END OF S3**, not before. Revision 4 closed all 25 S3a
-  defects; S3b then implemented the two scorers and found 18 more, 5 blocking.
-  **Revision 5 first.**
-- **Revision 5 must fold in:** the 18 S3B defects, plus four operator decisions —
-  anchor-tracking extended to all three models (**FAMILY_SIZE 17 → 19, ALPHA =
-  0.05/19 = 0.0026315789473684210**, with every floor re-run and a STOP if any
-  fails); per-field reversal declined with the limit recorded; per-field chance
-  rates replacing the flat bar (**in the one-sided form**, per S3B-11); and every
-  rival predicting on both `tracks_first` and `tracks_exemplar`.
+- **G2's evidence is complete and all four criteria are met. The gate awaits the
+  operator's signature.** Signing closes the revision route.
+- **Remaining before data collection (S3):** freeze and hash the E1/E2 prompts
+  including the twelve tracking prompts with their order-only diffs; run
+  `scripts/power_e2.py` at the registered ALPHA to set `R_final`; run the
+  tracking-CI-width pilot to set `B_tracking`; measure `D_rand` from the
+  registered sampler; fix and test OA-10 through OA-17; select and pin the
+  frontier model.
 - **38 open actions**, `audit/OPEN_ACTIONS.md`. Blocking before S6: **OA-37**
   (CoLLM-NAS replication status, five unverified leads) and **OA-38** (8 of 15
   obliged citations absent from `references_verified.bib`).
