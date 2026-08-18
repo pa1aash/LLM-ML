@@ -161,5 +161,113 @@ available even as a logged deviation.
 
 ## Entries
 
-*None. No data has been collected and no analysis has been run as of the
-revision-6 pre-registration hash (`d63a7625…d340b`, 2026-08-18T04:35:00Z).*
+**Numbering.** Deviation entries are numbered `D-001`, `D-002`, … with three
+digits, deliberately distinct from the two-digit `D-01`…`D-25` *defect* IDs the
+governing plan uses in its §10 disposition tables. A `D-0nn` here is a departure;
+a `D-nn` there is a defect the plan already closed.
+
+**Status at the head of S3-1.** No data has been collected and no analysis has
+been run as of the revision-6 pre-registration hash (`d63a7625…d340b`,
+2026-08-18T04:35:00Z). Every entry below is therefore a `no` on field five, and
+every one is committed before the artifact it governs.
+
+---
+
+### D-001 — the exemplar value map is defined for all six per-block fields
+
+- **Date:** 2026-08-18
+- **Plan section:** §2.8, §2.4.7, §5.5 (`exemplar_values`)
+- **What changed:** §2.8 names exemplar values for **three** of the six per-block
+  fields — `conv_type`, `activation`, `normalization` — and §5.5's
+  `exemplar_values` header carries only those three. A worked example of a block
+  is not writable without values for `channels`, `skip_connection` and `pooling`;
+  the plan left them unspecified. They are fixed here, **identical across both
+  exemplar levels**, at values that are **not first-enumerated under either
+  enumeration order**:
+
+  | field | `modal` | `non_modal` | position in vocabulary | first under canonical / reversed |
+  |---|---|---|---|---|
+  | `conv_type` | `standard_3x3` | `depthwise_separable` | 1 / 2 | registered in §2.8 |
+  | `channels` | `64` | `64` | 2 of 4 | `32` / `256` — neither |
+  | `activation` | `relu` | `gelu` | 1 / 2 | registered in §2.8 |
+  | `normalization` | `batchnorm` | `groupnorm` | 1 / 3 | registered in §2.8 |
+  | `skip_connection` | `projection` | `projection` | 2 of 3 | `identity` / `none` — neither |
+  | `pooling` | `avgpool` | `avgpool` | 2 of 4 | `maxpool` / `none` — neither |
+
+  The emitted `exemplar_values` header gains a `held_constant` sub-map recording
+  the three filled fields and the reason. **`tracks_exemplar`'s denominator is
+  unchanged** and remains the three fields §2.4.7 registers: the three filled
+  fields do not vary across exemplar levels, so they carry no exemplar
+  manipulation and are not part of the statistic.
+- **Why:** the three unnamed fields must take *some* value in the prompt text.
+  Leaving the choice to the moment of writing would let it be made silently, and
+  the choice is not neutral: a filled value that happens to be first-enumerated
+  would manufacture apparent `tracks_first` signal in the cells where it is
+  first. Holding them constant across exemplar levels confines the exemplar
+  manipulation to the three registered fields; choosing mid-vocabulary values
+  makes their contribution to `tracks_first` **conservative** — if the model
+  copies them, the modal value is first-enumerated under neither order and
+  contributes 0, biasing `tracks_first` down rather than up.
+- **Data already collected for this analysis?** no
+
+---
+
+### D-002 — prompt file layout, composition rule, and the empty exemplar
+
+- **Date:** 2026-08-18
+- **Plan section:** §2.1, §2.8, §3.2, §5.5 (`prompts`)
+- **What changed:** the plan says prompts are "frozen in `prompts/E1/`",
+  "`prompts/E1/anchor/`" and "`prompts/E2/`" and hashed into the results file,
+  without stating how a cell's prompt is assembled from them. Registered here:
+
+  1. **Composition is textual and deterministic.** `schema_canonical.txt` and
+     `schema_reversed.txt` each carry the token `{{EXEMPLAR_BLOCK}}` alone on one
+     line. Composition replaces that line with the exemplar file's contents; runs
+     of three or more consecutive newlines in the result are collapsed to two.
+  2. **`exemplar_absent.txt` is a zero-byte file**, SHA-256
+     `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`, so the
+     absent level is the *literal* absence of the block rather than a rewording
+     of it.
+  3. **The main grid's schema cells compose `canonical` + `absent`.** The 30
+     main-grid cells therefore carry **no worked example**, and the exemplar is a
+     factor of the §2.8 sub-design only, as §2.8 describes it.
+  4. **The value enumerations appear exactly once per field**, in one
+     `### Allowed values` block, so that "reverse every field's allowed values"
+     has a single unambiguous site per field and the canonical-vs-reversed diff
+     is checkable line by line.
+  5. **Free-prose carries the same search-space description and the same value
+     enumerations** as the schema variant, in canonical order, and differs by
+     removing the JSON structure template and the return-only-JSON instruction.
+  6. Files are written at the paths the plan names, with the filenames S3-1
+     specifies: `prompts/E1/{schema_canonical,schema_reversed,freeprose}.txt`,
+     `prompts/E1/anchor/exemplar_{modal,nonmodal,absent}.txt`,
+     `prompts/E2/e2_{zeroshot,uncurated,curated,archive}.txt`.
+- **Why:** §2.8's invariant — "the only difference between the two order levels
+  is the order of the value lists" — is only checkable if each field's values
+  occur in exactly one place. Point 5 is the narrower of two readings: giving
+  free-prose a *different* description would confound the format factor with the
+  information the two arms receive, and X1 would no longer isolate format.
+  Point 3 keeps the main grid free of an exemplar the plan never registered for
+  it.
+- **Data already collected for this analysis?** no
+
+---
+
+### D-003 — E2's archive size *m* and the curated statement's bound
+
+- **Date:** 2026-08-18
+- **Plan section:** §3.2
+- **What changed:** §3.2 defers "the curation prompt and *m*" to the frozen
+  `prompts/E2/` artifacts without fixing either. Fixed here: **m = 5** for the
+  external-archive arm, and the curated arm's strategy statement is bounded at
+  **120 words**, stated in the curation prompt itself. The curation prompt lives
+  in `e2_curated.txt` under a `=== CURATION PROMPT ===` delimiter, so the arm's
+  two prompts — propose and distil — are one frozen, singly-hashed artifact.
+- **Why:** both numbers are prompt content, which §3.2 delegates to this
+  artifact, so setting them is compliance. They are logged because the plan
+  states neither, and an unstated number chosen at run time is indistinguishable
+  from one chosen after seeing results. m = 5 is a quarter of the k = 20
+  proposals a run makes, keeping the archive bounded well below the uncurated
+  arm's monotonically growing context, which is the contrast the arm exists to
+  draw. The 120-word bound plays the same role for the curated arm.
+- **Data already collected for this analysis?** no
