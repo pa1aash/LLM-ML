@@ -1,0 +1,921 @@
+{
+  "tests": [
+    {
+      "test": "D1",
+      "what": "parse_outcome",
+      "expected": "parsed",
+      "actual": "parsed",
+      "pass": true
+    },
+    {
+      "test": "D1",
+      "what": "every per-block channel is passthrough",
+      "expected": {
+        "conv_type": [
+          "passthrough"
+        ],
+        "channels": [
+          "passthrough"
+        ],
+        "activation": [
+          "passthrough"
+        ],
+        "normalization": [
+          "passthrough"
+        ],
+        "skip_connection": [
+          "passthrough"
+        ],
+        "pooling": [
+          "passthrough"
+        ]
+      },
+      "actual": {
+        "conv_type": [
+          "passthrough"
+        ],
+        "channels": [
+          "passthrough"
+        ],
+        "activation": [
+          "passthrough"
+        ],
+        "normalization": [
+          "passthrough"
+        ],
+        "skip_connection": [
+          "passthrough"
+        ],
+        "pooling": [
+          "passthrough"
+        ]
+      },
+      "pass": true
+    },
+    {
+      "test": "D1",
+      "what": "arch-level channels",
+      "expected": {
+        "global_pool": [
+          "passthrough"
+        ],
+        "fc_layers": [
+          "passthrough"
+        ],
+        "dropout": [
+          "passthrough"
+        ]
+      },
+      "actual": {
+        "global_pool": [
+          "passthrough"
+        ],
+        "fc_layers": [
+          "passthrough"
+        ],
+        "dropout": [
+          "passthrough"
+        ]
+      },
+      "pass": true
+    },
+    {
+      "test": "D1",
+      "what": "post-repair spec equals pre-repair spec",
+      "expected": [
+        {
+          "conv_type": "dilated_3x3",
+          "channels": 128,
+          "activation": "silu",
+          "normalization": "layernorm",
+          "skip_connection": "projection",
+          "pooling": "maxpool"
+        },
+        {
+          "conv_type": "dilated_3x3",
+          "channels": 128,
+          "activation": "silu",
+          "normalization": "layernorm",
+          "skip_connection": "projection",
+          "pooling": "maxpool"
+        },
+        {
+          "conv_type": "dilated_3x3",
+          "channels": 128,
+          "activation": "silu",
+          "normalization": "layernorm",
+          "skip_connection": "projection",
+          "pooling": "maxpool"
+        }
+      ],
+      "actual": [
+        {
+          "conv_type": "dilated_3x3",
+          "channels": 128,
+          "activation": "silu",
+          "normalization": "layernorm",
+          "skip_connection": "projection",
+          "pooling": "maxpool"
+        },
+        {
+          "conv_type": "dilated_3x3",
+          "channels": 128,
+          "activation": "silu",
+          "normalization": "layernorm",
+          "skip_connection": "projection",
+          "pooling": "maxpool"
+        },
+        {
+          "conv_type": "dilated_3x3",
+          "channels": 128,
+          "activation": "silu",
+          "normalization": "layernorm",
+          "skip_connection": "projection",
+          "pooling": "maxpool"
+        }
+      ],
+      "pass": true
+    },
+    {
+      "test": "D2",
+      "what": "activation channel per block",
+      "expected": [
+        "coerced",
+        "coerced",
+        "coerced"
+      ],
+      "actual": [
+        "coerced",
+        "coerced",
+        "coerced"
+      ],
+      "pass": true
+    },
+    {
+      "test": "D2",
+      "what": "coerced destination is valid_vals[0] under canonical",
+      "expected": [
+        "relu",
+        "relu",
+        "relu"
+      ],
+      "actual": [
+        "relu",
+        "relu",
+        "relu"
+      ],
+      "pass": true
+    },
+    {
+      "test": "D2",
+      "what": "every other field passthrough",
+      "expected": {
+        "conv_type": [
+          "passthrough"
+        ],
+        "channels": [
+          "passthrough"
+        ],
+        "normalization": [
+          "passthrough"
+        ],
+        "skip_connection": [
+          "passthrough"
+        ],
+        "pooling": [
+          "passthrough"
+        ]
+      },
+      "actual": {
+        "conv_type": [
+          "passthrough"
+        ],
+        "channels": [
+          "passthrough"
+        ],
+        "normalization": [
+          "passthrough"
+        ],
+        "skip_connection": [
+          "passthrough"
+        ],
+        "pooling": [
+          "passthrough"
+        ]
+      },
+      "pass": true
+    },
+    {
+      "test": "D2",
+      "what": "no field is filled",
+      "expected": 0,
+      "actual": 0,
+      "pass": true
+    },
+    {
+      "test": "D3",
+      "what": "normalization channel per block",
+      "expected": [
+        "filled",
+        "filled",
+        "filled"
+      ],
+      "actual": [
+        "filled",
+        "filled",
+        "filled"
+      ],
+      "pass": true
+    },
+    {
+      "test": "D3",
+      "what": "filled destination is valid_vals[0] under canonical",
+      "expected": [
+        "batchnorm",
+        "batchnorm",
+        "batchnorm"
+      ],
+      "actual": [
+        "batchnorm",
+        "batchnorm",
+        "batchnorm"
+      ],
+      "pass": true
+    },
+    {
+      "test": "D3",
+      "what": "every other field passthrough",
+      "expected": {
+        "conv_type": [
+          "passthrough"
+        ],
+        "channels": [
+          "passthrough"
+        ],
+        "activation": [
+          "passthrough"
+        ],
+        "skip_connection": [
+          "passthrough"
+        ],
+        "pooling": [
+          "passthrough"
+        ]
+      },
+      "actual": {
+        "conv_type": [
+          "passthrough"
+        ],
+        "channels": [
+          "passthrough"
+        ],
+        "activation": [
+          "passthrough"
+        ],
+        "skip_connection": [
+          "passthrough"
+        ],
+        "pooling": [
+          "passthrough"
+        ]
+      },
+      "pass": true
+    },
+    {
+      "test": "D3",
+      "what": "nothing is coerced (filled != coerced)",
+      "expected": 0,
+      "actual": 0,
+      "pass": true
+    },
+    {
+      "test": "D4",
+      "what": "parse_outcome",
+      "expected": "parse_failed",
+      "actual": "parse_failed",
+      "pass": true
+    },
+    {
+      "test": "D4",
+      "what": "spec_pre_repair",
+      "expected": null,
+      "actual": null,
+      "pass": true
+    },
+    {
+      "test": "D4",
+      "what": "spec_post_repair",
+      "expected": null,
+      "actual": null,
+      "pass": true
+    },
+    {
+      "test": "D4",
+      "what": "sanitiser_applied",
+      "expected": false,
+      "actual": false,
+      "pass": true
+    },
+    {
+      "test": "D4",
+      "what": "repair_channels empty",
+      "expected": {},
+      "actual": {},
+      "pass": true
+    },
+    {
+      "test": "D4",
+      "what": "backend status is ok \u2014 the failure is the model's, not the call's",
+      "expected": "ok",
+      "actual": "ok",
+      "pass": true
+    },
+    {
+      "test": "D4",
+      "what": "batch parse_failures",
+      "expected": 4,
+      "actual": 4,
+      "pass": true
+    },
+    {
+      "test": "D4",
+      "what": "D_pre excluded (no parseable specs)",
+      "expected": null,
+      "actual": null,
+      "pass": true
+    },
+    {
+      "test": "D4",
+      "what": "D_post excluded (no parseable specs)",
+      "expected": null,
+      "actual": null,
+      "pass": true
+    },
+    {
+      "test": "D4",
+      "what": "S is still computed over raw text (\u00a72.4.6)",
+      "expected": true,
+      "actual": true,
+      "pass": true
+    },
+    {
+      "test": "D5",
+      "what": "finish_reason",
+      "expected": "length",
+      "actual": "length",
+      "pass": true
+    },
+    {
+      "test": "D5",
+      "what": "finish_reason is NOT \"stop\"",
+      "expected": true,
+      "actual": true,
+      "pass": true
+    },
+    {
+      "test": "D5",
+      "what": "finish_reason_source recorded",
+      "expected": "stub",
+      "actual": "stub",
+      "pass": true
+    },
+    {
+      "test": "D5",
+      "what": "truncated generation does not parse",
+      "expected": "parse_failed",
+      "actual": "parse_failed",
+      "pass": true
+    },
+    {
+      "test": "D5",
+      "what": "rule: at budget with EOS last -> length",
+      "expected": "length",
+      "actual": "length",
+      "pass": true
+    },
+    {
+      "test": "D5",
+      "what": "rule: under budget with EOS last -> stop",
+      "expected": "stop",
+      "actual": "stop",
+      "pass": true
+    },
+    {
+      "test": "D5",
+      "what": "rule: under budget, no EOS -> unknown",
+      "expected": "unknown",
+      "actual": "unknown",
+      "pass": true
+    },
+    {
+      "test": "D6",
+      "what": "run continues: records emitted",
+      "expected": 5,
+      "actual": 5,
+      "pass": true
+    },
+    {
+      "test": "D6",
+      "what": "one recorded failure",
+      "expected": 1,
+      "actual": 1,
+      "pass": true
+    },
+    {
+      "test": "D6",
+      "what": "failed generation index",
+      "expected": 3,
+      "actual": 3,
+      "pass": true
+    },
+    {
+      "test": "D6",
+      "what": "finish_reason on a failure",
+      "expected": "error",
+      "actual": "error",
+      "pass": true
+    },
+    {
+      "test": "D6",
+      "what": "no raw text",
+      "expected": null,
+      "actual": null,
+      "pass": true
+    },
+    {
+      "test": "D6",
+      "what": "parse not attempted",
+      "expected": "not_attempted",
+      "actual": "not_attempted",
+      "pass": true
+    },
+    {
+      "test": "D6",
+      "what": "error is recorded verbatim",
+      "expected": true,
+      "actual": true,
+      "pass": true
+    },
+    {
+      "test": "D6",
+      "what": "backend calls made (5 generations, no retry)",
+      "expected": 5,
+      "actual": 5,
+      "pass": true
+    },
+    {
+      "test": "D6",
+      "what": "surviving generations parsed",
+      "expected": 4,
+      "actual": 4,
+      "pass": true
+    },
+    {
+      "test": "D7",
+      "what": "sanitiser_applied",
+      "expected": false,
+      "actual": false,
+      "pass": true
+    },
+    {
+      "test": "D7",
+      "what": "pre-repair spec preserved verbatim",
+      "expected": [
+        {
+          "conv_type": "dilated_3x3",
+          "channels": 128,
+          "activation": "ELU",
+          "skip_connection": "projection",
+          "pooling": "maxpool"
+        },
+        {
+          "conv_type": "dilated_3x3",
+          "channels": 128,
+          "activation": "ELU",
+          "skip_connection": "projection",
+          "pooling": "maxpool"
+        },
+        {
+          "conv_type": "dilated_3x3",
+          "channels": 128,
+          "activation": "ELU",
+          "skip_connection": "projection",
+          "pooling": "maxpool"
+        }
+      ],
+      "actual": [
+        {
+          "conv_type": "dilated_3x3",
+          "channels": 128,
+          "activation": "ELU",
+          "skip_connection": "projection",
+          "pooling": "maxpool"
+        },
+        {
+          "conv_type": "dilated_3x3",
+          "channels": 128,
+          "activation": "ELU",
+          "skip_connection": "projection",
+          "pooling": "maxpool"
+        },
+        {
+          "conv_type": "dilated_3x3",
+          "channels": 128,
+          "activation": "ELU",
+          "skip_connection": "projection",
+          "pooling": "maxpool"
+        }
+      ],
+      "pass": true
+    },
+    {
+      "test": "D7",
+      "what": "post-repair spec is the pre-repair spec",
+      "expected": [
+        {
+          "conv_type": "dilated_3x3",
+          "channels": 128,
+          "activation": "ELU",
+          "skip_connection": "projection",
+          "pooling": "maxpool"
+        },
+        {
+          "conv_type": "dilated_3x3",
+          "channels": 128,
+          "activation": "ELU",
+          "skip_connection": "projection",
+          "pooling": "maxpool"
+        },
+        {
+          "conv_type": "dilated_3x3",
+          "channels": 128,
+          "activation": "ELU",
+          "skip_connection": "projection",
+          "pooling": "maxpool"
+        }
+      ],
+      "actual": [
+        {
+          "conv_type": "dilated_3x3",
+          "channels": 128,
+          "activation": "ELU",
+          "skip_connection": "projection",
+          "pooling": "maxpool"
+        },
+        {
+          "conv_type": "dilated_3x3",
+          "channels": 128,
+          "activation": "ELU",
+          "skip_connection": "projection",
+          "pooling": "maxpool"
+        },
+        {
+          "conv_type": "dilated_3x3",
+          "channels": 128,
+          "activation": "ELU",
+          "skip_connection": "projection",
+          "pooling": "maxpool"
+        }
+      ],
+      "pass": true
+    },
+    {
+      "test": "D7",
+      "what": "illegal value NOT coerced",
+      "expected": "ELU",
+      "actual": "ELU",
+      "pass": true
+    },
+    {
+      "test": "D7",
+      "what": "absent field NOT filled",
+      "expected": false,
+      "actual": false,
+      "pass": true
+    },
+    {
+      "test": "D7",
+      "what": "no repair channels recorded",
+      "expected": {},
+      "actual": {},
+      "pass": true
+    },
+    {
+      "test": "D7",
+      "what": "symmetric run passes",
+      "expected": true,
+      "actual": true,
+      "pass": true
+    },
+    {
+      "test": "D7",
+      "what": "asymmetric application across a run is refused (OA-8)",
+      "expected": true,
+      "actual": true,
+      "pass": true
+    },
+    {
+      "test": "D8",
+      "what": "same (batch, index) -> same generation seed",
+      "expected": 7001000,
+      "actual": 7001000,
+      "pass": true
+    },
+    {
+      "test": "D8",
+      "what": "raw text is byte-identical",
+      "expected": "Here is the architecture.\n\n```json\n{\n  \"blocks\": [\n    {\n      \"conv_type\": \"depthwise_separable\",\n      \"channels\": 32,\n      \"activation\": \"silu\",\n      \"normalization\": \"layernorm\",\n      \"skip_connection\": \"projection\",\n      \"pooling\": \"maxpool\"\n    },\n    {\n      \"conv_type\": \"depthwise_separable\",\n      \"channels\": 32,\n      \"activation\": \"silu\",\n      \"normalization\": \"layernorm\",\n      \"skip_connection\": \"projection\",\n      \"pooling\": \"maxpool\"\n    },\n    {\n      \"conv_type\": \"depthwise_separable\",\n      \"channels\": 32,\n      \"activation\": \"silu\",\n      \"normalization\": \"layernorm\",\n      \"skip_connection\": \"projection\",\n      \"pooling\": \"maxpool\"\n    },\n    {\n      \"conv_type\": \"depthwise_separable\",\n      \"channels\": 32,\n      \"activation\": \"silu\",\n      \"normalization\": \"layernorm\",\n      \"skip_connection\": \"projection\",\n      \"pooling\": \"maxpool\"\n    },\n    {\n      \"conv_type\": \"depthwise_separable\",\n      \"channels\": 32,\n      \"activation\": \"silu\",\n      \"normalization\": \"layernorm\",\n      \"skip_connection\": \"projection\",\n      \"pooling\": \"maxpool\"\n    }\n  ],\n  \"global_pool\": \"avg\",\n  \"fc_layers\": 1,\n  \"dropout\": 0.1\n}\n```\n\n(seed trace 0.527361774799)",
+      "actual": "Here is the architecture.\n\n```json\n{\n  \"blocks\": [\n    {\n      \"conv_type\": \"depthwise_separable\",\n      \"channels\": 32,\n      \"activation\": \"silu\",\n      \"normalization\": \"layernorm\",\n      \"skip_connection\": \"projection\",\n      \"pooling\": \"maxpool\"\n    },\n    {\n      \"conv_type\": \"depthwise_separable\",\n      \"channels\": 32,\n      \"activation\": \"silu\",\n      \"normalization\": \"layernorm\",\n      \"skip_connection\": \"projection\",\n      \"pooling\": \"maxpool\"\n    },\n    {\n      \"conv_type\": \"depthwise_separable\",\n      \"channels\": 32,\n      \"activation\": \"silu\",\n      \"normalization\": \"layernorm\",\n      \"skip_connection\": \"projection\",\n      \"pooling\": \"maxpool\"\n    },\n    {\n      \"conv_type\": \"depthwise_separable\",\n      \"channels\": 32,\n      \"activation\": \"silu\",\n      \"normalization\": \"layernorm\",\n      \"skip_connection\": \"projection\",\n      \"pooling\": \"maxpool\"\n    },\n    {\n      \"conv_type\": \"depthwise_separable\",\n      \"channels\": 32,\n      \"activation\": \"silu\",\n      \"normalization\": \"layernorm\",\n      \"skip_connection\": \"projection\",\n      \"pooling\": \"maxpool\"\n    }\n  ],\n  \"global_pool\": \"avg\",\n  \"fc_layers\": 1,\n  \"dropout\": 0.1\n}\n```\n\n(seed trace 0.527361774799)",
+      "pass": true
+    },
+    {
+      "test": "D8",
+      "what": "raw_text_sha256 identical",
+      "expected": "6f7488c7c4a23fdd39ac75aab67ed8b496429f0713255660f9e7265d8bf95f06",
+      "actual": "6f7488c7c4a23fdd39ac75aab67ed8b496429f0713255660f9e7265d8bf95f06",
+      "pass": true
+    },
+    {
+      "test": "D8",
+      "what": "a different index draws a different seed",
+      "expected": true,
+      "actual": true,
+      "pass": true
+    },
+    {
+      "test": "D8",
+      "what": "\u2026and therefore different text (the check is not vacuous)",
+      "expected": true,
+      "actual": true,
+      "pass": true
+    },
+    {
+      "test": "D8",
+      "what": "registered batch seed is still S[0] (\u00a72.3)",
+      "expected": 7001,
+      "actual": 7001,
+      "pass": true
+    },
+    {
+      "test": "D9",
+      "what": "canonical first-enumerated activation",
+      "expected": "(recorded)",
+      "actual": "relu",
+      "pass": true
+    },
+    {
+      "test": "D9",
+      "what": "reversed  first-enumerated activation",
+      "expected": "(recorded)",
+      "actual": "mish",
+      "pass": true
+    },
+    {
+      "test": "D9",
+      "what": "FILLED under canonical -> canonical first",
+      "expected": [
+        "relu",
+        "relu",
+        "relu"
+      ],
+      "actual": [
+        "relu",
+        "relu",
+        "relu"
+      ],
+      "pass": true
+    },
+    {
+      "test": "D9",
+      "what": "FILLED under reversed -> REVERSED first",
+      "expected": [
+        "mish",
+        "mish",
+        "mish"
+      ],
+      "actual": [
+        "mish",
+        "mish",
+        "mish"
+      ],
+      "pass": true
+    },
+    {
+      "test": "D9",
+      "what": "filled value under reversed is not the canonical first",
+      "expected": true,
+      "actual": true,
+      "pass": true
+    },
+    {
+      "test": "D9",
+      "what": "COERCED under canonical -> canonical first",
+      "expected": [
+        "relu",
+        "relu",
+        "relu"
+      ],
+      "actual": [
+        "relu",
+        "relu",
+        "relu"
+      ],
+      "pass": true
+    },
+    {
+      "test": "D9",
+      "what": "COERCED under reversed -> REVERSED first",
+      "expected": [
+        "mish",
+        "mish",
+        "mish"
+      ],
+      "actual": [
+        "mish",
+        "mish",
+        "mish"
+      ],
+      "pass": true
+    },
+    {
+      "test": "D9",
+      "what": "scorer: modal activation under reversed",
+      "expected": "mish",
+      "actual": "mish",
+      "pass": true
+    },
+    {
+      "test": "D9",
+      "what": "scorer: tracks_first indicator on that field",
+      "expected": 1,
+      "actual": 1,
+      "pass": true
+    },
+    {
+      "test": "D9",
+      "what": "scorer: modal ties on that field",
+      "expected": false,
+      "actual": false,
+      "pass": true
+    },
+    {
+      "test": "D9",
+      "what": "batch tracks_first (all six collapsed fields)",
+      "expected": "(recorded)",
+      "actual": 0.16666666666666666,
+      "pass": true
+    },
+    {
+      "test": "D10",
+      "what": "generations produced",
+      "expected": 320,
+      "actual": 320,
+      "pass": true
+    },
+    {
+      "test": "D10",
+      "what": "header fields missing",
+      "expected": [],
+      "actual": [],
+      "pass": true
+    },
+    {
+      "test": "D10",
+      "what": "generation fields missing",
+      "expected": [],
+      "actual": [],
+      "pass": true
+    },
+    {
+      "test": "D10",
+      "what": "cell fields missing",
+      "expected": [],
+      "actual": [],
+      "pass": true
+    },
+    {
+      "test": "D10",
+      "what": "batch fields missing",
+      "expected": [],
+      "actual": [],
+      "pass": true
+    },
+    {
+      "test": "D10",
+      "what": "prompt hashes carried into the header",
+      "expected": 11,
+      "actual": 11,
+      "pass": true
+    },
+    {
+      "test": "D10",
+      "what": "model served recorded (OA-3)",
+      "expected": "stub::Qwen/Qwen3-1.7B",
+      "actual": "stub::Qwen/Qwen3-1.7B",
+      "pass": true
+    },
+    {
+      "test": "D10",
+      "what": "enable_thinking recorded True (OA-15)",
+      "expected": true,
+      "actual": true,
+      "pass": true
+    },
+    {
+      "test": "D10",
+      "what": "truncation_chars is null (OA-15)",
+      "expected": null,
+      "actual": null,
+      "pass": true
+    },
+    {
+      "test": "D10",
+      "what": "batch quantities that do not replay",
+      "expected": [],
+      "actual": [],
+      "pass": true
+    },
+    {
+      "test": "D10",
+      "what": "D_post_mean replays",
+      "expected": 0.491639810306,
+      "actual": 0.491639810306,
+      "pass": true
+    },
+    {
+      "test": "D10",
+      "what": "D_post_std replays",
+      "expected": 0.016314713692,
+      "actual": 0.016314713692,
+      "pass": true
+    },
+    {
+      "test": "D10",
+      "what": "scorer inputs absent from the record",
+      "expected": [],
+      "actual": [],
+      "pass": true
+    },
+    {
+      "test": "D10",
+      "what": "results file bytes",
+      "expected": "(recorded)",
+      "actual": 1914586,
+      "pass": true
+    },
+    {
+      "test": "D10",
+      "what": "cell D_post_mean",
+      "expected": "(recorded)",
+      "actual": 0.4916398103055458,
+      "pass": true
+    },
+    {
+      "test": "D10",
+      "what": "cell tracks_first_post_mean",
+      "expected": "(recorded)",
+      "actual": 0.0,
+      "pass": true
+    },
+    {
+      "test": "STRUCT",
+      "what": "backend kinds named in the calling layer",
+      "expected": [],
+      "actual": [],
+      "pass": true
+    },
+    {
+      "test": "STRUCT",
+      "what": "the one branch on backend kind lives in build_backend",
+      "expected": true,
+      "actual": true,
+      "pass": true
+    },
+    {
+      "test": "STRUCT",
+      "what": "backend calls inside generate_one",
+      "expected": 1,
+      "actual": 1,
+      "pass": true
+    },
+    {
+      "test": "STRUCT",
+      "what": "loops inside generate_one (a retry would need one)",
+      "expected": 0,
+      "actual": 0,
+      "pass": true
+    },
+    {
+      "test": "STRUCT",
+      "what": "no sleep in the calling layer",
+      "expected": true,
+      "actual": true,
+      "pass": true
+    }
+  ],
+  "n_checks": 84,
+  "n_failed": 0,
+  "d9": {
+    "holds": true
+  }
+}

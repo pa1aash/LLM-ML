@@ -1,4 +1,4 @@
-"""The results-file emitter (plan §5.5).
+"""The results-file emitter (plan §5.5, schema 1.5.0).
 
 This is the only path by which a number reaches a results file. Nothing writes to
 `results/` except `ResultsEmitter.write`, and `write` runs the three fatal gates
@@ -99,6 +99,24 @@ class ResultsEmitter:
     model: dict[str, Any] = field(default_factory=dict)
     prompts: dict[str, str] = field(default_factory=dict)
 
+    #: §5.5's `d_rand` block. Measured at revision 4 (tests/compute_d_rand_r4.py)
+    #: and restated here so a results file carries the reference its thresholds
+    #: are fractions of.
+    d_rand: dict[str, Any] = field(default_factory=lambda: {
+        "value": K.D_RAND,
+        "definition": "corrected uniform sampler, block count FIXED, "
+                      "mean over K in {3,4,5,6}",
+        "seed": K.D_RAND_SEED,
+        "structure": {"n_batches": K.N_BATCHES_PER_CELL,
+                      "n_per_batch": K.N_GENERATIONS_PER_BATCH},
+        "analytic": 0.718872,
+        "sanity_range": list(K.D_RAND_SANITY_RANGE),
+        "sanity_pass": K.D_RAND_SANITY_RANGE[0] <= K.D_RAND <= K.D_RAND_SANITY_RANGE[1],
+        "d_repo_sampler": K.D_REPO_SAMPLER,
+    })
+
+    generations: list[dict[str, Any]] = field(default_factory=list)
+    deltas: list[dict[str, Any]] = field(default_factory=list)
     cells: list[dict[str, Any]] = field(default_factory=list)
     runs: list[dict[str, Any]] = field(default_factory=list)
     correlations: list[dict[str, Any]] = field(default_factory=list)
@@ -131,6 +149,21 @@ class ResultsEmitter:
     def add_cell(self, cell: dict[str, Any]) -> None:
         self._data_read = True
         self.cells.append(cell)
+
+    def add_generation(self, record: dict[str, Any]) -> None:
+        """§5.5 `generations[]` (D-21). Every pooled, bootstrapped or entropy
+        quantity must be recomputable from these records alone."""
+        self._data_read = True
+        self.generations.append(record)
+
+    def add_generations(self, records: list[dict[str, Any]]) -> None:
+        for r in records:
+            self.add_generation(r)
+
+    def add_delta(self, delta: dict[str, Any]) -> None:
+        """§5.5 `deltas[]` (S3B-15): a change column with its own field."""
+        self._data_read = True
+        self.deltas.append(delta)
 
     def add_run(self, run: dict[str, Any]) -> None:
         self._data_read = True
@@ -169,11 +202,33 @@ class ResultsEmitter:
             "prompts": self.prompts,
             "seeds": self.seeds,
             "n_batches_per_cell": self.n_batches_per_cell,
+            # --- registered 1.4.0 / 1.5.0 header fields (D-009) ---------------
+            "b_tracking": {
+                "value": K.B_TRACKING,
+                "floor": K.B_TRACKING_FLOOR,
+                "source": "results/pilots/pilot_tracking.json",
+                "binding_quantity": "cross_level_exemplar",
+            },
+            "r_final": {
+                "value": K.R_FINAL,
+                "floor": K.R_FLOOR,
+                "source": "results/pilots/power_e2.json",
+                "power_at_floor": 0.702,
+            },
+            "field_collapse_entropy_threshold": K.FIELD_COLLAPSE_ENTROPY_THRESHOLD,
+            "exemplar_values": K.EXEMPLAR_VALUES,
+            "chance_rates": K.CHANCE_RATES,
+            "tracking_label_rule": K.TRACKING_LABEL_RULE,
+            "d_rand": self.d_rand,
             "bootstrap": {
                 "resamples": K.BOOTSTRAP_RESAMPLES,
                 "method": K.BOOTSTRAP_METHOD,
                 "seed": K.BOOTSTRAP_SEED,
-                "resampling_unit": K.BOOTSTRAP_RESAMPLING_UNIT,
+                # §2.4.5 R5-10: the unit is per statistic, not global.
+                "resampling_unit_pooled": "generation",
+                "resampling_unit_delta": "batch_index_pair",
+                "resampling_unit_tracking": "batch",
+                "resampling_unit_cliffs_delta": "run",
             },
             "confirmatory_family_size": self.family_size,
             "alpha": self.alpha,
@@ -195,8 +250,12 @@ class ResultsEmitter:
 
         doc = self._header()
         doc["discreteness_gate"] = self._gate_record
+        if self.generations:
+            doc["generations"] = self.generations
         if self.cells:
             doc["cells"] = self.cells
+        if self.deltas:
+            doc["deltas"] = self.deltas
         if self.runs:
             doc["runs"] = self.runs
         if self.correlations:
