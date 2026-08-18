@@ -11,7 +11,7 @@ S4 build → S5 results-file layer → S6 write → S7 referee
 
 ---
 
-## Current stage: **S3c complete — R6 governing, G2 awaiting signature**
+## Current stage: **S3-1 complete — G2 SIGNED, R6 governing and CLOSED**
 
 S0 audit (G0 unsigned) → S1 positioning (G1 PASSED on operator authorisation) →
 S2/S2a–S2d produced and amended the pre-registered plan through revision 5 →
@@ -36,10 +36,13 @@ specified the cross-level exemplar predicate, and wrote revision 6.
 Revisions 1–5 remain **byte-identical**; every hash re-verified before and after
 each step.
 
-**G2's evidence is complete against five criteria and all five are met
-(`GATES.md`). The gate awaits the operator's signature.** Signing closes the
-revision route; afterwards every change is a `DEVIATIONS.md` entry. **S3 proper
-is next.**
+**G2 IS SIGNED.** The revision route is closed. `EXPERIMENT_PLAN_R6.md` is not
+amended by this session or any later one; every change from here is a
+`DEVIATIONS.md` entry logged before the step it affects runs. **Thirteen entries,
+D-001 to D-013, were written at S3-1.**
+
+**S3-2 — provision a pod and run the smoke test — is next, and is BLOCKED on
+three operator inputs** (below).
 
 ---
 
@@ -332,6 +335,66 @@ GPU, no ML dependency installed.**
 GPU, no ML dependency installed. Both pilots are simulation over synthetic draws
 and are quarantined from analysis.**
 
+### S3-1 — frozen prompts, the generation harness, the real benchmark table *(this session)*
+
+**G2 signed at the head of this session. No plan change was made or proposed;
+thirteen `DEVIATIONS.md` entries were written instead, each committed before the
+artifact it governs.**
+
+- **`prompts/` frozen, 10 variants + `MANIFEST.json`.** `E1/{schema_canonical,
+  schema_reversed,freeprose}.txt`, `E1/anchor/exemplar_{modal,nonmodal,absent}.txt`,
+  `E2/e2_{zeroshot,uncurated,curated,archive}.txt`. The canonical-vs-reversed
+  diff is **verified, not asserted**: 71 lines, exactly **10 differ**, all of them
+  value enumerations, every list an exact reversal, identical token bag (279) and
+  identical character count (2,020). `exemplar_absent.txt` is **zero bytes**.
+  `scripts/freeze_prompts.py --check` re-runs the whole verification and is in the
+  suite.
+- **The exemplar value map is defined for all six per-block fields** (D-001).
+  §2.8 named three; the other three are held **constant across both exemplar
+  levels** at values first-enumerated under **neither** order — `channels` 64,
+  `skip_connection` `projection`, `pooling` `avgpool` — so a model copying them
+  biases `tracks_first` **down**. `tracks_exemplar`'s three-field denominator is
+  unchanged.
+- **`src/harness/` — one interface, three backends** (local bf16, local NF4 via
+  bitsandbytes, hosted API) plus a stub, selected in `config.build_backend`, the
+  only branch on backend kind in the codebase. Each S0 defect is closed at a named
+  site: **OA-15** `enable_thinking=True` and transcripts stored untruncated;
+  **OA-16** `finish_reason` computed from token ids or passed through verbatim,
+  with `finish_reason_source`, never defaulted to `"stop"`; **OA-3** the model
+  that *answered* recorded per generation; **OA-8** one sanitiser policy per run,
+  stamped on every record and re-checkable from the data.
+- **`src/harness/parse.py` — three separable stages**, raw → parse → sanitise.
+  Parse failure is a recorded outcome. Sanitise is optional and runs OFF.
+  `coerced` and `filled` are never merged. **The free-prose path uses no
+  permissive extractor** — the same rules, applied identically to both formats.
+- **The sanitiser's value lists are parameterised by the cell's enumeration
+  order** (D-006), which is the mechanism §2.8's `repair artifact` row depends on.
+- **`tests/test_harness.py` — D1–D10 against the stub, 84 checks, all pass.**
+  **D9 HOLDS**: under reversed order both the filled and the coerced value land on
+  the reversed order's first-enumerated value, and the tracking scorer reads
+  `tracks_first = 1` on that field. The anchor-tracking column measures what it
+  claims to, and X5 is not vacuous.
+- **Emitter completed to schema 1.5.0** (D-009): `b_tracking`, `r_final`,
+  `exemplar_values`, `chance_rates`, `tracking_label_rule`,
+  `field_collapse_entropy_threshold`, `d_rand`, `generations[]`, `deltas[]` and
+  the four registered `resampling_unit_*` keys. D10 round-trips a full 16×20 cell
+  through the file and recomputes every batch quantity from `generations[]` alone.
+- **NAS-Bench-201 / NATS-Bench acquired and verified.** `NATS-tss-v1_0-3ffb9`
+  pickle MD5 `4b8b7d94…ffb9` **contains the published `3ffb9` fragment**; the tar
+  does not, which is expected — the fragment names the data file (D-013). The
+  15,625 × 3-task accuracy table was extracted and **cross-checked against the
+  `nats_bench` API on 150 values with zero disagreement**. Tables gitignored,
+  checksums tracked at `results/checksums/nasbench201.json`.
+- **S3C-01 closed: the E2 power pilot re-ran against the REAL table** (D-012) and
+  returns **R = 24 — `R_final` does not move.** Power 0.707 at the floor of 20,
+  **0.814 at 24**, against the simulated pool's 0.702 and 0.822. The two
+  substrates agree within about a point of power at every R.
+- Suite: **9/9**, including the two new S3-1 suites. `results/pilots/power_e2.json`
+  still reproduces byte-identically from the unmodified simulated path.
+
+**No model was called this session — local or hosted — nothing trained, no GPU
+provisioned. `nats_bench` and `numpy` are the only new dependencies, both CPU.**
+
 ## The findings that shape everything downstream
 
 1. **The repository contains no experimental data.** 0 RAW / 0 SPEC /
@@ -367,29 +430,32 @@ a further revision, after G2 a `DEVIATIONS.md` entry.
 
 ## Open
 
-- **G0, G1, G2 all await operator signature.** G0's recommendation is in
+- **G0 and G1 stand as recorded; G2 IS SIGNED.** G0's recommendation is in
   `audit/SESSION_1_REPORT.md` §8. Never self-sign.
-- **G2's evidence is complete and all four criteria are met. The gate awaits the
-  operator's signature.** Signing closes the revision route.
-- **Remaining before data collection (S3):** freeze and hash the E1/E2 prompts
-  including the twelve tracking prompts with their order-only diffs; run
-  `scripts/power_e2.py` at the registered ALPHA to set `R_final`; run the
-  tracking-CI-width pilot to set `B_tracking`; measure `D_rand` from the
-  registered sampler; fix and test OA-10 through OA-17; select and pin the
-  frontier model.
+- **S3-2 is blocked on three operator inputs**, none of which is code:
+  1. **the frontier model for the ceiling rung** — not yet named; naming it is a
+     `DEVIATIONS.md` entry that enters the emitted header;
+  2. **an API key for that model**, supplied into the environment only — never
+     committed, never printed; the harness reads it from `$LLM_API_KEY` at call
+     time and stores only the variable's *name*;
+  3. **RunPod or Vultr credentials** for the pod S3-2 provisions.
+- **Remaining before data collection:** the S3-2 smoke run (which also measures
+  the realised truncation rate against `max_new_tokens = 4096`, D-010, and the
+  realised per-field collapse rate that `B_tracking` is conditional on, S3C-02);
+  fix and test OA-10 through OA-14 and OA-17; wire the analysis layer's pooled
+  BCa intervals.
 - **38 open actions**, `audit/OPEN_ACTIONS.md`. Blocking before S6: **OA-37**
   (CoLLM-NAS replication status, five unverified leads) and **OA-38** (8 of 15
   obliged citations absent from `references_verified.bib`).
-- **S3 must run before any data collection**: measure `D_rand`; run
-  `scripts/power_e2.py` at the new ALPHA and **set `R_final = max(20, its output)`** — raising R to
-  meet it is compliance, not a deviation (§3.4); select and pin the frontier API
-  model; freeze and hash the E1/E2 prompts; **implement gate 2 and confirm it
-  passes at plan-load** (§5.2); fix and test OA-10 through OA-17; complete the
-  GENIUS Appendix A.3 pass left open by seam S3.
-- **The generation budget is not yet a fixed number.** It is `10,880 + 320·R`,
-  and R is set by the S3 simulation with a floor of 20 — 17,280 at the floor,
-  more if the simulation demands it. The plan does not cap it (§3.5, §8.2). The
-  simulation must run at the **new** ALPHA, 0.0029411764705882353.
+- **S3's pre-data checklist is now down to two items.** `D_rand` measured (S3a),
+  gate 2 implemented and passing at plan-load (S3a), `R_final` set and
+  re-confirmed against the real table (S3c, S3-1), `B_tracking` set (S3c),
+  prompts frozen and hashed (S3-1). Outstanding: **select and pin the frontier
+  API model**, and complete the GENIUS Appendix A.3 pass left open by seam S3.
+- **The generation budget is fixed at 24,000**: E1's 16,320 (9,600 main grid +
+  6,720 anchor at `B_tracking = 28`) plus E2's `320 · R_final = 7,680` at
+  `R_final = 24`, which the real-table pilot re-confirmed this session. Raising
+  either parameter later remains compliance under §8.2, logged as a deviation.
 - `neurips_2026.sty` must be fetched and byte-verified from **two** independent
   mirrors at S6 (`media.neurips.cc` has returned 404/403).
 - Anonymity and archival status of the selected venue are **NOT STATED** on its
@@ -397,11 +463,19 @@ a further revision, after G2 a `DEVIATIONS.md` entry.
 
 ## Blocked
 
+- **S3-2 — provision and smoke — on the three operator inputs above.** Blocks A–E
+  of S3-1 all completed without them: the hosted-API backend is built against the
+  same interface as the local ones and is exercised by the stub, so what is
+  missing is a model name, a key and a pod, not code.
 - *(cleared)* The `GH007` push block is resolved; `origin/main` is current.
 
 ## Not done, deliberately
 
-- No experiment run, no model trained, no ML dependency installed.
-- Nothing under `paper/`, `src/`, `scripts/`, `logs/` or `archive/` modified in
-  any session so far. The manuscript is untouched and still states the abandoned
-  claims; it is rewritten at S6 against the results-file layer, not before.
+- No experiment run, no model trained, no GPU provisioned. `nats_bench` and
+  `numpy` are installed; neither is a model runtime.
+- `paper/`, `logs/` and `archive/` remain untouched. The manuscript still states
+  the abandoned claims; it is rewritten at S6 against the results-file layer, not
+  before. `src/` and `scripts/` now carry the new instrument — `src/emit/`,
+  `src/harness/`, `scripts/` — while the **original** `src/run_v2.py`,
+  `src/search_space.py`, `src/llm_server*.py` and `src/train_arch.py` are read as
+  evidence and are not edited.

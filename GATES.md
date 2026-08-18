@@ -203,6 +203,14 @@ of fifteen obliged citations absent from `references_verified.bib`), both due
 before S6, plus the in-context ordering and exemplar literature §2.8 must cite as
 prior art per §1.2's defect rule.
 
+**SIGNED.** The operator recorded G2 as signed at the head of session **S3-1**,
+**2026-08-19**, against `EXPERIMENT_PLAN_R6.md`
+(`d63a7625f06dcbaa08ad35182490036de12c3d0354febee9e141656ec79d340b`) with no data
+collected. **The revision route is closed.** Revision 6 governs and is not
+amended; from this point every change is a `DEVIATIONS.md` entry logged before
+the step it affects runs. Thirteen such entries, D-001 to D-013, were written at
+S3-1 — none of them a plan change.
+
 **Operator signature:** ______________________  **Date:** ____________
 
 ---

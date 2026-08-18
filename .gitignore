@@ -42,7 +42,11 @@ research/*.sqlite3
 # hyperresearch: fetch cache
 .hyperresearch/cache/
 
-# Datasets and model weights (large, regenerated or downloaded)
+# Datasets and model weights (large, regenerated or downloaded).
+# This covers the NAS-Bench-201 / NATS-Bench benchmark tables under
+# datasets/nasbench201/ -- ~2.2 GB of archives plus the derived accuracy table.
+# Their checksums, provenance and the API cross-check ARE tracked, at
+# results/checksums/nasbench201.json (plan 3.1, DEVIATIONS.md D-013).
 datasets/
 *.ckpt
 *.pt
