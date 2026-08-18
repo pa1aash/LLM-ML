@@ -11,34 +11,35 @@ S4 build → S5 results-file layer → S6 write → S7 referee
 
 ---
 
-## Current stage: **S2d complete at revision 5 — G2 evidence filled, unsigned**
+## Current stage: **S3c complete — R6 governing, G2 awaiting signature**
 
-S0 audit complete (G0 unsigned). S1 positioning complete (G1 PASSED on operator
-authorisation, unsigned). S2 produced the pre-registered plan; **S2a/S2b/S2c/S2d**
-amended it as revisions 2–5. **S3a** implemented the emitter and gates against
-revision 3 and found 25 defects; **S3b** implemented the two scorers that decide
-C2 against revision 4 and found 18. Revision 5 folds in all 18, plus three more it
-found in its own drafting.
+S0 audit (G0 unsigned) → S1 positioning (G1 PASSED on operator authorisation) →
+S2/S2a–S2d produced and amended the pre-registered plan through revision 5 →
+**S3a** implemented the emitter and gates (25 defects) → **S3b** implemented the
+two scorers that decide C2 (18 defects) → **S3c** ran the registered pilots,
+specified the cross-level exemplar predicate, and wrote revision 6.
 
-**Governing plan: `EXPERIMENT_PLAN_R5.md`** (revision 5), SHA-256
-`e3206e718161cc139830ff79741c6fe8f78e1d34f1147d3f644b36be2107b201`, hashed
-2026-08-18T04:00:00Z.
-**FAMILY_SIZE = 17, ALPHA = 0.05/17 = 0.0029411764705882353 — unchanged.**
+**Governing plan: `EXPERIMENT_PLAN_R6.md`** (revision 6), SHA-256
+`d63a7625f06dcbaa08ad35182490036de12c3d0354febee9e141656ec79d340b`, hashed
+2026-08-18T04:35:00Z. **FAMILY_SIZE = 17, ALPHA = 0.0029411764705882353.**
+**`R_final = 24`, `B_tracking = 28`, budget 24,000 generations.**
 
 ```
-  rev 1  aeb174ff…bad3d  EXPERIMENT_PLAN.md      17 Aug 05:10Z   16 / 0.003125
-  rev 2  a9954ba3…1df1   EXPERIMENT_PLAN_R2.md   17 Aug 09:25Z   16 / 0.003125
-  rev 3  be61bda9…df03   EXPERIMENT_PLAN_R3.md   17 Aug 09:45Z   16 / 0.003125   ← S3a: 25 defects
-  rev 4  738601db…cc9d   EXPERIMENT_PLAN_R4.md   17 Aug 18:25Z   17 / 0.00294    ← S3b: 18 defects
-  rev 5  e3206e71…b201   EXPERIMENT_PLAN_R5.md   18 Aug 04:00Z   17 / 0.00294    ← GOVERNING
+  rev 1  aeb174ff…bad3d   16 / 0.003125
+  rev 2  a9954ba3…1df1    16 / 0.003125
+  rev 3  be61bda9…df03    16 / 0.003125   ← S3a: 25 defects
+  rev 4  738601db…cc9d    17 / 0.00294    ← S3b: 18 defects
+  rev 5  e3206e71…b201    17 / 0.00294    ← S3c: pilots + cross-level predicate
+  rev 6  d63a7625…d340b   17 / 0.00294    ← GOVERNING, last before G2
 ```
 
-Revisions 1–4 remain **byte-identical**; every hash re-verified before and after
-each step. The plan is never edited in place.
+Revisions 1–5 remain **byte-identical**; every hash re-verified before and after
+each step.
 
-**G2's evidence is now complete and the gate is still unsigned.** All four
-criteria are met (`GATES.md`). The operator signs; the revision route closes when
-they do.
+**G2's evidence is complete against five criteria and all five are met
+(`GATES.md`). The gate awaits the operator's signature.** Signing closes the
+revision route; afterwards every change is a `DEVIATIONS.md` entry. **S3 proper
+is next.**
 
 ---
 
@@ -52,7 +53,7 @@ they do.
 structured decoding and output repair distorting what is measured about a model
 — is published 2024–2026 literature. Its instantiation in LLM-guided NAS is not.
 Any downstream sentence claiming the mechanism is a defect
-(`EXPERIMENT_PLAN_R5.md` §1.2).
+(`EXPERIMENT_PLAN_R6.md` §1.2).
 
 ---
 
@@ -180,7 +181,7 @@ torch, which is absent, so the sampler was executed by verbatim source extractio
 
 ### S2c — plan amendment (revision 4) *(this session)*
 
-**`EXPERIMENT_PLAN_R5.md`** — 1,653 lines, wholesale successor. Folds in all 25
+**`EXPERIMENT_PLAN_R6.md`** — 1,653 lines, wholesale successor. Folds in all 25
 S3a defects; §9 carries a defect-by-defect disposition.
 
 - **R4-1** — new **§2.8 anchor-tracking sub-design**: enumeration order
@@ -263,7 +264,7 @@ dependency installed. All fixture data constructed by hand.**
 
 ### S2d — plan amendment (revision 5) *(this session)*
 
-**`EXPERIMENT_PLAN_R5.md`** — 2,158 lines. Folds in all 18 S3b defects; §9 carries
+**`EXPERIMENT_PLAN_R6.md`** — 2,158 lines. Folds in all 18 S3b defects; §9 carries
 the disposition, §10 keeps revision 4's disposition of the 25 from S3a.
 
 - **R5-1** — the **one-sided per-field chance rule** is registered for anchor
@@ -304,6 +305,33 @@ full suite **7/7**.
 **No compute in any session. No model called — local or hosted — no training, no
 GPU, no ML dependency installed.**
 
+### S3c — pilots, cross-level predicate, revision 6 *(this session)*
+
+- **`scripts/power_e2.py`** — power **0.702 at the R floor of 20**, 0.822 at 24.
+  **`R_final = 24`**; raising R is compliance under §3.4. Substrate is simulated
+  because the NAS-Bench-201 tables are absent (S3C-01).
+- **`scripts/pilot_tracking.py`** — the registered criterion was **miscalibrated**
+  (a half-width of 0.15 at rate 0.40 gives [0.25, 0.55], containing chance
+  0.263889, so it reads `no tracking`) and is corrected. Coverage reaches 80% at
+  B = 20 for `tracks_first`, **28 for the cross-level delta**, 40 for single-cell
+  `tracks_exemplar`. **`B_tracking = 28`.**
+- **§2.5a cross-level exemplar predicate** — Δ = mean(own) − mean(other) pooled
+  over both exemplar cells. **The null is exact**: any stable modal gives Δ = 0
+  identically (verified exhaustively, C19), and only a modal that *moves* with the
+  exemplar makes it positive. It separates `format tax` from every other rival,
+  replaces single-cell `tracks_exemplar` in the predicates, and **saves 2,880
+  generations** by lowering B_tracking from 40 to 28.
+- **`EXPERIMENT_PLAN_R6.md`** — 2,276 lines, scope closed by construction: the two
+  pilot parameters, the cross-level predicate, the corrected criterion, nothing
+  else. **FAMILY_SIZE and ALPHA unchanged**; every floor re-run and clearing.
+- **`audit/S3C_DEFECTS.md`** — six items found and **deliberately not fixed**,
+  each routed to post-G2 `DEVIATIONS.md` handling.
+- Fixtures: **B1–B8 8/8, C1–C19 27/27, suite 7/7.**
+
+**No compute in any session. No model called — local or hosted — no training, no
+GPU, no ML dependency installed. Both pilots are simulation over synthetic draws
+and are quarantined from analysis.**
+
 ## The findings that shape everything downstream
 
 1. **The repository contains no experimental data.** 0 RAW / 0 SPEC /
@@ -322,7 +350,7 @@ GPU, no ML dependency installed.**
 ## Time — the calendar is not an input to scope
 
 **Recorded as CONSIDERED AND REJECTED at S2a, carried into revision 3**
-(`EXPERIMENT_PLAN_R5.md` §8). The nearest workshop deadline is 2026-08-29 AoE and
+(`EXPERIMENT_PLAN_R6.md` §8). The nearest workshop deadline is 2026-08-29 AoE and
 the plan now specifies **9,600 + 240·B_tracking + 320·R** generations — 19,840 at
 both floors — with zero training runs. **The venue follows the artifact, not the reverse.**
 The chosen venue is non-archival, so missing a cycle costs nothing — no priority,
@@ -330,7 +358,7 @@ no publication window, no claim to the result — and workshop cycles recur,
 whereas a design weakened to fit a date is permanent.
 
 **Every revision has raised the budget, not lowered it** — 9,400 → 12,400 →
-16,000 → 17,280 → 19,840 at the floors — each time because that is what made a confirmatory test
+16,000 → 17,280 → 19,840 → **24,000 confirmed** — each time because that is what made a confirmatory test
 decidable. That is the precedent §8 fixes. §8.2 lists what may not be proposed as
 a scope cut on schedule or budget grounds, now including any reduction of *B*
 below 16, which must argue against the ceiling table rather than against cost.

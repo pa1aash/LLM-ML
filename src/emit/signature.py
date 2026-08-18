@@ -97,22 +97,21 @@ def classify_change(delta: float, d_rand: float, destination_label: str) -> str:
 # ------------------------------------------- the anchor-tracking predicates
 
 def _grid(obs: dict[str, str]) -> dict[str, str]:
-    """Normalise the 2x2 label grid: pre_first, pre_exemplar, post_first,
-    post_exemplar."""
-    return {k: obs.get(k, INDETERMINATE) for k in
-            ("pre_first", "pre_exemplar", "post_first", "post_exemplar")}
+    """Normalise the tracking grid the predicates read."""
+    return {k: obs.get(k, INDETERMINATE) for k in GRID_KEYS}
 
 
-#: Plan 2.5 (R5-5). Every rival predicts on both sub-quantities at both stages.
-GRID_KEYS = ("pre_first", "pre_exemplar", "post_first", "post_exemplar")
+#: Plan 2.5 (revision 6). The predicates read `tracks_first` at both stages plus
+#: the CROSS-LEVEL exemplar delta. Single-cell `tracks_exemplar` is still emitted
+#: (A21) but no predicate reads it: it cannot separate `format tax` from
+#: `genuine prior`, because a format tax tracks whichever exemplar is SHOWN and
+#: so is high in both cells. The cross-level delta asks the discriminating
+#: question -- does the modal MOVE when the exemplar changes -- and is identically
+#: zero for every rival whose modal is stable.
+GRID_KEYS = ("pre_first", "post_first", "cross_level")
 
-#: Which grid entries each predicate READS. A predicate is indeterminate only if
-#: an entry it reads is (plan 2.5).
-PREDICATE_READS = {
-    "R-A":  ("pre_first", "pre_exemplar", "post_first"),
-    "F-T":  GRID_KEYS,
-    "NONE": GRID_KEYS,
-}
+#: Every predicate reads all three entries (plan 2.5).
+PREDICATE_READS = {"R-A": GRID_KEYS, "F-T": GRID_KEYS, "NONE": GRID_KEYS}
 
 
 def _tracking_match(prediction: str, obs: dict[str, str]) -> str:
@@ -129,20 +128,24 @@ def _tracking_match(prediction: str, obs: dict[str, str]) -> str:
 
     if prediction == "R-A":
         # sanitize_config coerces to valid_vals[0] -- the first-enumerated value
-        # -- and never sees the exemplar, which is a prompt object.
+        # -- and never sees the exemplar, which is a prompt object. So the modal
+        # moves to the enumeration head after repair and not before, and it does
+        # not move with the exemplar at all.
         hit = (g["pre_first"] == "no tracking"
-               and g["pre_exemplar"] == "no tracking"
-               and g["post_first"] == "tracks")
+               and g["post_first"] == "tracks"
+               and g["cross_level"] == "no response")
     elif prediction == "F-T":
-        # The prompt drives the choice before repair, on whichever of the two it
-        # makes salient; repair only coerces illegal values, so post mirrors pre.
-        # The disjunction is NECESSARY: in a dissociable cell one modal value
-        # cannot equal both the first-enumerated and the exemplar value.
-        hit = ((g["pre_first"] == "tracks" or g["pre_exemplar"] == "tracks")
-               and g["post_first"] == g["pre_first"]
-               and g["post_exemplar"] == g["pre_exemplar"])
+        # The prompt drives the model's own choice before repair, through EITHER
+        # channel it carries -- the enumeration order or the exemplar -- and
+        # repair, which only coerces illegal values, leaves a legal choice alone.
+        # The disjunction is necessary: the two channels compete for one modal
+        # value, so a conjunction would be unsatisfiable.
+        hit = ((g["pre_first"] == "tracks" or g["cross_level"] == "responds")
+               and g["post_first"] == g["pre_first"])
     else:
-        hit = all(g[k] == "no tracking" for k in GRID_KEYS)
+        hit = (g["pre_first"] == "no tracking"
+               and g["post_first"] == "no tracking"
+               and g["cross_level"] == "no response")
     return "match" if hit else "mismatch"
 
 

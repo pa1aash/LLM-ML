@@ -1,7 +1,7 @@
 # DEVIATIONS
 
-Departures from the **governing plan** — currently `EXPERIMENT_PLAN_R5.md`
-(revision 5). The plan is frozen at the SHA-256 recorded in `PREREGISTRATION.md`
+Departures from the **governing plan** — currently `EXPERIMENT_PLAN_R6.md`
+(revision 6). The plan is frozen at the SHA-256 recorded in `PREREGISTRATION.md`
 and is **never edited**. Every change to what is actually done is logged here
 instead.
 
@@ -61,8 +61,8 @@ instead.
 
 A wholesale change to the plan before any data collection is a **numbered
 revision written as a new file** under **rule 5 above** (the governing plan's own
-§5.6 rule 4, renumbered in this list), not a deviation entry. **Four have
-occurred**, all before any data collection. All four are recorded here so the
+§5.6 rule 4, renumbered in this list), not a deviation entry. **Five have
+occurred**, all before any data collection. All five are recorded here so the
 ledger is a complete history, even though none is a departure from a plan under
 which work had begun.
 
@@ -120,7 +120,25 @@ in revision 5's own drafting were closed before freezing (plan §9).
 `EXPERIMENT_PLAN.md`, `_R2`, `_R3` and `_R4` all remain byte-identical; every hash
 was re-verified before and after each step.
 
-**This ledger governs departures from revision 5 from this point forward.**
+**2026-08-18 — revision 5 superseded by revision 6.** S3c ran the two registered
+pilots and specified the cross-level exemplar predicate. **`R_final = 24`** (power
+at the floor of 20 is 0.702, below the 0.80 target, so raising R is compliance)
+and **`B_tracking = 28`** (binding on the cross-level delta; single-cell
+`tracks_exemplar` would have needed 40 but no predicate reads it). The registered
+`B_tracking` criterion was **miscalibrated** — a half-width of 0.15 at a true rate
+of 0.40 gives [0.25, 0.55], which contains the chance rate 0.263889 and reads `no
+tracking` — and is corrected. **FAMILY_SIZE stays 17, ALPHA stays
+0.0029411764705882353**; the cross-level delta is classified descriptively by CI
+position and adds no test. `EXPERIMENT_PLAN_R6.md`, SHA-256 `d63a7625…d340b`,
+citing revision 5's `e3206e71…b201`.
+
+**Revision 6's scope was closed by construction and it is the last before G2.**
+Six further items found this session are in `audit/S3C_DEFECTS.md` and are handled
+after G2 as entries in this ledger, not as plan changes.
+
+`EXPERIMENT_PLAN.md`, `_R2`, `_R3`, `_R4` and `_R5` all remain byte-identical.
+
+**This ledger governs departures from revision 6 from this point forward.**
 
 **The revision route closes at the END OF S3**, when the analysis code exists and
 G2 is signed against a plan that has been executed rather than only read.
@@ -144,4 +162,4 @@ available even as a logged deviation.
 ## Entries
 
 *None. No data has been collected and no analysis has been run as of the
-revision-5 pre-registration hash (`e3206e71…b201`, 2026-08-18T04:00:00Z).*
+revision-6 pre-registration hash (`d63a7625…d340b`, 2026-08-18T04:35:00Z).*

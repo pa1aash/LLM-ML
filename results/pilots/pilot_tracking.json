@@ -1,0 +1,209 @@
+{
+  "pilot": true,
+  "confirmatory": false,
+  "quarantined_from_analysis": true,
+  "name": "pilot_tracking",
+  "generated_by": "scripts/pilot_tracking.py",
+  "plan_sha256": "e3206e718161cc139830ff79741c6fe8f78e1d34f1147d3f644b36be2107b201",
+  "seed": 20260818,
+  "n_cells_per_B": 400,
+  "n_boot": 2000,
+  "true_rate": 0.4,
+  "target_coverage": 0.8,
+  "p_field_collapsed": 0.8,
+  "rejected_criterion": "half-width < 0.15 at rate 0.40 -> [0.25,0.55] contains chance 0.263889 -> reads `no tracking`",
+  "corrected_criterion": "smallest B >= 16 with BCa lower bound > field-weighted chance rate in >= 80% of cells",
+  "curve": [
+    {
+      "B": 16,
+      "tracks_first": {
+        "coverage": 0.6725,
+        "mean_lower_bound": 0.29277604166666665,
+        "mean_chance": 0.264022508360258
+      },
+      "tracks_exemplar": {
+        "coverage": 0.44,
+        "mean_lower_bound": 0.2463425099206349,
+        "mean_chance": 0.25
+      },
+      "cross_level_exemplar": {
+        "coverage": 0.5925,
+        "mean_lower_bound": 0.021141369047619048,
+        "mean_chance": 0.0
+      }
+    },
+    {
+      "B": 18,
+      "tracks_first": {
+        "coverage": 0.78,
+        "mean_lower_bound": 0.3028009259259259,
+        "mean_chance": 0.2638151610459996
+      },
+      "tracks_exemplar": {
+        "coverage": 0.455,
+        "mean_lower_bound": 0.2490601171023965,
+        "mean_chance": 0.25
+      },
+      "cross_level_exemplar": {
+        "coverage": 0.6675,
+        "mean_lower_bound": 0.03482332516339869,
+        "mean_chance": 0.0
+      }
+    },
+    {
+      "B": 20,
+      "tracks_first": {
+        "coverage": 0.83,
+        "mean_lower_bound": 0.3080875,
+        "mean_chance": 0.2639660178494097
+      },
+      "tracks_exemplar": {
+        "coverage": 0.57,
+        "mean_lower_bound": 0.2647169834307992,
+        "mean_chance": 0.25
+      },
+      "cross_level_exemplar": {
+        "coverage": 0.71,
+        "mean_lower_bound": 0.05366703216374269,
+        "mean_chance": 0.0
+      }
+    },
+    {
+      "B": 22,
+      "tracks_first": {
+        "coverage": 0.8425,
+        "mean_lower_bound": 0.3106988636363636,
+        "mean_chance": 0.26382811302436127
+      },
+      "tracks_exemplar": {
+        "coverage": 0.5375,
+        "mean_lower_bound": 0.26278300865800863,
+        "mean_chance": 0.25
+      },
+      "cross_level_exemplar": {
+        "coverage": 0.7,
+        "mean_lower_bound": 0.05284744769119769,
+        "mean_chance": 0.0
+      }
+    },
+    {
+      "B": 24,
+      "tracks_first": {
+        "coverage": 0.8575,
+        "mean_lower_bound": 0.3115188707729469,
+        "mean_chance": 0.26391037128063527
+      },
+      "tracks_exemplar": {
+        "coverage": 0.525,
+        "mean_lower_bound": 0.26077278020892153,
+        "mean_chance": 0.25
+      },
+      "cross_level_exemplar": {
+        "coverage": 0.77,
+        "mean_lower_bound": 0.05482930528107158,
+        "mean_chance": 0.0
+      }
+    },
+    {
+      "B": 28,
+      "tracks_first": {
+        "coverage": 0.9175,
+        "mean_lower_bound": 0.31954144620811287,
+        "mean_chance": 0.2638363262222465
+      },
+      "tracks_exemplar": {
+        "coverage": 0.695,
+        "mean_lower_bound": 0.2832238671822005,
+        "mean_chance": 0.25
+      },
+      "cross_level_exemplar": {
+        "coverage": 0.8,
+        "mean_lower_bound": 0.0652302096052096,
+        "mean_chance": 0.0
+      }
+    },
+    {
+      "B": 32,
+      "tracks_first": {
+        "coverage": 0.94,
+        "mean_lower_bound": 0.32443834005376343,
+        "mean_chance": 0.26385459149115364
+      },
+      "tracks_exemplar": {
+        "coverage": 0.765,
+        "mean_lower_bound": 0.28950160768909894,
+        "mean_chance": 0.25
+      },
+      "cross_level_exemplar": {
+        "coverage": 0.8275,
+        "mean_lower_bound": 0.07180812260873584,
+        "mean_chance": 0.0
+      }
+    },
+    {
+      "B": 40,
+      "tracks_first": {
+        "coverage": 0.9725,
+        "mean_lower_bound": 0.330799358974359,
+        "mean_chance": 0.26390680182428383
+      },
+      "tracks_exemplar": {
+        "coverage": 0.825,
+        "mean_lower_bound": 0.29893310795613426,
+        "mean_chance": 0.25
+      },
+      "cross_level_exemplar": {
+        "coverage": 0.9325,
+        "mean_lower_bound": 0.08814160067202831,
+        "mean_chance": 0.0
+      }
+    },
+    {
+      "B": 48,
+      "tracks_first": {
+        "coverage": 0.9875,
+        "mean_lower_bound": 0.3364824911347518,
+        "mean_chance": 0.2639327829796905
+      },
+      "tracks_exemplar": {
+        "coverage": 0.8775,
+        "mean_lower_bound": 0.3022186820116833,
+        "mean_chance": 0.25
+      },
+      "cross_level_exemplar": {
+        "coverage": 0.9575,
+        "mean_lower_bound": 0.09236431673347723,
+        "mean_chance": 0.0
+      }
+    },
+    {
+      "B": 64,
+      "tracks_first": {
+        "coverage": 1.0,
+        "mean_lower_bound": 0.34476041666666674,
+        "mean_chance": 0.2638564045031724
+      },
+      "tracks_exemplar": {
+        "coverage": 0.9675,
+        "mean_lower_bound": 0.31566696230307373,
+        "mean_chance": 0.25
+      },
+      "cross_level_exemplar": {
+        "coverage": 0.99,
+        "mean_lower_bound": 0.10931902813911237,
+        "mean_chance": 0.0
+      }
+    }
+  ],
+  "smallest_B_tracks_first": 20,
+  "smallest_B_tracks_exemplar_single_cell": 40,
+  "smallest_B_cross_level_exemplar": 28,
+  "predicates_read": [
+    "tracks_first",
+    "cross_level_exemplar"
+  ],
+  "binding_quantity": "cross_level_exemplar",
+  "note": "binding quantity is cross_level_exemplar; single-cell tracks_exemplar would have needed B=40 but no predicate reads it",
+  "B_tracking_floor": 16,
+  "B_tracking": 28
+}

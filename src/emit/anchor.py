@@ -383,3 +383,78 @@ def score_cell(batch_configs: Sequence[Sequence[dict]], order: str, exemplar: st
         "tracks_first": cell_tracking(bts, "tracks_first", n_boot, seed).to_json(),
         "tracks_exemplar": cell_tracking(bts, "tracks_exemplar", n_boot, seed).to_json(),
     }
+
+
+# ------------------------------------------- cross-level exemplar response
+# Plan revision 6 §2.5a. The single-cell `tracks_exemplar` reading cannot
+# separate `format tax` from `genuine prior`: a format tax tracks WHICHEVER
+# exemplar is shown, so it is high in both exemplar cells, and a genuine prior's
+# fixed modal value coincides with the shown exemplar at chance in each. The
+# discriminating question is not "does the modal match the exemplar" but "does
+# the modal MOVE when the exemplar changes".
+
+def cross_level_delta_batch(
+    modal_by_field_modal_cell: dict[str, Any],
+    modal_by_field_non_modal_cell: dict[str, Any],
+) -> tuple[float | None, int]:
+    """Delta_exemplar for one batch index, pooled over both exemplar cells.
+
+        own   = modal equals the exemplar shown in ITS OWN cell
+        other = modal equals the exemplar shown in the OTHER cell
+        delta = mean(own) - mean(other), over both cells' collapsed exemplar fields
+
+    The pairing makes the null EXACT rather than merely expected: if the modal
+    value v is the same in both cells -- which is what a genuine prior, a repair
+    artifact, quantisation and decoding all imply -- then
+    sum(own) = [v = e_modal] + [v = e_non_modal] = sum(other), so delta is
+    identically 0. Only a modal that MOVES with the exemplar makes it positive.
+
+    Returns (delta, n_fields_used); (None, 0) if no exemplar field is collapsed
+    in either cell.
+    """
+    e_m = EXEMPLARS["modal"]
+    e_n = EXEMPLARS["non_modal"]
+    own, other = [], []
+    for f in EXEMPLAR_FIELDS:
+        v = modal_by_field_modal_cell.get(f)
+        if v is not None:
+            own.append(int(v == e_m[f]))
+            other.append(int(v == e_n[f]))
+        v = modal_by_field_non_modal_cell.get(f)
+        if v is not None:
+            own.append(int(v == e_n[f]))
+            other.append(int(v == e_m[f]))
+    if not own:
+        return None, 0
+    return (sum(own) - sum(other)) / len(own), len(own)
+
+
+def label_cross_level(point: float, lo: float, hi: float) -> str:
+    """Plan §2.6, one-sided against a chance rate of EXACTLY ZERO.
+
+    Delta is identically 0 under every rival whose modal value does not move
+    with the exemplar, so the null needs no chance-rate estimate at all.
+    """
+    return "responds" if lo > 0.0 else "no response"
+
+
+def cross_level_cell(
+    deltas: Sequence[float | None],
+    n_boot: int = K.BOOTSTRAP_RESAMPLES,
+    seed: int = K.BOOTSTRAP_SEED,
+    min_usable_fraction: float = 0.4,
+) -> dict:
+    """Aggregate per-batch deltas to a cell-pair verdict."""
+    used = [d for d in deltas if d is not None]
+    n_null = len(deltas) - len(used)
+    min_usable = max(2, int(min_usable_fraction * len(deltas)))
+    if len(used) < min_usable:
+        return {"quantity": "cross_level_exemplar", "point": None, "ci95": None,
+                "n_batches_used": len(used), "n_null_batches": n_null,
+                "label_registered": "indeterminate", "reason": "insufficient_data",
+                "chance_rate": 0.0}
+    point, lo, hi = _bca(used, n_boot, seed)
+    return {"quantity": "cross_level_exemplar", "point": point, "ci95": [lo, hi],
+            "n_batches_used": len(used), "n_null_batches": n_null,
+            "label_registered": label_cross_level(point, lo, hi),
+            "reason": "measured", "chance_rate": 0.0}

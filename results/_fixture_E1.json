@@ -1,17 +1,18 @@
 {
-  "schema_version": "1.4.0",
+  "schema_version": "1.5.0",
   "experiment": "E1",
-  "plan_revision": 5,
-  "plan_sha256": "e3206e718161cc139830ff79741c6fe8f78e1d34f1147d3f644b36be2107b201",
-  "plan_supersedes_sha256": "738601db1d55e81010a62ec1e1259f82e6466f7e8db02f0ec3de4ed15d80cc9d",
+  "plan_revision": 6,
+  "plan_sha256": "d63a7625f06dcbaa08ad35182490036de12c3d0354febee9e141656ec79d340b",
+  "plan_supersedes_sha256": "e3206e718161cc139830ff79741c6fe8f78e1d34f1147d3f644b36be2107b201",
   "plan_chain_sha256": [
     "aeb174ffb008252368cc7fbcb121bd0fa0642f2fa4f3ec70228256920bfbad3d",
     "a9954ba3c1dc61fce8e9ddb0b057eb4f14ab99c4b528c0b0446a7171e43b1df1",
     "be61bda9f7b9a33dd9240ea56e010bc87bf0013495e7b0bbafeab0cbeccbdf03",
-    "738601db1d55e81010a62ec1e1259f82e6466f7e8db02f0ec3de4ed15d80cc9d"
+    "738601db1d55e81010a62ec1e1259f82e6466f7e8db02f0ec3de4ed15d80cc9d",
+    "e3206e718161cc139830ff79741c6fe8f78e1d34f1147d3f644b36be2107b201"
   ],
-  "code_commit": "8489c729cce79c7dd0ea994837a8673e9fae6af4",
-  "generated_at": "2026-08-18T03:56:00Z",
+  "code_commit": "df29df1e556b9ba31e4c608fff6d1c76f642c835",
+  "generated_at": "2026-08-18T04:18:46Z",
   "environment": {
     "python": "3.14.2",
     "platform": "macOS-26.3.1-arm64-arm-64bit-Mach-O",

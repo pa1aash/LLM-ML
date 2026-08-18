@@ -17,8 +17,9 @@ sys.path.insert(0, str(ROOT / "src"))
 
 from emit import constants as K  # noqa: E402
 from emit.anchor import (  # noqa: E402
-    EXEMPLARS, batch_tracking, cell_tracking, chance_rate, collapsed_fields,
-    enumeration_order, is_dissociable, modal_value,
+    EXEMPLAR_FIELDS, EXEMPLARS, batch_tracking, cell_tracking, chance_rate,
+    collapsed_fields,
+    cross_level_delta_batch, enumeration_order, is_dissociable, modal_value,
 )
 from emit.signature import (  # noqa: E402
     INDETERMINATE, RIVALS, classify_change, classify_level, score,
@@ -44,14 +45,16 @@ def obs(free, pre, post, bf16, temp, tracking):
             "bf16": bf16, "high_temp": temp, "anchor_tracking": tracking}
 
 
-TRACK_NONE = {"pre_first": "no tracking", "pre_exemplar": "no tracking",
-              "post_first": "no tracking", "post_exemplar": "no tracking"}
-TRACK_POST_ONLY = {"pre_first": "no tracking", "pre_exemplar": "no tracking",
-                   "post_first": "tracks", "post_exemplar": "no tracking"}
-# A satisfiable format-tax grid: the prompt drove the model to the
-# first-enumerated value, and repair left it there.
-TRACK_PRE = {"pre_first": "tracks", "pre_exemplar": "no tracking",
-             "post_first": "tracks", "post_exemplar": "no tracking"}
+# Plan revision 6: the predicates read tracks_first at both stages plus the
+# CROSS-LEVEL exemplar delta. Single-cell tracks_exemplar is reported but unread.
+TRACK_NONE = {"pre_first": "no tracking", "post_first": "no tracking",
+              "cross_level": "no response"}
+TRACK_POST_ONLY = {"pre_first": "no tracking", "post_first": "tracks",
+                   "cross_level": "no response"}
+TRACK_PRE = {"pre_first": "tracks", "post_first": "tracks",
+             "cross_level": "no response"}
+TRACK_EXEMPLAR_ONLY = {"pre_first": "no tracking", "post_first": "no tracking",
+                       "cross_level": "responds"}
 
 
 # ---------------------------------------------------------------- C1 .. C5
@@ -114,8 +117,8 @@ def c6_no_rival():
     # schema_pre_repair indeterminate (they can never mismatch all five), the
     # remaining level column on `diverse`, both change columns on `worsens`, and
     # a tracking grid that fails every rival.
-    track_nobody = {"pre_first": "no tracking", "pre_exemplar": "no tracking",
-                    "post_first": "no tracking", "post_exemplar": "tracks"}
+    track_nobody = {"pre_first": "tracks", "post_first": "no tracking",
+                    "cross_level": "no response"}
     forced = obs(INDETERMINATE, INDETERMINATE, "diverse", "worsens", "worsens",
                  track_nobody)
     v2 = score(forced)
@@ -310,10 +313,10 @@ def c15_repair_vs_format():
     # therefore runs in a dissociable cell.
     def grid(pre_batches, post_batches, order="canonical", exemplar="non_modal"):
         assert is_dissociable(order, exemplar), (order, exemplar)
-        g = {}
+        g = {"cross_level": "no response"}   # fixtures below set it explicitly
         for stage, batches in (("pre", pre_batches), ("post", post_batches)):
             bts = [batch_tracking(b, order, exemplar) for b in batches]
-            for q, short in (("tracks_first", "first"), ("tracks_exemplar", "exemplar")):
+            for q, short in (("tracks_first", "first"),):
                 ct = cell_tracking(bts, q, n_boot=2000)
                 g[f"{stage}_{short}"] = ct.label_registered
                 g[f"{stage}_{short}_chance"] = ct.label_chance
@@ -391,9 +394,9 @@ def c16_genuine_prior_invariance():
            + " | reversed: first=" + grids["reversed"]["first"].label_registered
            + ", exemplar=" + grids["reversed"]["exemplar"].label_registered)
 
-    g = {"pre_first": "no tracking", "pre_exemplar": "no tracking",
+    g = {"pre_first": "no tracking",
          "post_first": grids["canonical"]["first"].label_registered,
-         "post_exemplar": grids["canonical"]["exemplar"].label_registered}
+         "cross_level": "no response"}
     v = score(obs("collapsed", "collapsed", "collapsed", "no chg", "no chg", g))
     record("C16b invariance is not read as an instrument effect",
            "winner=genuine prior", f"winner={v.winner}",
@@ -440,11 +443,76 @@ def bar_comparison():
     return rows
 
 
+# ------------------------------------------- C17-C19: the cross-level predicate
+
+def c17_exemplar_only_format_tax():
+    """A format tax driven by the EXEMPLAR rather than the enumeration order.
+
+    tracks_first says nothing -- the modal is not the enumeration head -- so the
+    single-grid form of revision 5 would have scored this as `genuine prior`.
+    The cross-level delta catches it.
+    """
+    o = obs("diverse", "collapsed", "collapsed", "no chg", "no chg",
+            TRACK_EXEMPLAR_ONLY)
+    v = score(o)
+    record("C17 format tax via the exemplar channel", "winner=format tax",
+           f"winner={v.winner}",
+           f"tracks_first is silent in both stages; only cross_level responds. "
+           f"scores={v.scores}")
+
+
+def c18_coincidence_not_read_as_response():
+    """A genuine prior whose fixed modal happens to equal one shown exemplar.
+
+    Single-cell tracks_exemplar reads 1/3 > chance 0.25 and would say `tracks`.
+    The cross-level delta is identically 0, because the same fixed value is
+    compared against both exemplars.
+    """
+    em, en = EXEMPLARS["modal"], EXEMPLARS["non_modal"]
+    coincide = {"conv_type": em["conv_type"],        # matches the MODAL exemplar
+                "activation": "silu", "normalization": "layernorm"}
+    d, n = cross_level_delta_batch(coincide, coincide)
+    record("C18 coincidence is not an exemplar response", "delta=0.0",
+           f"delta={d}",
+           f"modal fixed at conv_type={coincide['conv_type']!r} which IS the modal "
+           f"exemplar; single-cell tracks_exemplar would read 1/3 > chance 0.25 "
+           f"and say `tracks`. n_fields={n}")
+
+    g = dict(TRACK_NONE)
+    v = score(obs("collapsed", "collapsed", "collapsed", "no chg", "no chg", g))
+    record("C18b the coincidence still scores genuine prior",
+           "winner=genuine prior", f"winner={v.winner}", f"scores={v.scores}")
+
+
+def c19_null_is_exact():
+    """delta is identically 0 for ANY stable modal -- checked over the whole
+    exemplar-field vocabulary, not just sampled."""
+    from itertools import product
+    vocabs = [K.FIELD_VOCAB[f] for f in EXEMPLAR_FIELDS]
+    worst = 0.0
+    n_checked = 0
+    for combo in product(*vocabs):
+        m = dict(zip(EXEMPLAR_FIELDS, combo))
+        d, _ = cross_level_delta_batch(m, m)      # same modal in both cells
+        worst = max(worst, abs(d))
+        n_checked += 1
+    record("C19 null is exact for every stable modal", "max |delta| = 0.0",
+           f"max |delta| = {worst}",
+           f"exhaustive over {n_checked} modal combinations of the three exemplar "
+           f"fields; the pairing cancels the field-level baseline exactly")
+
+    d, _ = cross_level_delta_batch(EXEMPLARS["modal"], EXEMPLARS["non_modal"])
+    record("C19b a modal that follows the exemplar", "delta = 1.0", f"delta = {d}",
+           "the maximum the statistic can take")
+
+
 def main() -> int:
     c1_to_c5(); c6_no_rival(); c7_tie()
     c8_one_indeterminate(); c9_two_indeterminate(); c10_three_indeterminate()
     c11_partial_band(); c12_worsens(); c13_exact_boundary(); c14_straddle()
     c15_repair_vs_format(); c16_genuine_prior_invariance()
+    c17_exemplar_only_format_tax(); c18_coincidence_not_read_as_response()
+    c19_null_is_exact()
 
     w = max(len(r["case"]) for r in RESULTS)
     print(f"{'CASE'.ljust(w)}  {'EXPECTED':<34} {'ACTUAL':<34} OK")

@@ -2,25 +2,35 @@
 
 ## Governing artifact
 
-**File:** `EXPERIMENT_PLAN_R5.md` — **revision 5, the governing plan**
-**SHA-256:** `e3206e718161cc139830ff79741c6fe8f78e1d34f1147d3f644b36be2107b201`
-**Length:** 2,158 lines
-**Hashed at:** 2026-08-18T04:00:00Z (2026-08-18 09:30 IST)
+**File:** `EXPERIMENT_PLAN_R6.md` — **revision 6, the governing plan**
+**SHA-256:** `d63a7625f06dcbaa08ad35182490036de12c3d0354febee9e141656ec79d340b`
+**Length:** 2,276 lines
+**Hashed at:** 2026-08-18T04:35:00Z (2026-08-18 10:05 IST)
+
+**Revision 6 is the last revision before G2.** Its scope was closed by
+construction: the two pilot-confirmed design parameters, the cross-level exemplar
+predicate, and the corrected pilot criterion. Nothing else. Every other ambiguity
+S3c found is in `audit/S3C_DEFECTS.md` and is handled after G2 as a
+`DEVIATIONS.md` implementation decision.
 
 **FAMILY_SIZE = 17. ALPHA = 0.05 / 17 = 0.0029411764705882353.**
 *(Unchanged from revision 4. Revision 5 extends the tracking sub-design to all
 three models but adds no confirmatory test — column classification is descriptive
 by CI position, not a hypothesis test.)*
 
-**The revision route closes at the END OF S3.** It has now caught defects three
-times: 25 at S3a against revision 3, 18 at S3b against revision 4, and three more
-in revision 5's own drafting.
+**Design parameters, both pilot-confirmed:** `R_final = 24` (power at the floor
+of 20 is 0.702, below target) and `B_tracking = 28` (binding on the cross-level
+delta). **Total budget: 24,000 generations, zero training runs.**
+
+**The revision route closes at G2.** It has caught defects four times: 25 at S3a,
+18 at S3b, three inside revision 5's own drafting, and the miscalibrated
+`B_tracking` criterion this session.
 
 Verify the whole chain with:
 
 ```bash
 shasum -a 256 EXPERIMENT_PLAN.md EXPERIMENT_PLAN_R2.md EXPERIMENT_PLAN_R3.md \
-              EXPERIMENT_PLAN_R4.md EXPERIMENT_PLAN_R5.md
+              EXPERIMENT_PLAN_R4.md EXPERIMENT_PLAN_R5.md EXPERIMENT_PLAN_R6.md
 ```
 
 ---
@@ -36,12 +46,14 @@ shasum -a 256 EXPERIMENT_PLAN.md EXPERIMENT_PLAN_R2.md EXPERIMENT_PLAN_R3.md \
         │  §5.6 rule 4   ← S3a: 25 defects, 7 blocking
   revision 4  738601db…cc9d    EXPERIMENT_PLAN_R4.md   2026-08-17T18:25:00Z   17 / 0.00294
         │  §5.6 rule 4   ← S3b: 18 defects, 5 blocking
-  revision 5  e3206e71…b201    EXPERIMENT_PLAN_R5.md   2026-08-18T04:00:00Z   17 / 0.00294  ← GOVERNING
+  revision 5  e3206e71…b201    EXPERIMENT_PLAN_R5.md   2026-08-18T04:00:00Z   17 / 0.00294
+        │  §5.6 rule 4   ← S3c: pilots run, cross-level predicate
+  revision 6  d63a7625…d340b   EXPERIMENT_PLAN_R6.md   2026-08-18T04:35:00Z   17 / 0.00294  ← GOVERNING
 ```
 
-Revisions 1–4 remain **byte-identical to the versions that were hashed**. None was
+Revisions 1–5 remain **byte-identical to the versions that were hashed**. None was
 edited, amended in place, or deleted. All four hashes were re-verified immediately
-before revision 5 was written and again after it was committed.
+before revision 6 was written and again after it was committed.
 
 Each step was taken under the rule the *preceding* revision carried:
 
@@ -52,9 +64,17 @@ Each step was taken under the rule the *preceding* revision carried:
 > to the version that was hashed."*
 
 Each revision is a **wholesale successor**: self-contained, so no reader
-reconciles five documents. Revision 5 cites revision 4's hash in its masthead and
+reconciles six documents. Revision 5 cites revision 4's hash in its masthead and
 carries the full chain in its results-file schema. Section numbering is preserved
 across all five; §9 is new at revision 5 and §10 is revision 4's §9 renumbered.
+
+### What changed, revision 5 → revision 6
+
+| ID | Amendment |
+|---|---|
+| **R6-1** | **`R_final = 24`, `B_tracking = 28`** — both pilot-confirmed. |
+| **R6-2** | **The cross-level exemplar predicate** (new §2.5a). Registered as descriptive; adds no confirmatory test. |
+| **R6-3** | **The `B_tracking` pilot criterion corrected** — the registered half-width test would have certified a width that cannot detect the effect. |
 
 ### What changed, revision 4 → revision 5
 
@@ -95,10 +115,12 @@ conjunction** in the format-tax predicate.
 | `prompts/` (E1/E2 frozen prompts) | **absent — not yet written** |
 | `scripts/power_e2.py` (S3 power simulation) | **absent — not yet written** |
 
-`results/` is tracked and holds exactly two **model-free** files, neither of them
-experimental data: `E1_reference.json` (the D_rand arithmetic, pure resampling
-over a declared vocabulary) and `_fixture_E1.json` (the S3a replay-test fixture,
-synthetic).
+`results/` is tracked and holds **model-free** files only, none of them
+experimental data: `E1_reference.json` (the D_rand arithmetic), `_fixture_E1.json`
+(the S3a replay fixture), and `results/pilots/` — the two S3c pilots, each marked
+`pilot: true`, `confirmatory: false`, `quarantined_from_analysis: true`. **The
+pilots are simulation over synthetic draws and set design parameters only**; they
+may not be analysed for any claim and never enter the confirmatory corpus.
 
 No experiment in any revision — E1, E2 or E3 — has been run in any part. No model
 served, no generation produced, no benchmark table queried. No hardware
@@ -154,6 +176,7 @@ run**. `DEVIATIONS.md` contains no deviation entries as of this hash.
 | 2 | `EXPERIMENT_PLAN_R2.md` | `a9954ba3c1dc61fce8e9ddb0b057eb4f14ab99c4b528c0b0446a7171e43b1df1` | 2026-08-17T09:25:13Z | 16 / 0.003125 | rev 1 |
 | 3 | `EXPERIMENT_PLAN_R3.md` | `be61bda9f7b9a33dd9240ea56e010bc87bf0013495e7b0bbafeab0cbeccbdf03` | 2026-08-17T09:45:06Z | 16 / 0.003125 | rev 2 |
 | 4 | `EXPERIMENT_PLAN_R4.md` | `738601db1d55e81010a62ec1e1259f82e6466f7e8db02f0ec3de4ed15d80cc9d` | 2026-08-17T18:25:00Z | 17 / 0.0029411764705882353 | rev 3 |
-| **5** | `EXPERIMENT_PLAN_R5.md` | `e3206e718161cc139830ff79741c6fe8f78e1d34f1147d3f644b36be2107b201` | 2026-08-18T04:00:00Z | **17 / 0.0029411764705882353** | rev 4 |
+| 5 | `EXPERIMENT_PLAN_R5.md` | `e3206e718161cc139830ff79741c6fe8f78e1d34f1147d3f644b36be2107b201` | 2026-08-18T04:00:00Z | 17 / 0.0029411764705882353 | rev 4 |
+| **6** | `EXPERIMENT_PLAN_R6.md` | `d63a7625f06dcbaa08ad35182490036de12c3d0354febee9e141656ec79d340b` | 2026-08-18T04:35:00Z | **17 / 0.0029411764705882353** | rev 5 |
 
-**Governing revision: 5. The revision route closes at the end of S3.**
+**Governing revision: 6. The last revision before G2.**

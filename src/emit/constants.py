@@ -1,4 +1,4 @@
-"""Registered constants from EXPERIMENT_PLAN_R5.md.
+"""Registered constants from EXPERIMENT_PLAN_R6.md.
 
 Every value here is stated in the governing plan. Nothing in this module is a
 tuning parameter. The plan hash is recorded so a results file can be traced back
@@ -11,21 +11,22 @@ from __future__ import annotations
 
 # ---------------------------------------------------------------- plan identity
 
-PLAN_REVISION = 5
+PLAN_REVISION = 6
 PLAN_FILENAME = "EXPERIMENT_PLAN_R5.md"
-PLAN_SHA256 = "e3206e718161cc139830ff79741c6fe8f78e1d34f1147d3f644b36be2107b201"
+PLAN_SHA256 = "d63a7625f06dcbaa08ad35182490036de12c3d0354febee9e141656ec79d340b"
 PLAN_SUPERSEDES_SHA256 = (
-    "738601db1d55e81010a62ec1e1259f82e6466f7e8db02f0ec3de4ed15d80cc9d"
+    "e3206e718161cc139830ff79741c6fe8f78e1d34f1147d3f644b36be2107b201"
 )
 PLAN_CHAIN_SHA256 = [
     "aeb174ffb008252368cc7fbcb121bd0fa0642f2fa4f3ec70228256920bfbad3d",  # rev 1
     "a9954ba3c1dc61fce8e9ddb0b057eb4f14ab99c4b528c0b0446a7171e43b1df1",  # rev 2
     "be61bda9f7b9a33dd9240ea56e010bc87bf0013495e7b0bbafeab0cbeccbdf03",  # rev 3
     "738601db1d55e81010a62ec1e1259f82e6466f7e8db02f0ec3de4ed15d80cc9d",  # rev 4
+    "e3206e718161cc139830ff79741c6fe8f78e1d34f1147d3f644b36be2107b201",  # rev 5
 ]
 
-# §5.5. The plan specifies 1.4.0 for revision 5.
-SCHEMA_VERSION = "1.4.0"
+# §5.5. The plan specifies 1.5.0 for revision 6.
+SCHEMA_VERSION = "1.5.0"
 
 # ------------------------------------------------------- family and alpha (§5.2)
 
@@ -54,7 +55,11 @@ N_CELLS = N_CELLS_MAIN_GRID + N_CELLS_ANCHOR  # 42
 # §2.8 (R5-8). Floor plus a procedure, like R: the S3 tracking-CI-width pilot may
 # raise it, and raising it is compliance rather than a deviation.
 B_TRACKING_FLOOR = 16
-B_TRACKING = B_TRACKING_FLOOR
+# Pilot-confirmed at revision 6 (results/pilots/pilot_tracking.json). The binding
+# quantity is the CROSS-LEVEL exemplar delta, which needs 28; tracks_first needs
+# only 20, and single-cell tracks_exemplar would have needed 40 but no predicate
+# reads it (plan 2.5).
+B_TRACKING = 28
 
 # §2.4.4 (R5-4). A field is collapsed when its NORMALISED entropy falls below
 # this. Mirrors D < 0.15*D_rand: both scales put the uniform reference at 1.0.
@@ -158,6 +163,9 @@ EXACT_PERMUTATION_MAX = 10_000_000
 # -------------------------------------------------------------------- E2 (§3.4)
 
 R_FLOOR = 20  # binding; may never be reduced (§8.2)
+# Pilot-confirmed at revision 6 (results/pilots/power_e2.json). Power at the floor
+# of 20 is 0.702, below the 0.80 target, so raising R is compliance (plan 3.4).
+R_FINAL = 24
 E2_PROPOSALS_PER_RUN = 20
 E2_MONTE_CARLO_PERMUTATIONS = 100_000
 

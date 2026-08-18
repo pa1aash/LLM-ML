@@ -1,0 +1,63 @@
+{
+  "pilot": true,
+  "confirmatory": false,
+  "quarantined_from_analysis": true,
+  "name": "power_e2",
+  "generated_by": "scripts/power_e2.py",
+  "plan_sha256": "e3206e718161cc139830ff79741c6fe8f78e1d34f1147d3f644b36be2107b201",
+  "alpha": 0.0029411764705882353,
+  "seed": 20260818,
+  "n_sim": 2000,
+  "n_perm": 2000,
+  "test_statistic": "difference_of_means",
+  "target_delta": 0.62,
+  "target_power": 0.8,
+  "calibrated_shift": 0.01560878162272274,
+  "achieved_delta": 0.6159435,
+  "substrate": "SIMULATED Beta(8,2) pool scaled to [0.10,0.74]; NAS-Bench-201 tables absent from the repository (S3C-01)",
+  "curve": [
+    {
+      "R": 20,
+      "power": 0.7015
+    },
+    {
+      "R": 22,
+      "power": 0.752
+    },
+    {
+      "R": 24,
+      "power": 0.822
+    },
+    {
+      "R": 26,
+      "power": 0.8725
+    },
+    {
+      "R": 28,
+      "power": 0.89
+    },
+    {
+      "R": 30,
+      "power": 0.922
+    },
+    {
+      "R": 34,
+      "power": 0.9625
+    },
+    {
+      "R": 38,
+      "power": 0.9815
+    },
+    {
+      "R": 44,
+      "power": 0.989
+    },
+    {
+      "R": 50,
+      "power": 0.9945
+    }
+  ],
+  "smallest_R_meeting_target": 24,
+  "R_floor": 20,
+  "R_final": 24
+}
