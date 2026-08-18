@@ -447,3 +447,76 @@ every one is committed before the artifact it governs.
   that, replacing an exact null with an estimated one, on the column that
   separates `format tax` from every other rival.
 - **Data already collected for this analysis?** no
+
+---
+
+### D-012 — the E2 power pilot is re-run against the real benchmark table (S3C-01)
+
+- **Date:** 2026-08-18
+- **Plan section:** §3.4, §3.5
+- **What changed:** §3.5 registers a pilot whose variance is "drawn from the
+  benchmark's own best-of-20 distribution by pure table sampling". The tables
+  were absent from the repository at S3c, so `scripts/power_e2.py` simulated the
+  pool — Beta(8,2) scaled to [0.10, 0.74] — and `R_final = 24` was set from that
+  (`audit/S3C_DEFECTS.md` S3C-01). **The NATS-Bench topology-search-space table
+  is now present and the pilot is re-run against it, before any E2 run.**
+
+  What the real-table pilot does, stated so it is not inferred from code:
+
+  1. **A run is 20 proposals drawn from the 15,625-architecture table** (with
+     replacement, matching the registered pilot's independent draws), selection
+     by **validation** accuracy with §3.4's registered tie rule — lowest
+     benchmark index among ties — and the run outcome is the selected
+     architecture's **test** accuracy. No accuracy is simulated; every number is
+     a table lookup.
+  2. **The arm difference is induced by which architectures an arm proposes**,
+     not by adding a constant to accuracies. The treated arm draws uniformly
+     from the top-*f* fraction of the table ranked by validation accuracy, with
+     *f* calibrated by bisection so that Cliff's δ between the two arms' run
+     outcomes equals the registered MDE of **0.62**. A shift model was rejected:
+     adding a constant to a table's accuracies produces architectures that do
+     not exist, which is precisely the substitution S3C-01 objects to.
+  3. **Primary task is CIFAR-100** (§3.1). The two secondary tasks are computed
+     and reported alongside but do not set `R_final`.
+  4. Output goes to **`results/pilots/power_e2_real_table.json`**. The registered
+     record at `results/pilots/power_e2.json` — which revision 6 §3.4 cites and
+     the emitter header quotes as `r_final.source` — is **not overwritten**.
+- **Why:** the registered test statistic is a difference of sample means, which
+  is scale- and shape-sensitive, so the mapping from δ = 0.62 to a mean shift
+  was synthetic under the simulated pool. The real table fixes the shape.
+- **Effect on `R_final`:** if the real-table pilot returns **R > 24**, raising R
+  is compliance under §3.4 and the new value is adopted, logged here before the
+  first E2 run. If it returns **R ≤ 24**, **R stays at 24** — `R_final` is fixed
+  once (§3.4), and a pilot cannot lower it. The outcome either way is recorded
+  in this entry's follow-up and in `STATE.md`.
+- **Data already collected for this analysis?** no
+
+---
+
+### D-013 — what "the published checksum" is for the NATS-Bench tables, and what was verified
+
+- **Date:** 2026-08-18
+- **Plan section:** §3.1
+- **What changed:** the plan says the substrate is NAS-Bench-201 / NATS-Bench
+  and assumes a published checksum exists to verify a download against. **It
+  does not exist in the usual form.** What the maintainers publish is a
+  **truncated MD5 fragment embedded in the filename**: the NATS-Bench README
+  gives the naming pattern `NATS-[tss/sss]-[version]-[md5sum]-simple.tar`, and
+  the NAS-Bench-201 documentation says of `NAS-Bench-201-v1_1-096897.pth` that
+  "`096897` is the last six digits for this file". There is no checksum file, no
+  signature, and no full digest anywhere in either repository or its README.
+
+  **Registered here:** the expected value is the filename fragment; the computed
+  values are the **full MD5 and SHA-256** of every file downloaded; both are
+  recorded in `results/checksums/nasbench201.json`, which is tracked, together
+  with the URL, the byte count, and an explicit verdict per file saying whether
+  the fragment was found in the computed digest. The derived accuracy table
+  carries its own SHA-256 in the same record. The large binaries themselves stay
+  **gitignored** (`datasets/` is already ignored).
+- **Why:** a verification that cannot fail is not a verification, and reporting
+  "checksum verified" against a 5- or 6-hex-digit fragment would overstate what
+  was checked — a fragment that short collides by chance about once in a
+  million, and it is only checkable at all for the file the fragment names.
+  Recording expected, computed and verdict lets a reader see exactly how much
+  assurance the published value carries.
+- **Data already collected for this analysis?** no
