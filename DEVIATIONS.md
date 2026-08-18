@@ -271,3 +271,179 @@ every one is committed before the artifact it governs.
   arm's monotonically growing context, which is the contrast the arm exists to
   draw. The 120-word bound plays the same role for the curated arm.
 - **Data already collected for this analysis?** no
+
+---
+
+### D-004 — per-generation seeding, and the two record fields it needs
+
+- **Date:** 2026-08-18
+- **Plan section:** §2.3 (seeding scheme), §5.5 (`generations[]`)
+- **What changed:** §2.3 registers one seed per **batch** — batch *b* uses
+  `S[b]` — and §5.5's `generations[]` example stores that batch seed on each
+  generation (`"batch": 3` carries `"seed": 7004`). A batch of 20 generations
+  seeded once is reproducible only by replaying the whole batch in order. The
+  harness seeds **each generation** at
+  `generation_seed = S[b] * 1000 + index_in_batch`, and the record carries two
+  additional keys:
+  `generation_seed` (integer) and `seed_derivation`
+  (`"batch_seed * 1000 + index_in_batch"`). **`seed` keeps its registered
+  meaning and value — `S[b]`, the batch seed — and every cross-cell contrast
+  still pairs on the batch index exactly as §2.3 registers.**
+- **Why:** a generation that cannot be reproduced on its own cannot be audited
+  on its own, and a re-run that must replay 19 earlier generations to reach the
+  twentieth is not a check. The derivation is injective over the registered
+  ranges (`S[b] ≤ 7016`, `index < 20`), so no two generations in E1 share a
+  seed. Recorded rather than silent because schema 1.5.0 is registered and these
+  two keys are not in it.
+- **Data already collected for this analysis?** no
+
+---
+
+### D-005 — `coerced` on `channels` snaps to the nearest legal value
+
+- **Date:** 2026-08-18
+- **Plan section:** §2.4.4 (repair channels), §2.4.1
+- **What changed:** §2.4.4's table defines `coerced` as "present,
+  out-of-vocabulary, **rewritten to `valid_vals[0]`**". That is true of the five
+  string fields but **not** of `channels`: the repository's `sanitize_config`
+  ([run_v2.py:52-67](src/run_v2.py#L52)) snaps `channels` to the nearest legal
+  value, `min(valid_vals, key=lambda x: abs(x - val))`, and §2.4.1 says so
+  explicitly — "`channels` … **categorical**, because repair snaps to the
+  nearest legal value". The two passages disagree. The harness implements the
+  **repository's** behaviour, because the repository's sanitiser is the object
+  under test, and records the channel as `coerced` with the destination value
+  stored alongside.
+- **Why:** reimplementing `channels` as "rewrite to `valid_vals[0]`" would make
+  the instrument measure a sanitiser that does not exist. The consequence for
+  §2.8 is stated rather than left implicit: on `channels`, a coercion does
+  **not** land on the first-enumerated value, so a channels coercion does not
+  contribute to `tracks_first` the way a string-field coercion does. `filled`
+  is unaffected — an absent `channels` is inserted at `valid_vals[0]` under both
+  readings, which is the mechanism the `repair artifact` rival rests on.
+- **Data already collected for this analysis?** no
+
+---
+
+### D-006 — the sanitiser's value lists are parameterised by the cell's enumeration order
+
+- **Date:** 2026-08-18
+- **Plan section:** §2.8, §2.5 (the `repair artifact` predicate)
+- **What changed:** the repository's `sanitize_config` hard-codes its `valid`
+  dictionary in canonical order. §2.8's mechanism requires more than that:
+  "`sanitize_config` coerces and fills to `valid_vals[0]` — literally the
+  first-enumerated value — **so reversing the enumeration reverses the repair
+  target**." That is only true if the sanitiser and the prompt share one
+  enumeration-order object. The harness therefore takes the order as a
+  parameter: `sanitise(spec, enumeration_order)` fills and coerces to
+  `order[0]`, and the prompt for that cell enumerates in the same order, from
+  the same source.
+- **Why:** without this the `repair artifact` row of §2.5 is unfalsifiable — the
+  repair target would never move, so `post_first` could never track the reversed
+  order, and X5 would be measuring the model alone rather than the apparatus.
+  This is the single mechanism the entire anchor-tracking column rests on, and
+  known-answer test **D9** exists to check it holds.
+- **Data already collected for this analysis?** no
+
+---
+
+### D-007 — generation records carry the fields that make backend honesty auditable
+
+- **Date:** 2026-08-18
+- **Plan section:** §5.5 (`generations[]`), §2.1 (`model` header)
+- **What changed:** schema 1.5.0's `generations[]` record is extended, additively
+  and without changing the meaning of any registered key, with:
+  `backend` (`local_bf16` | `local_nf4` | `hosted_api` | `stub`),
+  `model_served` and `model_revision_served` **per generation**,
+  `quantisation`, `finish_reason_source` (`computed_from_token_ids` |
+  `provider` | `stub`), `status` (`ok` | `backend_error`),
+  `error`, `prompt_sha256`, `sanitiser_applied`, `enumeration_order_applied`,
+  `n_generated_tokens`, and `generation_seed` / `seed_derivation` from D-004.
+- **Why:** OA-3 is that no artifact can say which model produced the original
+  proposals, because the served model was never recorded. A header field alone
+  does not close it: a server swapped mid-run would leave the header intact.
+  Recording what answered **on every generation** makes the swap visible.
+  `finish_reason_source` closes the corresponding hole for OA-16 — a
+  `finish_reason` whose provenance is unrecorded is not distinguishable from a
+  hardcoded one, which is exactly the defect.
+- **Data already collected for this analysis?** no
+
+---
+
+### D-008 — `PLAN_FILENAME` and the schema's own stale plan reference
+
+- **Date:** 2026-08-18
+- **Plan section:** §5.5 (`plan_sha256`)
+- **What changed:** `src/emit/constants.py` carried
+  `PLAN_FILENAME = "EXPERIMENT_PLAN_R5.md"` alongside `PLAN_REVISION = 6` and
+  revision 6's hash; corrected to `EXPERIMENT_PLAN_R6.md`. The plan's own §5.5
+  specimen labels the field
+  `"plan_sha256": "<SHA-256 of EXPERIMENT_PLAN_R4.md at freeze>"`, a stale
+  caption carried forward across revisions. The emitted value is and stays
+  revision 6's `d63a7625…d340b`, which is what `plan_revision: 6`,
+  `plan_supersedes_sha256` and `plan_chain_sha256` are all consistent with.
+- **Why:** a filename constant that names the wrong document is a provenance
+  defect even when the hash beside it is right — anyone reconciling the two
+  would have to guess which is authoritative. The plan is closed and is not
+  edited; the correction is to the code and is recorded here.
+- **Data already collected for this analysis?** no
+
+---
+
+### D-009 — the emitter header is completed to schema 1.5.0
+
+- **Date:** 2026-08-18
+- **Plan section:** §5.5
+- **What changed:** the S3a emitter announced `schema_version: 1.5.0` while
+  omitting registered 1.4.0/1.5.0 header keys. Added, all with the values §5.5
+  states: `b_tracking` (value / floor / source / binding_quantity), `r_final`
+  (value / floor / source / power_at_floor), `field_collapse_entropy_threshold`,
+  `exemplar_values`, `chance_rates`, `tracking_label_rule`, `d_rand`,
+  `generations[]`, `deltas[]`, and `bootstrap`'s four registered
+  `resampling_unit_*` keys in place of the single `resampling_unit` the S3a
+  emitter wrote.
+- **Why:** the file claimed a schema version it did not satisfy, so a consumer
+  validating against §5.5 would have failed on fields the emitter simply never
+  wrote. This is code catching up with the registered schema, not a change to
+  it; every added key takes the value the plan specifies.
+- **Data already collected for this analysis?** no
+
+---
+
+### D-010 — `max_new_tokens = 4096` with reasoning enabled
+
+- **Date:** 2026-08-18
+- **Plan section:** §2.1 (`enable_thinking` True), §5.5 (`model.max_new_tokens`)
+- **What changed:** §5.5 emits `max_new_tokens` but the plan never fixes it. The
+  original harness used 2,048 **with reasoning suppressed**
+  ([run_v2.py:34](src/run_v2.py#L34), `enable_thinking=False` at
+  [llm_server_small.py:43](src/llm_server_small.py#L43)). Reasoning is enabled
+  here (OA-15), so the same budget would spend a large share of itself on the
+  thinking trace before the JSON object begins. Fixed at **4,096**.
+- **Why:** truncation is recorded honestly as `finish_reason: "length"` (OA-16),
+  so a budget that is too small does not corrupt the record — it shows up as a
+  measurable truncation rate. But truncation also inflates the parse-failure
+  rate, which is a reported outcome (§2.4.3) and a gate on the free-prose column
+  (§2.6, the 50% reliability rule), so the budget is not neutral. 4,096 doubles
+  the original allowance to pay for the thinking trace. **The S3-2 smoke run
+  measures the realised truncation rate; raising the budget on that evidence
+  would be a further entry here, logged before the first E1 cell runs.**
+- **Data already collected for this analysis?** no
+
+---
+
+### D-011 — the cross-level delta drops a broken batch pair rather than falling back to unpaired
+
+- **Date:** 2026-08-18
+- **Plan section:** §2.5a
+- **What changed:** §2.5a pools the two exemplar cells "at the same batch index"
+  and does not say what to do when one cell has a usable batch at index *b* and
+  the other does not. **Registered here: the pair is dropped**, counted in
+  `n_null_batches`, and never replaced by an unpaired difference. Already the
+  behaviour of `src/emit/anchor.py`; logged now, before the first cross-level
+  computation, as `audit/S3C_DEFECTS.md` S3C-04 requires.
+- **Why:** §2.5a's null is exact *because* the same batch index is compared
+  across the two cells — if the modal value is the same in both, the own and
+  other sums are identically equal. An unpaired fallback would forfeit exactly
+  that, replacing an exact null with an estimated one, on the column that
+  separates `format tax` from every other rival.
+- **Data already collected for this analysis?** no
