@@ -491,6 +491,33 @@ every one is committed before the artifact it governs.
   in this entry's follow-up and in `STATE.md`.
 - **Data already collected for this analysis?** no
 
+**Outcome, recorded 2026-08-19, before any E2 run.** The real-table pilot returns
+**R = 24 — the registered value. `R_final` does not move and stays at 24.**
+
+| R | 20 | 22 | **24** | 26 | 28 | 30 | 34 | 38 | 44 | 50 |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| power, real table (CIFAR-100) | 0.707 | 0.768 | **0.814** | 0.860 | 0.897 | 0.912 | 0.952 | 0.982 | 0.990 | 0.996 |
+| power, simulated pool (rev 6) | 0.702 | 0.752 | **0.822** | 0.873 | 0.890 | 0.922 | 0.963 | — | — | — |
+
+Calibrated at *f* = 0.1924 (the top 3,006 of 15,625 architectures by validation
+accuracy), giving Cliff's δ = 0.6191 against the registered MDE of 0.62. Null-arm
+run outcome 70.376 ± 0.966 test accuracy; treated arm 71.467 ± 0.859. Secondary
+tasks, reported not decisive: CIFAR-10 power 0.781 / 0.880 / 0.941 / 0.986 at
+R = 20 / 24 / 28 / 34 (δ = 0.6255); ImageNet16-120 0.757 / 0.858 / 0.926 / 0.968
+(δ = 0.6110). Output at `results/pilots/power_e2_real_table.json`.
+
+**What this says about S3C-01.** The two substrates agree to within about one
+percentage point of power at every R on the grid, and select the same R. The
+simulated Beta(8,2) pool was a good enough stand-in for the benchmark's
+best-of-20 distribution that the design parameter it set survives contact with
+the real table. That is a result about this pilot, not a general licence: it is
+reported because a substrate objection that turns out not to bite is worth the
+same disclosure as one that does. The registered record at
+`results/pilots/power_e2.json` is untouched and still reproduces byte-identically
+from `scripts/power_e2.py` with no `--table` argument (verified this session;
+only `plan_sha256` differs, because that pilot ran under revision 5's hash and is
+cited by revision 6).
+
 ---
 
 ### D-013 — what "the published checksum" is for the NATS-Bench tables, and what was verified
@@ -520,3 +547,24 @@ every one is committed before the artifact it governs.
   Recording expected, computed and verdict lets a reader see exactly how much
   assurance the published value carries.
 - **Data already collected for this analysis?** no
+
+**Outcome, recorded 2026-08-19.**
+
+| File | Expected (published) | Computed MD5 | Verdict |
+|---|---|---|---|
+| `NATS-tss-v1_0-3ffb9.pickle.pbz2` | `3ffb9` | `4b8b7d946beac8866cb6e629ee93ffb9` | **MATCH** — the fragment is the last five digits |
+| `NATS-tss-v1_0-3ffb9-simple.tar` | `3ffb9` | `a8746a7e4117fb6e25b39f682dd9beb1` | **NO MATCH** |
+
+The fragment names the **benchmark data file**, not the tar that repackages it,
+so the tar's non-match is expected rather than a corrupt download — and it is
+recorded as a non-match rather than quietly dropped, because the tar is what the
+table was extracted from. SHA-256 of both files, the byte counts and the source
+URLs are in `results/checksums/nasbench201.json`.
+
+**What the tar was checked by instead.** The accuracy table extracted from it —
+15,625 architectures × 3 tasks × {validation, test} — was cross-checked against
+the published `nats_bench` API on 25 randomly chosen architectures, 150 values,
+**maximum absolute disagreement 0.0**. The table's own SHA-256 is
+`70bde7d4cc77158c98dec30de0386f0871bafd96d2753026bd95a7e7b867457d` and is
+recorded alongside. A table that agreed with the API everywhere it was sampled is
+stronger evidence of integrity than a five-hex-digit fragment would have been.

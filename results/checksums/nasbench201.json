@@ -1,0 +1,80 @@
+{
+  "generated_by": "scripts/build_nasbench_table.py",
+  "plan_section": "3.1",
+  "deviation": "DEVIATIONS.md D-013",
+  "note": "The maintainers publish no full checksum for these files. The expected value is a truncated MD5 fragment embedded in the filename; the computed values are full digests. Recorded so a reader can see exactly how much assurance the published value carries.",
+  "downloads": {
+    "NATS-tss-v1_0-3ffb9-simple.tar": {
+      "url": "https://drive.google.com/file/d/17_saCsj_krKjlCBLOJEpNtzPXArMCqxU",
+      "published": "3ffb9",
+      "published_form": "MD5 fragment embedded in the filename, per the NATS-Bench README naming pattern NATS-[tss/sss]-[version]-[md5sum]-simple.tar",
+      "present": true,
+      "bytes": 1145989120,
+      "md5": "a8746a7e4117fb6e25b39f682dd9beb1",
+      "sha256": "580fd8f3425fed9f495640b0f12ccb7744f89dec7aff263bd75aed37ab0b8bb6",
+      "fragment_found_in_md5": false,
+      "fragment_offset_in_md5": null,
+      "verdict": "NO MATCH \u2014 the published fragment does not appear in the computed MD5 of this file"
+    },
+    "NATS-tss-v1_0-3ffb9.pickle.pbz2": {
+      "url": "https://drive.google.com/file/d/1vzyK0UVH2D3fTpa1_dSWnp1gvGpAxRul",
+      "published": "3ffb9",
+      "published_form": "MD5 fragment embedded in the filename; this is the benchmark data file the fragment is generated from",
+      "present": true,
+      "bytes": 1084997759,
+      "md5": "4b8b7d946beac8866cb6e629ee93ffb9",
+      "sha256": "f3967b84eb6c88200ea403b7eedfa7854f414384253c3b34670513460ab477b5",
+      "fragment_found_in_md5": true,
+      "fragment_offset_in_md5": 27,
+      "verdict": "MATCH \u2014 the published fragment appears in the computed MD5 at offset 27"
+    }
+  },
+  "derived_table": {
+    "path": "datasets/nasbench201/nb201_tss_accuracy_table.json",
+    "gitignored": true,
+    "tasks": [
+      "ImageNet16-120",
+      "cifar10",
+      "cifar100"
+    ],
+    "n_architectures": 15625,
+    "hp": "200",
+    "is_random": false,
+    "api_cross_check": {
+      "architectures_sampled": 25,
+      "values_compared": 150,
+      "max_absolute_disagreement": 0.0,
+      "pass": true,
+      "sampled_indices": [
+        497,
+        1271,
+        1879,
+        2430,
+        2666,
+        2856,
+        4508,
+        4915,
+        5177,
+        6147,
+        6708,
+        7144,
+        8016,
+        8781,
+        8995,
+        10149,
+        11034,
+        11445,
+        11868,
+        12909,
+        12979,
+        13301,
+        14074,
+        14973,
+        15305
+      ]
+    },
+    "bytes": 1690014,
+    "md5": "33bb55e6e7f29cadce650cc89ad7a7b8",
+    "sha256": "70bde7d4cc77158c98dec30de0386f0871bafd96d2753026bd95a7e7b867457d"
+  }
+}

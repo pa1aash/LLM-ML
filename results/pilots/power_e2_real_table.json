@@ -1,0 +1,133 @@
+{
+  "pilot": true,
+  "confirmatory": false,
+  "quarantined_from_analysis": true,
+  "name": "power_e2_real_table",
+  "generated_by": "scripts/power_e2.py --table",
+  "closes": "S3C-01",
+  "deviation": "DEVIATIONS.md D-012",
+  "plan_sha256": "d63a7625f06dcbaa08ad35182490036de12c3d0354febee9e141656ec79d340b",
+  "alpha": 0.0029411764705882353,
+  "seed": 20260818,
+  "n_sim": 2000,
+  "n_perm": 2000,
+  "test_statistic": "difference_of_means",
+  "target_delta": 0.62,
+  "target_power": 0.8,
+  "substrate": {
+    "kind": "REAL TABLE \u2014 pure table sampling",
+    "table": "datasets/nasbench201/nb201_tss_accuracy_table.json",
+    "source": "NATS-tss-v1_0-3ffb9-simple",
+    "n_architectures": 15625,
+    "primary_task": "cifar100",
+    "k_proposals_per_run": 20,
+    "selection": "validation accuracy; lowest benchmark index on a tie",
+    "outcome": "test accuracy of the selected architecture",
+    "arm_model": "treated arm draws from the top-f fraction by validation accuracy; f calibrated to the registered MDE"
+  },
+  "null_arm": {
+    "mean": 70.37624763261836,
+    "sd": 0.9663347395456501,
+    "min": 66.5533333618164,
+    "max": 73.51333326009114
+  },
+  "treated_arm": {
+    "mean": 71.46709896133581,
+    "sd": 0.8587604143342952
+  },
+  "calibrated_fraction": 0.1923996546298265,
+  "achieved_delta": 0.6190968325,
+  "curve": [
+    {
+      "R": 20,
+      "power": 0.7065
+    },
+    {
+      "R": 22,
+      "power": 0.768
+    },
+    {
+      "R": 24,
+      "power": 0.8135
+    },
+    {
+      "R": 26,
+      "power": 0.86
+    },
+    {
+      "R": 28,
+      "power": 0.897
+    },
+    {
+      "R": 30,
+      "power": 0.9125
+    },
+    {
+      "R": 34,
+      "power": 0.952
+    },
+    {
+      "R": 38,
+      "power": 0.982
+    },
+    {
+      "R": 44,
+      "power": 0.9895
+    },
+    {
+      "R": 50,
+      "power": 0.996
+    }
+  ],
+  "smallest_R_meeting_target": 24,
+  "R_floor": 20,
+  "R_final_registered": 24,
+  "R_final": 24,
+  "R_final_moves": false,
+  "secondary_tasks": {
+    "cifar10": {
+      "calibrated_fraction": 0.19120482020676133,
+      "achieved_delta": 0.6254826475,
+      "curve": [
+        {
+          "R": 20,
+          "power": 0.7815
+        },
+        {
+          "R": 24,
+          "power": 0.88
+        },
+        {
+          "R": 28,
+          "power": 0.9405
+        },
+        {
+          "R": 34,
+          "power": 0.9855
+        }
+      ]
+    },
+    "ImageNet16-120": {
+      "calibrated_fraction": 0.17588682596385474,
+      "achieved_delta": 0.6109845125,
+      "curve": [
+        {
+          "R": 20,
+          "power": 0.757
+        },
+        {
+          "R": 24,
+          "power": 0.8575
+        },
+        {
+          "R": 28,
+          "power": 0.9265
+        },
+        {
+          "R": 34,
+          "power": 0.968
+        }
+      ]
+    }
+  }
+}
